@@ -1,4 +1,19 @@
 WaveCrm::Application.routes.draw do
+  resources :employees
+
+
+  resources :team_leaders
+
+
+  resources :sales_executives
+
+
+  resources :leads
+
+
+  resources :contacts
+
+
   devise_for :users
 
   resources :users
@@ -53,7 +68,7 @@ WaveCrm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'users#index'
+   root :to => 'leads#index'
 
   # See how all your routes lay out with "rake routes"
 

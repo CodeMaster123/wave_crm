@@ -11,7 +11,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325065419) do
+ActiveRecord::Schema.define(:version => 20130325091556) do
+
+  create_table "contacts", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "address"
+    t.integer  "mobile_no"
+    t.integer  "landline_no"
+    t.string   "type"
+    t.integer  "lead_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.integer  "mobile_no"
+    t.string   "address"
+    t.integer  "age"
+    t.integer  "team_leader_id"
+    t.integer  "sales_executve_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "leads", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "contact_id"
+    t.integer  "executive_id"
+    t.string   "lead_by"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "sales_executives", :force => true do |t|
+    t.integer  "employee_id"
+    t.integer  "team_leader_id"
+    t.integer  "lead_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "team_leaders", :force => true do |t|
+    t.integer  "employee_id"
+    t.integer  "lead_id"
+    t.string   "sales_executive_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
