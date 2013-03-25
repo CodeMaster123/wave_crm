@@ -1,4 +1,5 @@
 class TeamLeadersController < ApplicationController
+  before_filter :authenticate_user!
   # GET /team_leaders
   # GET /team_leaders.json
   def index

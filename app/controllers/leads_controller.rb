@@ -1,4 +1,5 @@
 class LeadsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /leads
   # GET /leads.json
   def index
