@@ -30,6 +30,7 @@ gem "twitter-bootstrap-rails"
 
 gem 'devise'
 gem 'quiet_assets'
+gem 'declarative_authorization', '~> 0.5.7'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

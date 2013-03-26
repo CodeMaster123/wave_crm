@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130325091556) do
     t.string   "last_name"
     t.string   "address"
     t.string   "mobile_no"
+    t.integer  "account_type"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

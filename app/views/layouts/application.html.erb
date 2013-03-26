@@ -49,10 +49,22 @@
             <ul class="nav">
               <li><%= link_to "Leads", :leads  %></li>
               <li><%= link_to "Contacts", :contacts  %></li>
-              <li><%= link_to "Employees", :employees  %></li>
-              <li><%= link_to "Team Leader", :team_leaders  %></li>
-              <li><%= link_to "Sales Executive", :sales_executives  %></li>
-              <li><%= link_to "Users", :users  %></li>
+
+              <% permitted_to? :index, :employees do %>
+                <li><%= link_to "Employees", :employees  %></li>
+              <% end %>
+
+              <% permitted_to? :index, :team_leaders do %>
+                  <li><%= link_to "Team Leader", :team_leaders  %></li>
+              <% end %>
+
+              <% permitted_to? :index, :sales_executives do %>
+                  <li><%= link_to "Sales Executive", :sales_executives  %></li>
+              <% end %>
+
+              <% permitted_to? :index, :users do %>
+                  <li><%= link_to "Users", :users  %></li>
+               <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
