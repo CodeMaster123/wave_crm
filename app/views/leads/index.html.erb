@@ -10,7 +10,7 @@
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:contact_id) %></th>
       <th><%= model_class.human_attribute_name(:executive_id) %></th>
-      <th><%= model_class.human_attribute_name(:lead_by) %></th>
+
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -23,7 +23,7 @@
         <td><%= lead.description %></td>
         <td><%= lead.contact_id %></td>
         <td><%= lead.executive_id %></td>
-        <td><%= lead.lead_by %></td>
+
         <td><%=l lead.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

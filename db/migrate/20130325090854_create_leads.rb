@@ -5,7 +5,7 @@ class CreateLeads < ActiveRecord::Migration
       t.string :description
       t.integer :contact_id
       t.integer :executive_id
-      t.string :lead_by
+      t.integer :lead_by
 
       t.timestamps
     end

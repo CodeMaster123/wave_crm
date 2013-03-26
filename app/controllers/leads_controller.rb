@@ -4,9 +4,15 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
+    if current_user.account_type == 1
     @leads = Lead.all
+    elsif current_user.account_type  == 2
+      @leads = Lead.where(:lead_by => current_user.account_type, :executive_id => current_user.executive_id)
+    elsif current_user.account_type ==3
+      @leads = Lead.where(:lead_by => current_user.account_type, :executive_id => current_user.executive_id)
+    end
 
-    respond_to do |format|
+      respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @leads }
     end
@@ -43,6 +49,10 @@ class LeadsController < ApplicationController
   # POST /leads.json
   def create
     @lead = Lead.new(params[:lead])
+    puts "current_user iddddd"
+    @lead.executive_id = current_user.id
+    puts "user type"
+    @lead.lead_by = current_user.account_type
 
     respond_to do |format|
       if @lead.save
