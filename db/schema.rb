@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20130325091556) do
     t.string   "address"
     t.integer  "mobile_no"
     t.integer  "landline_no"
-    t.string   "type"
+    t.string   "contact_type"
     t.integer  "lead_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "employees", :force => true do |t|
@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(:version => 20130325091556) do
   create_table "leads", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "contact_id"
     t.integer  "executive_id"
-    t.string   "lead_by"
+    t.integer  "lead_by"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

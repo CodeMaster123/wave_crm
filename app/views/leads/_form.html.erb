@@ -1,4 +1,4 @@
-<%= form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
+<%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
@@ -11,12 +11,30 @@
       <%= f.text_field :description, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :contact_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :contact_id, :class => 'number_field' %>
-    </div>
-  </div>
+
+
+   <h3> Contacts</h3>
+   <%= f.fields_for :contacts do |contact| %>
+        <%= contact.label :first_name %><br />
+        <%= contact.text_field :first_name %><br />
+        <%= contact.label :middle_name %><br />
+        <%= contact.text_field :middle_name %><br />
+        <%= contact.label :last_name %><br />
+        <%= contact.text_field :last_name %><br />
+        <%= contact.label :address %><br />
+        <%= contact.text_field :address %><br />
+        <%= contact.label :mobile_no %><br />
+        <%= contact.text_field :mobile_no %><br />
+        <%= contact.label :landline_no %><br />
+        <%= contact.text_field :landline_no %><br />
+        <%= contact.label :contact_type %><br />
+        <%= contact.text_field :contact_type %><br />
+        <%= contact.label :lead_id %><br />
+        <%= contact.text_field :lead_id %><br />
+        <%= contact.link_to_remove "Remove this contact" %>
+   <% end %>
+   <p><%= f.link_to_add "Add a contact", :contacts %></p>
+
 
 
   <div class="form-actions">

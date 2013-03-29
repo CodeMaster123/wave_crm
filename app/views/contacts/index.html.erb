@@ -13,7 +13,7 @@
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:mobile_no) %></th>
       <th><%= model_class.human_attribute_name(:landline_no) %></th>
-      <th><%= model_class.human_attribute_name(:type) %></th>
+      <th><%= model_class.human_attribute_name(:contact_type) %></th>
       <th><%= model_class.human_attribute_name(:lead_id) %></th>
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -30,7 +30,7 @@
         <td><%= contact.address %></td>
         <td><%= contact.mobile_no %></td>
         <td><%= contact.landline_no %></td>
-        <td><%= contact.type %></td>
+        <td><%= contact.contact_type %></td>
         <td><%= contact.lead_id %></td>
 
         <td>
