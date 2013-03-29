@@ -9,14 +9,13 @@
       <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:middle_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:longitude) %></th>
-      <th><%= model_class.human_attribute_name(:latitude) %></th>
+
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:mobile_no) %></th>
       <th><%= model_class.human_attribute_name(:landline_no) %></th>
       <th><%= model_class.human_attribute_name(:type) %></th>
       <th><%= model_class.human_attribute_name(:lead_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -27,14 +26,13 @@
         <td><%= contact.first_name %></td>
         <td><%= contact.middle_name %></td>
         <td><%= contact.last_name %></td>
-        <td><%= contact.longitude %></td>
-        <td><%= contact.latitude %></td>
+
         <td><%= contact.address %></td>
         <td><%= contact.mobile_no %></td>
         <td><%= contact.landline_no %></td>
         <td><%= contact.type %></td>
         <td><%= contact.lead_id %></td>
-        <td><%=l contact.created_at %></td>
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_contact_path(contact), :class => 'btn btn-mini' %>

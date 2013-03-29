@@ -15,7 +15,5 @@ User.create(
             {:email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => "2"},
             {:email => "sales_executive@gmail.com", :password => "sales_executive123", :password_confirmation => "sales_executive123", :account_type => "3"},
             {:email => "sales_executive1@gmail.com", :password => "sales_executive1123", :password_confirmation => "sales_executive1123", :account_type => "3"}
-
-
     ]
 )
