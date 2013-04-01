@@ -13,24 +13,57 @@
   </div>
 
 
-   <h3> Contacts</h3>
    <%= f.fields_for :contacts do |contact| %>
-        <%= contact.label :first_name %><br />
-        <%= contact.text_field :first_name %><br />
-        <%= contact.label :middle_name %><br />
-        <%= contact.text_field :middle_name %><br />
-        <%= contact.label :last_name %><br />
-        <%= contact.text_field :last_name %><br />
-        <%= contact.label :address %><br />
-        <%= contact.text_field :address %><br />
-        <%= contact.label :mobile_no %><br />
-        <%= contact.text_field :mobile_no %><br />
-        <%= contact.label :landline_no %><br />
-        <%= contact.text_field :landline_no %><br />
-        <%= contact.label :contact_type %><br />
-        <%= contact.text_field :contact_type %><br />
-        <%= contact.label :lead_id %><br />
-        <%= contact.text_field :lead_id %><br />
+        <div class="control-group">
+          <%= contact.label :first_name, :class => 'control-label' %>
+          <div class="controls">
+            <%= contact.text_field :first_name, :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+           <%= contact.label :middle_name, :class => 'control-label' %>
+           <div class="controls">
+            <%= contact.text_field :middle_name, :class => 'text_field' %>
+           </div>
+        </div>
+        <div class="control-group">
+            <%= contact.label :last_name, :class => 'control-label' %>
+             <div class="controls">
+               <%= contact.text_field :last_name, :class => 'text_field' %>
+             </div>
+        </div>
+
+        <div class="control-group">
+            <%= contact.label :address, :class => 'control-label' %><br />
+            <div class="controls">
+              <%= contact.text_field :address, :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= contact.label :mobile_no, :class => 'control-label' %>
+            <div class="controls">
+                <%= contact.text_field :mobile_no, :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group">
+            <%= contact.label :landline_no, :class => 'control-label' %>
+            <div class="controls">
+             <%= contact.text_field :landline_no, :class => 'text_field' %>
+             </div>
+        </div>
+        <div class="control-group">
+             <%= contact.label :contact_type, :class => 'control-label' %>
+             <div class="controls">
+                 <%= contact.text_field :contact_type, :class => 'text_field' %>
+             </div>
+        </div>
+        <div class="control-group">
+             <%= contact.label :lead_id, :class => 'control-label' %>
+             <div class="controls">
+                 <%= contact.text_field :lead_id, :class => 'text_field' %>
+             </div>
+        </div>
         <%= contact.link_to_remove "Remove this contact" %>
    <% end %>
    <p><%= f.link_to_add "Add a contact", :contacts %></p>
