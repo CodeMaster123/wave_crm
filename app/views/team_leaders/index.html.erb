@@ -6,9 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:employee_id) %></th>
-      <th><%= model_class.human_attribute_name(:lead_id) %></th>
-      <th><%= model_class.human_attribute_name(:sales_executive_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -17,9 +16,8 @@
     <% @team_leaders.each do |team_leader| %>
       <tr>
         <td><%= link_to team_leader.id, team_leader_path(team_leader) %></td>
-        <td><%= team_leader.employee_id %></td>
-        <td><%= team_leader.lead_id %></td>
-        <td><%= team_leader.sales_executive_id %></td>
+        <td><%= team_leader.user_id %></td>
+
         <td><%=l team_leader.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
