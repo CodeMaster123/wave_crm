@@ -47,6 +47,8 @@ class UsersController < ApplicationController
 
     if params[:user][:account_type].to_i == 2
       TeamLeader.create(params[:user_id])
+    elsif params[:user][:account_type].to_i == 3
+      SalesExecutive.create(params[:user_id])
     end
 
 

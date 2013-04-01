@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :address, :first_name, :last_name, :mobile_no
 
   has_one :team_leader
+  has_one :sales_executive
 
   def role_symbols
     if self.account_type == 1
