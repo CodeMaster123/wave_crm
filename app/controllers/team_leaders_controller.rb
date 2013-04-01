@@ -5,6 +5,7 @@ class TeamLeadersController < ApplicationController
   def index
     @team_leaders = TeamLeader.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @team_leaders }
