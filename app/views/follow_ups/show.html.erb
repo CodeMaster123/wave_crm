@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lead:</b>
+  <%= @follow_up.lead_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @follow_up.description %>
+</p>
+
+<p>
+  <b>Follow up time:</b>
+  <%= @follow_up.follow_up_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_follow_up_path(@follow_up) %> |
+<%= link_to 'Back', follow_ups_path %>

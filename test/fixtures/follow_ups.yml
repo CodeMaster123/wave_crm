@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lead_id: 1
+  description: MyString
+  follow_up_time: 2013-04-03 11:48:32
+
+two:
+  lead_id: 1
+  description: MyString
+  follow_up_time: 2013-04-03 11:48:32

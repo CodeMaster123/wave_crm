@@ -4,6 +4,8 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
+    @follow_up_time = Lead.first.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h')
+
     if current_user.account_type == 1
     @leads = Lead.all
     elsif current_user.account_type  == 2
