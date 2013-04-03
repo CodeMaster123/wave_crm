@@ -26,21 +26,21 @@
     <div class="control-group">
       <%= f.label :email, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :email, :class => 'text_field' %>
+        <%= f.email_field :email, :class => 'text_field' %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :password, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :password, :class => 'text_field' %>
+        <%= f.password_field :password, :class => 'text_field' %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :password_confirmation, :class => 'control-label' %>
       <div class="controls">
-        <%= f.text_field :password_confirmation, :class => 'text_field' %>
+        <%= f.password_field :password_confirmation, :class => 'text_field' %>
       </div>
     </div>
 
@@ -50,6 +50,14 @@
         <%= f.select :account_type, [["admin", 1], ["team_leader", 2], ["sales_executive", 3]], :class => 'text_field' %>
       </div>
     </div>
+
+    <div class="control-group">
+      <%= f.label :team_leader, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| [d.id, d.id]}), :class => 'text_field' %>
+      </div>
+    </div>
+
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

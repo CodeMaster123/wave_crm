@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
+    @all_team_leaders = TeamLeader.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no],)
 
 
 
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       puts "----------------------->#{User.last.id.to_i + 1}"
       TeamLeader.create(:user_id => User.last.id.to_i + 1)
     elsif params[:user][:account_type].to_i == 3
-      SalesExecutive.create(:user_id => User.last.id.to_i + 1)
+      SalesExecutive.create(:user_id => User.last.id.to_i + 1, :team_leader_id => params[:user][:team_leader].to_i)
     end
 
 

@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :mobile_no
       t.integer :account_type
 
+
       t.timestamps
     end
   end
