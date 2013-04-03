@@ -47,14 +47,14 @@
     <div class="control-group">
       <%= f.label :account_type, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :account_type, [["admin", 1], ["team_leader", 2], ["sales_executive", 3]], :class => 'text_field' %>
+        <%= f.select :account_type, [["admin", 1], ["team_leader", 2], ["sales_executive", 3]], { :include_blank => true }, :class => 'text_field' %>
       </div>
     </div>
 
     <div class="control-group">
       <%= f.label :team_leader, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| [d.id, d.id]}), :class => 'text_field' %>
+        <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => true }, :class => 'text_field' %>
       </div>
     </div>
 
