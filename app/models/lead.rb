@@ -1,5 +1,4 @@
 class Lead < ActiveRecord::Base
-    has_many :follow_ups
   attr_accessible  :description, :executive_id, :lead_by, :title
 
   has_many :contacts, :dependent=>:destroy

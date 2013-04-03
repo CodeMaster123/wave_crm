@@ -82,4 +82,7 @@ class TeamLeadersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def target_forecast
+  end
 end

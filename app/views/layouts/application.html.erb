@@ -50,6 +50,10 @@
                             <% end %>
 
                                 <li><%= link_to "Tasks", :users %></li>
+
+                            <% permitted_to? :index, :users do %>
+                                <li><%= link_to "Target forecast", {:controller => "team_leaders", :action => "target_forecast"} %></li>
+                            <% end %>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
