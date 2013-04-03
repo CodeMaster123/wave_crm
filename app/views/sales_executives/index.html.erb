@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:employee_id) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:team_leader_id) %></th>
 
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -17,7 +17,7 @@
     <% @sales_executives.each do |sales_executive| %>
       <tr>
         <td><%= link_to sales_executive.id, sales_executive_path(sales_executive) %></td>
-        <td><%= sales_executive.employee_id %></td>
+        <td><%= sales_executive.user_id %></td>
         <td><%= sales_executive.team_leader_id %></td>
 
         <td><%=l sales_executive.created_at %></td>
