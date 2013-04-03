@@ -14,15 +14,15 @@
       <th><%= model_class.human_attribute_name(:mobile_no) %></th>
       <th><%= model_class.human_attribute_name(:landline_no) %></th>
       <th><%= model_class.human_attribute_name(:contact_type) %></th>
-      <th><%= model_class.human_attribute_name(:lead_id) %></th>
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
+      <% @i = 0 %>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= link_to contact.id, contact_path(contact) %></td>
+        <td><%= @i = @i+1 %></td>
         <td><%= contact.first_name %></td>
         <td><%= contact.middle_name %></td>
         <td><%= contact.last_name %></td>
@@ -31,7 +31,6 @@
         <td><%= contact.mobile_no %></td>
         <td><%= contact.landline_no %></td>
         <td><%= contact.contact_type %></td>
-        <td><%= contact.lead_id %></td>
 
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
