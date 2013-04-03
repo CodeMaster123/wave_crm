@@ -17,7 +17,7 @@
     <% @sales_executives.each do |sales_executive| %>
       <tr>
         <td><%= link_to sales_executive.id, sales_executive_path(sales_executive) %></td>
-        <td><%= sales_executive.user_id %></td>
+        <td><%= "#{sales_executive.user.first_name} #{sales_executive.user.last_name}" %></td>
         <td><%= sales_executive.team_leader_id %></td>
 
         <td><%=l sales_executive.created_at %></td>

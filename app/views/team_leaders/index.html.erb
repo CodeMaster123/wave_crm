@@ -16,7 +16,7 @@
     <% @team_leaders.each do |team_leader| %>
       <tr>
         <td><%= link_to team_leader.id, team_leader_path(team_leader) %></td>
-        <td><%= team_leader.user_id %></td>
+        <td><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}"%></td>
 
         <td><%=l team_leader.created_at %></td>
         <td>
