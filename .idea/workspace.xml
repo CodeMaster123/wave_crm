@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69f59d0-d45b-401a-8777-f51703e933c1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sales_executives/index.html.erb" afterPath="$PROJECT_DIR$/app/views/sales_executives/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/team_leaders/index.html.erb" afterPath="$PROJECT_DIR$/app/views/team_leaders/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="wave_crm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +40,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/sales_executives/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="79" selection-start="804" selection-end="804" vertical-scroll-proportion="0.3464837">
+            <state line="20" column="103" selection-start="923" selection-end="923" vertical-scroll-proportion="0.37221268">
               <folding />
             </state>
           </provider>
@@ -721,7 +718,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/sales_executives/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="79" selection-start="804" selection-end="804" vertical-scroll-proportion="0.3464837">
+        <state line="20" column="103" selection-start="923" selection-end="923" vertical-scroll-proportion="0.37221268">
           <folding />
         </state>
       </provider>
