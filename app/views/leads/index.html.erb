@@ -23,8 +23,11 @@
         <td><%= lead.description %></td>
 
         <td><%= lead.executive_id %></td>
-
+        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
         <td><%= lead.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+    <% else %>
+        <td></td>
+    <% end %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_lead_path(lead), :class => 'btn btn-mini' %>

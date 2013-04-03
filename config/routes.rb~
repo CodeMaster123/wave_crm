@@ -8,9 +8,7 @@ WaveCrm::Application.routes.draw do
   resources :leads
   resources :contacts
   resources :users
-  resources :events
 
-  get "calendar/index"
   match 'follow_ups/new/:id1' => 'follow_ups#new'
 
   root :to => 'leads#index'
