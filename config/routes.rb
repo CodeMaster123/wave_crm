@@ -11,7 +11,7 @@ WaveCrm::Application.routes.draw do
   resources :events
 
   get "calendar/index"
-  match 'sales_executive_leads' => 'sales_executives#'
+  match 'sales_executive_leads/:id1' => 'sales_executives#index'
   match 'follow_ups/new/:id1' => 'follow_ups#new'
   match 'target_forecast' => 'team_leaders#target_forecast'
 
