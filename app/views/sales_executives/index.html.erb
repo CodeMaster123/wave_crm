@@ -9,7 +9,7 @@
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:team_leader_id) %></th>
 
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= "#{sales_executive.user.first_name} #{sales_executive.user.last_name}" %></td>
         <td><%= "#{sales_executive.team_leader.user.first_name} #{sales_executive.team_leader.user.last_name}" %></td>
 
-        <td><%=l sales_executive.created_at %></td>
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_sales_executive_path(sales_executive), :class => 'btn btn-mini' %>

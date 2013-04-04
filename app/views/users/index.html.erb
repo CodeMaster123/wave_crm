@@ -10,7 +10,7 @@
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:mobile_no) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
         <td><%= user.last_name %></td>
         <td><%= user.address %></td>
         <td><%= user.mobile_no %></td>
-        <td><%=l user.created_at %></td>
+
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>
