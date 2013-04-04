@@ -52,7 +52,8 @@
                                 <li><%= link_to "Users", :users  %></li>
                             <% end %>
 
-                                <li><%= link_to "Tasks", :users %></li>
+                                <li><%= link_to "Calendar", :calendar %></li>
+                                <li><%= link_to "Tasks", :events %></li>
 
                             <% permitted_to? :index, :users do %>
                                 <li><%= link_to "Target forecast", {:controller => "team_leaders", :action => "target_forecast"} %></li>
