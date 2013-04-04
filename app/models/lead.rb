@@ -1,5 +1,6 @@
 class Lead < ActiveRecord::Base
   has_many :contacts, :dependent=>:destroy
+  has_many :follow_ups
   belongs_to :leadable, :polymorphic => true
 
   attr_accessible  :description, :executive_id, :lead_by, :title, :leadable_id, :leadable_type

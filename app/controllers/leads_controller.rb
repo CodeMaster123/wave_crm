@@ -4,7 +4,8 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
-      unless Lead.first.nil?
+      unless (Lead.first.nil? || Lead.first.follow_ups.empty?)
+          puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           @follow_up_time = Lead.first.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h')
       end
 
@@ -57,9 +58,9 @@ class LeadsController < ApplicationController
   def create
       @lead = Lead.new(params[:lead])
       puts "current_user iddddd"
-      @lead.executive_id = current_user.id
+      @lead.leadable_id = current_user.id
       puts "user type"
-      @lead.lead_by = current_user.account_type
+      @lead.leadable_type = current_user.class.name
 
       respond_to do |format|
           if @lead.save

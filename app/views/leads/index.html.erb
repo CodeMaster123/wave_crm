@@ -22,7 +22,7 @@
         <td><%= lead.title %></td>
         <td><%= lead.description %></td>
 
-        <td><%= lead.executive_id %></td>
+        <td><%= lead.leadable_id %></td>
         <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
         <td><%= lead.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
     <% else %>
