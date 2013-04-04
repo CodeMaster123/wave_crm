@@ -1,4 +1,7 @@
 <%= link_to "new event", new_event_path %>
 
 <div id='calendar'></div>
-
+<%= javascript_include_tag 'fullcalendar.min' %>
+<%= javascript_include_tag 'gcal' %>
+<%= javascript_include_tag 'jquery.rest' %>
+<%= stylesheet_link_tag 'fullcalendar' %>
