@@ -17,7 +17,7 @@
     <% @sales_executives.each do |sales_executive| %>
       <tr>
         <td><%= link_to sales_executive.id, sales_executive_path(sales_executive) %></td>
-        <td><%= "#{sales_executive.user.first_name} #{sales_executive.user.last_name}" %></td>
+        <td><%= link_to "#{sales_executive.user.first_name} #{sales_executive.user.last_name}", {:controller => 'leads', :action => 'index', :id1 => sales_executive.id} %></td>
         <td><%= "#{sales_executive.team_leader.user.first_name} #{sales_executive.team_leader.user.last_name}" %></td>
 
 
