@@ -1,0 +1,23 @@
+<%- model_class = TeamLeader -%>
+<div class="page-header">
+   <h3>Target Forecast</h3>
+</div>
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        new Highcharts.Chart({
+            chart: { renderTo: 'team_leaders_chart' },
+            title: { text: 'leads by Day' },
+            xAxis: { type: 'date' },
+            yAxis: {
+                title: { text: 'Amount'}
+            },
+            series: [{
+                pointInterval: <%= 1.day * 1000 %>,
+                pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+                data: [1, 2, 5, 7, 3]
+            }]
+        });
+    });
+</script>
+
+<div id="team_leaders_chart" style="width: 560px; height: 300px;"></div>

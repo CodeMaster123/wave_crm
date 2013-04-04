@@ -34,6 +34,7 @@ gem 'declarative_authorization', '~> 0.5.7'
 gem 'nested_form'
 gem 'thin', '~> 1.5.1'
 gem 'lazy_high_charts'
+gem 'rails3-jquery-autocomplete'
 
 
 # To use ActiveModel has_secure_password
