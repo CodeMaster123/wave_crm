@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(:version => 20130403061833) do
   create_table "leads", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "executive_id"
-    t.integer  "lead_by"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "leadable_id"
+    t.string   "leadable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "sales_executives", :force => true do |t|

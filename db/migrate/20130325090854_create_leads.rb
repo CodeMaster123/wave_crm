@@ -3,8 +3,8 @@ class CreateLeads < ActiveRecord::Migration
     create_table :leads do |t|
       t.string :title
       t.string :description
-      t.integer :executive_id
-      t.integer :lead_by
+      t.integer :leadable_id
+      t.string :leadable_type
 
       t.timestamps
     end
