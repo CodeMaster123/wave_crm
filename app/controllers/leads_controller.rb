@@ -1,11 +1,9 @@
 class LeadsController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
-  # GET /leads
-  # GET /leads.json
+
   def index
       unless (Lead.first.nil? || Lead.first.follow_ups.empty?)
-          puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
           @follow_up_time = Lead.first.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h')
       end
 
