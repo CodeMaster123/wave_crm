@@ -33,6 +33,8 @@ gem 'quiet_assets'
 gem 'declarative_authorization', '~> 0.5.7'
 gem 'nested_form'
 gem 'thin', '~> 1.5.1'
+gem 'lazy_high_charts'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
