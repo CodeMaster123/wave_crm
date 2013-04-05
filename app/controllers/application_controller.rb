@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   def check_controller
     if devise_controller?
       "login"
-      puts "vivek"
     else
-      puts "varade"
       "application"
     end
   end
