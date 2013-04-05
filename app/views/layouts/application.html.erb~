@@ -15,9 +15,8 @@
         <![endif]-->
 
         <%= stylesheet_link_tag "application", :media => "all" %>
-        <%= javascript_include_tag "jquery-1.9.1.min", "highcharts.js" %>
-
-
+        <%= stylesheet_link_tag "style", :media => "all" %>
+        <%= javascript_include_tag :application %>
 
     </head>
     <body>
@@ -41,31 +40,43 @@
                             <% end %>
 
                             <% permitted_to? :index, :team_leaders do %>
-                                <li><%= link_to "Team Leader", :team_leaders  %></li>
-                            <% end %>
-
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><%= link_to "Team Leaders", :team_leaders  %></li>
+                                    <li><%= link_to "Team's leads", :team_leaders  %></li>
                             <% permitted_to? :index, :sales_executives do %>
                                 <li><%= link_to "Sales Executive", :sales_executives  %></li>
                             <% end %>
+                                </ul>
+                                </li>
+                            <% end %>
+
 
                             <% permitted_to? :index, :users do %>
                                 <li><%= link_to "Users", :users  %></li>
                             <% end %>
 
+                            <% permitted_to? :index, :users do %>
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Performance<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><%= link_to "Target forecast", {:controller => "team_leaders", :action => "target_forecast"} %></li>
+                                </ul>
+                                </li>
+                            <% end %>
+
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Appointments<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
                                 <li><%= link_to "Calendar", :calendar %></li>
                                 <li><%= link_to "Tasks", :events %></li>
-
-                            <% permitted_to? :index, :users do %>
-                                <li><%= link_to "Target forecast", {:controller => "team_leaders", :action => "target_forecast"} %></li>
-                            <% end %>
-<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Karyakarta<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><%= link_to "SMS to all", users  %></li>
-                                <li><%= link_to "List all", users  %></li>
-                                <li><%= link_to "Add new", users  %></li>
                             </ul>
                             </li>
+
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
