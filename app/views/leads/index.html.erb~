@@ -1,6 +1,3 @@
-<%= javascript_include_tag "jquery.betterTooltip" %>
-<%= stylesheet_link_tag "better_tooltip_style" %>
-
 <%- model_class = Lead -%>
 <div class="page-header">
     <% if @page_title.nil? %>
@@ -29,10 +26,9 @@
 
                 <td><%= lead.leadable_id %></td>
                 <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                    <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                    <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+                    <td class="my-tooltip"><%= lead.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
                 <% else %>
-                    <td class="tTip" title="vivek varade">asdf</td>
+                    <td class="my-tooltip">asdf</td>
                 <% end %>
                 <td>
                     <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -53,9 +49,4 @@
             new_lead_path,
             :class => 'btn btn-primary' %>
 
-            <script type="text/javascript">
-                $(document).ready(function(){
-                        $('.tTip').betterTooltip({speed: 150, delay: 300});
-                        });
-                    </script>
 
