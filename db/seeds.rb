@@ -22,12 +22,20 @@ SalesExecutive.create([
 
 
 Lead.create([
-            {:title => "mahinra", :description => "automobile company", :leadable_id => 1, :leadable_type => "TeamLeader"},
-            {:title => "ceat", :description => "tyre company", :leadable_id => 2, :leadable_type => "TeamLeader"},
+            {:title => "mahindra", :description => "automobile company", :leadable_id => 1, :leadable_type => "TeamLeader"},
+            {:title => "Prakash wines", :description => "wine shoppee", :leadable_id => 1, :leadable_type => "TeamLeader"},
+            {:title => "Gurvindar garage", :description => "Garage", :leadable_id => 1, :leadable_type => "TeamLeader"},
+            {:title => "Pravin garage", :description => "Garage", :leadable_id => 1, :leadable_type => "TeamLeader"},
+            {:title => "Ramesh garage", :description => "Garage", :leadable_id => 1, :leadable_type => "TeamLeader"},
+            {:title => "Pravin Patil", :description => "ca", :leadable_id => 2, :leadable_type => "TeamLeader"},
+
             {:title => "CG", :description => "manufacturing company", :leadable_id => 1, :leadable_type => "salesExecutive"},
-            {:title => "wave techline", :description => "IT company", :leadable_id => 2, :leadable_type => "salesExecutive"},
-            {:title => "arreys", :description => "IT company", :leadable_id => 3, :leadable_type => "salesExecutive"},
-            {:title => "wipro", :description => "IT company", :leadable_id => 4, :leadable_type => "salesExecutive"}
+            {:title => "GFG advisors", :description => "financial advisors", :leadable_id => 1, :leadable_type => "salesExecutive"},
+            {:title => "GFG advisors", :description => "financial advisors", :leadable_id => 1, :leadable_type => "salesExecutive"},
+            {:title => "GFG advisors", :description => "financial advisors", :leadable_id => 1, :leadable_type => "salesExecutive"},
+            {:title => "GFG advisors", :description => "financial advisors", :leadable_id => 1, :leadable_type => "salesExecutive"},
+            {:title => "Kantilal Mehta", :description => "ca", :leadable_id => 1, :leadable_type => "salesExecutive"},
+            {:title => "Ramlal Shah", :description => "ca", :leadable_id => 4, :leadable_type => "salesExecutive"}
 ])
 
 Contact.create([
