@@ -19,3 +19,23 @@ SalesExecutive.create([
                       {:team_leader_id =>2, :user_id =>6, :employee_id =>6},
                       {:team_leader_id =>2, :user_id =>7, :employee_id =>7}
 ])
+
+
+Lead.create([
+            {:title => "mahinra", :description => "automobile company", :leadable_id => 1, :leadable_type => "TeamLeader"},
+            {:title => "ceat", :description => "tyre company", :leadable_id => 2, :leadable_type => "TeamLeader"},
+            {:title => "CG", :description => "manufacturing company", :leadable_id => 1, :leadable_type => "salesExecutive"},
+            {:title => "wave techline", :description => "IT company", :leadable_id => 2, :leadable_type => "salesExecutive"},
+            {:title => "arreys", :description => "IT company", :leadable_id => 3, :leadable_type => "salesExecutive"},
+            {:title => "wipro", :description => "IT company", :leadable_id => 4, :leadable_type => "salesExecutive"}
+])
+
+Contact.create([
+               {:lead_id => 1, :first_name => "sandip", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contact_type => "gdfdgfha"},
+               {:lead_id => 2, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contact_type => "gdhgsbfdg"},
+               {:lead_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contact_type => "tdgfwedf"},
+               {:lead_id => 4, :first_name => "madan", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contact_type => "vtrreas"},
+               {:lead_id => 5, :first_name => "pappu", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contact_type => "sgfdhgh"},
+               {:lead_id => 6, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contact_type => "tdgfwedf"}
+])
+

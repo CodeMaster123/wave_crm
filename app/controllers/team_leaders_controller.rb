@@ -84,5 +84,8 @@ class TeamLeadersController < ApplicationController
   end
 
   def target_forecast
+    @all_team_leader = TeamLeader.first
   end
 end
+
+

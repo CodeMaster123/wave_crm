@@ -58,6 +58,7 @@
                             <% permitted_to? :index, :users do %>
                                 <li><%= link_to "Target forecast", {:controller => "team_leaders", :action => "target_forecast"} %></li>
                             <% end %>
+                                <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
