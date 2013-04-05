@@ -40,14 +40,23 @@
                             <% end %>
 
                             <% permitted_to? :index, :team_leaders do %>
+
                                 <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><%= link_to "Team Leaders", :team_leaders  %></li>
-                                    <li><%= link_to "Team's leads", :team_leaders  %></li>
-                            <% permitted_to? :index, :sales_executives do %>
-                                <li><%= link_to "Sales Executive", :sales_executives  %></li>
-                            <% end %>
+                                    <li class="dropdown-submenu">
+                                    <a href="#">Team's leads</a>
+                                    <ul class="dropdown-menu">
+                                        <% @team_leaders = TeamLeader.all.each do |team_leader| %>
+                                            <li><a href="#"><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}" %></a></li>
+                                        <% end %>
+                                    </ul>
+                                    </li>
+
+                                    <% permitted_to? :index, :sales_executives do %>
+                                        <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                                    <% end %>
                                 </ul>
                                 </li>
                             <% end %>
@@ -93,7 +102,7 @@
             </div><!--/row-->
 
             <footer>
-            <p>&copy; Company 2012</p>
+            <p>Wave Techline India pvt. ltd. &copy; Company 2012</p>
             </footer>
 
         </div> <!-- /container -->
