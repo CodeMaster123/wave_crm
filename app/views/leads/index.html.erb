@@ -46,6 +46,7 @@
                 <% end %>
             </tbody>
         </table>
+        <%= will_paginate(@leads) %>
 
         <%= link_to t('.new', :default => t("helpers.links.new")),
             new_lead_path,

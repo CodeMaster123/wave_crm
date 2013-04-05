@@ -3,22 +3,24 @@ class LeadsController < ApplicationController
   filter_access_to :all
 
   def index
-
       unless (Lead.first.nil? || Lead.first.follow_ups.empty?)
           @follow_up_time = Lead.first.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h')
       end
 
       if current_user.account_type == 1
-          @leads = Lead.all
+          puts "admin ------------------------------>"
+          @leads = Lead.paginate(:page => params[:page], :per_page => 15).all
           unless params[:id1].nil?
-              @leads = Lead.where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
+              @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
               executive_name = SalesExecutive.where(:id => params[:id1]).first.user
               @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
           end
       elsif current_user.account_type  == 2
-          @leads = Lead.where(:lead_by => current_user.account_type, :executive_id => current_user.executive_id)
+          puts "team_leader------------------------------>"
+          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 15)
       elsif current_user.account_type ==3
-          @leads = Lead.where(:lead_by => current_user.account_type, :executive_id => current_user.executive_id)
+          puts "sales executive ------------------------------>"
+          @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
       end
 
       respond_to do |format|

@@ -36,6 +36,8 @@ gem 'thin', '~> 1.5.1'
 gem 'lazy_high_charts'
 gem 'rails3-jquery-autocomplete'
 
+gem 'will_paginate'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
