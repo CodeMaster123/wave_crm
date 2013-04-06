@@ -42,7 +42,6 @@ class LeadsController < ApplicationController
 
       @lead.contacts.build
 
-
       respond_to do |format|
           format.html # new.html.erb
           format.json { render json: @lead }
@@ -61,6 +60,7 @@ class LeadsController < ApplicationController
 
       respond_to do |format|
           if @lead.save
+              #@follow_up = FollowUp.create(:lead_id = @lead.id,
               format.html { redirect_to @lead, notice: 'Lead was successfully created.' }
               format.json { render json: @lead, status: :created, location: @lead }
           else
