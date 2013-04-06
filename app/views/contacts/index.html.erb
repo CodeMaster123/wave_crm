@@ -6,10 +6,7 @@
     <thead>
         <tr>
             <th><%= model_class.human_attribute_name(:id) %></th>
-            <th><%= model_class.human_attribute_name(:first_name) %></th>
-            <th><%= model_class.human_attribute_name(:middle_name) %></th>
-            <th><%= model_class.human_attribute_name(:last_name) %></th>
-
+            <th><%= model_class.human_attribute_name(:contact_name) %></th>
             <th><%= model_class.human_attribute_name(:address) %></th>
             <th><%= model_class.human_attribute_name(:mobile_no) %></th>
             <th><%= model_class.human_attribute_name(:landline_no) %></th>
@@ -22,11 +19,8 @@
         <% @i = 0 %>
         <% @contacts.each do |contact| %>
             <tr>
-                <td><%= @i = @i+1 %></td>
-                <td><%= contact.first_name %></td>
-                <td><%= contact.middle_name %></td>
-                <td><%= contact.last_name %></td>
-
+                <td><%= link_to @i = @i+1, contact_path(contact) %></td>
+                <td><%= "#{contact.first_name} #{contact.middle_name} #{contact.last_name}" %></td>
                 <td><%= contact.address %></td>
                 <td><%= contact.mobile_no %></td>
                 <td><%= contact.landline_no %></td>
