@@ -44,7 +44,9 @@
             <% end %>
         </tbody>
     </table>
+    <% if current_user.account_type == 1 %>
     <%= will_paginate(@contacts) %>
+<% end %>
 
     <%= link_to t('.new', :default => t("helpers.links.new")),
         new_contact_path,

@@ -1,84 +1,86 @@
 class ContactsController < ApplicationController
-  before_filter :authenticate_user!
-  # GET /contacts
-  # GET /contacts.json
-  def index
-    @contacts = Contact.paginate(:page => params[:page], :per_page => 5).all
+    before_filter :authenticate_user!
+    def index
+        if current_user.account_type ==1
+            @contacts = Contact.paginate(:page => params[:page], :per_page => 5).all
+        elsif current_user.account_type == 2
+            @contacts = Array.new
+            User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
+                @contacts += lead.contacts
+                @contacts.paginate(:page => params[:page], :per_page => 5)
+            end
+        elsif current_user.account_type == 3
+            @contacts = Array.new
+            User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
+                @contacts += lead.contacts
+                @contacts.paginate(:page => params[:page], :per_page => 5)
+            end
+            @contacts.paginate(:page => params[:page], :per_page => 5)
+        end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @contacts }
+        respond_to do |format|
+            format.html # index.html.erb
+            format.json { render json: @contacts }
+        end
     end
-  end
 
-  # GET /contacts/1
-  # GET /contacts/1.json
-  def show
-    @contact = Contact.find(params[:id])
+    def show
+        @contact = Contact.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @contact }
+        respond_to do |format|
+            format.html # show.html.erb
+            format.json { render json: @contact }
+        end
     end
-  end
 
-  # GET /contacts/new
-  # GET /contacts/new.json
-  def new
-    @contact = Contact.new
+    def new
+        @contact = Contact.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @contact }
+        respond_to do |format|
+            format.html # new.html.erb
+            format.json { render json: @contact }
+        end
     end
-  end
 
-  # GET /contacts/1/edit
-  def edit
-    @contact = Contact.find(params[:id])
-  end
-
-  # POST /contacts
-  # POST /contacts.json
-  def create
-    @contact = Contact.new(params[:contact])
-
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
-        format.json { render json: @contact, status: :created, location: @contact }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    def edit
+        @contact = Contact.find(params[:id])
     end
-  end
 
-  # PUT /contacts/1
-  # PUT /contacts/1.json
-  def update
-    @contact = Contact.find(params[:id])
+    def create
+        @contact = Contact.new(params[:contact])
 
-    respond_to do |format|
-      if @contact.update_attributes(params[:contact])
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+        respond_to do |format|
+            if @contact.save
+                format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+                format.json { render json: @contact, status: :created, location: @contact }
+            else
+                format.html { render action: "new" }
+                format.json { render json: @contact.errors, status: :unprocessable_entity }
+            end
+        end
     end
-  end
 
-  # DELETE /contacts/1
-  # DELETE /contacts/1.json
-  def destroy
-    @contact = Contact.find(params[:id])
-    @contact.destroy
+    def update
+        @contact = Contact.find(params[:id])
 
-    respond_to do |format|
-      format.html { redirect_to contacts_url }
-      format.json { head :no_content }
+        respond_to do |format|
+            if @contact.update_attributes(params[:contact])
+                format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
+                format.json { head :no_content }
+            else
+                format.html { render action: "edit" }
+                format.json { render json: @contact.errors, status: :unprocessable_entity }
+            end
+        end
     end
-  end
+
+    def destroy
+        @contact = Contact.find(params[:id])
+        @contact.destroy
+
+        respond_to do |format|
+            format.html { redirect_to contacts_url }
+            format.json { head :no_content }
+        end
+    end
 end
