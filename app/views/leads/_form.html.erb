@@ -58,12 +58,7 @@
                  <%= contact.text_field :contact_type, :class => 'text_field' %>
              </div>
         </div>
-        <div class="control-group">
-             <%= contact.label :lead_id, :class => 'control-label' %>
-             <div class="controls">
-                 <%= contact.text_field :lead_id, :class => 'text_field' %>
-             </div>
-        </div>
+
         <%= contact.link_to_remove "Remove this contact" %>
    <% end %>
    <p><%= f.link_to_add "Add a contact", :contacts %></p>

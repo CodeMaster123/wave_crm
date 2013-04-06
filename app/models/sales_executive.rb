@@ -4,4 +4,6 @@ class SalesExecutive < ActiveRecord::Base
   has_many :leads, :as => :leadable
   belongs_to :user
   belongs_to :team_leader
+
+
 end

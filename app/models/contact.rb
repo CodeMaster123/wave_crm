@@ -3,4 +3,13 @@ class Contact < ActiveRecord::Base
 
   belongs_to :lead
 
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :middle_name, :presence => true
+  validates :address, :presence => true
+  validates :mobile_no, :presence => true, :numericality => true
+  validates :landline_no, :presence => true, :numericality => true
+  validates :contact_type, :presence => true
+
+
 end
