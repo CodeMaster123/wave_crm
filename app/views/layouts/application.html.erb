@@ -49,7 +49,7 @@
                                     <a href="#">Team's leads</a>
                                     <ul class="dropdown-menu">
                                         <% @team_leaders = TeamLeader.all.each do |team_leader| %>
-                                            <li><a href="#"><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}" %></a></li>
+                                            <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
                                         <% end %>
                                     </ul>
                                     </li>
