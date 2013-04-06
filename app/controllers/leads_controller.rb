@@ -18,6 +18,9 @@ class LeadsController < ApplicationController
       elsif current_user.account_type  == 2
           puts "team_leader------------------------------>"
           @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 15)
+          @team = current_user.team_leader.sales_executives.each do |executive|
+              puts "vivek"
+          end
       elsif current_user.account_type ==3
           puts "sales executive ------------------------------>"
           @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
