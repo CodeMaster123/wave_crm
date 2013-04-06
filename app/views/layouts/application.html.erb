@@ -56,26 +56,29 @@
 
                                     <% permitted_to? :index, :sales_executives do %>
                                         <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                                        <li><%= link_to "Executive Targets", :targets %></li>
                                     <% end %>
                                 </ul>
                                 </li>
                             <% end %>
 
-                            <% permitted_to? :index, :sales_executives do %>
-                                <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-submenu">
-                                    <a href="#">Team's leads</a>
+                            <% unless current_user.account_type == 1 %>
+                                <% permitted_to? :index, :sales_executives do %>
+                                    <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <% @team_leaders = TeamLeader.all.each do |team_leader| %>
-                                            <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
-                                        <% end %>
+                                        <li class="dropdown-submenu">
+                                        <a href="#">Team's leads</a>
+                                        <ul class="dropdown-menu">
+                                            <% @team_leaders = TeamLeader.all.each do |team_leader| %>
+                                                <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
+                                            <% end %>
+                                        </ul>
+                                        </li>
+                                        <li><%= link_to "Sales Executive", :sales_executives  %></li>
                                     </ul>
                                     </li>
-                                    <li><%= link_to "Sales Executive", :sales_executives  %></li>
-                                </ul>
-                                </li>
+                                <% end %>
                             <% end %>
 
                             <% permitted_to? :index, :users do %>

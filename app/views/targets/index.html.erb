@@ -1,0 +1,43 @@
+<%- model_class = Target -%>
+<div class="page-header">
+  <h1>Individual Targets</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Executive name</th>
+      <th>Executive type</th>
+      <th>Amount</th>
+      <th>Achived</th>
+      <th>Actions </th>
+  </tr>
+  </thead>
+  <tbody>
+      <% @team_leaders.each do |team_leader| %>
+          <tr>
+              <% unless team_leader.targets.empty? %>
+                  <td><%= link_to team_leader.id, target_path(team_leader) %></td>
+                  <td><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}" %></td>
+                  <td><%= team_leader.targets.first.amount %></td>
+                  <td><%= team_leader.targets.achived %></td>
+                  <td><%= team_leader.targets.first.targetable_type %></td>
+                  <td><%= team_leader.targets.first.target_date %></td>
+                  <td>
+                      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_target_path(target), :class => 'btn btn-mini' %>
+                          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                              target_path(target),
+                              :method => :delete,
+                              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                              :class => 'btn btn-mini btn-danger' %>
+                          </td>
+                      <% end %>
+                  </tr>
+              <% end %>
+          </tbody>
+      </table>
+
+      <%= link_to t('.new', :default => t("helpers.links.new")),
+          new_target_path,
+          :class => 'btn btn-primary' %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  targetable_id: 1
+  targetable_type: MyString
+  amount: 1
+  achived: 1
+  target_date: 2013-04-06 14:54:08
+
+two:
+  targetable_id: 1
+  targetable_type: MyString
+  amount: 1
+  achived: 1
+  target_date: 2013-04-06 14:54:08

@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :targets
+
+
   devise_for :users
 
   resources :follow_ups
