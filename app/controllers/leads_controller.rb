@@ -8,19 +8,18 @@ class LeadsController < ApplicationController
       end
 
       if current_user.account_type == 1
-          puts "admin ------------------------------>"
-          @leads = Lead.paginate(:page => params[:page], :per_page => 15).all
+          @leads = Lead.paginate(:page => params[:page], :per_page => 5).all
           unless params[:id1].nil?
               @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
               executive_name = SalesExecutive.where(:id => params[:id1]).first.user
               @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
           end
       elsif current_user.account_type  == 2
-          puts "team_leader------------------------------>"
-          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 15)
+          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 5)
+          @team = current_user.team_leader.sales_executives.each do |executive|
+          end
       elsif current_user.account_type ==3
-          puts "sales executive ------------------------------>"
-          @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
+          @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 5)
       end
 
       respond_to do |format|
@@ -29,8 +28,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  # GET /leads/1
-  # GET /leads/1.json
   def show
       @lead = Lead.find(params[:id])
 
@@ -40,8 +37,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  # GET /leads/new
-  # GET /leads/new.json
   def new
       @lead = Lead.new
 
@@ -59,13 +54,9 @@ class LeadsController < ApplicationController
       @lead = Lead.find(params[:id])
   end
 
-  # POST /leads
-  # POST /leads.json
   def create
       @lead = Lead.new(params[:lead])
-      puts "current_user iddddd"
       @lead.leadable_id = current_user.id
-      puts "user type"
       @lead.leadable_type = current_user.class.name
 
       respond_to do |format|
