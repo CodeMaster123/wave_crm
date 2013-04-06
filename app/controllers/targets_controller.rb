@@ -27,6 +27,8 @@ class TargetsController < ApplicationController
   # GET /targets/new.json
   def new
     @target = Target.new
+    @team_leaders = TeamLeader.all
+    @sales_executives = SalesExecutive.all
 
     respond_to do |format|
       format.html # new.html.erb
