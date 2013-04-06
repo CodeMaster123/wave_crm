@@ -13,6 +13,15 @@ class User < ActiveRecord::Base
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
     attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader
 
+    validates :first_name, :presence => true
+    validates :last_name, :presence => true
+    validates :address, :presence => true
+    validates :mobile_no, :presence => true, :numericality => true
+    validates :email, :presence => true
+    validates :password, :presence => true
+    validates :password_confirmation, :presence => true
+    validates :account_type, :presence => true
+
 
     def role_symbols
         if self.account_type == 1

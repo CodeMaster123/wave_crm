@@ -6,6 +6,12 @@ class Event < ActiveRecord::Base
     scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
     scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
 
+    validates :title, :presence => true
+    validates :description, :presence => true
+    validates :starts_at, :presence => true
+    validates :ends_at, :presence => true
+
+
     # need to override the json view to return what full_calendar is expecting.
     # http://arshaw.com/fullcalendar/docs/event_data/Event_Object/
     def as_json(options = {})

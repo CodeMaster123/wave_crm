@@ -4,4 +4,7 @@ class TeamLeader < ActiveRecord::Base
   has_many :leads, :as => :leadable
   belongs_to :user
   has_many :sales_executives
+
+
+
 end

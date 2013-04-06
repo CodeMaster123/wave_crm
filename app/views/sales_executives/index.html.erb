@@ -8,7 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th>Executive name</th>
       <th>Teamleader's name</th>
-
+      <th>Mobile no</th>
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -19,7 +19,7 @@
         <td><%= link_to sales_executive.id, sales_executive_path(sales_executive) %></td>
         <td><%= link_to "#{sales_executive.user.first_name} #{sales_executive.user.last_name}", {:controller => 'leads', :action => 'index', :id1 => sales_executive.id} %></td>
         <td><%= "#{sales_executive.team_leader.user.first_name} #{sales_executive.team_leader.user.last_name}" %></td>
-
+        <td><%= sales_executive.user.mobile_no %></td>
 
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -35,6 +35,3 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_sales_executive_path,
-            :class => 'btn btn-primary' %>

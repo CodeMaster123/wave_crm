@@ -15,7 +15,7 @@ development:
   database: wave_crm_development
   pool: 5
   username: root
-  password: "vijay8055508545"
+  password: "09732546"
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: wave_crm_test
   pool: 5
   username: root
-  password: "vijay8055508545"
+  password: "09732546"
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -38,5 +38,5 @@ production:
   database: wave_crm_production
   pool: 5
   username: root
-  password: "vijay8055508545"
+  password: "09732546"
   socket: /var/run/mysqld/mysqld.sock
