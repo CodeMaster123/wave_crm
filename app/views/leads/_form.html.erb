@@ -12,7 +12,26 @@
     </div>
   </div>
 
+<h4>Follow up time</h4>
+    <%= f.fields_for :follow_ups do |follow_up| %>
+        <div class="control-group">
+          <%= follow_up.label :description, :class => 'control-label' %>
+          <div class="controls">
+            <%= follow_up.text_field :description, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= follow_up.label :follow_up_time, :class => 'control-label' %>
+          <div class="controls">
+            <%= follow_up.datetime_select :follow_up_time, :class => 'text_field' %>
+          </div>
+        </div>
+        <%= follow_up.link_to_remove "Remove this follow_up" %>
+    <% end %>
+    <p><%= f.link_to_add  "Add a follow_ups", :follow_ups %></p>
 
+
+    <h4>Contact Details</h4>
    <%= f.fields_for :contacts do |contact| %>
         <div class="control-group">
           <%= contact.label :first_name, :class => 'control-label' %>

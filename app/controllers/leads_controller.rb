@@ -50,6 +50,7 @@ class LeadsController < ApplicationController
       @lead = Lead.new
 
       @lead.contacts.build
+      @lead.follow_ups.build
 
       respond_to do |format|
           format.html # new.html.erb
