@@ -47,3 +47,36 @@ Contact.create([
                {:lead_id => 6, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contact_type => "tdgfwedf"}
 ])
 
+
+
+Target.create([
+              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000},
+              {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000},
+              {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582}
+])
+
+Event.create([
+             {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :ends_at => "2013-04-08 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-06 07:17:00 UTC", :ends_at => "2013-04-06 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-05 012:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1},
+
+             {:title => "Meeting", :starts_at => "2013-04-02 02:17:00 UTC", :ends_at => "2013-04-02 03:17:00 UTC", :all_day => "false", :description => "This meeting for product documentation", :user_id => 2},
+             {:title => "Appoitement", :starts_at => "2013-04-02 01:17:00 UTC", :ends_at => "2013-04-02 01:30:00 UTC", :all_day => "true", :description => "This meeting for website  documentation", :user_id => 2},
+             {:title => "Appoitement", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 01:30:00 UTC", :all_day => "false", :description => "This meeting for website  documentation", :user_id => 2},
+             {:title => "Appoitement", :starts_at => "2013-04-06 01:17:00 UTC", :ends_at => "2013-04-06 01:30:00 UTC", :all_day => "false", :description => "This meeting for website  documentation", :user_id => 2},
+
+             {:title => "Appoitement", :starts_at => "2013-04-01 02:17:00 UTC", :ends_at => "2013-04-01 03:17:00 UTC", :all_day => "false", :description => "This meeting for product documentation", :user_id => 3},
+             {:title => "Meeting", :starts_at => "2013-04-08 02:17:00 UTC", :ends_at => "2013-04-08 03:17:00 UTC", :all_day => "false", :description => "Customer satisfaction", :user_id => 3},
+             {:title => "Appoitement", :starts_at => "2013-04-04 02:17:00 UTC", :ends_at => "2013-04-04 03:17:00 UTC", :all_day => "false", :description => "This meeting for product documentation", :user_id => 3},
+             {:title => "Appoitement", :starts_at => "2013-04-06 02:17:00 UTC", :ends_at => "2013-04-06 03:17:00 UTC", :all_day => "false", :description => "This meeting for product documentation", :user_id => 3},
+])
