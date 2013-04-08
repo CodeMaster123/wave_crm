@@ -1,6 +1,15 @@
 class LeadsController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
+  layout :choose_layout
+
+  def choose_layout
+      if action_name == 'search'
+          false
+      else
+          'application'
+      end
+  end
 
   def index
       unless (Lead.first.nil? || Lead.first.follow_ups.empty?)
@@ -99,11 +108,16 @@ class LeadsController < ApplicationController
   end
 
   def search
-      if current_user.account_type == 2
-      @leads = current_user.leads.where
-
-  end
+      if current_user.account_type == 1
+          @leads = Lead.where("title like \'%#{params[:q]}%\'")
+      elsif current_user.account_type == 2
+          @leads = current_user.team_leader.leads.where("\'%#{params[:q]}%\'")
+      elsif current_user.account_type == 3
+          @leads = current_user.sales_executive.leads.where("\'%#{params[:q]}%\'")
+      end
+      respond_to do |format|
+          format.html
+          format.json { head :no_content }
+      end
   end
 end
-
-

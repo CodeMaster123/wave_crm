@@ -1,24 +1,22 @@
-<tbody class ="search-data">
-        <% @i = 0 %>
-        <% @leads.each do |lead| %>
-            <tr>
-                <td><%= @i = @i+1 %></td>
-                <td><%= lead.first_name %></td>
-                <td><%= lead.middle_name %></td>
-                <td><%= lead.last_name %></td>
-                <td><%= lead.address %></td>
-                <td><%= lead.mobile_no %></td>
-                <td><%= lead.landline_no %></td>
-                <td><%= lead.contact_type %></td>
+<% @i = 0 %>
+<% @leads.each do |lead| %>
+    <tr>
+        <td><%= @i = @i+1 %></td>
+        <td><%= lead.title %></td>
+        <td><%= lead.description %></td>
+        <td><%= lead.leadable_id %></td>
+        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
+            <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+            <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+        <% else %>
+            <td class="tTip" title="vivek varade">asdf</td>
+        <% end %>
 
-                <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>
-                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        contact_path(contact),
-                        :method => :delete,
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-mini btn-danger' %>
-                    </td>
-                </tr>
-            <% end %>
-        </tbody>
+        <td>
+            <%= link_to "Edit" , edit_lead_path(lead), :class => 'btn btn-mini' %>
+            <%= link_to "Destroy", contact_path(lead), :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-mini btn-danger' %>
+            </td>
+        </tr>
+    <% end %>

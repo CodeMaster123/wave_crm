@@ -1,6 +1,6 @@
+<%= javascript_include_tag "searchbox.js" %>
 <%= javascript_include_tag "jquery.betterTooltip" %>
 <%= stylesheet_link_tag "better_tooltip_style" %>
-<%= javascript_include_tag "searchbox.js" %>
 
 <%- model_class = Lead -%>
 <div class="page-header">
@@ -28,7 +28,7 @@
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="search-data">
          <% @i = 0 %>
         <% @leads.each do |lead| %>
             <tr>
