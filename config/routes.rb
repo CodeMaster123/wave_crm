@@ -19,5 +19,8 @@ WaveCrm::Application.routes.draw do
   match 'target_forecast' => 'team_leaders#target_forecast'
   match 'leads/index/:team_leader' => 'leads#index'
 
+  match 'contact_search' => 'contacts#search'
+  match 'lead_search' => 'leads#search'
+
   root :to => 'leads#index'
 end

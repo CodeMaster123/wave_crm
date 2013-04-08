@@ -1,7 +1,15 @@
+<%= javascript_include_tag "searchbox.js" %>
 <%- model_class = Contact -%>
 <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
+  <div class="control-group">
+    <div class="controls">
+      Search: <%= text_field_tag :title,"", :class => 'search-c' %>
+    </div>
+  </div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -18,7 +26,7 @@
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class ="search-data">
         <% @i = 0 %>
         <% @contacts.each do |contact| %>
             <tr>
@@ -48,9 +56,15 @@
     <%= will_paginate(@contacts) %>
 <% end %>
 
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-        new_contact_path,
-        :class => 'btn btn-primary' %>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_contact_path, :class => 'btn btn-primary' %>
 
+<script>
+    $('.search-c').searchbox({
+        url: '/contact_search.html',
+        param: 'q',
+        dom_id: '#search-data',
+        delay: 100,
+    })
 
+</script>
 

@@ -1,3 +1,6 @@
+<%= javascript_include_tag "jquery.betterTooltip" %>
+<%= stylesheet_link_tag "better_tooltip_style" %>
+
 <%- model_class = Lead -%>
 <div class="page-header">
     <% if @page_title.nil? %>
@@ -9,12 +12,12 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th><%= model_class.human_attribute_name(:id) %></th>
-            <th><%= model_class.human_attribute_name(:title) %></th>
-            <th><%= model_class.human_attribute_name(:description) %></th>
-            <th><%= model_class.human_attribute_name(:leadable_id) %></th>
+            <th>Sr. no.</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Leadable_id</th>
             <th>Follow up time</th>
-            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -26,27 +29,67 @@
 
                 <td><%= lead.leadable_id %></td>
                 <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                    <td class="my-tooltip"><%= lead.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+                    <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+                    <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
                 <% else %>
-                    <td class="my-tooltip">asdf</td>
+                    <td class="tTip" title="vivek varade">asdf</td>
                 <% end %>
                 <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_lead_path(lead), :class => 'btn btn-mini' %>
-                        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                            lead_path(lead),
-                            :method => :delete,
-                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                            :class => 'btn btn-mini btn-danger' %>
-                            <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
-                        </td>
+                    <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                    <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                    <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= will_paginate(@leads) %>
+
+<% unless params[:team_leader].nil? %>
+    <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
+        <h4>Leads by - <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Sr. no.</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Leadable_id</th>
+                        <th>Follow up time</th>
+                        <th>Actions</th>
                     </tr>
-                <% end %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <% executive.leads.each do |lead| %>
+                        <tr>
+                            <td><%= link_to lead.id, lead_path(lead) %></td>
+                            <td><%= lead.title %></td>
+                            <td><%= lead.description %></td>
 
-        <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_lead_path,
-            :class => 'btn btn-primary' %>
+                            <td><%= lead.leadable_id %></td>
+                            <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
+                                <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+                                <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+                            <% else %>
+                                <td class="tTip" title="vivek varade">asdf</td>
+                            <% end %>
+                            <td>
+                                <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                                <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                                <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
+    <% end %>
 
+    <%= link_to "New", new_lead_path, :class => 'btn btn-primary' %>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+                $('.tTip').betterTooltip({speed: 150, delay: 300});
+                });
+            </script>
 

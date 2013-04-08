@@ -97,4 +97,10 @@ class LeadsController < ApplicationController
           format.json { head :no_content }
       end
   end
+
+  def search
+      if current_user.account_type == 2
+      @leads = current_user.leads.where
+
+  end
 end

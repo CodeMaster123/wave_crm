@@ -1,5 +1,6 @@
 <%= javascript_include_tag "jquery.betterTooltip" %>
 <%= stylesheet_link_tag "better_tooltip_style" %>
+<%= javascript_include_tag "searchbox.js" %>
 
 <%- model_class = Lead -%>
 <div class="page-header">
@@ -9,6 +10,13 @@
         <h1><%= @page_title %></h1>
     <% end %>
 </div>
+
+<div class="control-group">
+    <div class="controls">
+        Search: <%= text_field_tag :title,"", :class => 'search-c' %>
+    </div>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -91,5 +99,13 @@
         $(document).ready(function(){
                 $('.tTip').betterTooltip({speed: 150, delay: 300});
                 });
-            </script>
+
+$('.search-c').searchbox({
+url: '/lead_search.html',
+param: 'q',
+dom_id: '#search-data',
+delay: 100,
+})
+
+</script>
 

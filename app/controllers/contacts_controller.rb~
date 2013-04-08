@@ -85,11 +85,10 @@ class ContactsController < ApplicationController
     end
 
     def search
-        @contacts = Array.new
-        TeamLeader.first.leads.each do |lead|
-            @contacts += lead.contacts		
-        end
-        @contacts = @contacts.where("first_name like \'%#{params[:q]}%\'")
+TeamLeader.first.leads.each do |lead|
+        @contacts += lead.contacts		
+end
+@contacts = @contacts.where("first_name like \'%#{params[:q]}%\'")
         respond_to do |format|
             format.html
             format.json { head :no_content }

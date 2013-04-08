@@ -1,0 +1,24 @@
+<tbody class ="search-data">
+        <% @i = 0 %>
+        <% @leads.each do |lead| %>
+            <tr>
+                <td><%= @i = @i+1 %></td>
+                <td><%= lead.first_name %></td>
+                <td><%= lead.middle_name %></td>
+                <td><%= lead.last_name %></td>
+                <td><%= lead.address %></td>
+                <td><%= lead.mobile_no %></td>
+                <td><%= lead.landline_no %></td>
+                <td><%= lead.contact_type %></td>
+
+                <td>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                        contact_path(contact),
+                        :method => :delete,
+                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                        :class => 'btn btn-mini btn-danger' %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
