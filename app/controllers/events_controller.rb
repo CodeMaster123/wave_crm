@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @events = Event.scoped
     @events = @events.after(params['start']) if (params['start'])
     @events = @events.before(params['end']) if (params['end'])
+    @events = User.where(:id => current_user.id).first.events
     
     respond_to do |format|
       format.html # index.html.erb
