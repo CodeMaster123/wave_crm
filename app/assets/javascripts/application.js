@@ -16,4 +16,3 @@
 //= require twitter/bootstrap
 //= require_self
 //= require highcharts
-//= require jquery_nested_form
