@@ -103,4 +103,7 @@ class LeadsController < ApplicationController
       @leads = current_user.leads.where
 
   end
+  end
 end
+
+
