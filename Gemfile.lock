@@ -105,7 +105,7 @@ GEM
     mime-types (1.21)
     multi_json (1.7.2)
     mysql2 (0.3.11)
-    nested_form (0.2.3)
+    nested_form (0.3.2)
     ori (0.1.0)
     orm_adapter (0.4.0)
     paint (0.8.5)
@@ -194,7 +194,7 @@ DEPENDENCIES
   less
   less-rails
   mysql2
-  nested_form
+  nested_form (= 0.3.2)
   quiet_assets
   rails (= 3.2.12)
   rails3-jquery-autocomplete
