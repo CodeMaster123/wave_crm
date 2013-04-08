@@ -29,9 +29,10 @@
         </tr>
     </thead>
     <tbody>
+         <% @i = 0 %>
         <% @leads.each do |lead| %>
             <tr>
-                <td><%= link_to lead.id, lead_path(lead) %></td>
+                <td><%= link_to @i = @i+1, lead_path(lead) %></td>
                 <td><%= lead.title %></td>
                 <td><%= lead.description %></td>
 
