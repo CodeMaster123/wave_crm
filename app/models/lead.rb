@@ -8,6 +8,9 @@ class Lead < ActiveRecord::Base
 
   accepts_nested_attributes_for :contacts, :allow_destroy => true
 
+  attr_accessible :follow_ups_attributes, :description, :follow_up_time, :lead_id
+  accepts_nested_attributes_for :follow_ups, :allow_destroy => true
+
   validates :title, :presence => true
   validates :description, :presence => true
 
