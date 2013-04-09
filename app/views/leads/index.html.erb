@@ -1,7 +1,7 @@
 <%= javascript_include_tag "searchbox.js" %>
 <%= javascript_include_tag "jquery.betterTooltip" %>
 <%= stylesheet_link_tag "better_tooltip_style" %>
-
+<%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Lead -%>
 <div class="page-header">
     <% if @page_title.nil? %>
@@ -52,11 +52,18 @@
         <% end %>
     </tbody>
 </table>
-<%= will_paginate(@leads) %>
+
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @leads %>
+  </div>
+  <%= will_paginate @leads, :container => false %>
+</div>
+
 
 <% unless params[:team_leader].nil? %>
     <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
-        <h4>Leads by - <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
+        <h4>Leads by </h4> <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
             <table class="table table-striped">
                 <thead>
                     <tr>
