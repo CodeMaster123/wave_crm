@@ -1,27 +1,24 @@
-<%= form_for(@follow_up) do |f| %>
-  <% if @follow_up.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@follow_up.errors.count, "error") %> prohibited this follow_up from being saved:</h2>
+<%= form_for @follow_up, :html => { :class => 'form-horizontal' } do |f| %>
 
-      <ul>
-      <% @follow_up.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+
+
+  <%= f.hidden_field :lead_id, :value => params[:id1], :class => 'number_field' %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
     </div>
-  <% end %>
-
-  <%= f.hidden_field :lead_id, :value => params[:id1] %>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :follow_up_time %><br />
-    <%= f.datetime_select :follow_up_time %>
+  <div class="control-group">
+    <%= f.label :follow_up_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :follow_up_time, :class => 'datetime_select' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                follow_ups_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -80,4 +80,12 @@ class FollowUpsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def follow_ups_list
+    puts "id->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..#{ params[:id]}"
+    @follow_up =  Lead.where(:id => params[:id]).first.follow_ups
+
+
+  end
+
 end

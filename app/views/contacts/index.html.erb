@@ -1,4 +1,5 @@
 <%= javascript_include_tag "searchbox.js" %>
+<%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Contact -%>
 <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
@@ -47,7 +48,13 @@
         </tbody>
     </table>
     <% if current_user.account_type == 1 %>
-    <%= will_paginate(@contacts) %>
+
+    <div class="flickr_pagination">
+      <div class="page_info">
+        <%= page_entries_info @contacts %>
+      </div>
+      <%= will_paginate @contacts, :container => false %>
+    </div>
 <% end %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")), new_contact_path, :class => 'btn btn-primary' %>

@@ -1,32 +1,15 @@
 <%= javascript_include_tag "searchbox.js" %>
 <%= javascript_include_tag "jquery.betterTooltip" %>
 <%= stylesheet_link_tag "better_tooltip_style" %>
-
-                    <div class="page-header">
-                        <div class="pull-left">
-                            <h1>Dashboard</h1>
-                        </div>
-                    </div>
-                    <%= render "shared/breadcrumbs" %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%= stylesheet_link_tag "pagination.css" %>
+<%- model_class = Lead -%>
+<div class="page-header">
+    <% if @page_title.nil? %>
+        <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+    <% else %>
+        <h1><%= @page_title %></h1>
+    <% end %>
+</div>
 
 <div class="control-group">
     <div class="controls">
@@ -55,8 +38,8 @@
 
                 <td><%= lead.leadable_id %></td>
                 <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                    <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                    <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+                    <%=  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+                    <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%h'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
                 <% else %>
                     <td class="tTip" title="vivek varade">asdf</td>
                 <% end %>
@@ -69,11 +52,18 @@
         <% end %>
     </tbody>
 </table>
-<%= will_paginate(@leads) %>
+
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @leads %>
+  </div>
+  <%= will_paginate @leads, :container => false %>
+</div>
+
 
 <% unless params[:team_leader].nil? %>
     <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
-        <h4>Leads by - <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
+        <h4>Leads by </h4> <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
             <table class="table table-striped">
                 <thead>
                     <tr>

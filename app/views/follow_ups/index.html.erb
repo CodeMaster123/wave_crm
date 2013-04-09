@@ -1,27 +1,40 @@
-<h1>Listing follow_ups</h1>
-
-<table>
-  <tr>
-    <th>Lead</th>
-    <th>Description</th>
-    <th>Follow up time</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @follow_ups.each do |follow_up| %>
-  <tr>
-    <td><%= follow_up.lead_id %></td>
-    <td><%= follow_up.description %></td>
-    <td><%= follow_up.follow_up_time %></td>
-    <td><%= link_to 'Show', follow_up %></td>
-    <td><%= link_to 'Edit', edit_follow_up_path(follow_up) %></td>
-    <td><%= link_to 'Destroy', follow_up, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = FollowUp -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:lead_id) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:follow_up_time) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @follow_ups.each do |follow_up| %>
+      <tr>
+        <td><%= link_to follow_up.id, follow_up_path(follow_up) %></td>
+        <td><%= follow_up.lead_id %></td>
+        <td><%= follow_up.description %></td>
+        <td><%= follow_up.follow_up_time %></td>
+        <td><%=l follow_up.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_follow_up_path(follow_up), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      follow_up_path(follow_up),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Follow up', new_follow_up_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_follow_up_path,
+            :class => 'btn btn-primary' %>

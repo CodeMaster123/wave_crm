@@ -80,3 +80,19 @@ Event.create([
              {:title => "Appoitement", :starts_at => "2013-04-04 02:17:00 UTC", :ends_at => "2013-04-04 03:17:00 UTC", :all_day => "false", :description => "This meeting for product documentation", :user_id => 3},
              {:title => "Appoitement", :starts_at => "2013-04-06 02:17:00 UTC", :ends_at => "2013-04-06 03:17:00 UTC", :all_day => "false", :description => "This meeting for product documentation", :user_id => 3},
 ])
+
+FollowUp.create([
+                {:lead_id => 1, :description => "first meeting", :follow_up_time => "11:47AM 01-Apr"},
+                {:lead_id => 2, :description => "second meeting", :follow_up_time => "10:00AM 02-Apr"},
+                {:lead_id => 3, :description => "first meeting", :follow_up_time => "11:47AM 03-Apr"},
+                {:lead_id => 4, :description => "first meeting", :follow_up_time => "03:40PM 04-Apr"},
+                {:lead_id => 5, :description => "last meeting", :follow_up_time => "11:00AM 05-Apr"},
+                {:lead_id => 6, :description => "last meeting", :follow_up_time => "11:47AM 06-Apr"},
+                {:lead_id => 7, :description => "first meeting", :follow_up_time => "10:00AM 07-Apr"},
+                {:lead_id => 8, :description => "last meeting", :follow_up_time => "11:10AM 08-Apr"},
+                {:lead_id => 9, :description => "first meeting", :follow_up_time => "11:47AM 09-Apr"},
+                {:lead_id => 10, :description => "first meeting", :follow_up_time => "11:00AM 10-Apr"},
+                {:lead_id => 11, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 12, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 13, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                ])
