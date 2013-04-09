@@ -2,14 +2,31 @@
 <%= javascript_include_tag "jquery.betterTooltip" %>
 <%= stylesheet_link_tag "better_tooltip_style" %>
 
-<%- model_class = Lead -%>
-<div class="page-header">
-    <% if @page_title.nil? %>
-        <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-    <% else %>
-        <h1><%= @page_title %></h1>
-    <% end %>
-</div>
+                    <div class="page-header">
+                        <div class="pull-left">
+                            <h1>Dashboard</h1>
+                        </div>
+                    </div>
+                    <%= render "shared/breadcrumbs" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="control-group">
     <div class="controls">

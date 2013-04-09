@@ -1,6 +1,4 @@
 WaveCrm::Application.routes.draw do
-mount_sextant if Rails.env.development?
-
   resources :targets
 
 

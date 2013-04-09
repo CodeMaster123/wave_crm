@@ -16,120 +16,196 @@
 
         <%= stylesheet_link_tag "application", :media => "all" %>
         <%= stylesheet_link_tag "style", :media => "all" %>
+        <%= stylesheet_link_tag "style2" %>
         <%= javascript_include_tag "jquery" %>
 
     </head>
     <body>
+        <div id="navigation">
+            <div class="container-fluid">
+                <%= link_to "CRM", :root, {:id => "brand"} %>
+                <ul class='main-nav'>
 
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="#">WaveCrm</a>
-                    <div class="container nav-collapse">
-                        <ul class="nav">
-                            <li><%= link_to "Leads", :leads  %></li>
-                            <li><%= link_to "Contacts", :contacts  %></li>
+                    <li class='active'>
+                    <%= link_to(:leads) do %>
+                        <span>Leads</span>
+                    <% end %>
+                    </li>
 
-                            <% permitted_to? :index, :employees do %>
-                                <li><%= link_to "Employees", :employees  %></li>
-                            <% end %>
+                    <li>
+                    <% permitted_to? :index, :employees do %>
+                        <%= link_to(:employees) do %>
+                            <span>Employees</span>
+                        <% end %>
+                    <% end %>
+                    </li>
 
-                            <% permitted_to? :index, :team_leaders do %>
+                    <li>
+                    <%= link_to(:contacts) do %>
+                        <span>Contacts</span>
+                    <% end %>
+                    </li>
 
-                                <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><%= link_to "Team Leaders", :team_leaders  %></li>
-                                    <li class="dropdown-submenu">
-                                    <a href="#">Team's leads</a>
-                                    <ul class="dropdown-menu">
-                                        <% @team_leaders = TeamLeader.all.each do |team_leader| %>
-                                            <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
-                                        <% end %>
-                                    </ul>
-                                    </li>
+                    <% permitted_to? :index, :team_leaders do %>
+                        <li>
+                        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                            <span>Team</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                            <%= link_to "Team Leaders", :team_leaders  %>
+                            </li>
 
-                                    <% permitted_to? :index, :sales_executives do %>
-                                        <li><%= link_to "Sales Executive", :sales_executives  %></li>
-                                        <li><%= link_to "Executive Targets", :targets %></li>
-                                    <% end %>
-                                </ul>
-                                </li>
-                            <% end %>
-
-                            <% unless current_user.account_type == 1 %>
-                                <% permitted_to? :index, :sales_executives do %>
-                                    <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown-submenu">
-                                        <a href="#">Team's leads</a>
-                                        <ul class="dropdown-menu">
-                                            <% @team_leaders = TeamLeader.all.each do |team_leader| %>
-                                                <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
-                                            <% end %>
-                                        </ul>
-                                        </li>
-                                        <li><%= link_to "Sales Executive", :sales_executives  %></li>
-                                    </ul>
-                                    </li>
-                                <% end %>
-                            <% end %>
-
-                            <% permitted_to? :index, :users do %>
-                                <li><%= link_to "Users", :users  %></li>
-                            <% end %>
-
-                            <% permitted_to? :index, :users do %>
-                                <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Performance<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><%= link_to "Target forecast", {:controller => "team_leaders", :action => "target_forecast"} %></li>
-                                </ul>
-                                </li>
-                            <% end %>
-
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Appointments<b class="caret"></b></a>
+                            Team's leads
                             <ul class="dropdown-menu">
-                                <li><%= link_to "Calendar", :calendar %></li>
-                                <li><%= link_to "Tasks", :events %></li>
+                                <% @team_leaders = TeamLeader.all.each do |team_leader| %>
+                                    <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
+                                <% end %>
                             </ul>
                             </li>
 
+                            <% permitted_to? :index, :sales_executives do %>
+                                <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                                <li><%= link_to "Executive Targets", :targets %></li>
+                            <% end %>
                         </ul>
-                        <ul class="nav pull-right">
-                            <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+                        </li>
+                    <% end %>
+
+                    <% permitted_to? :index, :users do %>
+                        <li>
+                        <%= link_to(:users) do %>
+                            <span>Users</span>
+                        <% end %>
+                        </li>
+                    <% end %>
+
+                    <li>
+                    <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                        <span>Performance</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                        <%= link_to "Target forecast", :target_forecast %>
+                        </li>
+                    </ul>
+                    </li>
+
+                    <li>
+                    <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                        <span>Appointments</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                        <%= link_to "Calendar", :calendar %>
+                        </li>
+                        <li>
+                        <%= link_to "Tasks", :events %>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+
+                <div class="user">
+                    <ul class="icon-nav">
+                        <li class="dropdown sett">
+                        <a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-cog"></i></a>
+                        <ul class="dropdown-menu pull-right theme-settings">
+                            <li>
+                            <span>Layout-width</span>
+                            <div class="version-toggle">
+                                <a href="#" class='set-fixed'>Fixed</a>
+                                <a href="#" class="active set-fluid">Fluid</a>
+                            </div>
+                            </li>
+                            <li>
+                            <span>Topbar</span>
+                            <div class="topbar-toggle">
+                                <a href="#" class='set-topbar-fixed'>Fixed</a>
+                                <a href="#" class="active set-topbar-default">Default</a>
+                            </div>
+                            </li>
+                            <li>
+                            <span>Sidebar</span>
+                            <div class="sidebar-toggle">
+                                <a href="#" class='set-sidebar-fixed'>Fixed</a>
+                                <a href="#" class="active set-sidebar-default">Default</a>
+                            </div>
+                            </li>
                         </ul>
-                    </div><!--/.nav-collapse -->
+                        </li>
+                        <li>
+                        <a href="more-locked.html" class='lock-screen' rel='tooltip' title="Lock screen" data-placement="bottom"><i class="icon-lock"></i></a>
+                        </li>
+                    </ul>
+                    <div class="dropdown">
+                        <a href="#" class='dropdown-toggle' data-toggle="dropdown">John Doe <img src="img/demo/user-avatar.jpg" alt=""></a>
+                    </div>
+                </div>
+                <a href="#" class='toggle-mobile'><i class="icon-reorder"></i></a>
+            </div>
+        </div>
+
+
+
+        <% unless current_user.account_type == 1 %>
+            <% permitted_to? :index, :sales_executives do %>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Team<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-submenu">
+                    <a href="#">Team's leads</a>
+                    <ul class="dropdown-menu">
+                        <% @team_leaders = TeamLeader.all.each do |team_leader| %>
+                            <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
+                        <% end %>
+                    </ul>
+                    </li>
+                    <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                </ul>
+                </li>
+            <% end %>
+        <% end %>
+
+
+
+
+    </ul>
+    <ul class="nav pull-right">
+        <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+    </ul>
+</div><!--/.nav-collapse -->
                 </div>
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="span12">
-                    <%= bootstrap_flash %>
-                    <%= yield %>
-                </div>
+        <div class="container-fluid" id="content">
+            <div id="main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="span12">
+                            <%= bootstrap_flash %>
+                            <%= yield %>
+                        </div>
 
-            </div><!--/row-->
+                    </div><!--/row-->
 
-            <footer>
-            <p>Wave Techline India pvt. ltd. &copy; Company 2012</p>
-            </footer>
+                    <footer>
+                    <p>Wave Techline India pvt. ltd. &copy; Company 2012</p>
+                    </footer>
 
-        </div> <!-- /container -->
+                </div> <!-- /container -->
 
-        <!-- Javascripts
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
+                <!-- Javascripts
+                ================================================== -->
+                <!-- Placed at the end of the document so the pages load faster -->
 
-        <%= javascript_include_tag :application %>
-    </body>
+                <%= javascript_include_tag :application %>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
