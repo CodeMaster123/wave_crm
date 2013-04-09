@@ -27,13 +27,13 @@
   <div class="control-group">
     <%= f.label :mobile_no, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :mobile_no, :class => 'number_field' %>
+      <%= f.text_field :mobile_no, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :landline_no, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :landline_no, :class => 'number_field' %>
+      <%= f.text_field :landline_no, :class => 'number_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -42,12 +42,7 @@
       <%= f.text_field :contact_type, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :lead_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :lead_id, :class => 'number_field' %>
-    </div>
-  </div>
+
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

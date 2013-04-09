@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69f59d0-d45b-401a-8777-f51703e933c1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/follow_ups/follow_ups_list.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/follow_ups_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/follow_ups_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/follow_ups/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/follow_ups/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/follow_ups/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/follow_ups/edit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/follow_ups/index.html.erb" afterPath="$PROJECT_DIR$/app/views/follow_ups/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/follow_ups/new.html.erb" afterPath="$PROJECT_DIR$/app/views/follow_ups/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/follow_ups/show.html.erb" afterPath="$PROJECT_DIR$/app/views/follow_ups/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leads/index.html.erb" afterPath="$PROJECT_DIR$/app/views/leads/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/authorization_rules.rb" afterPath="$PROJECT_DIR$/config/authorization_rules.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/contact.rb" afterPath="$PROJECT_DIR$/app/models/contact.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contacts/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leads/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/leads/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/team_leaders/index.html.erb" afterPath="$PROJECT_DIR$/app/views/team_leaders/index.html.erb" />
     </list>
     <ignored path="wave_crm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,10 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="follow_ups_list.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/follow_ups/follow_ups_list.html.erb">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="7" selection-start="72" selection-end="72" vertical-scroll-proportion="0.10067114">
+            <state line="44" column="2" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.65436244">
               <folding />
             </state>
           </provider>
@@ -61,13 +55,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/users.js" />
-        <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
-        <option value="$PROJECT_DIR$/app/controllers/leads_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/lead.rb" />
-        <option value="$PROJECT_DIR$/app/views/leads/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/leads/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
         <option value="$PROJECT_DIR$/config/authorization_rules.rb" />
@@ -77,6 +65,12 @@
         <option value="$PROJECT_DIR$/app/controllers/follow_ups_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/follow_ups/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/follow_ups/follow_ups_list.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/leads/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/contact.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/team_leaders/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
       </list>
     </option>
   </component>
@@ -185,7 +179,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="leads" />
+              <option name="myItemId" value="contacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -200,64 +194,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="follow_ups" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -621,82 +557,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="4" selection-start="2147" selection-end="2147" vertical-scroll-proportion="0.45969126" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/authorization_rules.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="106" selection-start="463" selection-end="463" vertical-scroll-proportion="0.12842466" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130325090854_create_leads.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/follow_up.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="14" selection-start="6" selection-end="14" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130403061832_create_follow_ups.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="33" selection-start="169" selection-end="183" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="31" selection-start="10222" selection-end="10222" vertical-scroll-proportion="0.9505766" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/leads/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="28" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/contacts_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/leads_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.88709676" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/leads/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="67" selection-start="2877" selection-end="2877" vertical-scroll-proportion="1.2053572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/follow_ups_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="13" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.7034596">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/follow_ups/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="2" selection-start="164" selection-end="164" vertical-scroll-proportion="0.12583892">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/follow_ups/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="75" selection-start="1661" selection-end="1661" vertical-scroll-proportion="1.0291595">
@@ -707,6 +567,104 @@
     <entry file="file://$PROJECT_DIR$/app/views/follow_ups/follow_ups_list.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="7" selection-start="72" selection-end="72" vertical-scroll-proportion="0.10067114">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/lead.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/contact.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="2" selection-start="497" selection-end="497" vertical-scroll-proportion="0.27182865">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/leads/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="8" selection-start="2785" selection-end="2785" vertical-scroll-proportion="0.4714765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/unlocks/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/login.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.42785236">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/leads/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="67" selection-start="2877" selection-end="2877" vertical-scroll-proportion="-39.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="40" selection-start="2203" selection-end="2203" vertical-scroll-proportion="0.54373926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/team_leaders/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.9005146">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="2" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.65436244">
           <folding />
         </state>
       </provider>

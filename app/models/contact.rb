@@ -9,7 +9,7 @@ class Contact < ActiveRecord::Base
   validates :address, :presence => true
   validates :mobile_no, :presence => true, :numericality => true
   validates :landline_no, :presence => true, :numericality => true
-  validates :contact_type, :presence => true
+
 
 
 end
