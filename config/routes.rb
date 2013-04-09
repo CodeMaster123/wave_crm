@@ -16,6 +16,7 @@ WaveCrm::Application.routes.draw do
   match 'calendar' => "calendar#index"
   match 'sales_executive_leads/:id1' => 'sales_executives#index'
   match 'follow_ups/new/:id1' => 'follow_ups#new'
+  match 'follow_ups_list/:id' => 'follow_ups#follow_ups_list'
   match 'target_forecast' => 'team_leaders#target_forecast'
   match 'leads/index/:team_leader' => 'leads#index'
 

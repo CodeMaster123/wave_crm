@@ -1,0 +1,25 @@
+
+<div class="page-header">
+  <h1>Lead and Follow_ups</h1>
+</div>
+       <h4><%= Lead.where(:id => params[:id]).first.title %></h4>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+     <th>Description</th>
+    <th>follow_up_time</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @follow_up.each do |follow_up| %>
+      <tr>
+        <td><%= follow_up.description %></td>
+        <td><%= follow_up.follow_up_time %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+
+
+</table>

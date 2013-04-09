@@ -1,9 +1,9 @@
 authorization do
   role :admin do
-    has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search]
-    has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show]
-    has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show]
-    has_permission_on :team_leaders, :to => [:index, :create, :read, :update, :destroy, :new, :show]
+    has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+    has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
+    has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
+    has_permission_on :team_leaders, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
     #has_permission_on :employees, :to => [:index, :create, :read, :update, :destroy, :new, :show]
 
   end
