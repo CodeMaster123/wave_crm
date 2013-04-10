@@ -1,2 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <%= csrf_meta_tags %>
 
-<%= yield %>
+        <%= stylesheet_link_tag "application", :media => "all" %>
+        <%= stylesheet_link_tag "/assets/style2.css" %>
+        <%= stylesheet_link_tag "/assets/style.css" %>
+        <%= javascript_include_tag "jquery" %>
+    </head>
+
+    <body class='login'>
+        <div class="wrapper">
+            <h1><a><%= image_tag "logo-big.png", :class => 'retina-ready', :width => "59", :height => "49" %>CRM</a></h1>
+            <%= yield %>
+        </div>
+    </body>
+</html>
+
