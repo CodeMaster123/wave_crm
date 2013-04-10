@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409130607) do
+ActiveRecord::Schema.define(:version => 20130410053908) do
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -24,10 +24,8 @@ ActiveRecord::Schema.define(:version => 20130409130607) do
     t.integer  "landline_no"
     t.string   "contact_type"
     t.integer  "lead_id"
-    t.integer  "contactable_id"
-    t.string   "contactable_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "employees", :force => true do |t|
@@ -71,12 +69,28 @@ ActiveRecord::Schema.define(:version => 20130409130607) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "leads_products", :force => true do |t|
+    t.integer  "lead_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "notifications", :force => true do |t|
     t.boolean  "sms_sent"
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.float    "min_cost"
+    t.float    "max_cost"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "sales_executives", :force => true do |t|

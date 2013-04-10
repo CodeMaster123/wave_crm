@@ -1,4 +1,10 @@
 WaveCrm::Application.routes.draw do
+  resources :products
+
+
+  resources :leads_products
+
+
   resources :notifications
 
 
