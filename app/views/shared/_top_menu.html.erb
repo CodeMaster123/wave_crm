@@ -110,6 +110,23 @@
                 <% end %>
             <% end %>
 
+            <% if controller_name == "products" %>
+                <% permitted_to? :index, :products do %>
+                    <li class="active">
+                    <%= link_to(:products) do %>
+                        <span>Products</span>
+                    <% end %>
+                    </li>
+                <% end %>
+            <% elsif %>
+                <% permitted_to? :index, :products do %>
+                    <li>
+                    <%= link_to(:products) do %>
+                        <span>Products</span>
+                    <% end %>
+                    </li>
+                <% end %>
+            <% end %>
 
             <% if controller_name == "users" %>
                 <% permitted_to? :index, :users do %>

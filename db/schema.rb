@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20130410053908) do
     t.integer  "landline_no"
     t.string   "contact_type"
     t.integer  "lead_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "contactable_id"
+    t.string   "contactable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "employees", :force => true do |t|
