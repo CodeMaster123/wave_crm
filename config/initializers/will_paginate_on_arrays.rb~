@@ -1,3 +1,0 @@
-will_paginate_array_fix.rb), add this
-
-require 'will_paginate/array'
