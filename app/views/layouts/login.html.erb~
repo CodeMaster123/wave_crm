@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" href="assets/style2.css">
+	<!-- Color CSS -->
+	<link rel="stylesheet" href="css/themes.css">
+
+
+	<!-- jQuery -->
+
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/eakroko.js"></script>
+
+</head>
+
+<body class='login'>
+	<div class="wrapper">
+		<h1><a href="index.html"><img src="/assets/logo-big.png" alt="" class='retina-ready' width="59" height="49">FLAT</a></h1>
+		<div class="login-body">
+
+<%= yield %>
+			<h2>SIGN IN</h2>
+			<form action="http://www.eakroko.de/flat/index.html" method='get'>
+				<div class="email">
+					<input type="text" name='uemail' placeholder="Email address" class='input-block-level'>
+				</div>
+				<div class="pw">
+					<input type="password" name="upw" placeholder="Password" class='input-block-level'>
+				</div>
+				<div class="submit">
+					<input type="submit" value="Sign me in" class='btn btn-primary'>
+				</div>
+			</form>
+			<div class="forget">
+				<a href="#"><span>Forgot password?</span></a>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
+
