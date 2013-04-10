@@ -66,8 +66,7 @@ class LeadsController < ApplicationController
   def create
       @lead = Lead.new(params[:lead])
       @lead.leadable_id = current_user.id
-      @lead.leadable_type = current_user.class.name
-
+      @lead.leadable_type = current_u@products = Product.all
       respond_to do |format|
           if @lead.save
               #@follow_up = FollowUp.create(:lead_id = @lead.id,
