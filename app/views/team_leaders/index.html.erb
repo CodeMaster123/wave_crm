@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to team_leader.id, team_leader_path(team_leader) %></td>
 
-        <td><%= "#{team_leader.user.first_name} #{team_leader.user.first_name}"  %></td>
+        <td><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}"  %></td>
         <td><%= team_leader.user.mobile_no %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

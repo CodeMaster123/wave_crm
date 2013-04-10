@@ -20,7 +20,7 @@
  *  Twitter: http://twitter.com/fortaweso_me
  *  Work: Lead Product Designer @ http://kyruus.com
  */@font-face {
-    font-family:'FontAwesome';src:url("fontawesome-webfont.eot?v=3.0.1");src:url("fontawesome-webfont.eot?#iefix&v=3.0.1") format("embedded-opentype"),url("fontawesome-webfont.woff?v=3.0.1") format("woff"),url("fontawesome-webfont.ttf?v=3.0.1") format("truetype");font-weight:normal;font-style:normal;
+    font-family:'FontAwesome';src:url("../font/fontawesome-webfont.eot?v=3.0.1");src:url("../font/fontawesome-webfont.eot?#iefix&v=3.0.1") format("embedded-opentype"),url("../font/fontawesome-webfont.woff?v=3.0.1") format("woff"),url("../font/fontawesome-webfont.ttf?v=3.0.1") format("truetype");font-weight:normal;font-style:normal;
 }
 
 [class^="icon-"],[class*=" icon-"] {
@@ -1935,12 +1935,12 @@ a:focus {
     padding-right: 70px;
     padding-left: 35px;
     padding-bottom: 2px;
-    background: url("logo.png") no-repeat;
+    background: url("../img/logo.png") no-repeat;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
     #navigation #brand {
-        background: url("logo@2x.png") no-repeat;
+        background: url("../img/logo@2x.png") no-repeat;
         background-size: 22px 22px;
     };
 }
@@ -2990,15 +2990,15 @@ a:focus {
 }
 
 .table.dataTable .sorting_asc {
-    background: url("sorting-asc.png") no-repeat right center #eee;
+    background: url("../img/sorting-asc.png") no-repeat right center #eee;
 }
 
 .table.dataTable .sorting_desc {
-    background: url("sorting-desc.png") no-repeat right center #eee;
+    background: url("../img/sorting-desc.png") no-repeat right center #eee;
 }
 
 .table.dataTable .sorting {
-    background: url("sorting.png") no-repeat right center #eee;
+    background: url("../img/sorting.png") no-repeat right center #eee;
 }
 
 .table.dataTable .sorting,.table.dataTable .sorting_desc,.table.dataTable .sorting_asc {

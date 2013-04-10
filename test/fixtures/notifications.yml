@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sms_sent: false
+  contact_id: 1
+  body: MyString
+
+two:
+  sms_sent: false
+  contact_id: 1
+  body: MyString

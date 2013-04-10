@@ -1,4 +1,13 @@
 WaveCrm::Application.routes.draw do
+  resources :products
+
+
+  resources :leads_products
+
+
+  resources :notifications
+
+
 mount_sextant if Rails.env.development?
 
   resources :targets
