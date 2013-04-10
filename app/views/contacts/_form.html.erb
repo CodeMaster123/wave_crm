@@ -39,7 +39,7 @@
   <div class="control-group">
     <%= f.label :contact_type, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :contact_type, [["Select Contact Type", 0], ["Lead", 1], ["Existing Customer", 2]],{:selected => 0, :disabled => 0}, :class => 'text_field' %>
+      <%= f.select :contact_type, [["Select Contact Type", "Select Contact Type"], ["Lead", "Lead"], ["Existing Customer", "Existing Customer"]],{:selected => "Select Contact Type", :disabled => "Select Contact Type" }, :class => 'text_field' %>
     </div>
   </div>
 

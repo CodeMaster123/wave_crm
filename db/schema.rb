@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130410053908) do
     t.string   "address"
     t.integer  "mobile_no"
     t.integer  "landline_no"
-    t.integer  "contact_type"
+    t.string   "contact_type"
     t.integer  "lead_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
