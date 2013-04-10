@@ -5126,7 +5126,7 @@ body.error .wrapper .input-append .btn:hover {
 /* Autocomplete
 ----------------------------------*/
 .ui-autocomplete { position: absolute; cursor: default;    background: #1b67af;    width: 200px; }       
-.ui-autocomplete-loading { background: white url('ui-anim_basic_16x16.gif') right center no-repeat; }
+.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
 
 /* workarounds */
 * html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */

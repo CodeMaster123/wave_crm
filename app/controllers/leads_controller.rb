@@ -1,6 +1,6 @@
 class LeadsController < ApplicationController
   before_filter :authenticate_user!
-  filter_access_to :all
+  filter_resource_access
   layout :choose_layout
 
   def choose_layout

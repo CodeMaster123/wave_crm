@@ -1,4 +1,3 @@
-<%= javascript_include_tag "jquery-ui-1.10.2.custom.min" %>
 <%= form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :sms_sent, :class => 'control-label' %>
@@ -25,19 +24,39 @@
                 notifications_path, :class => 'btn' %>
   </div>
 <% end %>
-<script>
-    $(function() {
-        var availableTags = [
 
 
 
-        <% Contact.all.each do |c| %>
-            <%= raw("\"#{c.name}\",") %>
-        <% end %>
 
-        ];
-        $( ".contacts_text_field" ).autocomplete({
-            source: availableTags
-        });
+
+  <script>
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( ".contacts_text_field" ).autocomplete({
+      source: availableTags
     });
-</script>
+  });
+  </script>
