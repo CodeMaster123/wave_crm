@@ -97,34 +97,28 @@ FollowUp.create([
                 {:lead_id => 13, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
 ])
 
-Product.create([
-               {:name => "CRM", :min_cost => 50000, :max_cost => 60000, :description => "Web Application"},
-               {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web Application"},
-               {:name => "Web Site", :min_cost => 20000, :max_cost => 30000, :description => "Web Application"},
-               {:name => "CRM Offline", :min_cost => 30000, :max_cost => 40000, :description => "Offline"},
-               {:name => "ERP Offline", :min_cost => 30000, :max_cost => 50000, :description => "Offline"},
-               {:name => "Portal", :min_cost => 20000, :max_cost => 30000, :description => "Web Application"},
-               {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web Application"},
-               {:name => "CRM + ERP Offline", :min_cost => 70000, :max_cost => 80000, :description => "Offline"},
-               {:name => "Web Site with flash", :min_cost => 60000, :max_cost => 80000, :description => "Web Application"}
-])
 
+Product.create([
+                   {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application"},
+                   {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
+                   {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application"},
+                   {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application"},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
+                   {:name => "Web Site Flash", :min_cost => 70000, :max_cost => 80000, :description => "Web application"}
+               ])
 
 LeadsProduct.create([
-                    {:lead_id => 1, :product_id => 1},
-                    {:lead_id => 2, :product_id => 3},
-                    {:lead_id => 2, :product_id => 6},
-                    {:lead_id => 3, :product_id => 5},
-                    {:lead_id => 4, :product_id => 2},
-                    {:lead_id => 5, :product_id => 8},
-                    {:lead_id => 6, :product_id => 9},
-                    {:lead_id => 7, :product_id => 7},
-                    {:lead_id => 8, :product_id => 5},
-                    {:lead_id => 8, :product_id => 3},
-                    {:lead_id => 9, :product_id => 4},
-                    {:lead_id => 9, :product_id => 5},
-                    {:lead_id => 10, :product_id => 1},
-                    {:lead_id => 11, :product_id => 6},
-                    {:lead_id => 12, :product_id => 7},
-                    {:lead_id => 13, :product_id => 3}
+    {:lead_id => 1, :product_id => 1},
+    {:lead_id => 2, :product_id => 2},
+    {:lead_id => 3, :product_id => 2},
+    {:lead_id => 4, :product_id => 3},
+    {:lead_id => 5, :product_id => 4},
+    {:lead_id => 6, :product_id => 5},
+    {:lead_id => 7, :product_id => 6},
+    {:lead_id => 8, :product_id => 6},
+    {:lead_id => 9, :product_id => 4},
+    {:lead_id => 10, :product_id => 3},
+    {:lead_id => 11, :product_id => 1},
+    {:lead_id => 12, :product_id => 4},
+    {:lead_id => 13, :product_id => 5}
 ])
