@@ -34,6 +34,7 @@ GEM
     boson (1.2.4)
     builder (3.0.4)
     clipboard (1.0.1)
+    cocaine (0.4.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -109,6 +110,12 @@ GEM
     ori (0.1.0)
     orm_adapter (0.4.0)
     paint (0.8.5)
+    paperclip (3.3.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     polyglot (0.3.3)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
@@ -198,6 +205,7 @@ DEPENDENCIES
   less-rails
   mysql2
   nested_form (= 0.3.2)
+  paperclip
   quiet_assets
   rails (= 3.2.12)
   rails3-jquery-autocomplete

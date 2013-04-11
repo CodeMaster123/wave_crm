@@ -36,12 +36,13 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @all_team_leaders = TeamLeader.all
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no],)
+    @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no])
     @all_team_leaders = TeamLeader.all
 
 

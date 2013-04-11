@@ -12,6 +12,9 @@
   <dd><%= @user.address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mobile_no) %>:</strong></dt>
   <dd><%= @user.mobile_no %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:avatar) %>:</strong></dt>
+  <dd><%= image_tag @user.avatar.url(:thumb) %></dd>
+
 </dl>
 
 <div class="form-actions">
