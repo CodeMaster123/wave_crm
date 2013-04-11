@@ -1,9 +1,14 @@
 <%= link_to "new event", new_event_path %>
 
 <div id='calendar' style="margin-top: 60px"></div>
+<%= javascript_include_tag 'jquery-ui-1.10.2.custom.min' %>
 <%= javascript_include_tag 'fullcalendar.min' %>
 <%= javascript_include_tag 'gcal' %>
 <%= javascript_include_tag 'jquery.rest' %>
 <%#= javascript_include_tag 'jquery-ui-1.10.2.custom.min.js' %>
 <%= stylesheet_link_tag 'fullcalendar.css' %>
 <%= javascript_include_tag 'calendar.js' %>
+
+
+
+
