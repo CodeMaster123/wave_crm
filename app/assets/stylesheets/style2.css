@@ -5158,3 +5158,9 @@ body.error .wrapper .input-append .btn:hover {
 .ui-menu .ui-menu-item a.ui-state-active {
         margin: -1px;
 }
+
+.mod-dropdown1 {
+    border-top: 2px solid #368ee0 !important;
+    border-radius: 0 !important;
+    margin-left: 0 !important;
+}
