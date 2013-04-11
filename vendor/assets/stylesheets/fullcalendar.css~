@@ -56,7 +56,6 @@ html .fc,.fc table {
 
 .fc-header .fc-button {
     margin-right: 5px;
-    margin-top: 8px;
 }
 
 .fc-header .fc-corner-right {
