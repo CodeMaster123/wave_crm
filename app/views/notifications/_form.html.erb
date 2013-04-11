@@ -1,4 +1,3 @@
-<%= javascript_include_tag "jquery-ui-1.10.2.custom.min" %>
 <%= form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :sms_sent, :class => 'control-label' %>
@@ -20,7 +19,7 @@
   </div>
 
   <div class="control-group">
-      <%= f.label :body, :class => 'control-label' %>
+      <%= f.label :Notification_time, :class => 'control-label' %>
       <div class="controls">
           <%= f.text_field :notification_time, :class => 'datetime_select' %>
       </div>
@@ -35,8 +34,6 @@
   <script>
       $(function() {
           var availableTags = [
-
-
 
           <% Contact.all.each do |c| %>
               <%= raw("\"#{c.name}\",") %>
