@@ -23,12 +23,10 @@
         <div class="control-group">
           <%= follow_up.label :follow_up_time, :class => 'control-label' %>
           <div class="controls">
-            <%= follow_up.datetime_select :follow_up_time, :class => 'text_field' %>
+            <%= follow_up.text_field :follow_up_time, :class => 'datetime_select' %>
           </div>
         </div>
-        <%= follow_up.link_to_remove "Remove this follow_up" %>
     <% end %>
-    <p><%= f.link_to_add  "Add a follow_ups", :follow_ups %></p>
 
 
     <h4>Contact Details</h4>
