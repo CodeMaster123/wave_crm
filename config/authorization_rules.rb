@@ -5,6 +5,11 @@ authorization do
     has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
     has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
     has_permission_on :team_leaders, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
+    has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+    has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+    has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+    has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+    has_permission_on :calendar, :to => [:index]
     #has_permission_on :employees, :to => [:index, :create, :read, :update, :destroy, :new, :show]
   end
 
