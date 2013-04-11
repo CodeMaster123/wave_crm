@@ -9,12 +9,6 @@
     </div>
 </div>
 
-<div class="control-group">
-    <div class="controls">
-        Search: <%= text_field_tag :title,"", :class => 'search-c' %>
-    </div>
-</div>
-
 <table class="table table-striped">
     <thead>
         <tr>
