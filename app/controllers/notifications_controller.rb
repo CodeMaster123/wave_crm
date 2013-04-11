@@ -1,4 +1,6 @@
 class NotificationsController < ApplicationController
+  before_filter :authenticate_user!
+  filter_resource_access
   # GET /notifications
   # GET /notifications.json
   def index

@@ -80,8 +80,9 @@ ActiveRecord::Schema.define(:version => 20130411051950) do
     t.boolean  "sms_sent"
     t.integer  "contact_id"
     t.string   "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "notification_time"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "products", :force => true do |t|
