@@ -5162,5 +5162,11 @@ body.error .wrapper .input-append .btn:hover {
 .mod-dropdown1 {
     border-top: 2px solid #368ee0 !important;
     border-radius: 0 !important;
-    margin-left: 0 !important;
+    margin-left: 0px !important;
+}
+
+.d2 {
+    border-top: 2px solid #368ee0 !important;
+    border-radius: 0 !important;
+    margin-left: 162px !important;
 }

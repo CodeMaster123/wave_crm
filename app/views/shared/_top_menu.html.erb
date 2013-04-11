@@ -55,7 +55,7 @@
                 <% permitted_to? :index, :team_leaders do %>
                     <li class="active" >
                     <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-                        <span>Team</span>
+                        Team
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -65,7 +65,11 @@
                         <li>
                         <%= link_to "Team's leads"  %>
                         </li>
-                        <ul class="dropdown-menu">
+                        <li class="dropdown-submenu">
+                        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                            Team
+                        </a>
+                        <ul class="dropdown-menu d2">
                             <% @team_leaders = TeamLeader.all.each do |team_leader| %>
                                 <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
                             <% end %>
@@ -74,7 +78,15 @@
 
                         <% permitted_to? :index, :sales_executives do %>
                             <li><%= link_to "Sales Executive", :sales_executives  %></li>
-                            <li><%= link_to "Executive Targets", :targets %></li>
+                            <li class="dropdown-submenu">
+                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                                <span>Targets</span>
+                            </a>
+                            <ul class="dropdown-menu d2">
+                                <li><%= link_to "Target's list", :targets %></li>
+                                <li><%= link_to "Assign new target", :new_target %></li>
+                            </ul>
+                            </li>
                         <% end %>
                     </ul>
                     </li>
@@ -94,9 +106,9 @@
                         <%= link_to "Team's leads"  %>
                         </li>
                         <li class="dropdown-submenu">
-                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-                                <span>team</span>
-                            </a>
+                        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                            <span>team</span>
+                        </a>
                         <ul class="dropdown-menu mod-dropdown1">
                             <% @team_leaders = TeamLeader.all.each do |team_leader| %>
                                 <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
@@ -106,7 +118,15 @@
 
                         <% permitted_to? :index, :sales_executives do %>
                             <li><%= link_to "Sales Executive", :sales_executives  %></li>
-                            <li><%= link_to "Executive Targets", :targets %></li>
+                            <li class="dropdown-submenu">
+                            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                                <span>Targets</span>
+                            </a>
+                            <ul class="dropdown-menu mod-dropdown1">
+                                <li><%= link_to "Target's list", :targets %></li>
+                                <li><%= link_to "Assign new target", :new_target %></li>
+                            </ul>
+                            </li>
                         <% end %>
                     </ul>
                     </li>
