@@ -9,9 +9,10 @@ class User < ActiveRecord::Base
     has_one :team_leader
     has_one :sales_executive
     has_many :events
+    has_attached_file :avatar, :styles => { :small => "150x150>" }
 
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
-    attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader
+    attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader, :avatar
 
     validates :first_name, :presence => true
     validates :last_name, :presence => true
