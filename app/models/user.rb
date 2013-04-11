@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
     has_one :team_leader
     has_one :sales_executive
     has_many :events
-    has_attached_file :avatar, :styles => { :small => "150x150>" }
+    has_attached_file :avatar,
+                      :styles => { :medium => "800x800>",
+                                   :thumb => "27x27>" }, :default_url => "/avatar/thumb/missing.png"
 
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
     attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader, :avatar
