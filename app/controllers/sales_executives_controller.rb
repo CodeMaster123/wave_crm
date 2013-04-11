@@ -1,5 +1,6 @@
 class SalesExecutivesController < ApplicationController
   before_filter :authenticate_user!
+  filter_resource_access
   # GET /sales_executives
   # GET /sales_executives.json
   def index

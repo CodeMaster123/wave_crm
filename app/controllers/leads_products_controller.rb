@@ -1,4 +1,6 @@
 class LeadsProductsController < ApplicationController
+  before_filter :authenticate_user!
+  filter_resource_access
   # GET /leads_products
   # GET /leads_products.json
   def index

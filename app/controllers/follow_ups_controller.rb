@@ -1,4 +1,6 @@
 class FollowUpsController < ApplicationController
+  before_filter :authenticate_user!
+  filter_resource_access
   # GET /follow_ups
   # GET /follow_ups.json
   def index
