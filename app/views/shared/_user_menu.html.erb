@@ -20,6 +20,11 @@
         <a href="#" class='dropdown-toggle' data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %><%= image_tag "#{current_user.avatar}" %></a>
         <ul class="dropdown-menu pull-right">
             <li>
+            <% permitted_to? :index, :tags do %>
+                <%= link_to "Tags", :tags%>
+            <% end %>
+            </li>
+            <li>
             <% permitted_to? :index, :products do %>
                 <%= link_to "Products", :products %>
             <% end %>

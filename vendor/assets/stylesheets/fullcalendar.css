@@ -136,6 +136,15 @@ html .fc,.fc table {
     white-space: nowrap;
 }
 
+.fc-button-content a:visited {
+    font-color: white;
+    background-color:none;
+}
+
+.fc-button-content a:hover {
+    background-color:none;
+}
+
 .fc-button-content .fc-icon-wrap {
     position: relative;
     float: left;
