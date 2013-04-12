@@ -50,7 +50,7 @@ class TargetsController < ApplicationController
 
     respond_to do |format|
       if @target.save
-        format.html { redirect_to @target, notice: 'Target was successfully created.' }
+        format.html { redirect_to :targets, notice: 'Target was successfully created.' }
         format.json { render json: @target, status: :created, location: @target }
       else
         format.html { render action: "new" }

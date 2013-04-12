@@ -46,7 +46,7 @@ class SalesExecutivesController < ApplicationController
 
     respond_to do |format|
       if @sales_executive.save
-        format.html { redirect_to @sales_executive, notice: 'Sales executive was successfully created.' }
+        format.html { redirect_to :sales_executives, notice: 'Sales executive was successfully created.' }
         format.json { render json: @sales_executive, status: :created, location: @sales_executive }
       else
         format.html { render action: "new" }

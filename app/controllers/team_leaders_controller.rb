@@ -47,7 +47,7 @@ class TeamLeadersController < ApplicationController
 
     respond_to do |format|
       if @team_leader.save
-        format.html { redirect_to @team_leader, notice: 'Team leader was successfully created.' }
+        format.html { redirect_to :team_leaders, notice: 'Team leader was successfully created.' }
         format.json { render json: @team_leader, status: :created, location: @team_leader }
       else
         format.html { render action: "new" }
