@@ -1,8 +1,11 @@
 class Contact < ActiveRecord::Base
   attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type
 
-  has_many :notifications
   belongs_to :lead
+  has_many :notifications
+
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
