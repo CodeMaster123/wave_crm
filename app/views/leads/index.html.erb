@@ -12,6 +12,9 @@
 <div class="control-group">
     <div class="controls">
         Search: <%= text_field_tag :title,"", :class => 'search-c' %>
+        <div class="new-top">
+            <%= link_to "New", new_lead_path, :class => 'btn btn-primary custom-new-button' %>
+        </div>
     </div>
 </div>
 
@@ -98,7 +101,6 @@
     <% end %>
 <% end %>
 
-<%= link_to "New", new_lead_path, :class => 'btn btn-primary' %>
 
 <script type="text/javascript">
     $(document).ready(function(){

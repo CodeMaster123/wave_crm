@@ -40,9 +40,14 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
+  padding: 9px;
   background-color: red;
   display: table;
+  display: inline; 
+}
+
+.field_with_errors input {
+  margin-bottom: 4px;
 }
 
 #error_explanation {

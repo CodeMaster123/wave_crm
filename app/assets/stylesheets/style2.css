@@ -5170,3 +5170,12 @@ body.error .wrapper .input-append .btn:hover {
     border-radius: 0 !important;
     margin-left: 162px !important;
 }
+.custom-new-button {
+    width: 40px;
+}
+
+div.new-top {
+    float: right;
+    margin-right: 70%;
+}
+
