@@ -2,10 +2,8 @@
 
 one:
   employee_id: 1
-  lead_id: 1
-  sales_executive_id: MyString
+  user_id: 2
 
 two:
   employee_id: 1
-  lead_id: 1
-  sales_executive_id: MyString
+  user_id: 2
