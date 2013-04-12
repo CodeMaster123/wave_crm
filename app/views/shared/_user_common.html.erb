@@ -69,3 +69,48 @@
     </ul>
     </li>
 <% end %>
+
+
+<% if controller_name == "calendar" || controller_name == "events" || controller_name == "notifications" %>
+    <li class="active">
+    <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+        <span>Appointments</span>
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+        <%= link_to "Calendar", :calendar %>
+        </li>
+        <li>
+        <%= link_to "Tasks", :events %>
+        </li>
+        <li>
+        <%= link_to "Notifications", :notifications %>
+        </li>
+        <li>
+        <%= link_to "Add new notifications", :new_notification %>
+        </li>
+    </ul>
+    </li>
+            <% elsif %>
+                <li>
+                <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+                    <span>Appointments</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                    <%= link_to "Calendar", :calendar %>
+                    </li>
+                    <li>
+                    <%= link_to "Tasks", :events %>
+                    </li>
+                    <li>
+                    <%= link_to "Notifications", :notifications %>
+                    </li>
+                    <li>
+                    <%= link_to "Add new notifications", :new_notification %>
+                    </li>
+                </ul>
+                </li>
+        <% end %>
