@@ -1,8 +1,11 @@
+<%= javascript_include_tag "chosen.jquery.min" %>
+<%= stylesheet_link_tag "chosen.css" %>
+
 <%= form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :contact_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :contact_id, :class => 'contacts_text_field' %>
+        <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.name, c.id]}), :class => 'contacts_text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -26,16 +29,8 @@
       </div>
   <% end %>
   <script>
-      $(function() {
-          var availableTags = [
-
-          <% Contact.all.each do |c| %>
-              <%= raw("\"#{c.name}\",") %>
-          <% end %>
-
-          ];
-          $( ".contacts_text_field" ).autocomplete({
-              source: availableTags
-          });
+      $(document).ready(function() {
+          $('#notification_contact_id').chosen();
       });
   </script>
+

@@ -27,6 +27,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/new.json
   def new
     @notification = Notification.new
+    @contacts = Contact.all
 
     respond_to do |format|
       format.html # new.html.erb
