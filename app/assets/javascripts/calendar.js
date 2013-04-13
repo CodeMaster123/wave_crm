@@ -6,11 +6,14 @@ $(document).ready(function() {
     var y = date.getFullYear();
 
     $('#calendar').fullCalendar({
-        editable: true,        
+        editable: true,
         header: {
-            left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+            left: '',
+        center: 'prev,title,next',
+        right: 'month,agendaWeek,agendaDay,today'
+        },
+        buttonText:{
+            today:'Today'
         },
         defaultView: 'month',
         height: 500,
@@ -26,8 +29,7 @@ $(document).ready(function() {
         // a future calendar might have many sources.        
         eventSources: [{
             url: '/events',
-            color: 'yellow',
-            textColor: 'black',
+            textColor: 'white',
             ignoreTimezone: false
         }],
 
@@ -49,7 +51,15 @@ $(document).ready(function() {
             // would like a lightbox here.
         },
     });
+$(".fc-button-effect").remove();
+console.log("asdf")
+$(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
+$(".fc-button-prev .fc-button-content").html("<i class='icon-chevron-left'></i>");
+$(".fc-button-today").addClass('fc-corner-right');
+$(".fc-button-prev").addClass('fc-corner-left');
 });
+
+
 
 function updateEvent(the_event) {
     $.update(

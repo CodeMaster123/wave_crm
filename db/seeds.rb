@@ -122,3 +122,12 @@ LeadsProduct.create([
     {:lead_id => 12, :product_id => 4},
     {:lead_id => 13, :product_id => 5}
 ])
+
+Tag.create([
+    {:name => "Cloud"},
+    {:name => "website"},
+    {:name => "offline"},
+    {:name => "app"},
+    {:name => "android"},
+    {:name => "apple"},
+])
