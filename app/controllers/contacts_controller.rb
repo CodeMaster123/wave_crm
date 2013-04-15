@@ -3,20 +3,20 @@ class ContactsController < ApplicationController
     filter_resource_access
     def index
         if current_user.account_type ==1
-            @contacts = Contact.paginate(:page => params[:page], :per_page => 5).all
+            @contacts = Contact.paginate(:page => params[:page], :per_page => 15).all
         elsif current_user.account_type == 2
             @contacts = Array.new
             User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
                 @contacts += lead.contacts
-                @contacts.paginate(:page => params[:page], :per_page => 5)
+                @contacts.paginate(:page => params[:page], :per_page => 15)
             end
         elsif current_user.account_type == 3
             @contacts = Array.new
             User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
                 @contacts += lead.contacts
-                @contacts.paginate(:page => params[:page], :per_page => 5)
+                @contacts.paginate(:page => params[:page], :per_page => 15)
             end
-            @contacts.paginate(:page => params[:page], :per_page => 5)
+            @contacts.paginate(:page => params[:page], :per_page => 15)
         end
 
         respond_to do |format|

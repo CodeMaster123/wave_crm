@@ -30,82 +30,82 @@
         </tr>
     </thead>
     <tbody id="search-data">
-        <% @i = 0 %>
-        <% @leads.each do |lead| %>
-            <tr>
-                <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-                <td><%= lead.title %></td>
-                <td><%= lead.description %></td>
-                <td><%= lead.leadable_id %></td>
-                <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                    <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                    <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%h'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
-                <% else %>
-                    <td class="tTip" title="vivek varade">asdf</td>
-                <% end %>
-                <td>
-                    <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
-                    <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                    <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
-                </td>
-            </tr>
-        <% end %>
+      <% render :partial => 'shared/i_calculation' %>
+      <% @leads.each do |lead| %>
+        <tr>
+          <td><%= link_to @i = @i+1, lead_path(lead) %></td>
+          <td><%= lead.title %></td>
+          <td><%= lead.description %></td>
+          <td><%= lead.leadable_id %></td>
+          <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
+            <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+            <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%h'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
+          <% else %>
+            <td class="tTip" title="vivek varade">asdf</td>
+          <% end %>
+          <td>
+            <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+            <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+            <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
-</table>
+  </table>
 
-<div class="flickr_pagination">
+  <div class="flickr_pagination">
     <div class="page_info">
-        <%= page_entries_info @leads %>
+      <%= page_entries_info @leads %>
     </div>
     <%= will_paginate @leads, :container => false %>
-</div>
+  </div>
 
 
-<% unless params[:team_leader].nil? %>
+  <% unless params[:team_leader].nil? %>
     <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
-        <h4>Leads by </h4> <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Sr. no.</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Leadable_id</th>
-                    <th>Follow up time</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% executive.leads.each do |lead| %>
-                    <tr>
-                        <td><%= link_to lead.id, lead_path(lead) %></td>
-                        <td><%= lead.title %></td>
-                        <td><%= lead.description %></td>
+      <h4>Leads by </h4> <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Sr. no.</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Leadable_id</th>
+            <th>Follow up time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% executive.leads.each do |lead| %>
+            <tr>
+              <td><%= link_to lead.id, lead_path(lead) %></td>
+              <td><%= lead.title %></td>
+              <td><%= lead.description %></td>
 
-                        <td><%= lead.leadable_id %></td>
-                        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                            <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                            <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
-                        <% else %>
-                            <td class="tTip" title="vivek varade">asdf</td>
-                        <% end %>
-                        <td>
-                            <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
-                            <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                            <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
-                        </td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
+              <td><%= lead.leadable_id %></td>
+              <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
+                <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+                <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
+              <% else %>
+                <td class="tTip" title="vivek varade">asdf</td>
+              <% end %>
+              <td>
+                <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
-<% end %>
+  <% end %>
 
 
-<script type="text/javascript">
+  <script type="text/javascript">
     $(document).ready(function(){
-            $('.tTip').betterTooltip({speed: 150, delay: 300});
-            });
+        $('.tTip').betterTooltip({speed: 150, delay: 300});
+        });
 
 $('.search-c').searchbox({
 url: '/lead_search.html',

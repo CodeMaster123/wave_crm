@@ -17,18 +17,18 @@ class LeadsController < ApplicationController
       end
 
       if current_user.account_type == 1
-          @leads = Lead.paginate(:page => params[:page], :per_page => 5).all
+          @leads = Lead.paginate(:page => params[:page], :per_page => 15).all
           unless params[:id1].nil?
               @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
               executive_name = SalesExecutive.where(:id => params[:id1]).first.user
               @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
           end
       elsif current_user.account_type  == 2
-          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 5)
+          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 15)
           @team = current_user.team_leader.sales_executives.each do |executive|
           end
       elsif current_user.account_type ==3
-          @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 5)
+          @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
       end
 
       respond_to do |format|
