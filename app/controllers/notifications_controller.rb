@@ -38,6 +38,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit
     @notification = Notification.find(params[:id])
+    @contacts = Contact.all
   end
 
   # POST /notifications
