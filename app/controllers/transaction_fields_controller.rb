@@ -25,6 +25,7 @@ class TransactionFieldsController < ApplicationController
   # GET /transaction_fields/new.json
   def new
     @transaction_field = TransactionField.new
+    @users = User.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class TransactionFieldsController < ApplicationController
   # GET /transaction_fields/1/edit
   def edit
     @transaction_field = TransactionField.find(params[:id])
+    @users = User.all
   end
 
   # POST /transaction_fields
