@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     has_one :team_leader
     has_one :sales_executive
     has_many :events
+    has_many :transaction_fields
 
     has_attached_file :avatar,
                       :styles => { :medium => "2800x2800>",
