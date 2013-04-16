@@ -10,7 +10,8 @@ class CreateContacts < ActiveRecord::Migration
       t.integer :mobile_no
       t.integer :landline_no
       t.string :contact_type
-      t.integer :lead_id
+      t.string :contactable_type
+      t.integer :contactable_id
 
       t.timestamps
     end

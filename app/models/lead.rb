@@ -3,6 +3,8 @@ class Lead < ActiveRecord::Base
   has_many :follow_ups
   belongs_to :leadable, :polymorphic => true
 
+  has_many :contacts, :as => :contactable
+
   has_many :leads_products
   has_many :products, :through => :leads_products
 
