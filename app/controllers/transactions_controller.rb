@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
     # GET /transactions.json
     def index
         @transactions = Transaction.all
+        @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
             format.html # index.html.erb
