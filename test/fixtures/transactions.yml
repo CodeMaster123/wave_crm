@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contact_id: 
+  amount: 
+  transaction_time: 2013-04-16 10:43:35
+
+two:
+  contact_id: 
+  amount: 
+  transaction_time: 2013-04-16 10:43:35

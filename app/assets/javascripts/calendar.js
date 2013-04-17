@@ -51,12 +51,12 @@ $(document).ready(function() {
             // would like a lightbox here.
         },
     });
-$(".fc-button-effect").remove();
-console.log("asdf")
-$(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
-$(".fc-button-prev .fc-button-content").html("<i class='icon-chevron-left'></i>");
-$(".fc-button-today").addClass('fc-corner-right');
-$(".fc-button-prev").addClass('fc-corner-left');
+    $(".fc-button-effect").remove();
+    console.log("asdf")
+        $(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
+    $(".fc-button-prev .fc-button-content").html("<i class='icon-chevron-left'></i>");
+    $(".fc-button-today").addClass('fc-corner-right');
+    $(".fc-button-prev").addClass('fc-corner-left');
 });
 
 

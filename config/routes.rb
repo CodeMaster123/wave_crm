@@ -1,4 +1,13 @@
 WaveCrm::Application.routes.draw do
+  resources :transaction_field_values
+
+
+  resources :transaction_fields
+
+
+  resources :transactions
+
+
   resources :taggings
 
 
