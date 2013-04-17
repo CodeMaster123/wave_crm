@@ -87,4 +87,11 @@ class NotificationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def noticed
+      respond_to do |format|
+          format.html
+          format.json { render json: @notification }
+      end
+  end
 end
