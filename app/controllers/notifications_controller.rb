@@ -6,8 +6,11 @@ class NotificationsController < ApplicationController
   def index
     @notifications = Notification.all
 
+    puts @notifications
     respond_to do |format|
       format.html # index.html.erb
+      format.xml  { render :xml => @events }
+      format.js  { render :json => @events }
       format.json { render json: @notifications }
     end
   end
@@ -38,6 +41,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1/edit
   def edit
     @notification = Notification.find(params[:id])
+    @contacts = Contact.all
   end
 
   # POST /notifications

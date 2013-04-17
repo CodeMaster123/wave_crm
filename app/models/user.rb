@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     has_one :team_leader
     has_one :sales_executive
     has_many :events
+    has_many :transaction_fields
 
     has_attached_file :avatar,
                       :styles => { :medium => "2800x2800>",
@@ -40,5 +41,9 @@ class User < ActiveRecord::Base
         elsif self.account_type == 3
             return ["sales_executive".to_sym]
         end
+    end
+
+    def full_name
+        "#{self.first_name} #{self.last_name}"
     end
 end
