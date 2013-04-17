@@ -136,6 +136,12 @@ FollowUp.create([
                 {:lead_id => 11, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
                 {:lead_id => 12, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
                 {:lead_id => 13, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 14, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 15, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 16, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 17, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 18, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
+                {:lead_id => 19, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"}
 ])
 
 
@@ -179,4 +185,24 @@ Tag.create([
     {:name => "app"},
     {:name => "android"},
     {:name => "apple"},
+])
+
+Notification.create([
+                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 2, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 3, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 3, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 4, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 5, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 6, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 2, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 8, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 9, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => true, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => true, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
+                    {:sms_sent => true, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC"},
 ])
