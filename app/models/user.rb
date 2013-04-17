@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
 
     has_attached_file :avatar,
                       :styles => { :medium => "2800x2800>",
-                                   :thumb => "27x27#" }, :default_url => "/system/thumb/missing.png",
-                      :path => ":rails_root/public/system/thumb/:attachment/:id/:style/:basename.:extension",
-                      :url  => "/system/thumb/:attachment/:id/:style/:basename.:extension"
+                                   :thumb => "27x27#" }, :url  => "/system/thumb/:attachment/:id/:style/:basename.:extension", :default_url => "/system/thumb/missing.png",
+                      :path => ":rails_root/public/system/thumb/:attachment/:id/:style/:basename.:extension"
+
 
 
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
+
+    validates_attachment_presence :avatar
 
 
     def role_symbols
