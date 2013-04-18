@@ -51,6 +51,8 @@ class LeadsController < ApplicationController
 
       @lead.contacts.build
       @lead.follow_ups.build
+      @lead.leads_products.build
+      @products = Product.all
 
       respond_to do |format|
           format.html # new.html.erb
@@ -66,7 +68,8 @@ class LeadsController < ApplicationController
   def create
       @lead = Lead.new(params[:lead])
       @lead.leadable_id = current_user.id
-      @lead.leadable_type = current_u@products = Product.all
+      @lead.leadable_type = current_user.class.name
+      @products = Product.all
       respond_to do |format|
           if @lead.save
               #@follow_up = FollowUp.create(:lead_id = @lead.id,
