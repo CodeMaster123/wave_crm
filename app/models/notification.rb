@@ -25,7 +25,7 @@ class Notification < ActiveRecord::Base
       {
           :id => self.id,
           :type => "notification",
-          :title => self.body,
+          :title => "#{Contact.where(:id => self.contact_id).first.first_last_name} - #{self.body[0..10]+"..."}",
           :description => "",
           :start => self.notification_time,
           :end => self.notification_time,
