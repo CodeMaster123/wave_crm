@@ -28,6 +28,14 @@ $(document).ready(function() {
 
         // a future calendar might have many sources.        
         eventSources: [{
+            url: '/notifications',
+            textColor: 'white',
+            backgroundColor: 'green',
+            borderColor: 'green',
+            ignoreTimezone: false,
+            className: 'notification'
+        },
+        {
             url: '/events',
             textColor: 'white',
             ignoreTimezone: false
@@ -38,12 +46,22 @@ $(document).ready(function() {
 
         //http://arshaw.com/fullcalendar/docs/event_ui/eventDrop/
         eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
-            updateEvent(event);
+            if(event.type == "notification")
+            {
+                updateNotification(event);
+            }
+            else
+            {
+                updateEvent(event);
+            }
         },
 
         // http://arshaw.com/fullcalendar/docs/event_ui/eventResize/
         eventResize: function(event, dayDelta, minuteDelta, revertFunc){
-            updateEvent(event);
+            if(event.type == "event")
+            {
+                updateEvent(event);
+            }
         },
 
         // http://arshaw.com/fullcalendar/docs/mouse/eventClick/
@@ -52,8 +70,8 @@ $(document).ready(function() {
         },
     });
     $(".fc-button-effect").remove();
-    console.log("asdf")
-        $(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
+    console.log("asdf");
+    $(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
     $(".fc-button-prev .fc-button-content").html("<i class='icon-chevron-left'></i>");
     $(".fc-button-today").addClass('fc-corner-right');
     $(".fc-button-prev").addClass('fc-corner-left');
@@ -71,5 +89,15 @@ function updateEvent(the_event) {
                      }
             },
             function (reponse) { alert('successfully updated task.'); }
+            );
+};
+
+function updateNotification(the_event) {
+    $.update(
+            "/notifications/" + the_event.id,
+            {
+                notification: { notification_time: "" + the_event.start}
+            },
+            function (reponse) { alert('successfully updated notification.'); }
             );
 };
