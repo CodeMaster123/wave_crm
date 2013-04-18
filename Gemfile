@@ -7,6 +7,8 @@ gem 'declarative_authorization', '~> 0.5.7'
 gem 'nested_form', '0.3.2'
 gem 'thin', '~> 1.5.1'
 gem 'will_paginate'
+gem 'paperclip'
+gem 'wicked'
 
 
 group :assets do
@@ -28,6 +30,4 @@ gem 'rails3-jquery-autocomplete'
 gem 'quiet_assets'
 gem 'irbtools'
 gem 'sextant'
-gem 'paperclip'
-gem 'wicked'
 
