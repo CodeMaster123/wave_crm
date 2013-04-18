@@ -5,7 +5,4 @@ class TeamLeader < ActiveRecord::Base
   has_many :targets, :as => :targetable
   belongs_to :user
   has_many :sales_executives
-
-
-
 end

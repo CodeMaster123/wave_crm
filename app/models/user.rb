@@ -12,9 +12,10 @@ class User < ActiveRecord::Base
     has_many :transaction_fields
 
     has_attached_file :avatar,
-                      :styles => { :medium => "2800x2800>",
-                                   :thumb => "27x27#" }, :url  => "/system/thumb/:attachment/:id/:style/:basename.:extension", :default_url => "/system/thumb/missing.png",
-                      :path => ":rails_root/public/system/thumb/:attachment/:id/:style/:basename.:extension"
+        :styles => { :medium => "2800x2800>",
+            :thumb => "27x27#" }, :default_url => "/system/thumb/missing.png",
+            :path => ":rails_root/public/system/thumb/:attachment/:id/:style/:basename.:extension",
+            :url  => "/system/thumb/:attachment/:id/:style/:basename.:extension"
 
 
 

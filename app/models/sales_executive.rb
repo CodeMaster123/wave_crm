@@ -5,6 +5,4 @@ class SalesExecutive < ActiveRecord::Base
   has_many :targets, :as => :targetable
   belongs_to :user
   belongs_to :team_leader
-
-
 end

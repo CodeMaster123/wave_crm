@@ -5181,3 +5181,14 @@ div.new-top {
 #ms1 {
     width: 220px;
 }
+
+
+.lightred {
+    margin-left: 13px;
+    margin-top: -29px;
+    position: absolute;
+    font-size: 11px;
+    height: 12px;
+    background: #e63a3a;
+    padding: 2px;
+}
