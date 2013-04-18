@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
             :url  => "/system/thumb/:attachment/:id/:style/:basename.:extension"
 
 
+
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
     attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader, :avatar
 
@@ -29,6 +30,8 @@ class User < ActiveRecord::Base
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
+
+    validates_attachment_presence :avatar
 
 
     def role_symbols
