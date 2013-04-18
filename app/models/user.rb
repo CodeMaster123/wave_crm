@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
 
-    validates_attachment_presence :avatar
+    #validates_attachment_presence :avatar
 
 
     def role_symbols
