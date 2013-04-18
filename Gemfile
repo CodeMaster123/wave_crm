@@ -29,4 +29,5 @@ gem 'quiet_assets'
 gem 'irbtools'
 gem 'sextant'
 gem 'paperclip'
+gem 'wicked'
 
