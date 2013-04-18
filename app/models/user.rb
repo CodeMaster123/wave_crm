@@ -12,10 +12,11 @@ class User < ActiveRecord::Base
     has_many :transaction_fields
 
     has_attached_file :avatar,
-        :styles => { :medium => "2800x2800>",
-            :thumb => "27x27#" }, :default_url => "/system/thumb/missing.png",
-            :path => ":rails_root/public/system/thumb/:attachment/:id/:style/:basename.:extension",
-            :url  => "/system/thumb/:attachment/:id/:style/:basename.:extension"
+        :styles => {:thumb => "27x27#" }, :whiny => false,
+        :default_url => "/system/missing.png",
+        :url  => "/system/:attachment/:id/:style/:basename.:extension",
+        :path => ":rails_root/public/system/:attachment/:id/:style/:basename.:extension"
+
 
 
 
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
 
-    #validates_attachment_presence :avatar
+
 
 
     def role_symbols

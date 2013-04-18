@@ -1,0 +1,1 @@
+Paperclip.options[:command_path] = "path/to/identify"

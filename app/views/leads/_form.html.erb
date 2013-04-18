@@ -12,6 +12,17 @@
     </div>
   </div>
 
+<h4>Products</h4>
+    <%= f.fields_for :leads_products do |leads_products| %>
+        <div class="control-group">
+          <%= leads_products.label :product_id, :class => 'control-label' %>
+          <div class="controls">
+            <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+        </div>
+        <%= leads_products.link_to_remove "Remove this product" %>
+    <% end %>
+   <%= f.link_to_add "Add a product", :leads_products %>
+
 <h4>Follow up time</h4>
     <%= f.fields_for :follow_ups do |follow_up| %>
         <div class="control-group">
