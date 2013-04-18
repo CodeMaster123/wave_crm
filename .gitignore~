@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore paperclip images
-/public/system/avatars/*
+/public/system
