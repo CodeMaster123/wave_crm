@@ -20,4 +20,17 @@ class Notification < ActiveRecord::Base
       #end
       puts @sms_api_url
   end
+
+  def as_json(options = {})
+      {
+          :id => self.id,
+          :type => "notification",
+          :title => "#{Contact.where(:id => self.contact_id).first.first_last_name} - #{self.body[0..10]+"..."}",
+          :description => "",
+          :start => self.notification_time,
+          :end => self.notification_time,
+          :allDay => "",
+          :url => Rails.application.routes.url_helpers.notification_path(id)
+      }
+  end
 end

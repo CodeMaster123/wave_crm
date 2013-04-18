@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @events = @events.after(params['start']) if (params['start'])
     @events = @events.before(params['end']) if (params['end'])
     @events = User.where(:id => current_user.id).first.events.paginate(:page => params[:page], :per_page => 15)
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }
@@ -73,7 +73,7 @@ class EventsController < ApplicationController
   # viv la REST!
   def update
     @event = Event.find(params[:id])
-    
+
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }

@@ -21,6 +21,10 @@ class Contact < ActiveRecord::Base
       "#{self.first_name.capitalize} #{self.middle_name.capitalize} #{self.last_name.capitalize}"
   end
 
+  def first_last_name
+      "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
   private
   def set_defaults
     self.contact_type = "Lead" unless self.contact_type
