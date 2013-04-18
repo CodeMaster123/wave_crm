@@ -33,4 +33,8 @@ class Notification < ActiveRecord::Base
           :url => Rails.application.routes.url_helpers.notification_path(id)
       }
   end
+
+  def contact_name
+      puts 'a'
+  end
 end

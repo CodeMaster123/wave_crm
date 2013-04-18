@@ -1,6 +1,15 @@
 class NotificationsController < ApplicationController
   before_filter :authenticate_user!
-  filter_resource_access
+  filter_access_to :all
+  layout :choose_layout
+
+  def choose_layout
+      if action_name == 'search'
+          false
+      else
+          'application'
+      end
+  end
   # GET /notifications
   # GET /notifications.json
   def index
@@ -89,6 +98,20 @@ class NotificationsController < ApplicationController
       respond_to do |format|
           format.html
           format.json { render json: @notification }
+      end
+  end
+
+  def search
+      if current_user.account_type == 1
+          unless params[:q].empty?
+              @notifications = Notification.where("body like \'%#{params[:q]}%\'")
+          else
+              @notifications = Notification.all
+          end
+      end
+      respond_to do |format|
+          format.html
+          format.json { head :no_content }
       end
   end
 end

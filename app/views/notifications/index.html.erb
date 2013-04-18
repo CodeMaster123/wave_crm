@@ -1,3 +1,5 @@
+<%= javascript_include_tag "searchbox.js" %>
+
 <%- model_class = Notification -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
@@ -19,18 +21,16 @@
       <th><%= model_class.human_attribute_name(:sms_sent) %></th>
       <th><%= model_class.human_attribute_name(:contact_id) %></th>
       <th><%= model_class.human_attribute_name(:body) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="search-data">
     <% @notifications.each do |notification| %>
       <tr>
         <td><%= link_to notification.id, notification_path(notification) %></td>
         <td><%= notification.sms_sent %></td>
-        <td><%= notification.contact_id %></td>
+        <td><%= Contact.where(:id => notification.contact_id).first.name %></td>
         <td><%= notification.body %></td>
-        <td><%=l notification.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
             edit_notification_path(notification), :class => 'btn btn-mini' %>
@@ -44,3 +44,14 @@
         <% end %>
       </tbody>
     </table>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+            $('.search-c').searchbox({
+url: '/notification_search.html',
+param: 'q',
+dom_id: '#search-data',
+delay: 100,
+});
+})
+</script>
