@@ -1,6 +1,16 @@
 class TagsController < ApplicationController
-  # GET /tags
-  # GET /tags.json
+  before_filter :authenticate_user!
+  filter_access_to :all
+  layout :choose_layout
+
+  def choose_layout
+      if action_name == 'search'
+          false
+      else
+          'application'
+      end
+  end
+
   def index
     @tags = Tag.all
 
@@ -79,5 +89,15 @@ class TagsController < ApplicationController
       format.html { redirect_to tags_url }
       format.json { head :no_content }
     end
+  end
+
+  def search
+      if current_user.account_type == 1
+          @tags = Tag.where("name like \'%#{params[:q]}%\'")
+      end
+      respond_to do |format|
+          format.html
+          format.json { head :no_content }
+      end
   end
 end

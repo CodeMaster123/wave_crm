@@ -48,6 +48,7 @@ mount_sextant if Rails.env.development?
 
   match 'contact_search' => 'contacts#search'
   match 'lead_search' => 'leads#search'
+  match 'tag_search' => 'tags#search'
   match 'noticed' => 'notifications#noticed'
 
   root :to => 'leads#index'
