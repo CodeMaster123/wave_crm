@@ -8,5 +8,8 @@
 </div>
 <%= render :partial => 'form' %>
 <script>
-    $('.datetime_select').datetimepicker();
+    $('.datetime_select').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm tt z'
+    });
 </script>
