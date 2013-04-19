@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'mysql2'
+gem 'mysql2', '0.3.12b4'
 gem 'devise'
 gem 'declarative_authorization', '~> 0.5.7'
 gem 'nested_form', '0.3.2'
@@ -9,6 +9,7 @@ gem 'thin', '~> 1.5.1'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'wicked'
+gem 'thinking-sphinx'
 
 
 group :assets do
