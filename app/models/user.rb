@@ -1,11 +1,6 @@
 class User < ActiveRecord::Base
-    # Include default devise modules. Others available are:
-    # :token_authenticatable, :confirmable,
-    # :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable,
-        :recoverable, :rememberable, :trackable, :validatable
+    devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-    # Setup accessible (or protected) attributes for your model
     has_one :team_leader
     has_one :sales_executive
     has_many :events
@@ -16,9 +11,6 @@ class User < ActiveRecord::Base
         :default_url => "/system/missing.png",
         :url  => "/system/:attachment/:id/:style/:basename.:extension",
         :path => ":rails_root/public/system/:attachment/:id/:style/:basename.:extension"
-
-
-
 
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
     attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader, :avatar
@@ -31,8 +23,6 @@ class User < ActiveRecord::Base
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
-
-
 
 
     def role_symbols

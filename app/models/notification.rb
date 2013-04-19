@@ -1,6 +1,9 @@
 class Notification < ActiveRecord::Base
-  attr_accessible :body, :contact_id, :sms_sent, :notification_time
   belongs_to :contacts
+
+  attr_accessible :body, :contact_id, :sms_sent, :notification_time
+
+  validates :contact_id, :presence => true
 
   def sms_send(contact_number, body)
       @sms_gateway_username = "wave"
@@ -19,5 +22,18 @@ class Notification < ActiveRecord::Base
       #  response = Net::HTTP.get_response(URI.parse(cur_request))
       #end
       puts @sms_api_url
+  end
+
+  def as_json(options = {})
+      {
+          :id => self.id,
+          :type => "notification",
+          :title => "#{Contact.where(:id => self.contact_id).first.first_last_name} - #{self.body[0..10]+"..."}",
+          :description => "",
+              :start => self.notification_time,
+              :end => self.notification_time,
+              :allDay => "",
+              :url => Rails.application.routes.url_helpers.notification_path(id)
+      }
   end
 end

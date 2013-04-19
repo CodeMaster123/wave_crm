@@ -2,9 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e69f59d0-d45b-401a-8777-f51703e933c1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/top_notifications.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/notifications/search.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/tags/search.html.erb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/transaction_field_values.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/javascripts/transaction_fields.js.coffee" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/clouds.gif" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/columnBg.png" afterPath="$PROJECT_DIR$/vendor/assets/images/columnBg.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/columnTop.gif" afterPath="$PROJECT_DIR$/vendor/assets/images/columnTop.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/leftColumn.gif" afterPath="$PROJECT_DIR$/vendor/assets/images/leftColumn.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/tipBtm.png" afterPath="$PROJECT_DIR$/vendor/assets/images/tipBtm.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/tipMid.png" afterPath="$PROJECT_DIR$/vendor/assets/images/tipMid.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/vendor/assets/images/images/tipTop.png" afterPath="$PROJECT_DIR$/vendor/assets/images/tipTop.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/style2.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/style2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leads/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/leads/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/calendar.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tags_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tags_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/contact.rb" afterPath="$PROJECT_DIR$/app/models/contact.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/event.rb" afterPath="$PROJECT_DIR$/app/models/event.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/notification.rb" afterPath="$PROJECT_DIR$/app/models/notification.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/events/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/new.html.erb" afterPath="$PROJECT_DIR$/app/views/events/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leads/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/leads/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/leads/new.html.erb" afterPath="$PROJECT_DIR$/app/views/leads/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notifications/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/notifications/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notifications/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/notifications/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notifications/index.html.erb" afterPath="$PROJECT_DIR$/app/views/notifications/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notifications/new.html.erb" afterPath="$PROJECT_DIR$/app/views/notifications/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_user_menu.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_user_menu.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/tags/index.html.erb" afterPath="$PROJECT_DIR$/app/views/tags/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/targets/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/targets/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/targets/new.html.erb" afterPath="$PROJECT_DIR$/app/views/targets/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/transactions/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/transactions/edit.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/transactions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/transactions/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/users/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/authorization_rules.rb" afterPath="$PROJECT_DIR$/config/authorization_rules.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="wave_crm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,10 +69,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/leads/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="2" selection-start="78" selection-end="78" vertical-scroll-proportion="0.025728988">
+            <state line="1" column="2" selection-start="78" selection-end="78" vertical-scroll-proportion="-0.625">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.82258064">
               <folding />
             </state>
           </provider>
@@ -73,10 +121,10 @@
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/app/controllers/products_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/products/index.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/style2.css" />
         <option value="$PROJECT_DIR$/app/views/leads/_form.html.erb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -686,11 +734,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.29032257" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="636" selection-end="636" vertical-scroll-proportion="0.75" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="2" selection-start="667" selection-end="667" vertical-scroll-proportion="0.48885077" />
@@ -705,7 +748,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/leads/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="2" selection-start="78" selection-end="78" vertical-scroll-proportion="0.025728988">
+        <state line="1" column="2" selection-start="78" selection-end="78" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.82258064">
           <folding />
         </state>
       </provider>

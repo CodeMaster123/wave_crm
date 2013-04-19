@@ -17,8 +17,12 @@ class Contact < ActiveRecord::Base
 
   before_save :set_defaults
 
-  def name
+  def full_name
       "#{self.first_name.capitalize} #{self.middle_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def first_last_name
+      "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
   private

@@ -17,6 +17,7 @@ class Event < ActiveRecord::Base
     def as_json(options = {})
         {
             :id => self.id,
+            :type => "event",
             :title => self.title,
             :description => self.description || "",
             :start => starts_at.rfc822,

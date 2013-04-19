@@ -5,7 +5,7 @@
   <div class="control-group">
     <%= f.label :contact_id, :class => 'control-label' %>
     <div class="controls">
-        <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.name, c.id]}), :class => 'contacts_text_field' %>
+        <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
     </div>
   </div>
   <div class="control-group">

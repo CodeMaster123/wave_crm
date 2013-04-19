@@ -11,5 +11,8 @@
 <%= render :partial => 'form' %>
 <%= javascript_include_tag "targets.js" %>
 <script>
-    $('.datetime_select').datetimepicker();
+    $('.datetime_select').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm tt z'
+    });
 </script>
