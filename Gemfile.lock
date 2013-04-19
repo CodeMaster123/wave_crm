@@ -194,9 +194,6 @@ GEM
     unicode-display_width (0.1.1)
     warden (1.2.1)
       rack (>= 1.0)
-    wicked (0.6.0)
-      activesupport (>= 3.0.7)
-      rails (>= 3.0.7)
     will_paginate (3.0.4)
     wirb (1.0.1)
       paint
@@ -228,5 +225,4 @@ DEPENDENCIES
   thinking-sphinx
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  wicked
   will_paginate
