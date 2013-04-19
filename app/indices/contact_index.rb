@@ -3,4 +3,5 @@ ThinkingSphinx::Index.define :contact, :with => :active_record do
   indexes first_name, last_name
 
   set_property :min_infix_len => 3
+  set_property :min_prefix_len => 3
 end
