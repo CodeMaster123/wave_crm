@@ -1,6 +1,16 @@
 class ContactsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    layout :choose_layout
+
+    def choose_layout
+        if action_name == 'search'
+            false
+        else
+            'application'
+        end
+    end
+
     def index
         if current_user.account_type ==1
             @contacts = Contact.paginate(:page => params[:page], :per_page => 15).all
@@ -86,11 +96,10 @@ class ContactsController < ApplicationController
     end
 
     def search
-        @contacts = Array.new
-        TeamLeader.first.leads.each do |lead|
-            @contacts += lead.contacts		
+        if current_user.account_type == 1
+            @contacts = Contact.search("*#{params[:q]}*")
         end
-        @contacts = @contacts.where("first_name like \'%#{params[:q]}%\'")
+
         respond_to do |format|
             format.html
             format.json { head :no_content }

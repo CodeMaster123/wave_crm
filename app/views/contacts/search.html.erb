@@ -1,25 +1,20 @@
-<tbody class ="search-data">
-        <% @i = 0 %>
-        <% @contacts.each do |contact| %>
-            <tr>
-                <td><%= @i = @i+1 %></td>
-                <td><%= contact.first_name %></td>
-                <td><%= contact.middle_name %></td>
-                <td><%= contact.last_name %></td>
-asd
-                <td><%= contact.address %></td>
-                <td><%= contact.mobile_no %></td>
-                <td><%= contact.landline_no %></td>
-                <td><%= contact.contact_type %></td>
+<% @i = 0 %>
+<% @contacts.each do |contact| %>
+    <tr>
+        <td><%= @i = @i+1 %></td>
+        <td><%= contact.full_name %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.mobile_no %></td>
+        <td><%= contact.landline_no %></td>
+        <td><%= contact.contact_type %></td>
 
-                <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>
-                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        contact_path(contact),
-                        :method => :delete,
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'btn btn-mini btn-danger' %>
-                    </td>
-                </tr>
-            <% end %>
-        </tbody>
+        <td>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                contact_path(contact),
+                :method => :delete,
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-mini btn-danger' %>
+            </td>
+        </tr>
+    <% end %>

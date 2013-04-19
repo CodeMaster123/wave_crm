@@ -27,7 +27,7 @@
               <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
       </thead>
-      <tbody class ="search-data">
+      <tbody id ="search-data">
         <% render :partial => 'shared/i_calculation' %>
         <% @contacts.each do |contact| %>
           <tr>
@@ -62,12 +62,14 @@
 
 
       <script>
+    $(document).ready(function(){
         $('.search-c').searchbox({
-          url: '/contact_search.html',
-          param: 'q',
-          dom_id: '#search-data',
-          delay: 100,
+            url: '/contact_search.html',
+            param: 'q',
+            dom_id: '#search-data',
+            delay: 100,
         })
+    });
 
-      </script>
+</script>
 
