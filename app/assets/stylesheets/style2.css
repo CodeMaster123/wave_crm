@@ -5192,3 +5192,18 @@ div.new-top {
     background: #e63a3a;
     padding: 2px;
 }
+
+.remove{
+    margin-left: 35px;
+}
+
+.add{
+   margin-left: 440px;
+   margin-top: -50px;
+}
+
+.control-group-lead{
+   margin-top: -20px;
+   margin-bottom: 20px;
+}
+

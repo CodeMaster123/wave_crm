@@ -1,32 +1,32 @@
 <%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :lead_title, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
+    <%= f.label :lead_description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :description, :class => 'text_field' %>
     </div>
   </div>
 
-<h4>Products</h4>
-    <%= f.fields_for :leads_products do |leads_products| %>
-        <div class="control-group">
-          <%= leads_products.label :product_id, :class => 'control-label' %>
+ <%= f.fields_for :leads_products do |leads_products| %>
+       <div class="control-group">
+          <%= leads_products.label :product_name, :class => 'control-label' %>
           <div class="controls">
             <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+            <%= leads_products.link_to_remove "Remove this product", :class => 'remove' %>
+          </div>
         </div>
-        <%= leads_products.link_to_remove "Remove this product" %>
-    <% end %>
-   <%= f.link_to_add "Add a product", :leads_products %>
+       <% end %>
+    <%= f.link_to_add "Add a product", :leads_products, :class => 'add' %>
 
-<h4>Follow up time</h4>
+
     <%= f.fields_for :follow_ups do |follow_up| %>
-        <div class="control-group">
-          <%= follow_up.label :description, :class => 'control-label' %>
+        <div class="control-group-lead">
+          <%= follow_up.label :follow_up_description, :class => 'control-label' %>
           <div class="controls">
             <%= follow_up.text_field :description, :class => 'text_field' %>
           </div>
@@ -39,9 +39,7 @@
         </div>
     <% end %>
 
-
-    <h4>Contact Details</h4>
-   <%= f.fields_for :contacts do |contact| %>
+ <%= f.fields_for :contacts do |contact| %>
         <div class="control-group">
           <%= contact.label :first_name, :class => 'control-label' %>
           <div class="controls">
@@ -61,12 +59,11 @@
                <%= contact.text_field :last_name, :class => 'text_field' %>
              </div>
         </div>
-
         <div class="control-group">
-            <%= contact.label :address, :class => 'control-label' %><br />
-            <div class="controls">
-              <%= contact.text_field :address, :class => 'text_field' %>
-            </div>
+          <%= contact.label :address, :class => 'control-label' %>
+          <div class="controls">
+            <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
+          </div>
         </div>
         <div class="control-group">
             <%= contact.label :mobile_no, :class => 'control-label' %>
@@ -80,11 +77,11 @@
              <%= contact.text_field :landline_no, :class => 'text_field' %>
              </div>
         </div>
+        <%= contact.link_to_remove "Remove this contact", :class => 'remove'%>
+       <% end %>
+    <%= f.link_to_add "Add a contact", :contacts, :class => 'add'%>
 
 
-        <%= contact.link_to_remove "Remove this contact" %>
-   <% end %>
-   <p><%= f.link_to_add "Add a contact", :contacts %></p>
 
 
 
