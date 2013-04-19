@@ -1,11 +1,12 @@
 <%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
+
   <div class="control-group">
     <%= f.label :lead_title, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
+  <div class="control-group-description">
     <%= f.label :lead_description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :description, :class => 'text_field' %>
@@ -13,7 +14,7 @@
   </div>
 
  <%= f.fields_for :leads_products do |leads_products| %>
-       <div class="control-group">
+       <div class="control-group-lead-product">
           <%= leads_products.label :product_name, :class => 'control-label' %>
           <div class="controls">
             <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
@@ -25,13 +26,13 @@
 
 
     <%= f.fields_for :follow_ups do |follow_up| %>
-        <div class="control-group-lead">
+        <div class="control-group-lead-follow_up">
           <%= follow_up.label :follow_up_description, :class => 'control-label' %>
           <div class="controls">
             <%= follow_up.text_field :description, :class => 'text_field' %>
           </div>
         </div>
-        <div class="control-group">
+        <div class="control-group-follow-up-time">
           <%= follow_up.label :follow_up_time, :class => 'control-label' %>
           <div class="controls">
             <%= follow_up.text_field :follow_up_time, :class => 'datetime_select' %>
@@ -40,7 +41,8 @@
     <% end %>
 
  <%= f.fields_for :contacts do |contact| %>
-        <div class="control-group">
+        <div class="contact_form">
+        <div class="control-group-first_name">
           <%= contact.label :first_name, :class => 'control-label' %>
           <div class="controls">
             <%= contact.text_field :first_name, :class => 'text_field' %>
@@ -71,21 +73,17 @@
                 <%= contact.text_field :mobile_no, :class => 'text_field' %>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group-landline_no">
             <%= contact.label :landline_no, :class => 'control-label' %>
             <div class="controls">
              <%= contact.text_field :landline_no, :class => 'text_field' %>
+             <%= contact.link_to_remove "Remove this contact", :class => 'remove'%>
              </div>
         </div>
-        <%= contact.link_to_remove "Remove this contact", :class => 'remove'%>
+        </div>
        <% end %>
     <%= f.link_to_add "Add a contact", :contacts, :class => 'add'%>
-
-
-
-
-
-  <div class="form-actions">
+ <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 leads_path, :class => 'btn' %>
