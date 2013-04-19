@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :notification_settings
+
+
   resources :transaction_field_values
 
 
