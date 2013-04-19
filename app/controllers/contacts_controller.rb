@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
     before_filter :authenticate_user!
-    filter_resource_access
+    filter_access_to :all
     def index
         if current_user.account_type ==1
             @contacts = Contact.paginate(:page => params[:page], :per_page => 15).all
