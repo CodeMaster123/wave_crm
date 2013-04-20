@@ -1,4 +1,5 @@
 <%= javascript_include_tag "searchbox.js" %>
+<%= stylesheet_link_tag "pagination.css" %>
 
 <%- model_class = Notification -%>
 <div class="page-header">
@@ -21,6 +22,7 @@
       <th><%= model_class.human_attribute_name(:sms_sent) %></th>
       <th><%= model_class.human_attribute_name(:contact_id) %></th>
       <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%= model_class.human_attribute_name(:notification_time) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -31,6 +33,7 @@
         <td><%= notification.sms_sent %></td>
         <td><%= Contact.where(:id => notification.contact_id).first.full_name %></td>
         <td><%= notification.body %></td>
+        <td><%= notification.notification_time %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
             edit_notification_path(notification), :class => 'btn btn-mini' %>
@@ -44,6 +47,15 @@
         <% end %>
       </tbody>
     </table>
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @notifications %>
+  </div>
+  <%= will_paginate @notifications, :container => false %>
+</div>
+
+
+
 
 <script type="text/javascript">
     $(document).ready(function(){

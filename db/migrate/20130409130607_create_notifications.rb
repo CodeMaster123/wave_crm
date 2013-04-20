@@ -6,6 +6,7 @@ class CreateNotifications < ActiveRecord::Migration
         t.string :body
         t.timestamp :notification_time
 
+
         t.timestamps
     end
   end

@@ -14,6 +14,7 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     @notifications = Notification.all
+    @notifications = Notification.paginate(:page => params[:page], :per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -54,9 +55,10 @@ class NotificationsController < ApplicationController
   # POST /notifications.json
   def create
     @notification = Notification.new(params[:notification])
-
-    respond_to do |format|
+    @notification2 = Notification.new(params[:notification])
+    @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
       if @notification.save
+         @notification2.save
         format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
         format.json { render json: @notification, status: :created, location: @notification }
       else

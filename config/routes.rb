@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :special_occasions
+
+
   resources :transaction_field_values
 
 

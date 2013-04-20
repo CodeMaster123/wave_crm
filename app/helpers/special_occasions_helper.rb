@@ -1,0 +1,2 @@
+module SpecialOccasionsHelper
+end
