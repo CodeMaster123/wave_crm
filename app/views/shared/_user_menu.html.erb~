@@ -1,0 +1,44 @@
+<div class="user">
+    <ul class="icon-nav">
+        <li class="dropdown sett">
+<% Notification.where("notification_time > \'#{Date.today.to_time.to_s(:db)}\' and notification_time < \'#{Date.today.to_time.to_s(:db)}\'") %>
+<% Event.where("(starts_at > \'#{Date.today.to_time.to_s(:db)}\' and starts_at < \'#{Date.today.to_time.to_s(:db)}\') and (ends_at > \'#{Date.today.to_time.to_s(:db)}\' and ends_at < \'#{Date.today.to_time.to_s(:db)}\')") %>
+        <a href="#" class='dropdown-toggle' data-toggle="dropdown" onclick="notification_fade_out()">
+            <i class="icon-cog"></i>
+            <span class="label lightred">4</span>
+        </a>
+        <ul class="dropdown-menu pull-right">
+            <li>
+                <a href="#" class='set-fixed'>Fixed</a>
+            </li>
+            <li>
+                <a href="#" class='set-fixed'>Fixed asdf</a>
+            </li>
+            <li>
+                <a href="#" class='set-fixed'>Fixed</a>
+            </li>
+            <li>
+                <a href="#" class='set-fixed'>Fixed</a>
+            </li>
+        </ul>
+        </li>
+    </ul>
+    <div class="dropdown">
+        <a href="#" class='dropdown-toggle' data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %><%= image_tag "#{current_user.avatar}" %></a>
+        <ul class="dropdown-menu pull-right">
+            <li>
+            <% permitted_to? :index, :tags do %>
+                <%= link_to "Tags", :tags%>
+            <% end %>
+            </li>
+            <li>
+            <% permitted_to? :index, :products do %>
+                <%= link_to "Products", :products %>
+            <% end %>
+            </li>
+            <li>
+            <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+            </li>
+        </ul>
+    </div>
+</div>

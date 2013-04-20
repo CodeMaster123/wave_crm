@@ -1,23 +1,33 @@
 <div class="user">
     <ul class="icon-nav">
         <li class="dropdown sett">
+        <% unless current_user.notification_settings.nil? == false %>
+            <% unless current_user.notification_settings.first.notification_flag == 0 %>
+                <% @todays_notifications = Notification.where("notification_time > \'#{Date.today.to_time.to_s(:db)}\' and notification_time < \'#{(Date.today + 1.day).to_time.to_s(:db)}\'") %>
+                <% @todays_events = Event.where("(starts_at > \'#{Date.today.to_time.to_s(:db)}\' and starts_at < \'#{(Date.today + 1.day).to_time.to_s(:db)}\') and (ends_at > \'#{Date.today.to_time.to_s(:db)}\' and ends_at < \'#{(Date.today+1.day).to_time.to_s(:db)}\')") %>
+                <% @lightred_counter = @todays_notifications.count + @todays_events.count %>
+            <% end %>
+        <% end %>
         <a href="#" class='dropdown-toggle' data-toggle="dropdown" onclick="notification_fade_out()">
             <i class="icon-cog"></i>
-            <span class="label lightred">4</span>
+            <span class="label lightred"><%= @lightred_counter %></span>
         </a>
         <ul class="dropdown-menu pull-right">
-            <li>
-                <a href="#" class='set-fixed'>Fixed</a>
-            </li>
-            <li>
-                <a href="#" class='set-fixed'>Fixed asdf</a>
-            </li>
-            <li>
-                <a href="#" class='set-fixed'>Fixed</a>
-            </li>
-            <li>
-                <a href="#" class='set-fixed'>Fixed</a>
-            </li>
+            <% unless @todays_notifications.nil? != false %>
+                <% @todays_notifications.each do |tn| %>
+                    <li>
+                    <%= link_to "notification to - #{Contact.where(:id => tn.contact_id).first.full_name}", notification_path(tn), :class => 'set-fixed' %>
+                    </li>
+                <% end %>
+            <% end %>
+
+            <% unless @todays_events.nil? != false %>
+                <% @todays_events.each do |te| %>
+                    <li>
+                    <%= link_to "Task - #{te.title}", event_path(te), :class => 'set-fixed' %>
+                    </li>
+                <% end %>
+            <% end %>
         </ul>
         </li>
     </ul>
