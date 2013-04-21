@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419091151) do
+ActiveRecord::Schema.define(:version => 20130419104158) do
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(:version => 20130419091151) do
     t.integer  "mobile_no"
     t.integer  "landline_no"
     t.string   "contact_type"
-    t.string   "contactable_type"
-    t.integer  "contactable_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "lead_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "employees", :force => true do |t|
@@ -75,6 +74,13 @@ ActiveRecord::Schema.define(:version => 20130419091151) do
     t.integer  "product_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "notification_settings", :force => true do |t|
+    t.boolean  "notification_flag"
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "notifications", :force => true do |t|
