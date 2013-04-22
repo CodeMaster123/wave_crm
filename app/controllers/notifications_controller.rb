@@ -66,7 +66,6 @@ class NotificationsController < ApplicationController
         format.json { render json: @notification.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PUT /notifications/1
   # PUT /notifications/1.json
