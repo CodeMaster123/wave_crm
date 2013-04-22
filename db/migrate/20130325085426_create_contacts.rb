@@ -13,6 +13,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :contactable_type
       t.integer :contactable_id
 
+
       t.timestamps
     end
   end

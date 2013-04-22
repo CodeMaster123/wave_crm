@@ -62,6 +62,7 @@ class ContactsController < ApplicationController
 
     def create
         @contact = Contact.new(params[:contact])
+        @contact.company_id = current_user.company_id
 
         respond_to do |format|
             if @contact.save

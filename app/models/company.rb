@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
     has_many :users
 
+
     attr_accessible :admin_id, :company_address, :company_name, :contact_number1, :contact_number2
 
     validates :admin_id, :uniqueness => true
