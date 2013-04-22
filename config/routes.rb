@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :companies
+
+
   resources :special_occasions
 
 
