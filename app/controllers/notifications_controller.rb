@@ -56,14 +56,18 @@ class NotificationsController < ApplicationController
     def create
         @notification = Notification.new(params[:notification])
         @notification2 = Notification.new(params[:notification])
+        puts "=========================> #{@notification_time}"
         @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
-        if @notification.save
-            @notification2.save
-            format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
-            format.json { render json: @notification, status: :created, location: @notification }
-        else
-            format.html { render action: "new" }
-            format.json { render json: @notification.errors, status: :unprocessable_entity }
+
+        respond_to do |format|
+            if @notification.save
+                @notification2.save
+                format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
+                format.json { render json: @notification, status: :created, location: @notification }
+            else
+                format.html { render action: "new" }
+                format.json { render json: @notification.errors, status: :unprocessable_entity }
+            end
         end
     end
 

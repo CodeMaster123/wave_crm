@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   notification_flag: false
   user_id: 1
 
 two:
+  id: 2
   notification_flag: false
   user_id: 1

@@ -76,6 +76,7 @@ class TransactionsController < ApplicationController
 
                 @transaction_fields.each do |tf|
                     @transaction_field_value = TransactionFieldValue.where(:transaction_field_id => tf.id, :transaction_id => @transaction.id).first
+                    puts "transaction_id====================> #{ft.field_name}"
                     @transaction_field_value.update_attributes(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
             else

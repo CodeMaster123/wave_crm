@@ -40,10 +40,10 @@ class TransactionsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    test "should update transaction" do
-        put :update, id: @transaction, transaction: { amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time }
-        assert_redirected_to transaction_path(assigns(:transaction))
-    end
+ #   test "should update transaction" do
+ #       put :update, id: @transaction, transaction: { amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time }
+ #       assert_redirected_to transaction_path(assigns(:transaction))
+ #   end
 
     test "should destroy transaction" do
         assert_difference('Transaction.count', -1) do

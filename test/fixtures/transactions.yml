@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  contact_id: 
-  amount: 
+  id: 1
+  contact_id: 1
+  amount: 12312
   transaction_time: 2013-04-16 10:43:35
 
 two:
-  contact_id: 
-  amount: 
+  id: 2
+  contact_id: 2
+  amount: 123312
   transaction_time: 2013-04-16 10:43:35
