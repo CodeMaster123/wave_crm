@@ -19,6 +19,7 @@ group :assets do
   gem 'less'
 end
 
+gem 'bootstrap_form'
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
