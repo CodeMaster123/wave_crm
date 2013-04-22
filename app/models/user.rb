@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
     has_many :notification_settings
     has_many :transaction_fields
 
+    belongs_to :company
+
     has_attached_file :avatar,
         :styles => {:thumb => "27x27#" }, :whiny => false,
         :default_url => "/system/missing.png",
