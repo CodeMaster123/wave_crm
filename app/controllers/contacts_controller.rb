@@ -13,7 +13,10 @@ class ContactsController < ApplicationController
 
     def index
         if current_user.account_type ==1
+            ###################################
+            ############ Rewrite ##############
             @contacts = Contact.paginate(:page => params[:page], :per_page => 15).all
+            ###################################
         elsif current_user.account_type == 2
             @contacts = Array.new
             User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
@@ -72,7 +75,10 @@ class ContactsController < ApplicationController
     end
 
     def update
+        ###################################
+        ############ Rewrite ##############
         @contact = Contact.find(params[:id])
+        ###################################
 
         respond_to do |format|
             if @contact.update_attributes(params[:contact])

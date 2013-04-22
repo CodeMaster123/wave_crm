@@ -10,7 +10,8 @@ one:
   mobile_no: 1
   landline_no: 1
   contact_type: vivek
-  lead_id: 1
+  contactable_type: Lead
+  contactable_id: 1
 
 two:
   first_name: MyString
@@ -22,4 +23,5 @@ two:
   mobile_no: 1
   landline_no: 1
   contact_type: vivek
-  lead_id: 1
+  contactable_type: Lead
+  contactable_id: 2

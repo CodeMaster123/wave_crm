@@ -1,8 +1,14 @@
 require 'test_helper'
+require 'declarative_authorization/maintenance'
 
 class TeamLeadersControllerTest < ActionController::TestCase
+    include Devise::TestHelpers
+    include Authorization::TestHelper
+
   setup do
     @team_leader = team_leaders(:one)
+        @user = users(:one)
+        sign_in @user
   end
 
   test "should get index" do
