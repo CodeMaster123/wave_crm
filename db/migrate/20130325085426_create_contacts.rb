@@ -12,6 +12,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :contact_type
       t.string :contactable_type
       t.integer :contactable_id
+      t.integer :company_id
 
       t.timestamps
     end

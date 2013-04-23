@@ -62,6 +62,7 @@ class ContactsController < ApplicationController
 
     def create
         @contact = Contact.new(params[:contact])
+        @contact = @contact.company_id
 
         respond_to do |format|
             if @contact.save
@@ -75,10 +76,8 @@ class ContactsController < ApplicationController
     end
 
     def update
-        ###################################
-        ############ Rewrite ##############
+
         @contact = Contact.find(params[:id])
-        ###################################
 
         respond_to do |format|
             if @contact.update_attributes(params[:contact])

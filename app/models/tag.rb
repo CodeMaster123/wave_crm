@@ -1,7 +1,8 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :company_id
   has_many :taggings
   has_many :contacts, through: :taggings
+  belongs_to :company
 
   def tag_list_string
       @tag_array =Array.new

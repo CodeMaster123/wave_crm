@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration
       t.float :min_cost
       t.float :max_cost
       t.string :description
+      t.integer :company_id
 
       t.timestamps
     end

@@ -1,5 +1,5 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id
+  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id
 
   belongs_to :lead
   belongs_to :contactable, :polymorphic => true
@@ -7,6 +7,8 @@ class Contact < ActiveRecord::Base
 
   has_many :taggings
   has_many :tags, through: :taggings
+
+  belongs_to :company
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true

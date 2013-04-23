@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.string   "contact_type"
     t.string   "contactable_type"
     t.integer  "contactable_id"
+    t.integer  "company_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.boolean  "all_day"
     t.text     "description"
     t.integer  "user_id"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.integer  "lead_id"
     t.string   "description"
     t.datetime "follow_up_time"
+    t.integer  "company_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -76,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.string   "description"
     t.integer  "leadable_id"
     t.string   "leadable_type"
+    t.integer  "company_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -99,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "notification_time"
+    t.integer  "company_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
@@ -108,6 +113,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.float    "min_cost"
     t.float    "max_cost"
     t.string   "description"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -116,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.integer  "employee_id"
     t.integer  "team_leader_id"
     t.integer  "user_id"
+    t.integer  "company_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -140,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
 
   create_table "tags", :force => true do |t|
     t.string   "name"
+    t.integer  "company_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -157,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
   create_table "team_leaders", :force => true do |t|
     t.integer  "employee_id"
     t.integer  "user_id"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

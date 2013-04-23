@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
     belongs_to :user
+    belongs_to :company
 
-    attr_accessible :title, :description, :starts_at, :ends_at, :all_day, :recurring, :url, :user_id
+    attr_accessible :title, :description, :starts_at, :ends_at, :all_day, :recurring, :url, :user_id, :company_id
 
     scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
     scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
