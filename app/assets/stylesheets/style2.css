@@ -776,8 +776,7 @@ ul.icons li [class^="icon-"],ul.icons li [class*=" icon-"] {
 }
 
 .icon-star-half:before {
-    con
-tent: "\f089";
+    content: "\f089";
 }
 
 .icon-heart-empty:before {
