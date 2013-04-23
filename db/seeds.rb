@@ -1,19 +1,19 @@
 User.create([
-            {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1},
-            {:first_name => "Vivek", :last_name => "varade", :address => "CBS, Nashik", :mobile_no => 9654658554, :email => "admin456@gmail.com", :password => "admin456", :password_confirmation => "admin456", :account_type => 1},
-            {:first_name => "Ramesh", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2},
-            {:first_name => "pradip", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader1@gmail.com", :password => "team_leader1231", :password_confirmation => "sales_executive1231", :account_type => 2},
-            {:first_name => "Jitesh", :last_name => "Kulkarni", :address => "Mhasrul, Nashik", :mobile_no =>9932325434, :email => "team_leader2@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader2@gmail.com", :password => "team_leader1232", :password_confirmation => "sales_executive1232", :account_type => 2},
+            {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1, :company_id => 1},
+            {:first_name => "Vivek", :last_name => "varade", :address => "CBS, Nashik", :mobile_no => 9654658554, :email => "admin456@gmail.com", :password => "admin456", :password_confirmation => "admin456", :account_type => 1, :company_id => 2},
+            {:first_name => "Ramesh", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 1},
+            {:first_name => "pradip", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader1@gmail.com", :password => "team_leader1231", :password_confirmation => "sales_executive1231", :account_type => 2, :company_id => 1},
+            {:first_name => "Jitesh", :last_name => "Kulkarni", :address => "Mhasrul, Nashik", :mobile_no =>9932325434, :email => "team_leader2@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 2},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader2@gmail.com", :password => "team_leader1232", :password_confirmation => "sales_executive1232", :account_type => 2, :company_id => 2},
 
-            {:first_name => "Suresh", :last_name => "Kambale", :address => "Uttam nagar, Nashik", :mobile_no => 9912324212, :email => "sales_executive1@gmail.com", :password => "sales_executive1", :password_confirmation => "sales_executive1", :account_type => 3},
-            {:first_name => "Ram", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 9988776677, :email => "sales_executive2@gmail.com", :password => "sales_executive2", :password_confirmation => "sales_executive2", :account_type => 3},
-            {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9878866856, :email => "sales_executive3@gmail.com", :password => "sales_executive3", :password_confirmation => "sales_executive3", :account_type => 3},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive4", :password_confirmation => "sales_executive4", :account_type => 3},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader5@gmail.com", :password => "team_leader5", :password_confirmation => "sales_executive5", :account_type => 3},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader6@gmail.com", :password => "team_leader6", :password_confirmation => "sales_executive6", :account_type => 3},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader7@gmail.com", :password => "team_leader7", :password_confirmation => "sales_executive7", :account_type => 3},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader8@gmail.com", :password => "team_leader8", :password_confirmation => "sales_executive8", :account_type => 3}
+            {:first_name => "Suresh", :last_name => "Kambale", :address => "Uttam nagar, Nashik", :mobile_no => 9912324212, :email => "sales_executive1@gmail.com", :password => "sales_executive1", :password_confirmation => "sales_executive1", :account_type => 3, :company_id => 1},
+            {:first_name => "Ram", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 9988776677, :email => "sales_executive2@gmail.com", :password => "sales_executive2", :password_confirmation => "sales_executive2", :account_type => 3, :company_id => 1},
+            {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9878866856, :email => "sales_executive3@gmail.com", :password => "sales_executive3", :password_confirmation => "sales_executive3", :account_type => 3, :company_id => 1},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive4", :password_confirmation => "sales_executive4", :account_type => 3, :company_id => 1},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader5@gmail.com", :password => "team_leader5", :password_confirmation => "sales_executive5", :account_type => 3, :company_id => 2},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader6@gmail.com", :password => "team_leader6", :password_confirmation => "sales_executive6", :account_type => 3, :company_id => 2},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader7@gmail.com", :password => "team_leader7", :password_confirmation => "sales_executive7", :account_type => 3, :company_id => 2},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader8@gmail.com", :password => "team_leader8", :password_confirmation => "sales_executive8", :account_type => 3, :company_id => 2}
 
 
 ])
@@ -253,6 +253,6 @@ SpecialOccasion.create([
 ])
 
 Company.create([
-               {:company_name => "wave tech line", :company_address => "cbs nasik", :contact_number1 => 154154158, :contact_number2 => 541555555, :admin_id => 1},
-               {:company_name => "wave technology", :company_address => "satpure nasik", :contact_number1 => 541545415, :contact_number2 => 548457155, :admin_id => 2}
+               {:company_name => "wave tech line", :company_address => "cbs nasik", :contact_number1 => 154154158, :contact_number2 => 541555555},
+               {:company_name => "wave technology", :company_address => "satpure nasik", :contact_number1 => 541545415, :contact_number2 => 548457155}
 ])

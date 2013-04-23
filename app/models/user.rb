@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     has_many :events
     has_many :notification_settings
     has_many :transaction_fields
+    belongs_to :company
 
     belongs_to :company
 
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
         :path => ":rails_root/public/system/:attachment/:id/:style/:basename.:extension"
 
     attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
-    attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader, :avatar
+    attr_accessible :address, :first_name, :last_name, :mobile_no, :team_leader, :avatar, :company_id
 
     validates :first_name, :presence => true
     validates :last_name, :presence => true
