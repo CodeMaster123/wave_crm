@@ -1,62 +1,41 @@
 WaveCrm::Application.routes.draw do
-  resources :companies
+    devise_for :users
 
+    resources :companies
+    resources :special_occasions
+    resources :transaction_field_values
+    resources :transaction_fields
+    resources :transactions
+    resources :taggings
+    resources :tags
+    resources :products
+    resources :leads_products
+    resources :notifications
+    resources :notification_settings
+    resources :targets
+    resources :follow_ups
+    resources :employees
+    resources :team_leaders
+    resources :sales_executives
+    resources :leads
+    resources :contacts
+    resources :users
+    resources :events
 
-  resources :special_occasions
+    mount_sextant if Rails.env.development?
 
+    match 'calendar' => "calendar#index"
+    match 'sales_executive_leads/:id1' => 'sales_executives#index'
+    match 'follow_ups/new/:id1' => 'follow_ups#new'
+    match 'follow_ups_list/:id' => 'follow_ups#follow_ups_list'
+    match 'target_forecast' => 'team_leaders#target_forecast'
+    match 'leads/index/:team_leader' => 'leads#index'
 
-  resources :transaction_field_values
+    match 'contact_search' => 'contacts#search'
+    match 'lead_search' => 'leads#search'
+    match 'tag_search' => 'tags#search'
+    match 'notification_search' => 'notifications#search'
+    match 'noticed' => 'notifications#noticed'
 
-
-  resources :transaction_fields
-
-
-  resources :transactions
-
-
-  resources :taggings
-
-
-  resources :tags
-
-
-  resources :products
-
-
-  resources :leads_products
-
-
-  resources :notifications
-
-
-mount_sextant if Rails.env.development?
-
-  resources :targets
-
-
-  devise_for :users
-
-  resources :follow_ups
-  resources :employees
-  resources :team_leaders
-  resources :sales_executives
-  resources :leads
-  resources :contacts
-  resources :users
-  resources :events
-
-  match 'calendar' => "calendar#index"
-  match 'sales_executive_leads/:id1' => 'sales_executives#index'
-  match 'follow_ups/new/:id1' => 'follow_ups#new'
-  match 'follow_ups_list/:id' => 'follow_ups#follow_ups_list'
-  match 'target_forecast' => 'team_leaders#target_forecast'
-  match 'leads/index/:team_leader' => 'leads#index'
-
-  match 'contact_search' => 'contacts#search'
-  match 'lead_search' => 'leads#search'
-  match 'tag_search' => 'tags#search'
-  match 'notification_search' => 'notifications#search'
-  match 'noticed' => 'notifications#noticed'
-
-  root :to => 'leads#index'
+    root :to => 'leads#index'
 end

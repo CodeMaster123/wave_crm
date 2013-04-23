@@ -84,7 +84,6 @@ class FollowUpsController < ApplicationController
     end
 
     def follow_ups_list
-        puts "id->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>..#{ params[:id]}"
         @follow_up =  Lead.where(:id => params[:id]).first.follow_ups
 
 

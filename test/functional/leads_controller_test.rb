@@ -25,10 +25,10 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should create lead" do
         assert_difference('Lead.count') do
-            post :create, lead: { contact_id: @lead.contact_id, description: @lead.description, executive_id: @lead.executive_id, lead_by: @lead.lead_by, title: @lead.title }
+            post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type}
         end
 
-        assert_redirected_to lead_path(assigns(:lead))
+        assert_redirected_to leads_path
     end
 
     test "should show lead" do
@@ -36,13 +36,13 @@ class LeadsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    test "should get edit" do
-        get :edit, id: @lead
-        assert_response :success
-    end
+ #   test "should get edit" do
+ #       get :edit, id: @lead
+ #       assert_response :success
+ #   end
 
     test "should update lead" do
-        put :update, id: @lead, lead: { contact_id: @lead.contact_id, description: @lead.description, executive_id: @lead.executive_id, lead_by: @lead.lead_by, title: @lead.title }
+        put :update, id: @lead, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type}
         assert_redirected_to lead_path(assigns(:lead))
     end
 

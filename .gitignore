@@ -21,3 +21,6 @@
 
 # Ignore Sphinx generated files
 /db/sphinx/*
+
+# Ignore .sass-cache
+/.sass-cache/*

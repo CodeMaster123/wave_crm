@@ -27,7 +27,7 @@ class TargetsControllerTest < ActionController::TestCase
             post :create, target: { achived: @target.achived, amount: @target.amount, target_date: @target.target_date, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type }
         end
 
-        assert_redirected_to target_path(assigns(:target))
+        assert_redirected_to targets_path
     end
 
     test "should show target" do

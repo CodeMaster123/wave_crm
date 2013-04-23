@@ -40,6 +40,8 @@ class TargetsController < ApplicationController
 
     # GET /targets/1/edit
     def edit
+        @team_leaders = TeamLeader.all
+        @sales_executives = SalesExecutive.all
         @target = Target.find(params[:id])
     end
 

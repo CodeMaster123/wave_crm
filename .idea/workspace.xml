@@ -2,8 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="585e7820-f43e-4790-8865-045c82ed9c36" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Guardfile" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/lead_steps_controller_test.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/leads_products_controller_test.rb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/users_controller_test.rb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/wave_crm.iml" afterPath="$PROJECT_DIR$/.idea/wave_crm.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/style2.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/style2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/companies_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/companies_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/follow_ups_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/follow_ups_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/leads_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/leads_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/notifications_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/targets_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/targets_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contacts/show.html.erb" afterPath="$PROJECT_DIR$/app/views/contacts/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/login.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/login.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/companies.yml" afterPath="$PROJECT_DIR$/test/fixtures/companies.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/contacts.yml" afterPath="$PROJECT_DIR$/test/fixtures/contacts.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/employees.yml" afterPath="$PROJECT_DIR$/test/fixtures/employees.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/leads.yml" afterPath="$PROJECT_DIR$/test/fixtures/leads.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/notification_settings.yml" afterPath="$PROJECT_DIR$/test/fixtures/notification_settings.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/notifications.yml" afterPath="$PROJECT_DIR$/test/fixtures/notifications.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/products.yml" afterPath="$PROJECT_DIR$/test/fixtures/products.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/sales_executives.yml" afterPath="$PROJECT_DIR$/test/fixtures/sales_executives.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/team_leaders.yml" afterPath="$PROJECT_DIR$/test/fixtures/team_leaders.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/transaction_field_values.yml" afterPath="$PROJECT_DIR$/test/fixtures/transaction_field_values.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/transaction_fields.yml" afterPath="$PROJECT_DIR$/test/fixtures/transaction_fields.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/transactions.yml" afterPath="$PROJECT_DIR$/test/fixtures/transactions.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/companies_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/companies_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/contacts_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/contacts_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/employees_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/employees_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/follow_ups_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/follow_ups_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/leads_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/leads_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/notifications_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/notifications_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/products_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/products_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/sales_executives_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/sales_executives_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/tags_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/tags_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/targets_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/targets_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/team_leaders_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/team_leaders_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/functional/transactions_controller_test.rb" afterPath="$PROJECT_DIR$/test/functional/transactions_controller_test.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_helper.rb" afterPath="$PROJECT_DIR$/test/test_helper.rb" />
     </list>
     <ignored path="wave_crm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +73,7 @@
       <file leaf-file-name="notifications_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/notifications_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="82" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.56836903">
+            <state line="56" column="6" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.49423394">
               <folding />
             </state>
           </provider>
@@ -446,7 +491,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/notifications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="82" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.56836903">
+        <state line="56" column="6" selection-start="1479" selection-end="1479" vertical-scroll-proportion="0.49423394">
           <folding />
         </state>
       </provider>

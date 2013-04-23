@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_self
+//= require jquery-1.9.1.min
 //= require highcharts
 //= require top_notifications

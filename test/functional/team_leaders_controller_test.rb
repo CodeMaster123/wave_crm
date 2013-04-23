@@ -24,10 +24,10 @@ class TeamLeadersControllerTest < ActionController::TestCase
 
   test "should create team_leader" do
     assert_difference('TeamLeader.count') do
-      post :create, team_leader: { employee_id: @team_leader.employee_id, lead_id: @team_leader.lead_id, sales_executive_id: @team_leader.sales_executive_id }
+      post :create, team_leader: { employee_id: @team_leader.employee_id, user_id: @team_leader.user_id}
     end
 
-    assert_redirected_to team_leader_path(assigns(:team_leader))
+    assert_redirected_to team_leaders_path
   end
 
   test "should show team_leader" do
@@ -41,7 +41,7 @@ class TeamLeadersControllerTest < ActionController::TestCase
   end
 
   test "should update team_leader" do
-    put :update, id: @team_leader, team_leader: { employee_id: @team_leader.employee_id, lead_id: @team_leader.lead_id, sales_executive_id: @team_leader.sales_executive_id }
+    put :update, id: @team_leader, team_leader: { employee_id: @team_leader.employee_id, user_id: @team_leader.user_id}
     assert_redirected_to team_leader_path(assigns(:team_leader))
   end
 

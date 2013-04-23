@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   transaction_id: 1
   transaction_field_id: 1
   transaction_field_value: MyString
 
 two:
-  transaction_id: 1
-  transaction_field_id: 1
+  id: 2
+  transaction_id: 2
+  transaction_field_id: 2
   transaction_field_value: MyString

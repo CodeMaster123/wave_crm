@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   first_name: MyString
   middle_name: MyString
   last_name: MyString
@@ -14,6 +15,7 @@ one:
   contactable_id: 1
 
 two:
+  id: 2
   first_name: MyString
   middle_name: MyString
   last_name: MyString
