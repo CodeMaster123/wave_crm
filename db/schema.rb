@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.float    "min_cost"
     t.float    "max_cost"
     t.string   "description"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

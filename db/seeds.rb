@@ -168,20 +168,20 @@ FollowUp.create([
 
 
 Product.create([
-                   {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application"},
-                   {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application"},
-                   {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application"},
-                   {:name => "Web Site Flash", :min_cost => 70000, :max_cost => 80000, :description => "Web application"}
+                   {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application", :company_id => 1},
+                   {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
+                   {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application", :company_id => 1},
+                   {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application", :company_id => 1},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 2},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 2},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 2},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 2},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 2},
+                   {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 2},
+                   {:name => "Web Site Flash", :min_cost => 70000, :max_cost => 80000, :description => "Web application", :company_id => 2}
                ])
 
 LeadsProduct.create([
