@@ -18,3 +18,9 @@
 
 # Ignore paperclip images
 /public/system/avatars/*
+
+# Ignore Sphinx generated files
+/db/sphinx/*
+
+# Ignore .sass-cache
+/.sass-cache/*
