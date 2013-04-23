@@ -22,13 +22,13 @@ class NotificationsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    test "should create notification" do
-        assert_difference('Notification.count') do
-            post :create, notification: { body: @notification.body, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent }
-        end
-
-        assert_redirected_to notification_path(assigns(:notification))
-    end
+#    test "should create notification" do
+#        assert_difference('Notification.count') do
+#            post :create, notification: { body: @notification.body, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent }
+#        end
+#
+#        assert_redirected_to notification_path(assigns(:notification))
+#    end
 
     test "should show notification" do
         get :show, id: @notification

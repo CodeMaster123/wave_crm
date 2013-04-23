@@ -47,12 +47,13 @@ class LeadsController < ApplicationController
   end
 
   def new
-      @lead = Lead.new
+      @products = Product.all
+      puts "---------------------->#{@products}<---------------------------"
 
+      @lead = Lead.new
       @lead.contacts.build
       @lead.follow_ups.build
       @lead.leads_products.build
-      @products = Product.all
 
       respond_to do |format|
           format.html # new.html.erb

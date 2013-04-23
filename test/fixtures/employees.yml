@@ -9,7 +9,7 @@ one:
   address: MyString
   age: 1
   team_leader_id: 1
-  sales_executve_id: 1
+  sales_executve_id:
 
 two:
   id: 2
@@ -19,5 +19,5 @@ two:
   mobile_no: 1
   address: MyString
   age: 1
-  team_leader_id: 1
+  team_leader_id: 
   sales_executve_id: 1
