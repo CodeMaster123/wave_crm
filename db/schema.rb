@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.boolean  "all_day"
     t.text     "description"
     t.integer  "user_id"
+    t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
