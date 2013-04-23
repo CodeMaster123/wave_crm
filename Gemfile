@@ -37,4 +37,5 @@ end
 group :test do
     gem 'turn'
     gem 'minitest'
+    gem 'guard'
 end
