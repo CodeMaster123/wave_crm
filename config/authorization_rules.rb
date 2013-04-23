@@ -18,6 +18,7 @@ authorization do
   role :team_leader do
     has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show]
     has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show]
+    has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
   end
 
   role :sales_executive do

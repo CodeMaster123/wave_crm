@@ -9,11 +9,9 @@ class Company < ActiveRecord::Base
     has_many :leads
     has_many :follow_ups
     has_many :events
+    has_many :targets
 
-    attr_accessible :admin_id, :company_address, :company_name, :contact_number1, :contact_number2
-
-    validates :admin_id, :uniqueness => true
-    validates :admin_id, :numericality => true
+    attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
 
     validates :contact_number1, :numericality => true
     validates :contact_number2, :numericality => true
