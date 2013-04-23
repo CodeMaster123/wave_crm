@@ -13,8 +13,9 @@ class NotificationsController < ApplicationController
     # GET /notifications
     # GET /notifications.json
     def index
-        @notifications = Notification.all
-        @notifications = Notification.paginate(:page => params[:page], :per_page => 15)
+      @company = Company.where(:id => current_user.company_id).first
+      @notifications = Notification.all
+        @notifications = @company.notifications.paginate(:page => params[:page], :per_page => 15)
 
         respond_to do |format|
             format.html # index.html.erb
@@ -54,9 +55,11 @@ class NotificationsController < ApplicationController
     # POST /notifications
     # POST /notifications.json
     def create
-        @notification = Notification.new(params[:notification])
-        @notification2 = Notification.new(params[:notification])
+      @company = Company.where(:id => current_user.company_id).first
+      @notification = @company.notifications.new(params[:notification])
+        @notification2 = @company.notifications.new(params[:notification])
         @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
+        respond_to do |format|
         if @notification.save
             @notification2.save
             format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
@@ -65,12 +68,14 @@ class NotificationsController < ApplicationController
             format.html { render action: "new" }
             format.json { render json: @notification.errors, status: :unprocessable_entity }
         end
+        end
     end
 
     # PUT /notifications/1
     # PUT /notifications/1.json
     def update
-        @notification = Notification.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+      @notification = @company.notifications.find(params[:id])
 
         respond_to do |format|
             if @notification.update_attributes(params[:notification])
