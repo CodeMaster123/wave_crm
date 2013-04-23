@@ -4,7 +4,8 @@ class TeamLeadersController < ApplicationController
     # GET /team_leaders
     # GET /team_leaders.json
     def index
-        @team_leaders = TeamLeader.all
+      @company = Company.where(:id => current_user.company_id).first
+      @team_leaders = @company.team_leaders.all
 
 
         respond_to do |format|
@@ -43,7 +44,8 @@ class TeamLeadersController < ApplicationController
     # POST /team_leaders
     # POST /team_leaders.json
     def create
-        @team_leader = TeamLeader.new(params[:team_leader])
+      @company = Company.where(:id => current_user.company_id).first
+        @team_leader = @company.team_leaders.new(params[:team_leader])
 
         respond_to do |format|
             if @team_leader.save
@@ -59,7 +61,8 @@ class TeamLeadersController < ApplicationController
     # PUT /team_leaders/1
     # PUT /team_leaders/1.json
     def update
-        @team_leader = TeamLeader.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+        @team_leader = @company.team_leaders.find(params[:id])
 
         respond_to do |format|
             if @team_leader.update_attributes(params[:team_leader])

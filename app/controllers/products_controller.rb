@@ -4,8 +4,9 @@ class ProductsController < ApplicationController
     # GET /products
     # GET /products.json
     def index
+      @company = Company.where(:id => current_user.company_id).first
         @products = Product.all
-        @products = Product.paginate(:page => params[:page], :per_page => 15)
+        @products = @company.products.paginate(:page => params[:page], :per_page => 15)
 
         respond_to do |format|
             format.html # index.html.erb
@@ -43,7 +44,8 @@ class ProductsController < ApplicationController
     # POST /products
     # POST /products.json
     def create
-        @product = Product.new(params[:product])
+      @company = Company.where(:id => current_user.company_id).first
+        @product = @company.products.new(params[:product])
 
         respond_to do |format|
             if @product.save
@@ -59,7 +61,8 @@ class ProductsController < ApplicationController
     # PUT /products/1
     # PUT /products/1.json
     def update
-        @product = Product.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+        @product = @company.products.find(params[:id])
 
         respond_to do |format|
             if @product.update_attributes(params[:product])

@@ -12,7 +12,8 @@ class TagsController < ApplicationController
   end
 
   def index
-    @tags = Tag.all
+    @company = Company.where(:id => current_user.company_id).first
+    @tags = @company.tags.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,7 +51,8 @@ class TagsController < ApplicationController
   # POST /tags
   # POST /tags.json
   def create
-    @tag = Tag.new(params[:tag])
+    @company = Company.where(:id => current_user.company_id).first
+    @tag = @company.tags.new(params[:tag])
 
     respond_to do |format|
       if @tag.save
@@ -66,7 +68,8 @@ class TagsController < ApplicationController
   # PUT /tags/1
   # PUT /tags/1.json
   def update
-    @tag = Tag.find(params[:id])
+    @company = Company.where(:id => current_user.company_id).first
+    @tag = @company.tags.find(params[:id])
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])

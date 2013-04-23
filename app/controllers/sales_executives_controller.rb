@@ -4,7 +4,8 @@ class SalesExecutivesController < ApplicationController
     # GET /sales_executives
     # GET /sales_executives.json
     def index
-        @sales_executives = SalesExecutive.all
+      @company = Company.where(:id => current_user.company_id).first
+        @sales_executives = @company.sales_executives.all
 
         respond_to do |format|
             format.html # index.html.erb
@@ -42,7 +43,8 @@ class SalesExecutivesController < ApplicationController
     # POST /sales_executives
     # POST /sales_executives.json
     def create
-        @sales_executive = SalesExecutive.new(params[:sales_executive])
+      @company = Company.where(:id => current_user.company_id).first
+        @sales_executive = @company.sales_executives.new(params[:sales_executive])
 
         respond_to do |format|
             if @sales_executive.save
@@ -58,7 +60,8 @@ class SalesExecutivesController < ApplicationController
     # PUT /sales_executives/1
     # PUT /sales_executives/1.json
     def update
-        @sales_executive = SalesExecutive.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+        @sales_executive = @company.sales_executives.find(params[:id])
 
         respond_to do |format|
             if @sales_executive.update_attributes(params[:sales_executive])

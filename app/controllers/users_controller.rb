@@ -2,8 +2,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @company = Company.where(:id => current_user.company_id).first
     @users = User.all
-    @users = User.paginate(:page => params[:page], :per_page => 15)
+    @users = @company.users.paginate(:page => params[:page], :per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,7 +44,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar])
+    @company = Company.where(:id => current_user.company_id).first
+    @user = @company.users.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar])
     @all_team_leaders = TeamLeader.all
 
 
@@ -70,7 +72,8 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+    @company = Company.where(:id => current_user.company_id).first
+    @user = @company.users.find(params[:id])
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
