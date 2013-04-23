@@ -9,6 +9,7 @@ class Company < ActiveRecord::Base
     has_many :leads
     has_many :follow_ups
     has_many :events
+    has_many :targets
 
     attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
 

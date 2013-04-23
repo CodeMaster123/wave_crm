@@ -6,6 +6,7 @@ class CreateTargets < ActiveRecord::Migration
       t.integer :amount
       t.integer :achived
       t.timestamp :target_date
+      t.integer :company_id
 
       t.timestamps
     end
