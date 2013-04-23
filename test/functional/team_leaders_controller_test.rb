@@ -27,7 +27,7 @@ class TeamLeadersControllerTest < ActionController::TestCase
       post :create, team_leader: { employee_id: @team_leader.employee_id, user_id: @team_leader.user_id}
     end
 
-    assert_redirected_to team_leader_path(assigns(:team_leader))
+    assert_redirected_to team_leaders_path
   end
 
   test "should show team_leader" do
