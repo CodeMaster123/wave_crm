@@ -4,6 +4,7 @@ class CreateSalesExecutives < ActiveRecord::Migration
       t.integer :employee_id
       t.integer :team_leader_id
       t.integer :user_id
+      t.integer :company_id
       t.timestamps
     end
   end

@@ -3,6 +3,7 @@ class CreateTeamLeaders < ActiveRecord::Migration
     create_table :team_leaders do |t|
       t.integer :employee_id
       t.integer :user_id
+      t.integer :company_id
 
       t.timestamps
     end

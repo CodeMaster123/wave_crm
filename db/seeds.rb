@@ -1,23 +1,39 @@
 User.create([
             {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1},
+            {:first_name => "Vivek", :last_name => "varade", :address => "CBS, Nashik", :mobile_no => 9654658554, :email => "admin456@gmail.com", :password => "admin456", :password_confirmation => "admin456", :account_type => 1},
             {:first_name => "Ramesh", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2},
-            {:first_name => "Suresh", :last_name => "Kambale", :address => "Uttam nagar, Nashik", :mobile_no => 9912324212, :email => "sales_executive1@gmail.com", :password => "sales_executive123", :password_confirmation => "sales_executive123", :account_type => 3},
-            {:first_name => "Ram", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 9988776677, :email => "sales_executive2@gmail.com", :password => "sales_executive1123", :password_confirmation => "sales_executive1123", :account_type => 3},
+            {:first_name => "pradip", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader1@gmail.com", :password => "team_leader1231", :password_confirmation => "sales_executive1231", :account_type => 2},
             {:first_name => "Jitesh", :last_name => "Kulkarni", :address => "Mhasrul, Nashik", :mobile_no =>9932325434, :email => "team_leader2@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2},
-            {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9878866856, :email => "sales_executive3@gmail.com", :password => "sales_executive123", :password_confirmation => "sales_executive123", :account_type => 3},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive1123", :password_confirmation => "sales_executive1123", :account_type => 3}
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader2@gmail.com", :password => "team_leader1232", :password_confirmation => "sales_executive1232", :account_type => 2},
+
+            {:first_name => "Suresh", :last_name => "Kambale", :address => "Uttam nagar, Nashik", :mobile_no => 9912324212, :email => "sales_executive1@gmail.com", :password => "sales_executive1", :password_confirmation => "sales_executive1", :account_type => 3},
+            {:first_name => "Ram", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 9988776677, :email => "sales_executive2@gmail.com", :password => "sales_executive2", :password_confirmation => "sales_executive2", :account_type => 3},
+            {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9878866856, :email => "sales_executive3@gmail.com", :password => "sales_executive3", :password_confirmation => "sales_executive3", :account_type => 3},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive4", :password_confirmation => "sales_executive4", :account_type => 3},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader5@gmail.com", :password => "team_leader5", :password_confirmation => "sales_executive5", :account_type => 3},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader6@gmail.com", :password => "team_leader6", :password_confirmation => "sales_executive6", :account_type => 3},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader7@gmail.com", :password => "team_leader7", :password_confirmation => "sales_executive7", :account_type => 3},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "team_leader8@gmail.com", :password => "team_leader8", :password_confirmation => "sales_executive8", :account_type => 3}
+
+
 ])
 
 TeamLeader.create([
-                  {:user_id => 2, :employee_id => 2},
-                  {:user_id => 5, :employee_id => 5}
+                  {:user_id => 3, :employee_id => 3, :company_id => 1},
+                  {:user_id => 4, :employee_id => 4, :company_id => 1},
+                  {:user_id => 5, :employee_id => 5, :company_id => 2},
+                  {:user_id => 6, :employee_id => 6, :company_id => 2}
 ])
 
 SalesExecutive.create([
-                      {:team_leader_id =>1, :user_id =>3, :employee_id =>3},
-                      {:team_leader_id =>1, :user_id =>4, :employee_id =>4},
-                      {:team_leader_id =>2, :user_id =>6, :employee_id =>6},
-                      {:team_leader_id =>2, :user_id =>7, :employee_id =>7}
+                      {:team_leader_id =>1, :user_id =>7, :employee_id =>7, :company_id => 1},
+                      {:team_leader_id =>1, :user_id =>8, :employee_id =>8, :company_id => 1},
+                      {:team_leader_id =>2, :user_id =>9, :employee_id =>9, :company_id => 1},
+                      {:team_leader_id =>2, :user_id =>10, :employee_id =>10, :company_id => 1},
+                      {:team_leader_id =>3, :user_id =>11, :employee_id =>11, :company_id => 2},
+                      {:team_leader_id =>3, :user_id =>12, :employee_id =>12, :company_id => 2},
+                      {:team_leader_id =>4, :user_id =>13, :employee_id =>13, :company_id => 2},
+                      {:team_leader_id =>4, :user_id =>14, :employee_id =>14, :company_id => 2}
 ])
 
 
@@ -52,31 +68,31 @@ Lead.create([
 ])
 
 Contact.create([
-               {:contactable_id => 1, :first_name => "sandip", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead"},
-               {:contactable_id => 2, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer"},
-               {:contactable_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 4, :first_name => "madan", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead"},
-               {:contactable_id => 5, :first_name => "pappu", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer"},
-               {:contactable_id => 6, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 1, :first_name => "sandip", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead"},
-               {:contactable_id => 2, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer"},
-               {:contactable_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 4, :first_name => "madan", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead"},
-               {:contactable_id => 5, :first_name => "pappu", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer"},
-               {:contactable_id => 6, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 7, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 8, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 9, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 10, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 11, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 12, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 13, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 14, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 15, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 16, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 17, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 18, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"},
-               {:contactable_id => 19, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead"}
+               {:contactable_id => 1, :first_name => "sandip", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 2, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 1},
+               {:contactable_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 4, :first_name => "madan", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 5, :first_name => "pappu", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer", :company_id => 1},
+               {:contactable_id => 6, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 1, :first_name => "sandip", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 2, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 1},
+               {:contactable_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 4, :first_name => "madan", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 5, :first_name => "pappu", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer", :company_id => 1},
+               {:contactable_id => 6, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 7, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 8, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 9, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 10, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 1},
+               {:contactable_id => 11, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 12, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 13, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 14, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 15, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 16, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 17, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 18, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+               {:contactable_id => 19, :first_name => "ravi", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2}
 ])
 
 
@@ -185,12 +201,12 @@ LeadsProduct.create([
 ])
 
 Tag.create([
-    {:name => "Cloud"},
-    {:name => "website"},
-    {:name => "offline"},
-    {:name => "app"},
-    {:name => "android"},
-    {:name => "apple"},
+    {:name => "Cloud", :company_id => 1},
+    {:name => "website", :company_id => 1},
+    {:name => "offline", :company_id => 1},
+    {:name => "app", :company_id => 2},
+    {:name => "android", :company_id => 2},
+    {:name => "apple", :company_id => 2},
 ])
 
 Notification.create([
@@ -234,4 +250,9 @@ SpecialOccasion.create([
                        {:title => "Sri Jayanthi", :body => "Divali is hindu occassion", :occasion_date => "2013-04-29 01:17:00 UTC"},
                        {:title => "Munithirya Jayanthi", :body => "Divali is hindu occassion", :occasion_date => "2013-04-30 01:17:00 UTC"}
 
+])
+
+Company.create([
+               {:company_name => "wave tech line", :company_address => "cbs nasik", :contact_number1 => 154154158, :contact_number2 => 541555555, :admin_id => 1},
+               {:company_name => "wave technology", :company_address => "satpure nasik", :contact_number1 => 541545415, :contact_number2 => 548457155, :admin_id => 2}
 ])

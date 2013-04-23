@@ -1,6 +1,9 @@
 class Company < ActiveRecord::Base
     has_many :users
-
+    has_many :contacts
+    has_many :team_leaders
+    has_many :sales_executives
+    has_many :tags
 
     attr_accessible :admin_id, :company_address, :company_name, :contact_number1, :contact_number2
 
