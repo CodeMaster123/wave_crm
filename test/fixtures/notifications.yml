@@ -1,11 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
   id: 1
   sms_sent: false
   contact_id: 1
   body: MyString
   notification_time: 2013-04-03 11:48:32
+  company_id: 1
 
 two:
   id: 2
@@ -13,3 +12,4 @@ two:
   contact_id: 2
   body: MyString
   notification_time: 2013-04-03 11:48:32
+  company_id: 1

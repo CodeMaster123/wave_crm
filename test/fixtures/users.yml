@@ -8,6 +8,7 @@ one:
   mobile_no: 9503444444
   email: varade.vivek.123@gmail.com
   account_type: 1
+  company_id: 1
 
 two:
   id: 2
@@ -17,3 +18,4 @@ two:
   mobile_no: 9999999991
   email: vijay@gmail.com
   account_type: 2
+  company_id: 1
