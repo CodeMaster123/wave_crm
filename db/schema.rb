@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.string   "company_address"
     t.integer  "contact_number1"
     t.integer  "contact_number2"
-    t.integer  "admin_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

@@ -25,8 +25,8 @@ class CompaniesControllerTest < ActionController::TestCase
 
     test "should create company" do
         assert_difference('Company.count') do
-            @new_company = Company.new(:admin_id =>4, :company_address => 'cbs', :company_name => 'wave', :contact_number1 => 12313132 , :contact_number2 => 98899898)
-            post :create, company: { admin_id: @new_company.admin_id, company_address: @new_company.company_address, company_name: @new_company.company_name, contact_number1: @new_company.contact_number1, contact_number2: @new_company.contact_number2 }
+            @new_company = Company.new(:company_address => 'cbs', :company_name => 'wave', :contact_number1 => 12313132 , :contact_number2 => 98899898)
+            post :create, company: { company_address: @new_company.company_address, company_name: @new_company.company_name, contact_number1: @new_company.contact_number1, contact_number2: @new_company.contact_number2 }
         end
 
         assert_redirected_to companies_path
@@ -43,7 +43,7 @@ class CompaniesControllerTest < ActionController::TestCase
     end
 
     test "should update company" do
-        put :update, id: @company, company: { admin_id: @company.admin_id, company_address: @company.company_address, company_name: @company.company_name, contact_number1: @company.contact_number1, contact_number2: @company.contact_number2 }
+        put :update, id: @company, company: { company_address: @company.company_address, company_name: @company.company_name, contact_number1: @company.contact_number1, contact_number2: @company.contact_number2 }
         assert_redirected_to companies_path
     end
 
