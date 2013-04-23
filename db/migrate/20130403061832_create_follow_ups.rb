@@ -4,6 +4,7 @@ class CreateFollowUps < ActiveRecord::Migration
       t.integer :lead_id
       t.string :description
       t.timestamp :follow_up_time
+      t.integer :company_id
 
       t.timestamps
     end

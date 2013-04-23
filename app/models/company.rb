@@ -7,6 +7,7 @@ class Company < ActiveRecord::Base
     has_many :products
     has_many :notifications
     has_many :leads
+    has_many :follow_ups
 
     attr_accessible :admin_id, :company_address, :company_name, :contact_number1, :contact_number2
 

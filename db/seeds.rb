@@ -145,25 +145,25 @@ Event.create([
 ])
 
 FollowUp.create([
-                {:lead_id => 1, :description => "first meeting", :follow_up_time => "11:47AM 01-Apr"},
-                {:lead_id => 2, :description => "second meeting", :follow_up_time => "10:00AM 02-Apr"},
-                {:lead_id => 3, :description => "first meeting", :follow_up_time => "11:47AM 03-Apr"},
-                {:lead_id => 4, :description => "first meeting", :follow_up_time => "03:40PM 04-Apr"},
-                {:lead_id => 5, :description => "last meeting", :follow_up_time => "11:00AM 05-Apr"},
-                {:lead_id => 6, :description => "last meeting", :follow_up_time => "11:47AM 06-Apr"},
-                {:lead_id => 7, :description => "first meeting", :follow_up_time => "10:00AM 07-Apr"},
-                {:lead_id => 8, :description => "last meeting", :follow_up_time => "11:10AM 08-Apr"},
-                {:lead_id => 9, :description => "first meeting", :follow_up_time => "11:47AM 09-Apr"},
-                {:lead_id => 10, :description => "first meeting", :follow_up_time => "11:00AM 10-Apr"},
-                {:lead_id => 11, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 12, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 13, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 14, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 15, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 16, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 17, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 18, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"},
-                {:lead_id => 19, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr"}
+                {:lead_id => 1, :description => "first meeting", :follow_up_time => "11:47AM 01-Apr", :company_id => 1},
+                {:lead_id => 2, :description => "second meeting", :follow_up_time => "10:00AM 02-Apr", :company_id => 1},
+                {:lead_id => 3, :description => "first meeting", :follow_up_time => "11:47AM 03-Apr", :company_id => 1},
+                {:lead_id => 4, :description => "first meeting", :follow_up_time => "03:40PM 04-Apr", :company_id => 1},
+                {:lead_id => 5, :description => "last meeting", :follow_up_time => "11:00AM 05-Apr", :company_id => 1},
+                {:lead_id => 6, :description => "last meeting", :follow_up_time => "11:47AM 06-Apr", :company_id => 1},
+                {:lead_id => 7, :description => "first meeting", :follow_up_time => "10:00AM 07-Apr", :company_id => 1},
+                {:lead_id => 8, :description => "last meeting", :follow_up_time => "11:10AM 08-Apr", :company_id => 1},
+                {:lead_id => 9, :description => "first meeting", :follow_up_time => "11:47AM 09-Apr", :company_id => 1},
+                {:lead_id => 10, :description => "first meeting", :follow_up_time => "11:00AM 10-Apr", :company_id => 1},
+                {:lead_id => 11, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 1},
+                {:lead_id => 12, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 13, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 14, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 15, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 16, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 17, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 18, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2},
+                {:lead_id => 19, :description => "first meeting", :follow_up_time => "11:47AM 08-Apr", :company_id => 2}
 ])
 
 
