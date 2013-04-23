@@ -13,10 +13,8 @@ class ContactsController < ApplicationController
 
     def index
         if current_user.account_type ==1
-            ###################################
-            ############ Rewrite ##############
-            @contacts = Contact.paginate(:page => params[:page], :per_page => 15).all
-            ###################################
+            @company = Company.where(:id => current_user.company_id).first
+            @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).all
         elsif current_user.account_type == 2
             @contacts = Array.new
             User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
