@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.string   "description"
     t.integer  "leadable_id"
     t.string   "leadable_type"
+    t.integer  "company_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

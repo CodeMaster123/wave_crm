@@ -5,6 +5,7 @@ class CreateLeads < ActiveRecord::Migration
       t.string :description
       t.integer :leadable_id
       t.string :leadable_type
+      t.integer :company_id
 
       t.timestamps
     end
