@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="585e7820-f43e-4790-8865-045c82ed9c36" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/company.rb" afterPath="$PROJECT_DIR$/app/models/company.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/product.rb" afterPath="$PROJECT_DIR$/app/models/product.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130410053908_create_products.rb" afterPath="$PROJECT_DIR$/db/migrate/20130410053908_create_products.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/notification.rb" afterPath="$PROJECT_DIR$/app/models/notification.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130409130607_create_notifications.rb" afterPath="$PROJECT_DIR$/db/migrate/20130409130607_create_notifications.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
     </list>
     <ignored path="wave_crm.iws" />
@@ -30,16 +31,34 @@
       <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="183" column="138" selection-start="24686" selection-end="24686" vertical-scroll-proportion="0.815486">
+            <state line="228" column="144" selection-start="28048" selection-end="28048" vertical-scroll-proportion="0.7413509">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20130410053908_create_products.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20130410053908_create_products.rb">
+      <file leaf-file-name="notification.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/notification.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="27" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+            <state line="4" column="80" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20130409130607_create_notifications.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20130409130607_create_notifications.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="29" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="company.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/company.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="27" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,9 +74,11 @@
       <list>
         <option value="$PROJECT_DIR$/app/models/tag.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130412084457_create_tags.rb" />
-        <option value="$PROJECT_DIR$/app/models/company.rb" />
         <option value="$PROJECT_DIR$/app/models/product.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130410053908_create_products.rb" />
+        <option value="$PROJECT_DIR$/app/models/company.rb" />
+        <option value="$PROJECT_DIR$/app/models/notification.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20130409130607_create_notifications.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
@@ -322,23 +343,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/company.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130410053908_create_products.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="177" selection-end="177" vertical-scroll-proportion="0.14516129">
+        <state line="7" column="27" selection-start="218" selection-end="218" vertical-scroll-proportion="0.16935484">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130410053908_create_products.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/company.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="27" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+        <state line="7" column="27" selection-start="205" selection-end="205" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/notification.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="80" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20130409130607_create_notifications.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="29" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="183" column="138" selection-start="24686" selection-end="24686" vertical-scroll-proportion="0.815486">
+        <state line="228" column="144" selection-start="28048" selection-end="28048" vertical-scroll-proportion="0.7413509">
           <folding />
         </state>
       </provider>

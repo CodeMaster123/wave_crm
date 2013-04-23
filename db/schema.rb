@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20130422053939) do
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "notification_time"
+    t.integer  "company_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

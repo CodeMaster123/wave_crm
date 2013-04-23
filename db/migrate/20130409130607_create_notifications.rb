@@ -5,6 +5,7 @@ class CreateNotifications < ActiveRecord::Migration
         t.integer :contact_id
         t.string :body
         t.timestamp :notification_time
+        t.integer :company_id
 
 
         t.timestamps
