@@ -9,7 +9,7 @@ Company.create([
 User.create([
             {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1, :company_id => 1},
             {:first_name => "Ramesh", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 1},
-            {:first_name => "Ramesh", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 1},
+            {:first_name => "Rameshwar", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader1@gmail.com", :password => "team_leader1231", :password_confirmation => "team_leader1231", :account_type => 2, :company_id => 1},
             {:first_name => "Suresh", :last_name => "Kambale", :address => "Uttam nagar, Nashik", :mobile_no => 9912324212, :email => "sales_executive1@gmail.com", :password => "sales_executive1", :password_confirmation => "sales_executive1", :account_type => 3, :company_id => 1},
             {:first_name => "Ram", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 9988776677, :email => "sales_executive2@gmail.com", :password => "sales_executive2", :password_confirmation => "sales_executive2", :account_type => 3, :company_id => 1},
             {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9878866856, :email => "sales_executive3@gmail.com", :password => "sales_executive3", :password_confirmation => "sales_executive3", :account_type => 3, :company_id => 1},
@@ -17,15 +17,15 @@ User.create([
 ])
 
 TeamLeader.create([
-                  {:user_id => 2, :employee_id => 3, :company_id => 1},
-                  {:user_id => 3, :employee_id => 4, :company_id => 1},
+                  {:user_id => 2, :company_id => 1},
+                  {:user_id => 3, :company_id => 1}
 ])
 
 SalesExecutive.create([
-                      {:team_leader_id =>1, :user_id =>4, :employee_id =>7, :company_id => 1},
-                      {:team_leader_id =>1, :user_id =>5, :employee_id =>8, :company_id => 1},
-                      {:team_leader_id =>2, :user_id =>6, :employee_id =>9, :company_id => 1},
-                      {:team_leader_id =>2, :user_id =>7, :employee_id =>10, :company_id => 1}
+                      {:team_leader_id =>1, :user_id =>4, :company_id => 1},
+                      {:team_leader_id =>1, :user_id =>5, :company_id => 1},
+                      {:team_leader_id =>2, :user_id =>6, :company_id => 1},
+                      {:team_leader_id =>2, :user_id =>7, :company_id => 1}
 ])
 
 
@@ -266,15 +266,15 @@ User.create([
 ])
 
 TeamLeader.create([
-                {:user_id => 9, :employee_id => 3, :company_id => 2},
-                {:user_id => 10, :employee_id => 4, :company_id => 2},
+                {:user_id => 9, :company_id => 2},
+                {:user_id => 10, :company_id => 2}
 ])
 
 SalesExecutive.create([
-                    {:team_leader_id =>3, :user_id =>11, :employee_id =>7, :company_id => 2},
-                    {:team_leader_id =>3, :user_id =>12, :employee_id =>8, :company_id => 2},
-                    {:team_leader_id =>4, :user_id =>13, :employee_id =>9, :company_id => 2},
-                    {:team_leader_id =>4, :user_id =>14, :employee_id =>10, :company_id => 2}
+                    {:team_leader_id =>3, :user_id =>11, :company_id => 2},
+                    {:team_leader_id =>3, :user_id =>12, :company_id => 2},
+                    {:team_leader_id =>4, :user_id =>13, :company_id => 2},
+                    {:team_leader_id =>4, :user_id =>14, :company_id => 2}
 ])
 
 Lead.create([
