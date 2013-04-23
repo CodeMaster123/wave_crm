@@ -27,7 +27,7 @@ class TagsControllerTest < ActionController::TestCase
             post :create, tag: { name: @tag.name }
         end
 
-        assert_redirected_to tag_path(assigns(:tag))
+        assert_redirected_to tags_path
     end
 
     test "should show tag" do

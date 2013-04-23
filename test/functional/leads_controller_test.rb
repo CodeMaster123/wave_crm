@@ -28,7 +28,7 @@ class LeadsControllerTest < ActionController::TestCase
             post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type}
         end
 
-        assert_redirected_to lead_path(assigns(:lead))
+        assert_redirected_to leads_path
     end
 
     test "should show lead" do

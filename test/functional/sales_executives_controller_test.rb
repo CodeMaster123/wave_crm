@@ -27,7 +27,7 @@ class SalesExecutivesControllerTest < ActionController::TestCase
             post :create, sales_executive: { employee_id: @sales_executive.employee_id, team_leader_id: @sales_executive.team_leader_id, user_id: @sales_executive.user_id }
         end
 
-        assert_redirected_to sales_executive_path(assigns(:sales_executive))
+        assert_redirected_to sales_executives_path
     end
 
     test "should show sales_executive" do

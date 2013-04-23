@@ -49,7 +49,6 @@ class UsersController < ApplicationController
 
 
     if params[:user][:account_type].to_i == 2
-      puts "----------------------->#{User.last.id.to_i + 1}"
       TeamLeader.create(:user_id => User.last.id.to_i + 1)
     elsif params[:user][:account_type].to_i == 3
       SalesExecutive.create(:user_id => User.last.id.to_i + 1, :team_leader_id => params[:user][:team_leader].to_i)

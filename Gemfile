@@ -31,6 +31,7 @@ gem 'rails3-jquery-autocomplete'
 
 gem 'quiet_assets'
 gem 'irbtools'
-gem 'turn'
 gem 'sextant'
 
+gem 'turn'
+gem 'minitest'

@@ -108,6 +108,7 @@ GEM
     methodfinder (1.2.5)
     middleware (0.1.0)
     mime-types (1.21)
+    minitest (4.7.3)
     multi_json (1.7.2)
     mysql2 (0.3.12b4)
     nested_form (0.3.2)
@@ -220,6 +221,7 @@ DEPENDENCIES
   lazy_high_charts
   less
   less-rails
+  minitest
   mysql2 (= 0.3.12b4)
   nested_form (= 0.3.2)
   paperclip

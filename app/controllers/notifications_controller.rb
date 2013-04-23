@@ -56,7 +56,6 @@ class NotificationsController < ApplicationController
     def create
         @notification = Notification.new(params[:notification])
         @notification2 = Notification.new(params[:notification])
-        puts "=========================> #{@notification_time}"
         @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
 
         respond_to do |format|

@@ -27,7 +27,7 @@ class ProductsControllerTest < ActionController::TestCase
             post :create, product: { description: @product.description, max_cost: @product.max_cost, min_cost: @product.min_cost, name: @product.name }
         end
 
-        assert_redirected_to product_path(assigns(:product))
+        assert_redirected_to products_path
     end
 
     test "should show product" do
