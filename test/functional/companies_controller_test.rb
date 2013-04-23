@@ -27,8 +27,6 @@ class CompaniesControllerTest < ActionController::TestCase
         assert_difference('Company.count') do
             @new_company = Company.new(:admin_id =>4, :company_address => 'cbs', :company_name => 'wave', :contact_number1 => 12313132 , :contact_number2 => 98899898)
             post :create, company: { admin_id: @new_company.admin_id, company_address: @new_company.company_address, company_name: @new_company.company_name, contact_number1: @new_company.contact_number1, contact_number2: @new_company.contact_number2 }
-            puts "last admin from company ======> #{Company.last.admin_id}"
-            puts "admin_id ==========> #{@company.admin_id}"
         end
 
         assert_redirected_to companies_path

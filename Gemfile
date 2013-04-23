@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 gem 'mysql2', '0.3.12b4'
 gem 'devise'
 gem 'declarative_authorization', '~> 0.5.7'
@@ -10,14 +10,6 @@ gem 'will_paginate'
 gem 'paperclip'
 gem 'wicked'
 gem 'thinking-sphinx'
-
-
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'less'
-end
 
 gem 'bootstrap_form'
 gem 'jquery-rails'
@@ -29,9 +21,20 @@ gem "twitter-bootstrap-rails"
 gem 'lazy_high_charts'
 gem 'rails3-jquery-autocomplete'
 
-gem 'quiet_assets'
-gem 'irbtools'
-gem 'sextant'
+group :assets do
+    gem 'sass-rails',   '~> 3.2.3'
+    gem 'coffee-rails', '~> 3.2.1'
+    gem 'uglifier', '>= 1.0.3'
+    gem 'less'
+end
 
-gem 'turn'
-gem 'minitest'
+group :development do
+    gem 'quiet_assets'
+    gem 'irbtools'
+    gem 'sextant'
+end
+
+group :test do
+    gem 'turn'
+    gem 'minitest'
+end
