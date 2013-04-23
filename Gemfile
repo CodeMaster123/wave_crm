@@ -38,4 +38,6 @@ group :test do
     gem 'turn'
     gem 'minitest'
     gem 'guard'
+    gem 'rb-inotify'
 end
+    gem 'rack-mini-profiler'

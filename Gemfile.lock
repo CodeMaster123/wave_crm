@@ -143,6 +143,8 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-mini-profiler (0.1.26)
+      rack (>= 1.1.3)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -249,8 +251,10 @@ DEPENDENCIES
   nested_form (= 0.3.2)
   paperclip
   quiet_assets
+  rack-mini-profiler
   rails (= 3.2.13)
   rails3-jquery-autocomplete
+  rb-inotify
   sass-rails (~> 3.2.3)
   sextant
   therubyracer
