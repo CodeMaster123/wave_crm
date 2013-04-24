@@ -5,6 +5,7 @@ class Notification < ActiveRecord::Base
   attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id
 
   validates :contact_id, :presence => true
+  validates :company_id, :presence => true
 
   def sms_send(contact_number, body)
       @sms_gateway_username = "wave"

@@ -46,8 +46,9 @@ class TeamLeadersController < ApplicationController
     def create
       @company = Company.where(:id => current_user.company_id).first
         @team_leader = @company.team_leaders.new(params[:team_leader])
+      @team_leader.company_id = @company.id
 
-        respond_to do |format|
+      respond_to do |format|
             if @team_leader.save
                 format.html { redirect_to :team_leaders, notice: 'Team leader was successfully created.' }
                 format.json { render json: @team_leader, status: :created, location: @team_leader }

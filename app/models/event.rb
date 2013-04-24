@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
     validates :description, :presence => true
     validates :starts_at, :presence => true
     validates :ends_at, :presence => true
-
+    validates :company_id, :presence => true
 
     # need to override the json view to return what full_calendar is expecting.
     # http://arshaw.com/fullcalendar/docs/event_data/Event_Object/

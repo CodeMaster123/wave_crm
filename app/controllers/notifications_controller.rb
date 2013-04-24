@@ -59,7 +59,11 @@ class NotificationsController < ApplicationController
       @notification = @company.notifications.new(params[:notification])
         @notification2 = @company.notifications.new(params[:notification])
         @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
-        respond_to do |format|
+      @notification.company_id = @company.id
+      @notification2.company_id = @company.id
+
+
+      respond_to do |format|
         if @notification.save
             @notification2.save
             format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }

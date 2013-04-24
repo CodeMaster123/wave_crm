@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
   has_many :leads_products
   has_many :leads, :through => :leads_products
   belongs_to :company
+  validates :company_id, :presence => true
 end

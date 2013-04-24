@@ -59,8 +59,9 @@ class ContactsController < ApplicationController
     end
 
     def create
-        @contact = Contact.new(params[:contact])
-        @contact = @contact.company_id
+      @company = Company.where(:id => current_user.company_id).first
+      @contact = @company.contacts.new(params[:contact])
+        @contact.company_id = @company.id
 
         respond_to do |format|
             if @contact.save
@@ -74,8 +75,8 @@ class ContactsController < ApplicationController
     end
 
     def update
-
-        @contact = Contact.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+      @contact = @company.contacts.find(params[:id])
 
         respond_to do |format|
             if @contact.update_attributes(params[:contact])

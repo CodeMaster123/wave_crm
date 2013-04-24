@@ -9,10 +9,11 @@ class EventsController < ApplicationController
         # appropriate month/week/day.  It should be possiblt to change
         # this to be starts_at and ends_at to match rails conventions.
         # I'll eventually do that to make the demo a little cleaner.
-        @events = Event.scoped
+      @company = Company.where(:id => current_user.company_id).first
+      @events = Event.scoped
         @events = @events.after(params['start']) if (params['start'])
         @events = @events.before(params['end']) if (params['end'])
-        @events = User.where(:id => current_user.id).first.events.paginate(:page => params[:page], :per_page => 15)
+        @events = @company.users.where(:id => current_user.id).first.events.paginate(:page => params[:page], :per_page => 15)
 
         respond_to do |format|
             format.html # index.html.erb
@@ -52,9 +53,11 @@ class EventsController < ApplicationController
     # POST /events
     # POST /events.xml
     def create
-        @event = Event.new(params[:event])
+      @company = Company.where(:id => current_user.company_id).first
+      @event = @company.events.new(params[:event])
+      @event.company_id = @company.id
 
-        respond_to do |format|
+      respond_to do |format|
             if @event.save
                 format.html { redirect_to :events, :notice => 'Event was successfully created.' }
                 format.xml  { render :xml => @event, :status => :created, :location => @event }
@@ -72,7 +75,8 @@ class EventsController < ApplicationController
     # it on the week or day view), this method will be called to update the values.
     # viv la REST!
     def update
-        @event = Event.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+      @event = @company.events.find(params[:id])
 
         respond_to do |format|
             if @event.update_attributes(params[:event])
