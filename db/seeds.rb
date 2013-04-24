@@ -253,21 +253,21 @@ SpecialOccasion.create([
 ])
 
 #################################################################
-################# American Dentil Clinic #######################
+################# American Dental Clinic #######################
 #################################################################
 
 Company.create([
-                   {:company_name => "Denal Hospital", :company_address => "USA", :contact_number1 => 15465665556, :contact_number2 => 416515654165}
+                   {:company_name => "Dental Hospital", :company_address => "USA", :contact_number1 => 15465665556, :contact_number2 => 416515654165}
 ])
 
 User.create([
-          {:first_name => "vilas", :last_name => "gaikwad", :address => "vijay marg, USA", :mobile_no => 9871456416, :email => "admin1@gmail.com", :password => "admin123123", :password_confirmation => "admin123123", :account_type => 1, :company_id => 2},
-          {:first_name => "umesh", :last_name => "Pawar", :address => "usa", :mobile_no => 9973546324, :email => "team_leader123@gmail.com", :password => "team_leader123123", :password_confirmation => "team_leader123123", :account_type => 2, :company_id => 2},
-          {:first_name => "satish", :last_name => "pande", :address => "usa nagar, nashik", :mobile_no => 9973546324, :email => "team_leader1231@gmail.com", :password => "team_leader1231", :password_confirmation => "team_leader1231", :account_type => 2, :company_id => 2},
-          {:first_name => "Sudam", :last_name => "Kambale", :address => "usa nagar, Nashik", :mobile_no => 9912324212, :email => "sales_executive123@gmail.com", :password => "sales_executive123", :password_confirmation => "sales_executive123", :account_type => 3, :company_id => 2},
-          {:first_name => "Ramnath", :last_name => "Patil", :address => "usa, Nashik", :mobile_no => 9988776677, :email => "sales_executive1231@gmail.com", :password => "sales_executive1231", :password_confirmation => "sales_executive1231", :account_type => 3, :company_id => 2},
-          {:first_name => "pramod", :last_name => "Borade", :address => "usa, Nashik road", :mobile_no => 9878866856, :email => "sales_executive1232@gmail.com", :password => "sales_executive1232", :password_confirmation => "sales_executive1232", :account_type => 3, :company_id => 2},
-          {:first_name => "Pravin", :last_name => "palde", :address => "usal, Nashik", :mobile_no => 9912413213, :email => "sales_executive1233@gmail.com", :password => "sales_executive1233", :password_confirmation => "sales_executive1233", :account_type => 3, :company_id => 2}
+          {:first_name => "George", :last_name => "Stinson", :address => "New york, USA", :mobile_no => 9871456416, :email => "admin1@gmail.com", :password => "admin123123", :password_confirmation => "admin123123", :account_type => 1, :company_id => 2},
+          {:first_name => "Patrick", :last_name => "Ericssen", :address => "Los Angeles", :mobile_no => 9973546324, :email => "team_leader123@gmail.com", :password => "team_leader123123", :password_confirmation => "team_leader123123", :account_type => 2, :company_id => 2},
+          {:first_name => "Margaret", :last_name => "Smith", :address => "Michigan, nashik", :mobile_no => 9973546324, :email => "team_leader1231@gmail.com", :password => "team_leader1231", :password_confirmation => "team_leader1231", :account_type => 2, :company_id => 2},
+          {:first_name => "Harris", :last_name => "Radclief", :address => "Florida, Nashik", :mobile_no => 9912324212, :email => "sales_executive123@gmail.com", :password => "sales_executive123", :password_confirmation => "sales_executive123", :account_type => 3, :company_id => 2},
+          {:first_name => "Neil", :last_name => "Pitt", :address => "Silicon valley", :mobile_no => 9988776677, :email => "sales_executive1231@gmail.com", :password => "sales_executive1231", :password_confirmation => "sales_executive1231", :account_type => 3, :company_id => 2},
+          {:first_name => "Harry", :last_name => "Goldberg", :address => "Alaska", :mobile_no => 9878866856, :email => "sales_executive1232@gmail.com", :password => "sales_executive1232", :password_confirmation => "sales_executive1232", :account_type => 3, :company_id => 2},
+          {:first_name => "Ronald", :last_name => "Edison", :address => "New Mexico", :mobile_no => 9912413213, :email => "sales_executive1233@gmail.com", :password => "sales_executive1233", :password_confirmation => "sales_executive1233", :account_type => 3, :company_id => 2}
 ])
 
 TeamLeader.create([
@@ -283,49 +283,49 @@ SalesExecutive.create([
 ])
 
 Lead.create([
-                {:title => "medi hospital", :description => "hospital", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "sud hospital", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "hghgh hospital", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "sk hospital", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "jk garage", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "sai restaurant", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "Rahul clinic", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "Harish ca", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "Pravesh ca", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-                {:title => "rohit garage", :description => "patient", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "medi hospital", :description => "hospital", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "sud hospital", :description => "patient", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "hghgh hospital", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "sk hospital", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "jk garage", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "sai restaurant", :description => "patient", :leadable_id => 12, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "Rahul clinic", :description => "patient", :leadable_id => 12, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "Harish ca", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "Pravesh ca", :description => "patient", :leadable_id => 13, :leadable_type => "SalesExecutive", :company_id => 2},
-                {:title => "rohit garage", :description => "patient", :leadable_id => 14, :leadable_type => "SalesExecutive", :company_id => 2}
+                {:title => "James Jack", :description => "Root canal patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "Bleaching patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "hospital", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 12, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 12, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 13, :leadable_type => "SalesExecutive", :company_id => 2},
+                {:title => "Patient", :description => "patient", :leadable_id => 14, :leadable_type => "SalesExecutive", :company_id => 2}
 ])
 
 Contact.create([
-                   {:contactable_id => 11, :first_name => "jems", :middle_name => "j", :last_name => "bond", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 12, :first_name => "suyash", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
-                   {:contactable_id => 13, :first_name => "aryan", :middle_name => "mohan", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 14, :first_name => "mahesh", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 15, :first_name => "parinita", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer", :company_id => 2},
-                   {:contactable_id => 16, :first_name => "govind", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 17, :first_name => "snehal", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 18, :first_name => "bhima", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
-                   {:contactable_id => 19, :first_name => "kailas", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 20, :first_name => "shivaji", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 21, :first_name => "jems", :middle_name => "j", :last_name => "bond", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 22, :first_name => "suyash", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
-                   {:contactable_id => 23, :first_name => "aryan", :middle_name => "mohan", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 24, :first_name => "mahesh", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 25, :first_name => "parinita", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer", :company_id => 2},
-                   {:contactable_id => 26, :first_name => "govind", :middle_name => "bhackar", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 27, :first_name => "snehal", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 28, :first_name => "bhima", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
-                   {:contactable_id => 29, :first_name => "kailas", :middle_name => "vitthal", :last_name => "kale", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
-                   {:contactable_id => 20, :first_name => "shivaji", :middle_name => "suresh", :last_name => "shinde", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2}
+                   {:contactable_id => 11, :first_name => "James", :middle_name => "Jack", :last_name => "Pattinson", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 12, :first_name => "Adrian", :middle_name => "Bryan", :last_name => "Payton", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
+                   {:contactable_id => 13, :first_name => "Adam", :middle_name => "Patrick", :last_name => "Quincy", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 14, :first_name => "Bryan", :middle_name => "James", :last_name => "Wallace", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 15, :first_name => "William", :middle_name => "Barry", :last_name => "Burton", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer", :company_id => 2},
+                   {:contactable_id => 16, :first_name => "Edward", :middle_name => "Roger", :last_name => "Hanson", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 17, :first_name => "Johny", :middle_name => "Jacob", :last_name => "Robertson", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 18, :first_name => "Eddy", :middle_name => "Joshua", :last_name => "Harryson", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
+                   {:contactable_id => 19, :first_name => "Tyler", :middle_name => "James", :last_name => "Smith", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 20, :first_name => "David", :middle_name => "William", :last_name => "Pattinson", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 21, :first_name => "Jayden", :middle_name => "Christopher", :last_name => "Johnson", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 22, :first_name => "Michael", :middle_name => "Daniel", :last_name => "Wilson", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
+                   {:contactable_id => 23, :first_name => "Elijah", :middle_name => "Matthew", :last_name => "Harris", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 24, :first_name => "Noah", :middle_name => "Ethan", :last_name => "Thomas", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 25, :first_name => "Ashley", :middle_name => "William", :last_name => "White", :address => "pune", :mobile_no => 9875942156, :landline_no=> 4584125465, :contactable_type => "Existing Customer", :company_id => 2},
+                   {:contactable_id => 26, :first_name => "Emily", :middle_name => "Emma", :last_name => "Garcia", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 27, :first_name => "Isabella", :middle_name => "Hannah", :last_name => "Lee", :address => "lahavit", :mobile_no => 9850753535, :landline_no=> 45852142112, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 28, :first_name => "Madison", :middle_name => "Elizabeth", :last_name => "Lewis", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 4554587111, :contactable_type => "Existing Customer", :company_id => 2},
+                   {:contactable_id => 29, :first_name => "Olivia", :middle_name => "Samantha", :last_name => "Hall", :address => "lahavit", :mobile_no => 9812548265, :landline_no=> 48754549555, :contactable_type => "Lead", :company_id => 2},
+                   {:contactable_id => 20, :first_name => "Abigail", :middle_name => "James", :last_name => "Wright", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :company_id => 2}
 ])
 
 Target.create([
