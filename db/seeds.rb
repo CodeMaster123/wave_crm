@@ -1,3 +1,8 @@
+User.create([
+            {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "superadmin@gmail.com", :password => "superadmin123", :password_confirmation => "superadmin123", :account_type => 1, :company_id => 1},
+])
+
+
 #################################################################
 ################# Indian Software company #######################
 #################################################################
