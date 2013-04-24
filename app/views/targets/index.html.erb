@@ -14,15 +14,14 @@
   </tr>
   </thead>
   <tbody>
-      <% @team_leaders.each do |team_leader| %>
+      <% @targets.each do |target| %>
           <tr>
-              <% unless team_leader.targets.empty? %>
-                  <td><%= link_to team_leader.id, target_path(team_leader) %></td>
-                  <td><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}" %></td>
-                  <td><%= team_leader.targets.first.amount %></td>
-                  <td><%= team_leader.targets.achived %></td>
-                  <td><%= team_leader.targets.first.targetable_type %></td>
-                  <td><%= team_leader.targets.first.target_date %></td>
+
+                  <td><%= link_to target.id, target_path(target) %></td>
+                  <td><%= target.targetable_id %></td>
+                  <td><%= target.targetable_type %></td>
+                  <td><%= target.amount %></td>
+                  <td><%= target.achived %></td>
                   <td>
                       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_target_path(target), :class => 'btn btn-mini' %>
@@ -34,7 +33,7 @@
                           </td>
                       <% end %>
                   </tr>
-              <% end %>
+
           </tbody>
       </table>
 

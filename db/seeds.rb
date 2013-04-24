@@ -81,30 +81,12 @@ Contact.create([
 ])
 
 Target.create([
-              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 1}
+              {:targetable_id => 1, :targetable_type => "Team leader", :amount => 100000, :achived => 70000, :company_id => 1},
+              {:targetable_id => 2, :targetable_type => "Team leader", :amount => 50000, :achived => 36500, :company_id => 1},
+              {:targetable_id => 1, :targetable_type => "Sales executive", :amount => 39000, :achived => 6000, :company_id => 1},
+              {:targetable_id => 2, :targetable_type => "Sales executive", :amount => 58000, :achived => 35000, :company_id => 1},
+              {:targetable_id => 3, :targetable_type => "Sales executive", :amount => 61520, :achived => 44582, :company_id => 1},
+              {:targetable_id => 4, :targetable_type => "Sales executive", :amount => 100000, :achived => 70000, :company_id => 1}
 ])
 
 Event.create([
@@ -329,30 +311,12 @@ Contact.create([
 ])
 
 Target.create([
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 2}
+                  {:targetable_id => 3, :targetable_type => "Team leader", :amount => 100000, :achived => 70000, :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => "Team leader", :amount => 50000, :achived => 36500, :company_id => 2},
+                  {:targetable_id => 5, :targetable_type => "Sales executive", :amount => 80000, :achived => 75000, :company_id => 2},
+                  {:targetable_id => 6, :targetable_type => "Sales executive", :amount => 100000, :achived => 80000, :company_id => 2},
+                  {:targetable_id => 7, :targetable_type => "Sales executive", :amount => 60000, :achived => 40000, :company_id => 2},
+                  {:targetable_id => 8, :targetable_type => "Sales executive", :amount => 60000, :achived => 50000, :company_id => 2}
 ])
 
 FollowUp.create([

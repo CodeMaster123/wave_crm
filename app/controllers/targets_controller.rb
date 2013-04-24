@@ -4,7 +4,8 @@ class TargetsController < ApplicationController
     # GET /targets
     # GET /targets.json
     def index
-        @targets = Target.all
+      @company = Company.where(:id => current_user.company_id).first
+        @targets = @company.targets.all
         @team_leaders = TeamLeader.all
         @sales_executives = SalesExecutive.all
 
@@ -28,9 +29,10 @@ class TargetsController < ApplicationController
     # GET /targets/new
     # GET /targets/new.json
     def new
+      @company = Company.where(:id => current_user.company_id).first
         @target = Target.new
-        @team_leaders = TeamLeader.all
-        @sales_executives = SalesExecutive.all
+        @team_leaders = @company.team_leaders.all
+        @sales_executives = @company.sales_executives.all
 
         respond_to do |format|
             format.html # new.html.erb
@@ -40,16 +42,17 @@ class TargetsController < ApplicationController
 
     # GET /targets/1/edit
     def edit
-        @team_leaders = TeamLeader.all
-        @sales_executives = SalesExecutive.all
+        @team_leaders = @company.team_leaders.all
+        @sales_executives = @company.sales_executives.all
         @target = Target.find(params[:id])
     end
 
     # POST /targets
     # POST /targets.json
     def create
-        @target = Target.new(params[:target])
-
+      @company = Company.where(:id => current_user.company_id).first
+        @target = @company.targets.new(params[:target])
+      @target.company_id = @company.id
         respond_to do |format|
             if @target.save
                 format.html { redirect_to :targets, notice: 'Target was successfully created.' }
@@ -64,7 +67,8 @@ class TargetsController < ApplicationController
     # PUT /targets/1
     # PUT /targets/1.json
     def update
-        @target = Target.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+        @target = @company.targets.find(params[:id])
 
         respond_to do |format|
             if @target.update_attributes(params[:target])
