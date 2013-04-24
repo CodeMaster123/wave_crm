@@ -4,8 +4,10 @@ one:
   lead_id: 1
   description: MyString
   follow_up_time: 2013-04-03 11:48:32
+  company_id: 1
 
 two:
   lead_id: 1
   description: MyString
   follow_up_time: 2013-04-03 11:48:32
+  company_id: 1

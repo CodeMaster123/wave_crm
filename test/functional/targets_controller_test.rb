@@ -24,7 +24,7 @@ class TargetsControllerTest < ActionController::TestCase
 
     test "should create target" do
         assert_difference('Target.count') do
-            post :create, target: { achived: @target.achived, amount: @target.amount, target_date: @target.target_date, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type }
+            post :create, target: { achived: @target.achived, amount: @target.amount, target_date: @target.target_date, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type, company_id: @target.company_id }
         end
 
         assert_redirected_to targets_path
@@ -41,7 +41,7 @@ class TargetsControllerTest < ActionController::TestCase
     end
 
     test "should update target" do
-        put :update, id: @target, target: { achived: @target.achived, amount: @target.amount, target_date: @target.target_date, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type }
+        put :update, id: @target, target: { achived: @target.achived, amount: @target.amount, target_date: @target.target_date, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type, company_id: @target.company_id }
         assert_redirected_to target_path(assigns(:target))
     end
 
