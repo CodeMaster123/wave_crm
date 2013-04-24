@@ -18,7 +18,4 @@ class Company < ActiveRecord::Base
     validates :company_name, :presence => true
     validates :company_address, :presence => true
 
-    def admin
-        User.where(:id => self.admin_id).first
-    end
 end

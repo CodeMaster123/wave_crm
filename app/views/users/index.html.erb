@@ -20,6 +20,7 @@
       <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
+      <th>User type</th>
       <th><%= model_class.human_attribute_name(:mobile_no) %></th>
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -32,6 +33,13 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.address %></td>
+        <% if user.team_leader != nil %>
+            <td>Team Leader</td>
+        <% elsif user.sales_executive != nil %>
+            <td>Sales executive</td>
+        <% else %>
+            <td>Admin</td>
+        <% end %>
         <td><%= user.mobile_no %></td>
 
         <td>

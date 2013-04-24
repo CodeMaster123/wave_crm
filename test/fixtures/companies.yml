@@ -6,7 +6,6 @@ one:
   company_address: MyString
   contact_number1: 1
   contact_number2: 1
-  admin_id: 1
 
 two:
   id: 2
@@ -14,4 +13,3 @@ two:
   company_address: MyString
   contact_number1: 1
   contact_number2: 1
-  admin_id: 2

@@ -4,6 +4,7 @@ one:
   description: MyString
   leadable_id: 2
   leadable_type: TeamLeader
+  company_id: 1
 
 two:
   id: 2
@@ -11,3 +12,4 @@ two:
   description: MyString
   leadable_id: 2
   leadable_type: TeamLeader
+  company_id: 1

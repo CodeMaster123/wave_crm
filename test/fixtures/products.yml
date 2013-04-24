@@ -6,6 +6,7 @@ one:
   min_cost: 1.5
   max_cost: 1.5
   description: MyString
+  company_id: 1
 
 two:
   id: 2
@@ -13,3 +14,4 @@ two:
   min_cost: 1.5
   max_cost: 1.5
   description: MyString
+  company_id: 1

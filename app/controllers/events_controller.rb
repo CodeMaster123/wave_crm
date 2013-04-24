@@ -80,7 +80,7 @@ class EventsController < ApplicationController
 
         respond_to do |format|
             if @event.update_attributes(params[:event])
-                format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
+                format.html { redirect_to(events_path, :notice => 'Event was successfully updated.') }
                 format.xml  { head :ok }
                 format.js { head :ok}
             else

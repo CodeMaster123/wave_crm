@@ -13,6 +13,7 @@ one:
   contact_type: vivek
   contactable_type: Lead
   contactable_id: 1
+  company_id: 1
 
 two:
   id: 2
@@ -27,3 +28,4 @@ two:
   contact_type: vivek
   contactable_type: Lead
   contactable_id: 2
+  company_id: 1

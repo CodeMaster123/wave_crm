@@ -10,7 +10,6 @@
       <th><%= model_class.human_attribute_name(:company_address) %></th>
       <th><%= model_class.human_attribute_name(:contact_number1) %></th>
       <th><%= model_class.human_attribute_name(:contact_number2) %></th>
-      <th><%= model_class.human_attribute_name(:admin_id) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -22,7 +21,6 @@
         <td><%= company.company_address %></td>
         <td><%= company.contact_number1 %></td>
         <td><%= company.contact_number2 %></td>
-        <td><%= company.admin_id %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_company_path(company), :class => 'btn btn-mini' %>
