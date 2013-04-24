@@ -6,4 +6,5 @@ class SalesExecutive < ActiveRecord::Base
   belongs_to :user
   belongs_to :team_leader
   belongs_to :company
+  validates :company_id, :presence => true
 end

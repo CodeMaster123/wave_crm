@@ -7,4 +7,5 @@ class TeamLeader < ActiveRecord::Base
   has_many :sales_executives
 
   belongs_to :company
+  validates :company_id, :presence => true
 end

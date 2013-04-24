@@ -17,7 +17,8 @@ class LeadsController < ApplicationController
       end
 
       if current_user.account_type == 1
-          @leads = Lead.paginate(:page => params[:page], :per_page => 15).all
+        @company = Company.where(:id => current_user.company_id).first
+        @leads = @company.leads.paginate(:page => params[:page], :per_page => 15).all
           unless params[:id1].nil?
               @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
               executive_name = SalesExecutive.where(:id => params[:id1]).first.user
@@ -66,11 +67,14 @@ class LeadsController < ApplicationController
   end
 
   def create
-      @lead = Lead.new(params[:lead])
+    @company = Company.where(:id => current_user.company_id).first
+    @lead = @company.leads.new(params[:lead])
       @lead.leadable_id = current_user.id
       @lead.leadable_type = current_user.class.name
       @products = Product.all
-      respond_to do |format|
+    @lead.company_id = @company.id
+
+    respond_to do |format|
           if @lead.save
               #@follow_up = FollowUp.create(:lead_id = @lead.id,
               format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
@@ -85,7 +89,8 @@ class LeadsController < ApplicationController
   # PUT /leads/1
   # PUT /leads/1.json
   def update
-      @lead = Lead.find(params[:id])
+    @company = Company.where(:id => current_user.company_id).first
+    @lead = @company.leads.find(params[:id])
 
       respond_to do |format|
           if @lead.update_attributes(params[:lead])

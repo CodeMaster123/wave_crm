@@ -3,6 +3,7 @@ class Tag < ActiveRecord::Base
   has_many :taggings
   has_many :contacts, through: :taggings
   belongs_to :company
+  validates :company_id, :presence => true
 
   def tag_list_string
       @tag_array =Array.new

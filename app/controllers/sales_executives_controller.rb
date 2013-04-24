@@ -45,8 +45,9 @@ class SalesExecutivesController < ApplicationController
     def create
       @company = Company.where(:id => current_user.company_id).first
         @sales_executive = @company.sales_executives.new(params[:sales_executive])
+      @sales_executive.company_id = @company.id
 
-        respond_to do |format|
+      respond_to do |format|
             if @sales_executive.save
                 format.html { redirect_to :sales_executives, notice: 'Sales executive was successfully created.' }
                 format.json { render json: @sales_executive, status: :created, location: @sales_executive }

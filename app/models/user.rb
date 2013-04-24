@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
     belongs_to :company
 
+
     has_attached_file :avatar,
         :styles => {:thumb => "27x27#" }, :whiny => false,
         :default_url => "/system/missing.png",
@@ -27,7 +28,7 @@ class User < ActiveRecord::Base
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
-
+    validates :company_id, :presence => true
 
     def role_symbols
         if self.account_type == 1

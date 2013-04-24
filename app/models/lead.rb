@@ -19,4 +19,5 @@ class Lead < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :description, :presence => true
+  validates :company_id, :presence => true
 end

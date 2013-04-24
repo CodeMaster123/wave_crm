@@ -16,6 +16,7 @@ class Contact < ActiveRecord::Base
   validates :address, :presence => true
   validates :mobile_no, :presence => true, :numericality => true
   validates :landline_no, :presence => true, :numericality => true
+  validates :company_id, :presence => true
 
   before_save :set_defaults
 

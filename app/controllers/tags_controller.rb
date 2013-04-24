@@ -70,6 +70,7 @@ class TagsController < ApplicationController
   def update
     @company = Company.where(:id => current_user.company_id).first
     @tag = @company.tags.find(params[:id])
+    @tag.company_id = @company.id
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])

@@ -4,7 +4,8 @@ class FollowUpsController < ApplicationController
     # GET /follow_ups
     # GET /follow_ups.json
     def index
-        @follow_ups = FollowUp.all
+      @company = Company.where(:id => current_user.company_id).first
+       @follow_ups = @company.follow_ups.all
 
         respond_to do |format|
             format.html # index.html.erb
@@ -42,9 +43,12 @@ class FollowUpsController < ApplicationController
     # POST /follow_ups
     # POST /follow_ups.json
     def create
-        @follow_up = FollowUp.new(params[:follow_up])
+      @company = Company.where(:id => current_user.company_id).first
+      @follow_up = @company.follow_ups.new(params[:follow_up])
+      @follow_up.company_id = @company.id
 
-        respond_to do |format|
+
+      respond_to do |format|
             if @follow_up.save
                 format.html { redirect_to :controller => 'leads', :action => 'index', notice: 'Follow up was successfully created.' }
                 format.json { render json: @follow_up, status: :created, location: @follow_up }
@@ -58,7 +62,8 @@ class FollowUpsController < ApplicationController
     # PUT /follow_ups/1
     # PUT /follow_ups/1.json
     def update
-        @follow_up = FollowUp.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+      @follow_up = @company.follow_ups.find(params[:id])
 
         respond_to do |format|
             if @follow_up.update_attributes(params[:follow_up])

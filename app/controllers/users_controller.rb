@@ -27,7 +27,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @all_team_leaders = TeamLeader.all
-    @company = Company.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,38 +43,36 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-      if params[:user][:company_id].nil?
-          @company_id = current_user.company_id
+    @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar])
+    @all_team_leaders = TeamLeader.all
+    @user.company_id = @company.id
+
+
+
+
+    if params[:user][:account_type].to_i == 2
+      TeamLeader.create(:user_id => User.last.id.to_i + 1)
+    elsif params[:user][:account_type].to_i == 3
+      SalesExecutive.create(:user_id => User.last.id.to_i + 1, :team_leader_id => params[:user][:team_leader].to_i)
+    end
+
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to :users, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
       else
-          @company_id = params[:user][:company_id].to_i
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-          puts "aaaaaaaaaaaaaaaaaaaaaaaaaaa #{@company_id}"
-
-      @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar], :company_id => @company_id)
-      @all_team_leaders = TeamLeader.all
-
-
-      respond_to do |format|
-          if @user.save
-              if params[:user][:account_type].to_i == 2
-                  TeamLeader.create(:user_id => @user.id, :company_id => @company_id)
-              elsif params[:user][:account_type].to_i == 3
-                  SalesExecutive.create(:user_id => @user.id, :team_leader_id => params[:user][:team_leader].to_i, :company_id => @company_id)
-              end
-              format.html { redirect_to :users, notice: 'User was successfully created.' }
-              format.json { render json: @user, status: :created, location: @user }
-          else
-              format.html { render action: "new" }
-              format.json { render json: @user.errors, status: :unprocessable_entity }
-          end
-      end
+    end
   end
 
   # PUT /users/1
   # PUT /users/1.json
   def update
       @user = User.find(params[:id])
-      @all_team_leaders = TeamLeader.all
+    @all_team_leaders = TeamLeader.all
 
       respond_to do |format|
           if @user.update_attributes(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar])
