@@ -201,6 +201,7 @@ ActiveRecord::Schema.define(:version => 20130424065848) do
     t.integer  "contact_id"
     t.float    "amount"
     t.datetime "transaction_time"
+    t.integer  "company_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
