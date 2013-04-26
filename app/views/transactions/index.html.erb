@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Transaction -%>
 <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
@@ -67,3 +68,11 @@ dom_id: '#search-data',
 delay: 100,
 })
 </script>
+
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @transactions %>
+  </div>
+  <%= will_paginate @transactions, :container => false %>
+</div>
+

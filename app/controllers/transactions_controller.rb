@@ -3,7 +3,8 @@ class TransactionsController < ApplicationController
     # GET /transactions.json
     def index
       @company = Company.where(:id => current_user.company_id).first
-        @transactions = @company.transactions.all
+        @transactions = Transaction.all
+        @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
