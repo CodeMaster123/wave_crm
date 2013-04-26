@@ -1,0 +1,28 @@
+<% if controller_name == "users" %>
+    <li class='active'>
+    <%= link_to(:users) do %>
+        <span>Users</span>
+    <% end %>
+    </li>
+<% elsif %>
+    <li>
+    <%= link_to(:users) do %>
+        <span>Users</span>
+    <% end %>
+    </li>
+<% end %>
+
+<% if controller_name == "transaction_fields" %>
+    <li class='active'>
+    <%= link_to(:transaction_fields) do %>
+        <span>Transaction fields</span>
+    <% end %>
+    </li>
+<% elsif %>
+    <li>
+    <%= link_to(:transaction_fields) do %>
+        <span>Transaction fields</span>
+    <% end %>
+    </li>
+<% end %>
+

@@ -30,6 +30,8 @@ class LeadsController < ApplicationController
           end
       elsif current_user.account_type ==3
           @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
+      elsif current_user.account_type ==4
+          @leads = Lead.all.paginate(:page => params[:page], :per_page => 15)
       end
 
       respond_to do |format|

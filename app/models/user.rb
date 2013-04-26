@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
             return ["team_leader".to_sym]
         elsif self.account_type == 3
             return ["sales_executive".to_sym]
+        elsif self.account_type == 4
+            return ["superadmin".to_sym]
         else
             [:none]
         end

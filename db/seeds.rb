@@ -1,5 +1,5 @@
 User.create([
-            {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "superadmin@gmail.com", :password => "superadmin123", :password_confirmation => "superadmin123", :account_type => 1, :company_id => 1},
+            {:first_name => "Vivek", :last_name => "Varade", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "superadmin@gmail.com", :password => "superadmin123", :password_confirmation => "superadmin123", :account_type => 4, :company_id => 1},
 ])
 
 
