@@ -55,8 +55,15 @@
             <% end %>
         </tbody>
     </table>
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @transactions %>
+  </div>
+  <%= will_paginate @transactions, :container => false %>
+</div>
 
-    <script type="text/javascript">
+
+<script type="text/javascript">
         $(document).ready(function(){
                 $('.tTip').betterTooltip({speed: 150, delay: 300});
                 });
@@ -69,10 +76,4 @@ delay: 100,
 })
 </script>
 
-<div class="flickr_pagination">
-  <div class="page_info">
-    <%= page_entries_info @transactions %>
-  </div>
-  <%= will_paginate @transactions, :container => false %>
-</div>
 

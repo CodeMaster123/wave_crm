@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
-    validates :company_id, :presence => true
+
 
     def role_symbols
         if self.account_type == 1
