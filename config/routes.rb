@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :crm_customers
+
+
     devise_for :users
 
     resources :companies

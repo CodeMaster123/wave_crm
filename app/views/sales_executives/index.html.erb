@@ -14,16 +14,16 @@
     </tr>
   </thead>
   <tbody>
+  <% render :partial => 'shared/i_calculation' %>
     <% @sales_executives.each do |sales_executive| %>
       <tr>
-        <td><%= link_to sales_executive.id, sales_executive_path(sales_executive) %></td>
+        <td><%=  @i = @i+1 %></td>
         <td><%= link_to "#{sales_executive.user.first_name} #{sales_executive.user.last_name}", {:controller => 'leads', :action => 'index', :id1 => sales_executive.id} %></td>
         <td><%= "#{sales_executive.team_leader.user.first_name} #{sales_executive.team_leader.user.last_name}" %></td>
         <td><%= sales_executive.user.mobile_no %></td>
 
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_sales_executive_path(sales_executive), :class => 'btn btn-mini' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       sales_executive_path(sales_executive),
                       :method => :delete,

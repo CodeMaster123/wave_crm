@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Transaction -%>
 <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
@@ -29,8 +30,8 @@
     <tbody>
         <% @transactions.each do |transaction| %>
             <tr>
-                <td><%= link_to transaction.id, transaction_path(transaction) %></td>
-                <td><%= transaction.contact_id %></td>
+                <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
+                <td><%= Contact.where(:id => transaction.contact_id).first.full_name %></td>
                 <td><%= transaction.amount %></td>
                 <td><%= transaction.transaction_time %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>
@@ -54,8 +55,15 @@
             <% end %>
         </tbody>
     </table>
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @transactions %>
+  </div>
+  <%= will_paginate @transactions, :container => false %>
+</div>
 
-    <script type="text/javascript">
+
+<script type="text/javascript">
         $(document).ready(function(){
                 $('.tTip').betterTooltip({speed: 150, delay: 300});
                 });
@@ -67,3 +75,5 @@ dom_id: '#search-data',
 delay: 100,
 })
 </script>
+
+

@@ -2,7 +2,9 @@ class TransactionsController < ApplicationController
     # GET /transactions
     # GET /transactions.json
     def index
+      @company = Company.where(:id => current_user.company_id).first
         @transactions = Transaction.all
+        @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
@@ -25,8 +27,9 @@ class TransactionsController < ApplicationController
     # GET /transactions/new
     # GET /transactions/new.json
     def new
+      @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.new
-        @contacts = Contact.all
+        @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
@@ -37,17 +40,19 @@ class TransactionsController < ApplicationController
 
     # GET /transactions/1/edit
     def edit
+      @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.find(params[:id])
-        @contacts = Contact.all
+        @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
     end
 
     # POST /transactions
     # POST /transactions.json
     def create
-        @transaction = Transaction.new(params[:transaction])
+      @company = Company.where(:id => current_user.company_id).first
+        @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
-
+      @contact.company_id = @company.id
         respond_to do |format|
             if @transaction.save
                 format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -66,7 +71,8 @@ class TransactionsController < ApplicationController
     # PUT /transactions/1
     # PUT /transactions/1.json
     def update
-        @transaction = Transaction.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+        @transaction = @company.transactions.find(params[:id])
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  address: MyString
+  amount_paid: 1.5
+  subscription_start: 2013-04-24
+  subscription_ends: 2013-04-24
+
+two:
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  address: MyString
+  amount_paid: 1.5
+  subscription_start: 2013-04-24
+  subscription_ends: 2013-04-24

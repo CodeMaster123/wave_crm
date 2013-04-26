@@ -50,12 +50,13 @@ class LeadsController < ApplicationController
   end
 
   def new
+    @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.new
       @lead.contacts.build
       @lead.follow_ups.build
       @lead.leads_products.build
 
-      @products = Product.all
+      @products = @company.products.all
 
       respond_to do |format|
           format.html # new.html.erb
@@ -65,7 +66,9 @@ class LeadsController < ApplicationController
 
   # GET /leads/1/edit
   def edit
+    @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
+      @products = @company.products.all
   end
 
   def create

@@ -27,9 +27,10 @@
     </tr>
   </thead>
   <tbody id="search-data">
+  <% render :partial => 'shared/i_calculation' %>
     <% @notifications.each do |notification| %>
       <tr>
-        <td><%= link_to notification.id, notification_path(notification) %></td>
+        <td><%= link_to @i = @i+1, notification_path(notification) %></td>
         <td><%= notification.sms_sent %></td>
         <td><%= Contact.where(:id => notification.contact_id).first.full_name %></td>
         <td><%= notification.body %></td>

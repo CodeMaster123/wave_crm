@@ -4,6 +4,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :contact_id
       t.float :amount
       t.timestamp :transaction_time
+      t.integer :company_id
 
       t.timestamps
     end

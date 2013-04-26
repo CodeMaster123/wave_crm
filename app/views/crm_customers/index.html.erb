@@ -1,0 +1,48 @@
+<%- model_class = CrmCustomer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:first_name) %></th>
+      <th><%= model_class.human_attribute_name(:middle_name) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:amount_paid) %></th>
+      <th><%= model_class.human_attribute_name(:subscription_start) %></th>
+      <th><%= model_class.human_attribute_name(:subscription_ends) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @crm_customers.each do |crm_customer| %>
+      <tr>
+        <td><%= link_to crm_customer.id, crm_customer_path(crm_customer) %></td>
+        <td><%= crm_customer.first_name %></td>
+        <td><%= crm_customer.middle_name %></td>
+        <td><%= crm_customer.last_name %></td>
+        <td><%= crm_customer.address %></td>
+        <td><%= crm_customer.amount_paid %></td>
+        <td><%= crm_customer.subscription_start %></td>
+        <td><%= crm_customer.subscription_ends %></td>
+        <td><%=l crm_customer.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_crm_customer_path(crm_customer), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      crm_customer_path(crm_customer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_crm_customer_path,
+            :class => 'btn btn-primary' %>
