@@ -10,7 +10,7 @@
                                    :default => "Edit #{model_class.model_name.human}") %></h1>
 </div>
 <%= render :partial => 'form' %>
-
+<%= javascript_include_tag "targets.js" %>
 <script>
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',

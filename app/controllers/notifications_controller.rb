@@ -37,8 +37,9 @@ class NotificationsController < ApplicationController
     # GET /notifications/new
     # GET /notifications/new.json
     def new
+      @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.new
-        @contacts = Contact.all
+        @contacts = @company.contacts.all
 
         respond_to do |format|
             format.html # new.html.erb
@@ -48,8 +49,9 @@ class NotificationsController < ApplicationController
 
     # GET /notifications/1/edit
     def edit
+      @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.find(params[:id])
-        @contacts = Contact.all
+        @contacts = @company.contacts.all
     end
 
     # POST /notifications

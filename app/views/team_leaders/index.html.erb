@@ -13,15 +13,15 @@
     </tr>
   </thead>
   <tbody>
+  <% render :partial => 'shared/i_calculation' %>
     <% @team_leaders.each do |team_leader| %>
       <tr>
-        <td><%= link_to team_leader.id, team_leader_path(team_leader) %></td>
+        <td><%= @i =@i+1 %></td>
 
         <td><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}"  %></td>
         <td><%= team_leader.user.mobile_no %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_team_leader_path(team_leader), :class => 'btn btn-mini' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       team_leader_path(team_leader),
                       :method => :delete,

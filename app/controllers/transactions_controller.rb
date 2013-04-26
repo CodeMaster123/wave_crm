@@ -27,8 +27,9 @@ class TransactionsController < ApplicationController
     # GET /transactions/new
     # GET /transactions/new.json
     def new
+      @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.new
-        @contacts = Contact.all
+        @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
@@ -39,8 +40,9 @@ class TransactionsController < ApplicationController
 
     # GET /transactions/1/edit
     def edit
+      @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.find(params[:id])
-        @contacts = Contact.all
+        @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
     end
 

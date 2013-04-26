@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Target -%>
 <div class="page-header">
   <h1>Individual Targets</h1>
@@ -11,13 +12,15 @@
       <th>Amount</th>
       <th>Achived</th>
       <th>Actions </th>
+
   </tr>
   </thead>
   <tbody>
+  <% render :partial => 'shared/i_calculation' %>
       <% @targets.each do |target| %>
           <tr>
 
-                  <td><%= link_to target.id, target_path(target) %></td>
+                  <td><%= link_to @i = @i+1, target_path(target) %></td>
                   <td><%= target.targetable_id %></td>
                   <td><%= target.targetable_type %></td>
                   <td><%= target.amount %></td>
@@ -40,3 +43,10 @@
       <%= link_to t('.new', :default => t("helpers.links.new")),
           new_target_path,
           :class => 'btn btn-primary' %>
+
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @targets %>
+  </div>
+  <%= will_paginate @targetss, :container => false %>
+</div>

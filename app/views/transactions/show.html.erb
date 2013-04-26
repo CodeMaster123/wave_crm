@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:contact_id) %>:</strong></dt>
-  <dd><%= @transaction.contact_id %></dd>
+  <dd><%= Contact.where(:id => @transaction.contact_id).first.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:amount) %>:</strong></dt>
   <dd><%= @transaction.amount %></dd>
   <dt><strong><%= model_class.human_attribute_name(:transaction_time) %>:</strong></dt>

@@ -30,8 +30,8 @@
     <tbody>
         <% @transactions.each do |transaction| %>
             <tr>
-                <td><%= link_to transaction.id, transaction_path(transaction) %></td>
-                <td><%= transaction.contact_id %></td>
+                <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
+                <td><%= Contact.where(:id => transaction.contact_id).first.full_name %></td>
                 <td><%= transaction.amount %></td>
                 <td><%= transaction.transaction_time %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>

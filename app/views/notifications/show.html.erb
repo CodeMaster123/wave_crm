@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:sms_sent) %>:</strong></dt>
   <dd><%= @notification.sms_sent %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_id) %>:</strong></dt>
-  <dd><%= @notification.contact_id %></dd>
+  <dd><%= Contact.where(:id => @notification.contact_id).first.full_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
   <dd><%= @notification.body %></dd>
 </dl>

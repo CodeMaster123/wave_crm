@@ -5,7 +5,8 @@ class TargetsController < ApplicationController
     # GET /targets.json
     def index
       @company = Company.where(:id => current_user.company_id).first
-        @targets = @company.targets.all
+        @targets = Target.all
+      @targets = @company.targets.paginate(:page => params[:page], :per_page => 15)
         @team_leaders = TeamLeader.all
         @sales_executives = SalesExecutive.all
 
@@ -42,6 +43,7 @@ class TargetsController < ApplicationController
 
     # GET /targets/1/edit
     def edit
+      @company = Company.where(:id => current_user.company_id).first
         @team_leaders = @company.team_leaders.all
         @sales_executives = @company.sales_executives.all
         @target = Target.find(params[:id])
