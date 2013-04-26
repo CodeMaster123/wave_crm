@@ -2,7 +2,8 @@ class TransactionsController < ApplicationController
     # GET /transactions
     # GET /transactions.json
     def index
-        @transactions = Transaction.all
+      @company = Company.where(:id => current_user.company_id).first
+        @transactions = @company.transactions.all
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
@@ -45,9 +46,10 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
-        @transaction = Transaction.new(params[:transaction])
+      @company = Company.where(:id => current_user.company_id).first
+        @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
-
+      @contact.company_id = @company.id
         respond_to do |format|
             if @transaction.save
                 format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
@@ -66,7 +68,8 @@ class TransactionsController < ApplicationController
     # PUT /transactions/1
     # PUT /transactions/1.json
     def update
-        @transaction = Transaction.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+        @transaction = @company.transactions.find(params[:id])
         @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|

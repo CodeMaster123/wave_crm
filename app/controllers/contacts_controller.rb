@@ -61,7 +61,7 @@ class ContactsController < ApplicationController
     def create
       @company = Company.where(:id => current_user.company_id).first
       @contact = @company.contacts.new(params[:contact])
-        @contact.company_id = @company.id
+      @contact.company_id = @company.id
 
         respond_to do |format|
             if @contact.save

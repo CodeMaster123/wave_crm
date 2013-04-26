@@ -1,8 +1,3 @@
-User.create([
-            {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "superadmin@gmail.com", :password => "superadmin123", :password_confirmation => "superadmin123", :account_type => 1, :company_id => 1},
-])
-
-
 #################################################################
 ################# Indian Software company #######################
 #################################################################
@@ -234,6 +229,29 @@ SpecialOccasion.create([
 
 ])
 
+Transaction.create([
+                   {:contact_id => 1, :amount => 50000, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 2, :amount => 60000, :transaction_time => "2013-05-30 01:17:00 UTC"},
+                   {:contact_id => 3, :amount => 25000, :transaction_time => "2013-06-30 01:17:00 UTC"},
+                   {:contact_id => 4, :amount => 10000, :transaction_time => "2013-07-30 01:17:00 UTC"},
+                   {:contact_id => 5, :amount => 652000, :transaction_time => "2013-08-30 01:17:00 UTC"},
+                   {:contact_id => 6, :amount => 554800, :transaction_time => "2013-09-30 01:17:00 UTC"},
+                   {:contact_id => 7, :amount => 1540, :transaction_time => "2013-10-30 01:17:00 UTC"},
+                   {:contact_id => 8, :amount => 1000, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 9, :amount => 9045000, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 10, :amount => 525400, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 11, :amount => 585450, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 12, :amount => 52548, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 13, :amount => 5025, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 14, :amount => 50090, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 15, :amount => 504510, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 16, :amount => 45125, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 17, :amount => 458221, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 18, :amount => 55214, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 19, :amount => 58454, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                   {:contact_id => 20, :amount => 55524, :transaction_time => "2013-04-30 01:17:00 UTC"}
+                   ])
+
 #################################################################
 ################# American Dentil Clinic #######################
 #################################################################
@@ -448,6 +466,31 @@ Notification.create([
                         {:sms_sent => false, :contact_id => 39, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
                         {:sms_sent => false, :contact_id => 34, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 2}
                     ])
+
+Transaction.create([
+                       {:contact_id => 21, :amount => 50000, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 22, :amount => 60000, :transaction_time => "2013-05-30 01:17:00 UTC"},
+                       {:contact_id => 23, :amount => 25000, :transaction_time => "2013-06-30 01:17:00 UTC"},
+                       {:contact_id => 24, :amount => 10000, :transaction_time => "2013-07-30 01:17:00 UTC"},
+                       {:contact_id => 25, :amount => 652000, :transaction_time => "2013-08-30 01:17:00 UTC"},
+                       {:contact_id => 26, :amount => 554800, :transaction_time => "2013-09-30 01:17:00 UTC"},
+                       {:contact_id => 27, :amount => 1540, :transaction_time => "2013-10-30 01:17:00 UTC"},
+                       {:contact_id => 28, :amount => 1000, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 29, :amount => 9045000, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 30, :amount => 525400, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 31, :amount => 585450, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 32, :amount => 52548, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 33, :amount => 5025, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 34, :amount => 50090, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 35, :amount => 504510, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 36, :amount => 45125, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 37, :amount => 458221, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 38, :amount => 55214, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 39, :amount => 58454, :transaction_time => "2013-04-30 01:17:00 UTC"},
+                       {:contact_id => 40, :amount => 55524, :transaction_time => "2013-04-30 01:17:00 UTC"}
+                   ])
+
+
 
 
 
