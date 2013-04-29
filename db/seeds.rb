@@ -81,54 +81,33 @@ Contact.create([
 ])
 
 Target.create([
-              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1}
+              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",  :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",  :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",  :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",  :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",:company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",:company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 1}
 ])
 
-Event.create([
-             {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-05 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-06 07:17:00 UTC", :ends_at => "2013-04-06 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "ERP to Salim Khan", :starts_at => "2013-04-08 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :ends_at => "2013-04-08 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-12 20:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-14 12:13:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-15 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-05 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-06 07:17:00 UTC", :ends_at => "2013-04-06 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "ERP to Salim Khan", :starts_at => "2013-04-08 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :ends_at => "2013-04-08 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-12 20:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-14 12:13:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-15 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1}
-])
+
 
 FollowUp.create([
                 {:lead_id => 1, :description => "first meeting", :follow_up_time => "11:47AM 01-Apr", :company_id => 1},
@@ -352,30 +331,30 @@ Contact.create([
 ])
 
 Target.create([
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2}
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC",:company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :end_target_date => "2013-04-30 01:17:00 UTC", :company_id => 2}
 ])
 
 FollowUp.create([
@@ -401,28 +380,7 @@ FollowUp.create([
                     {:lead_id => 40, :description => "first meeting", :follow_up_time => "11:00AM 10-Apr", :company_id => 2}
                 ])
 
-Event.create([
-                 {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 8, :company_id => 2},
-                 {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-05 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-06 07:17:00 UTC", :ends_at => "2013-04-06 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "ERP to Salim Khan", :starts_at => "2013-04-08 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :ends_at => "2013-04-08 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-12 20:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-14 12:13:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-15 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 8, :company_id => 2},
-                 {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-05 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-06 07:17:00 UTC", :ends_at => "2013-04-06 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "ERP to Salim Khan", :starts_at => "2013-04-08 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :ends_at => "2013-04-08 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-12 20:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-14 12:13:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2},
-                 {:title => "Meeting", :starts_at => "2013-04-15 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 8, :company_id => 2}
-             ])
+
 
 Product.create([
                    {:name => "Teeth", :min_cost => 50000, :max_cost => 80000, :description => "teeth treatment", :company_id => 2},
