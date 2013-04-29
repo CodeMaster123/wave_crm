@@ -10,6 +10,7 @@ gem 'will_paginate'
 gem 'paperclip'
 gem 'wicked'
 gem 'thinking-sphinx'
+gem 'resque'
 
 gem 'bootstrap_form'
 gem 'jquery-rails'
@@ -41,3 +42,4 @@ group :test do
     gem 'rb-inotify'
 end
     gem 'rack-mini-profiler'
+    gem 'exceptional'
