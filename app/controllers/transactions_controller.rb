@@ -52,7 +52,7 @@ class TransactionsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
-      @contact.company_id = @company.id
+      @transaction.company_id = @company.id
         respond_to do |format|
             if @transaction.save
                 format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }

@@ -81,30 +81,30 @@ Contact.create([
 ])
 
 Target.create([
-              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 1}
+              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 1, :targetable_type => 1, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1},
+              {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 1}
 ])
 
 Event.create([
@@ -229,6 +229,29 @@ Notification.create([
                     {:sms_sent => false, :contact_id => 14, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1}
 ])
 
+Transaction.create([
+                    {:amount => 20000, :contact_id => 1, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 2, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 3, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 4, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 5, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 6, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 7, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 8, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 9, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 10, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 11, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 12, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 13, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 14, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 15, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 16, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 17, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 18, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 19, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:amount => 20000, :contact_id => 20, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 1}
+                   ])
+
 SpecialOccasion.create([
                        {:title => "divali", :body => "Divali is hindu occassion", :occasion_date => "2013-04-01 01:17:00 UTC"},
                        {:title => "gudi padva", :body => "Divali is hindu occassion", :occasion_date => "2013-04-03 01:17:00 UTC"},
@@ -329,30 +352,30 @@ Contact.create([
 ])
 
 Target.create([
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :company_id => 2},
-                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :company_id => 2},
-                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :company_id => 2},
-                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :company_id => 2},
-                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :company_id => 2}
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 100000, :achived => 70000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 1, :amount => 50000, :achived => 36500, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 80000, :achived => 75000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 1, :amount => 100000, :achived => 80000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 40000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 1, :targetable_type => 2, :amount => 60000, :achived => 50000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 60000, :achived => 60000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 2, :targetable_type => 2, :amount => 39000, :achived => 6000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 58000, :achived => 35000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 3, :targetable_type => 2, :amount => 56000, :achived => 25000, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 62000, :achived => 61350, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2},
+                  {:targetable_id => 4, :targetable_type => 2, :amount => 61520, :achived => 44582, :start_target_date => "2013-04-04 01:17:00 UTC", :company_id => 2}
 ])
 
 FollowUp.create([
@@ -485,6 +508,28 @@ Notification.create([
                         {:sms_sent => false, :contact_id => 34, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 2}
                     ])
 
+Transaction.create([
+                       {:amount => 20000, :contact_id => 21, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 22, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 23, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 24, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 25, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 26, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 27, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 28, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 29, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 30, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 31, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 32, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 33, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 34, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 35, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 36, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 37, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 38, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 39, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                       {:amount => 20000, :contact_id => 40, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2}
+                   ])
 
 
 

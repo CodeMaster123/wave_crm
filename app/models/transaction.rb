@@ -4,4 +4,6 @@ class Transaction < ActiveRecord::Base
     belongs_to :company
 
     attr_accessible :amount, :contact_id, :transaction_time, :company_id
+
+  validates :company_id, :presence => true
 end
