@@ -21,7 +21,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Sr. no.</th>
+            <th>Sr.No</th>
             <th>Title</th>
             <th>Description</th>
             <th>Leadable_id</th>
@@ -67,7 +67,7 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Sr. no.</th>
+            <th>Sr.No</th>
             <th>Title</th>
             <th>Description</th>
             <th>Leadable_id</th>
@@ -76,9 +76,10 @@
           </tr>
         </thead>
         <tbody>
+        <% render :partial => 'shared/i_calculation' %>
           <% executive.leads.each do |lead| %>
             <tr>
-              <td><%= link_to lead.id, lead_path(lead) %></td>
+              <td><%= link_to @i = @i+1, lead_path(lead) %></td>
               <td><%= lead.title %></td>
               <td><%= lead.description %></td>
 

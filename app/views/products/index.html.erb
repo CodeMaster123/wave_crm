@@ -7,7 +7,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Sr.No</th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:min_cost) %></th>
       <th><%= model_class.human_attribute_name(:max_cost) %></th>
@@ -16,9 +16,10 @@
     </tr>
   </thead>
   <tbody>
+  <% render :partial => 'shared/i_calculation' %>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to product.id, product_path(product) %></td>
+        <td><%= link_to @i = @i+1, product_path(product) %></td>
         <td><%= product.name %></td>
         <td><%= product.min_cost %></td>
         <td><%= product.max_cost %></td>

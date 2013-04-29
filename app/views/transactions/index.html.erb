@@ -16,7 +16,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>id</th>
+            <th>Sr.No</th>
             <th>Contact id</th>
             <th>Amount</th>
             <th>Transaction time</th>
@@ -28,6 +28,7 @@
         </tr>
     </thead>
     <tbody>
+    <% render :partial => 'shared/i_calculation' %>
         <% @transactions.each do |transaction| %>
             <tr>
                 <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
