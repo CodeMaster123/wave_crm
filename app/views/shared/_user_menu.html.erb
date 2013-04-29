@@ -39,6 +39,23 @@
                 <%= link_to "Tags", :tags%>
             <% end %>
             </li>
+          <li>
+          <% if controller_name == "users" %>
+              <% permitted_to? :index, :users do %>
+                  <%= link_to(:users) do %>
+                        <span>Users</span>
+                    <% end %>
+                  <% end %>
+          <% elsif %>
+              <% permitted_to? :index, :users do %>
+                  <li>
+                    <%= link_to(:users) do %>
+                        <span>Users</span>
+                    <% end %>
+                  </li>
+              <% end %>
+          <% end %>
+          </li>
             <li>
             <% permitted_to? :index, :products do %>
                 <%= link_to "Products", :products %>

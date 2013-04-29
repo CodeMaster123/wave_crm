@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="585e7820-f43e-4790-8865-045c82ed9c36" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/transactions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/transactions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/transaction.rb" afterPath="$PROJECT_DIR$/app/models/transaction.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_superuser_menu.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_superuser_menu.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_user_menu.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_user_menu.html.erb" />
     </list>
     <ignored path="wave_crm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,19 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_superuser_menu.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_superuser_menu.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/shared/_superuser_menu.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="53" selection-start="5639" selection-end="5639" vertical-scroll-proportion="0.9348199">
+            <state line="122" column="0" selection-start="5234" selection-end="5234" vertical-scroll-proportion="-20.541666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_user_menu.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_user_menu.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/shared/_user_menu.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="18" selection-start="2219" selection-end="2219" vertical-scroll-proportion="-18.666666">
+            <state line="47" column="18" selection-start="2468" selection-end="2468" vertical-scroll-proportion="0.6912522">
               <folding />
             </state>
           </provider>
@@ -412,16 +410,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_user_menu.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_superuser_menu.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="18" selection-start="2219" selection-end="2219" vertical-scroll-proportion="-18.666666">
+        <state line="122" column="0" selection-start="5234" selection-end="5234" vertical-scroll-proportion="-20.541666">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_superuser_menu.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/shared/_user_menu.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="53" selection-start="5639" selection-end="5639" vertical-scroll-proportion="0.9348199">
+        <state line="47" column="18" selection-start="2468" selection-end="2468" vertical-scroll-proportion="0.6912522">
           <folding />
         </state>
       </provider>

@@ -120,20 +120,3 @@
     <% end %>
 <% end %>
 
-<% if controller_name == "users" %>
-    <% permitted_to? :index, :users do %>
-        <li class="active">
-        <%= link_to(:users) do %>
-            <span>Users</span>
-        <% end %>
-        </li>
-    <% end %>
-<% elsif %>
-    <% permitted_to? :index, :users do %>
-        <li>
-        <%= link_to(:users) do %>
-            <span>Users</span>
-        <% end %>
-        </li>
-    <% end %>
-<% end %>
