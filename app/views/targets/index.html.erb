@@ -9,10 +9,11 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th>Executive name</th>
       <th>Executive type</th>
-      <th>Amount</th>
-      <th>Achived</th>
+      <th>Target Amount</th>
+      <th>Target Achived</th>
+      <th>Start Target Date </th>
+      <th>End Target Date </th>
       <th>Actions </th>
-
   </tr>
   </thead>
   <tbody>
@@ -25,6 +26,8 @@
                   <td><%= target.targetable_type %></td>
                   <td><%= target.amount %></td>
                   <td><%= target.achived %></td>
+                  <td><%= target.start_target_date %></td>
+                  <td><%= target.end_target_date %></td>
                   <td>
                       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_target_path(target), :class => 'btn btn-mini' %>
