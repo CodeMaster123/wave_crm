@@ -17,7 +17,8 @@
                 Team
             </a>
             <ul class="dropdown-menu d2">
-                <% @team_leaders = TeamLeader.all.each do |team_leader| %>
+              <% @company = Company.where(:id => current_user.company_id).first %>
+                <% @team_leaders = @company.team_leaders.all.each do |team_leader| %>
                     <li><%= link_to "#{team_leader.user.first_name} #{team_leader.user.last_name}", {:controller => "leads", :action => "index", :team_leader => team_leader.id} %></li>
                 <% end %>
             </ul>

@@ -14,7 +14,6 @@ class EventsController < ApplicationController
         @events = @events.after(params['start']) if (params['start'])
         @events = @events.before(params['end']) if (params['end'])
         @events = @company.users.where(:id => current_user.id).first.events.paginate(:page => params[:page], :per_page => 15)
-
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @events }

@@ -88,7 +88,7 @@ class LeadsController < ApplicationController
               format.html { render action: "new" }
               format.json { render json: @lead.errors, status: :unprocessable_entity }
           end
-      end
+    end
   end
 
   # PUT /leads/1
