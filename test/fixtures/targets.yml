@@ -2,16 +2,18 @@
 
 one:
   targetable_id: 1
-  targetable_type: MyString
-  amount: 1
+  targetable_type: TeamLeader 
+  amount: 10000
   achived: 1
-  target_date: 2013-04-06 14:54:08
+  start_target_date: 2013-04-06 14:54:08
+  end_target_date: 2013-04-06 16:54:08
   company_id: 1
 
 two:
-  targetable_id: 1
-  targetable_type: MyString
-  amount: 1
+  targetable_id: 2
+  targetable_type: SalesExecutive 
+  amount: 10000
   achived: 1
-  target_date: 2013-04-06 14:54:08
+  start_target_date: 2013-04-06 14:54:08
+  end_target_date: 2013-04-06 16:54:08
   company_id: 1
