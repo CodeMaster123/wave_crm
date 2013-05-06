@@ -1,7 +1,4 @@
 WaveCrm::Application.routes.draw do
-  resources :crm_customers
-
-
     devise_for :users
 
     resources :companies
@@ -23,9 +20,11 @@ WaveCrm::Application.routes.draw do
     resources :leads
     resources :contacts
     resources :users
+    resources :crm_customers
     resources :events
 
     mount_sextant if Rails.env.development?
+    mount Resque::Server, :at => '/admin_resque'
 
     match 'calendar' => "calendar#index"
     match 'sales_executive_leads/:id1' => 'sales_executives#index'

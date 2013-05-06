@@ -16,8 +16,7 @@ class Notification < ActiveRecord::Base
       @sms_api_url = "http://bulksms.mysmsmantra.com:8080/WebSMS/SMSAPI.jsp?username=#{@sms_gateway_username}&password=#{@sms_gateway_password}&sendername=#{@sms_sender_name}&mobileno=#{@sms_receiver_number}&message=#{@sms_message}"
 
       #if cur_request.length > 1000
-      response = Net::HTTP.get_response(URI.parse(@sms_api_url))
-      puts response
+      Resque.enqueue(SmsScheduler, @sms_api_url)
       #end
 
       #if request.length < cur_request.length

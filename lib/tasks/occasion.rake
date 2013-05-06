@@ -1,4 +1,3 @@
-
 namespace :admin  do
   desc "create notification for each contact on the date of special occasion"
   task :occasion => :environment do
@@ -16,5 +15,3 @@ namespace :admin  do
     end
   end
 end
-
-

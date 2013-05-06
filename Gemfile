@@ -10,7 +10,7 @@ gem 'will_paginate'
 gem 'paperclip'
 gem 'wicked'
 gem 'thinking-sphinx'
-gem 'resque'
+gem 'resque', :require => "resque/server"
 
 gem 'bootstrap_form'
 gem 'jquery-rails'
@@ -43,3 +43,4 @@ group :test do
 end
     gem 'rack-mini-profiler'
     gem 'exceptional'
+    gem 'ruby_parser'
