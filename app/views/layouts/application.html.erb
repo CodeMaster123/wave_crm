@@ -40,8 +40,20 @@
                 <!-- Javascripts
                 ================================================== -->
                 <!-- Placed at the end of the document so the pages load faster -->
-
-                <%= javascript_include_tag :application %>
+                aaa
+                <script type ="text/javascript">
+                    function notification_fade_out()
+{
+    $('.lightred').fadeOut();
+    $.ajax({
+url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
+context: document.body
+}).done(function() {
+    $(this).addClass("done");
+    });
+}
+</script>
+<%= javascript_include_tag :application %>
             </div>
         </div>
     </div>

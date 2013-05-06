@@ -16,4 +16,4 @@
 //= require twitter/bootstrap
 //= require_self
 //= require highcharts
-
+//= require top_notifications
