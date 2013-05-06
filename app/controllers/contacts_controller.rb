@@ -100,11 +100,8 @@ class ContactsController < ApplicationController
     end
 
     def search
-      puts "vivekkkkkkkkkkkkkkkK"
-      puts current_user.company_id
       if current_user.account_type == 1
-        puts "vivekkkkkkkkkkkkkkkK"
-        @contacts = Contact.search "*#{params[:q]}*", :with => {:company_id => current_user.company_id}
+        @contacts = Contact.search params[:q], :with => {:company_id => current_user.company_id}
       end
 
       respond_to do |format|

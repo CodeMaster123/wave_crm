@@ -1,4 +1,3 @@
-# app/indices/article_index.rb
 ThinkingSphinx::Index.define :contact, :with => :active_record do
   indexes first_name, last_name
   has :company_id

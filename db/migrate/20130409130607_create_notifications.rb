@@ -7,7 +7,6 @@ class CreateNotifications < ActiveRecord::Migration
         t.timestamp :notification_time
         t.integer :company_id
 
-
         t.timestamps
     end
   end
