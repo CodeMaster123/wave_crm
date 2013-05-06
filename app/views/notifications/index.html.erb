@@ -1,5 +1,7 @@
 <%= javascript_include_tag "searchbox.js" %>
 <%= stylesheet_link_tag "pagination.css" %>
+<%= javascript_include_tag "jquery.betterTooltip" %>
+<%= stylesheet_link_tag "better_tooltip_style" %>
 
 <%- model_class = Notification -%>
 <div class="page-header">
@@ -60,11 +62,16 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-            $('.search-c').searchbox({
-url: '/notification_search.html',
-param: 'q',
-dom_id: '#search-data',
-delay: 100,
-});
-})
+        $('.tTip').betterTooltip({speed: 150, delay: 300});
+    });
+
+    $('.search-c').searchbox({
+        url: '/notification_search.html',
+        param: 'q',
+        dom_id: '#search-data',
+        delay: 100
+    })
 </script>
+
+
+
