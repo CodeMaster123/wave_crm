@@ -11,7 +11,7 @@ gem 'paperclip'
 gem 'wicked'
 gem 'thinking-sphinx'
 gem 'resque', :require => "resque/server"
-gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'resque-scheduler', :require => 'resque_scheduler/server'
 
 gem 'bootstrap_form'
 gem 'jquery-rails'
