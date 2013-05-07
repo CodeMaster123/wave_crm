@@ -1,5 +1,0 @@
-# app/indices/article_index.rb
-ThinkingSphinx::Index.define :contact, :with => :active_record do
-  indexes title, content
-
-end
