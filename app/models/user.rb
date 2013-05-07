@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
     has_one :team_leader
     has_one :sales_executive
     has_many :events
-    has_many :notification_settings
+    has_one :notification_setting
     has_many :transaction_fields
     belongs_to :company
 
@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
 
+    after_create :create_notification_setting
 
     def role_symbols
         if self.account_type == 1
@@ -42,6 +43,11 @@ class User < ActiveRecord::Base
         else
             [:none]
         end
+    end
+
+    def create_notification_setting
+        puts "after create executed"
+        NotificationSetting.create(:user_id => self.id, :notification_flag => false)
     end
 
     def full_name

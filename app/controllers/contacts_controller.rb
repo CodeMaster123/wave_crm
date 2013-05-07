@@ -100,13 +100,13 @@ class ContactsController < ApplicationController
     end
 
     def search
-        if current_user.account_type == 1
-            @contacts = Contact.search("*#{params[:q]}*")
-        end
+      if current_user.account_type == 1
+        @contacts = Contact.search params[:q], :with => {:company_id => current_user.company_id}
+      end
 
-        respond_to do |format|
-            format.html
-            format.json { head :no_content }
-        end
+      respond_to do |format|
+        format.html
+        format.json { head :no_content }
+      end
     end
 end

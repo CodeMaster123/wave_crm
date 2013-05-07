@@ -1,0 +1,6 @@
+every_midnight:
+  every: 30s
+  class: SmsScheduler
+  args:
+  queue: sms
+  description: sends sms
