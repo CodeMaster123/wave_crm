@@ -38,6 +38,7 @@
             <%= follow_up.text_field :follow_up_time, :class => 'datetime_select' %>
           </div>
         </div>
+        <%= follow_up.hidden_field :company_id, :value => current_user.company_id %>
     <% end %>
 
  <%= f.fields_for :contacts do |contact| %>
@@ -81,6 +82,7 @@
              </div>
         </div>
         </div>
+        <%= contact.hidden_field :company_id, :value => current_user.company_id %>
        <% end %>
     <%= f.link_to_add "Add a contact", :contacts, :class => 'add'%>
  <div class="form-actions">

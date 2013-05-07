@@ -36,38 +36,33 @@
         <td><%= notification.sms_sent %></td>
         <td><%= Contact.where(:id => notification.contact_id).first.full_name %></td>
         <td><%= notification.body %></td>
-        <td><%= notification.notification_time %></td>
+        <td><%= notification.notification_time.strftime('%l:%M %p %d-%B') %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-            edit_notification_path(notification), :class => 'btn btn-mini' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              notification_path(notification),
-              :method => :delete,
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-mini btn-danger' %>
-            </td>
-          </tr>
-        <% end %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_notification_path(notification), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), notification_path(notification), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+        </td>
+    </tr>
+<% end %>
       </tbody>
-    </table>
-<div class="flickr_pagination">
-  <div class="page_info">
-    <%= page_entries_info @notifications %>
+  </table>
+  <div class="flickr_pagination">
+      <div class="page_info">
+          <%= page_entries_info @notifications %>
+      </div>
+      <%= will_paginate @notifications, :container => false %>
   </div>
-  <%= will_paginate @notifications, :container => false %>
-</div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.tTip').betterTooltip({speed: 150, delay: 300});
-    });
+  <script type="text/javascript">
+      $(document).ready(function(){
+              $('.tTip').betterTooltip({speed: 150, delay: 300});
+              });
 
-    $('.search-c').searchbox({
-        url: '/notification_search.html',
-        param: 'q',
-        dom_id: '#search-data',
-        delay: 100
-    })
+$('.search-c').searchbox({
+url: '/notification_search.html',
+param: 'q',
+dom_id: '#search-data',
+delay: 100
+})
 </script>
 
 
