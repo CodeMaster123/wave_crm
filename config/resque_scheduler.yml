@@ -1,6 +1,5 @@
-every_midnight:
-  every: 30s
-  class: SmsScheduler
+do_my_job:
+  every: 3000000s
+  class: MyJob
   args:
-  queue: sms
-  description: sends sms
+  description: Runs the perform method in MyJob
