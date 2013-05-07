@@ -74,11 +74,10 @@ class LeadsController < ApplicationController
   def create
     @company = Company.where(:id => current_user.company_id).first
     @lead = @company.leads.new(params[:lead])
-      @lead.leadable_id = current_user.id
-      @lead.leadable_type = current_user.class.name
-      @products = Product.all
+    @lead.leadable_id = current_user.id
+    @lead.leadable_type = current_user.class.name
+    @products = @company.products.all
     @lead.company_id = @company.id
-
     respond_to do |format|
           if @lead.save
               #@follow_up = FollowUp.create(:lead_id = @lead.id,
