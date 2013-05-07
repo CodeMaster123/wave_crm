@@ -35,15 +35,6 @@ class NotificationSettingsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    test "should get edit" do
-        get :edit, id: @notification_setting
-        assert_response :success
-    end
-
-    test "should update notification_setting" do
-        put :update, id: @notification_setting, notification_setting: { notification_flag: @notification_setting.notification_flag, user_id: @notification_setting.user_id }
-        assert_redirected_to notification_setting_path(assigns(:notification_setting))
-    end
 
     test "should destroy notification_setting" do
         assert_difference('NotificationSetting.count', -1) do

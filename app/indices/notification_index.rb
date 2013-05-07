@@ -1,5 +1,5 @@
 ThinkingSphinx::Index.define :notification, :with => :active_record do
-  indexes body 
+  indexes body
   indexes contact.first_name
   indexes contact.last_name
 

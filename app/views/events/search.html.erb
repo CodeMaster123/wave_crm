@@ -1,0 +1,22 @@
+<% @i = 0 %>
+<% if @events.nil? == false %>
+    <% puts "asfdasfdsdddddddddddddD" %>
+<% else %>
+    <% puts "elseeeeeeeeeeeeeeeeeeeeee" %>
+    <% @events.each do |event| %>
+        <tr>
+            <td><%= @i = @i+1 %></td>
+            <td><%= event.title %></td>
+            <td><%= event.starts_at %></td>
+            <td><%= event.ends_at %></td>
+            <td><%= event.description %></td>
+            <td>
+                <%= link_to 'Edit', edit_event_path(notification), :class => 'btn btn-mini' %>
+                <%= link_to 'Destroy', event_path(notification),
+                    :method => :delete,
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-mini btn-danger' %>
+                </td>
+            </tr>
+        <% end %>
+    <% end %>

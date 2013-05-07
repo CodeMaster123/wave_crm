@@ -35,6 +35,8 @@ authorization do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search]
         has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
     end
 
     role :sales_executive do

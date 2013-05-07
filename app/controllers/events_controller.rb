@@ -102,4 +102,18 @@ class EventsController < ApplicationController
             format.xml  { head :ok }
         end
     end
+
+    def search
+        if current_user.account_type == 1
+            unless params[:q].empty?
+                @events = Event.search params[:q], :with => {:company_id => current_user.company_id}
+            else
+                @events = Event.where(:company_id => current_user.company_id)
+            end
+        end
+        respond_to do |format|
+            format.html
+            format.json { head :no_content }
+        end
+    end
 end
