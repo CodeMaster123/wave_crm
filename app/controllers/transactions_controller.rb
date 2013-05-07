@@ -60,7 +60,7 @@ class TransactionsController < ApplicationController
       respond_to do |format|
 
             if @transaction.save
-                format.html { redirect_to @transactions, notice: 'Transaction was successfully created.' }
+                format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
                 format.json { render json: @transaction, status: :created, location: @transaction }
 
                 @transaction_fields.each do |tf|

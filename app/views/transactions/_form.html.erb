@@ -5,14 +5,14 @@
     <div class="control-group">
       <%= f.label :contact_type, :class => 'control-label' %>
       <div class="controls">
-       <%= f.select :contact_type, [["Select Contact Type", 0], ["Existing Contact", 1], ["New Contact", 2]],{ :selected => 0, :disabled => 0 }, :class => 'contact_type'  %>
+        <%= f.select :contact_type, [["Select Contact Type", 0], ["Existing Contact", 1], ["New Contact", 2]],{ :selected => 0, :disabled => 0 }, :class => 'contact_type'  %>
       </div>
     </div>
     <div class="control-group hide existing_contact">
-        <%= f.label :contact_id, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), {:include_blank => 'Select Existing Contact'}, :class => 'contacts_text_field' %>
-        </div>
+      <%= f.label :contact_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), {:include_blank => 'Select Existing Contact'}, :class => 'contacts_text_field' %>
+      </div>
     </div>
 
     <%= f.fields_for :contacts do |contact| %>
@@ -54,42 +54,43 @@
             </div>
           </div>
         </div>
+        <%= contact.hidden_field :company_id, :value => current_user.company_id %>
     <% end %>
 
 
     <div class="control-group">
-        <%= f.label :amount, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.text_field :amount, :class => 'text_field' %>
-        </div>
+      <%= f.label :amount, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :amount, :class => 'text_field' %>
+      </div>
     </div>
     <div class="control-group">
-        <%= f.label :transaction_time, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.text_field :transaction_time, :class => 'datetime_select' %>
-        </div>
+      <%= f.label :transaction_time, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :transaction_time, :class => 'datetime_select' %>
+      </div>
     </div>
 
     <% @transaction_fields.each do |tf| %>
         <div class="control-group">
-            <label class='control-label' ><%= tf.field_name %></label>
-            <div class="controls">
-                <%= text_field_tag tf.field_name,"", :class => 'text_field' %>
-            </div>
+          <label class='control-label' ><%= tf.field_name %></label>
+          <div class="controls">
+            <%= text_field_tag tf.field_name,"", :class => 'text_field' %>
+          </div>
         </div>
     <% end %>
 
 
     <div class="form-actions">
-        <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            transactions_path, :class => 'btn' %>
-        </div>
-    <% end %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  transactions_path, :class => 'btn' %>
+    </div>
+<% end %>
 
-    <script>
-        $(document).ready(function() {
-            $('#transaction_contact_id').chosen();
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#transaction_contact_id').chosen();
+    });
+</script>
 
