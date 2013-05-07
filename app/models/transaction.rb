@@ -3,7 +3,11 @@ class Transaction < ActiveRecord::Base
     has_many :contacts, :as => :contactable
     belongs_to :company
 
-    attr_accessible :amount, :contact_id, :transaction_time, :company_id
+    attr_accessible :amount, :contact_id, :transaction_time, :company_id, :contact_type
 
-  validates :company_id, :presence => true
+    accepts_nested_attributes_for :contacts, :allow_destroy => true
+    attr_accessible :contacts_attributes, :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type
+
+
+    validates :company_id, :presence => true
 end

@@ -1,6 +1,17 @@
 class EventsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    layout :choose_layout
+
+    def choose_layout
+        if action_name == 'search'
+            false
+        else
+            'application'
+        end
+    end
+
+
     # GET /events
     # GET /events.xml
     def index
@@ -13,8 +24,7 @@ class EventsController < ApplicationController
       @events = Event.scoped
         @events = @events.after(params['start']) if (params['start'])
         @events = @events.before(params['end']) if (params['end'])
-        @events = @company.users.where(:id => current_user.id).first.events.paginate(:page => params[:page], :per_page => 15)
-
+        @events = Event.where(:company_id => current_user.company_id).paginate(:page => params[:page], :per_page => 15)
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @events }
@@ -56,7 +66,7 @@ class EventsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @event = @company.events.new(params[:event])
       @event.company_id = @company.id
-
+       @event.user_id = current_user.id
       respond_to do |format|
             if @event.save
                 format.html { redirect_to :events, :notice => 'Event was successfully created.' }
@@ -104,13 +114,13 @@ class EventsController < ApplicationController
     end
 
     def search
-        if current_user.account_type == 1
+        #if current_user.account_type == 1
             unless params[:q].empty?
                 @events = Event.search params[:q], :with => {:company_id => current_user.company_id}
             else
                 @events = Event.where(:company_id => current_user.company_id)
             end
-        end
+        #end
         respond_to do |format|
             format.html
             format.json { head :no_content }

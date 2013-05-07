@@ -6,12 +6,9 @@
         <td><%= Contact.where(:id => notification.contact_id).first.full_name %></td>
         <td><%= notification.body %></td>
         <td>
-          <%= link_to 'Edit', edit_notification_path(notification), :class => 'btn btn-mini' %>
-            <%= link_to 'Destroy', notification_path(notification),
-              :method => :delete,
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-mini btn-danger' %>
-            </td>
-        </tr>
-    <% end %>
+            <%= link_to 'Edit', edit_notification_path(notification), :class => 'btn btn-mini' %>
+            <%= link_to 'Destroy', notification_path(notification), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+        </td>
+    </tr>
+<% end %>
 

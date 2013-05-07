@@ -1,13 +1,62 @@
 <%= javascript_include_tag "chosen.jquery.min" %>
 <%= stylesheet_link_tag "chosen.css" %>
 
-<%= form_for @transaction, :html => { :class => 'form-horizontal' } do |f| %>
+<%= nested_form_for @transaction, :html => { :class => 'form-horizontal' } do |f| %>
     <div class="control-group">
+      <%= f.label :contact_type, :class => 'control-label' %>
+      <div class="controls">
+       <%= f.select :contact_type, [["Select Contact Type", 0], ["Existing Contact", 1], ["New Contact", 2]],{ :selected => 0, :disabled => 0 }, :class => 'contact_type'  %>
+      </div>
+    </div>
+    <div class="control-group hide existing_contact">
         <%= f.label :contact_id, :class => 'control-label' %>
         <div class="controls">
-            <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
+            <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), {:include_blank => 'Select Existing Contact'}, :class => 'contacts_text_field' %>
         </div>
     </div>
+
+    <%= f.fields_for :contacts do |contact| %>
+        <div class="contact_form hide new_contact">
+          <div class="control-group">
+            <%= contact.label :first_name, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :first_name, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :middle_name, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :middle_name, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :last_name, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :last_name, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :address, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :mobile_no, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :mobile_no, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :landline_no, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :landline_no, :class => 'text_field' %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+
     <div class="control-group">
         <%= f.label :amount, :class => 'control-label' %>
         <div class="controls">
@@ -29,6 +78,7 @@
             </div>
         </div>
     <% end %>
+
 
     <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>

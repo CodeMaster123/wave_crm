@@ -5,7 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>Sr.No</th>
 
       <th>Teamleader's name</th>
       <th>Mobile no</th>
@@ -16,7 +16,7 @@
   <% render :partial => 'shared/i_calculation' %>
     <% @team_leaders.each do |team_leader| %>
       <tr>
-        <td><%= @i =@i+1 %></td>
+        <td><%= @i = @i+1 %></td>
 
         <td><%= "#{team_leader.user.first_name} #{team_leader.user.last_name}"  %></td>
         <td><%= team_leader.user.mobile_no %></td>

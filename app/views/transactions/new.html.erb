@@ -10,6 +10,10 @@
                                  :default => "New #{model_class.model_name.human}") %></h1>
 </div>
 <%= render :partial => 'form' %>
+<%= javascript_include_tag "transaction.js" %>
+<%= javascript_include_tag  "jquery_nested_form.js" %>
+
+
 <script>
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',

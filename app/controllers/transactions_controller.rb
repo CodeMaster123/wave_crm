@@ -31,8 +31,10 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.new
         @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
+      @transaction.contacts.build
 
-        respond_to do |format|
+
+      respond_to do |format|
             format.html # new.html.erb
             format.json { render json: @transaction }
         end
@@ -53,15 +55,19 @@ class TransactionsController < ApplicationController
         @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
       @transaction.company_id = @company.id
-        respond_to do |format|
+      @contacts = @company.contacts.all
+
+      respond_to do |format|
+
             if @transaction.save
-                format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+                format.html { redirect_to @transactions, notice: 'Transaction was successfully created.' }
                 format.json { render json: @transaction, status: :created, location: @transaction }
 
                 @transaction_fields.each do |tf|
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
             else
+              puts "-----------------------------------vijay"
                 format.html { render action: "new" }
                 format.json { render json: @transaction.errors, status: :unprocessable_entity }
             end

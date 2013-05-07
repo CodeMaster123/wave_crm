@@ -10,12 +10,12 @@ class Contact < ActiveRecord::Base
 
   belongs_to :company
 
-  validates :first_name, :presence => true
-  validates :last_name, :presence => true
-  validates :middle_name, :presence => true
-  validates :address, :presence => true
-  validates :mobile_no, :presence => true, :numericality => true
-  validates :landline_no, :presence => true, :numericality => true
+  #validates :first_name, :presence => true
+  #validates :last_name, :presence => true
+ # validates :middle_name, :presence => true
+  #validates :address, :presence => true
+  #validates :mobile_no, :presence => true, :numericality => true
+  #validates :landline_no, :presence => true, :numericality => true
   validates :company_id, :presence => true
 
   before_save :set_defaults
