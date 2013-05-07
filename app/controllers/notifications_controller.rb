@@ -59,29 +59,33 @@ class NotificationsController < ApplicationController
     def create
       @company = Company.where(:id => current_user.company_id).first
       @notification = @company.notifications.new(params[:notification])
-        @notification2 = @company.notifications.new(params[:notification])
-        @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
+      @notification2 = @company.notifications.new(params[:notification])
+      puts "aaaaaaaaaaaaaaaaaa = #{params[:Next_Notification]}"
+          @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
       @notification.company_id = @company.id
       @notification2.company_id = @company.id
 
 
       respond_to do |format|
-        if @notification.save
-            @notification2.save
-            format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
-            format.json { render json: @notification, status: :created, location: @notification }
-        else
-            format.html { render action: "new" }
-            format.json { render json: @notification.errors, status: :unprocessable_entity }
-        end
-        end
+          if @notification.save
+              if params[:Next_Notification].empty? == true
+              else
+                  @notification2.save
+              end
+              format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
+              format.json { render json: @notification, status: :created, location: @notification }
+          else
+              format.html { render action: "new" }
+              format.json { render json: @notification.errors, status: :unprocessable_entity }
+          end
+      end
     end
 
     # PUT /notifications/1
     # PUT /notifications/1.json
     def update
-      @company = Company.where(:id => current_user.company_id).first
-      @notification = @company.notifications.find(params[:id])
+        @company = Company.where(:id => current_user.company_id).first
+        @notification = @company.notifications.find(params[:id])
 
         respond_to do |format|
             if @notification.update_attributes(params[:notification])
