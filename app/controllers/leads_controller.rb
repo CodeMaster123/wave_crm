@@ -122,11 +122,11 @@ class LeadsController < ApplicationController
 
   def search
       if current_user.account_type == 1
-          @leads = Lead.where("title like \'%#{params[:q]}%\'")
+          @leads = Lead.search params[:q] , :with => {:company_id => current_user.company_id}
       elsif current_user.account_type == 2
-          @leads = current_user.team_leader.leads.where("\'%#{params[:q]}%\'")
+          @leads = current_user.team_leader.leads.search params[:q], :with => {:company_id => current_user.company_id}
       elsif current_user.account_type == 3
-          @leads = current_user.sales_executive.leads.where("\'%#{params[:q]}%\'")
+          @leads = current_user.sales_executive.leads.search params[:q], :with => {:company_id => current_user.company_id}
       end
       respond_to do |format|
           format.html

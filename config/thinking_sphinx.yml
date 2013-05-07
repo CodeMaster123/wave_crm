@@ -1,6 +1,6 @@
 development:
   mysql41: 9906
-  morphology: stem_en
+  #morphology: stem_en
 
 test:
   mysql41: 9906
