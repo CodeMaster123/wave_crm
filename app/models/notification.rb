@@ -1,5 +1,5 @@
 class Notification < ActiveRecord::Base
-  belongs_to :contacts
+  belongs_to :contact
   belongs_to :company
 
   attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id

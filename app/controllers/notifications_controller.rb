@@ -116,7 +116,7 @@ class NotificationsController < ApplicationController
     def search
         if current_user.account_type == 1
             unless params[:q].empty?
-                @notifications = Notification.where("body like \'%#{params[:q]}%\'")
+                @notifications = Notification.search params[:q], :with => {:company_id => current_user.company_id}
             else
                 @notifications = Notification.all
             end

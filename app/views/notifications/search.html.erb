@@ -3,7 +3,7 @@
     <tr>
         <td><%= @i = @i+1 %></td>
         <td><%= notification.sms_sent %></td>
-        <td><%= Contact.where(:id => notification.contact_id).first.name %></td>
+        <td><%= Contact.where(:id => notification.contact_id).first.full_name %></td>
         <td><%= notification.body %></td>
         <td>
           <%= link_to 'Edit', edit_notification_path(notification), :class => 'btn btn-mini' %>
