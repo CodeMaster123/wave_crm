@@ -68,9 +68,11 @@ class NotificationsController < ApplicationController
 
       respond_to do |format|
           if @notification.save
+              @notification.sms_send
               if params[:Next_Notification].empty? == true
               else
                   @notification2.save
+                  @notification2.sms_send
               end
               format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
               format.json { render json: @notification, status: :created, location: @notification }
