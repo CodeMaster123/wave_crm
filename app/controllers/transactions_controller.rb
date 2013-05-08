@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
         @transaction = Transaction.new
         @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
-      @transaction.contacts.build
+      @transaction.contact.build
 
 
       respond_to do |format|

@@ -1,45 +1,30 @@
 <%- model_class = User -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
-                                 :default => "New #{model_class.model_name.human}") %></h1>
+    <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human, :default => "New #{model_class.model_name.human}") %></h1>
 </div>
 
-<%= bootstrap_form_for @user,:url => users_path, :html => { :multipart => true } do |f| %>
+<%= bootstrap_form_for @user,:url => users_path, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
 
-            <%= f.text_field :first_name, :class => 'text_field' %>
+    <%= f.text_field :first_name, :class => 'text_field' %>
+    <%= f.text_field :last_name, :class => 'text_field' %>
+    <%= f.text_field :address, :class => 'text_field' %>
+    <%= f.text_field :mobile_no, :class => 'text_field' %>
+    <%= f.password_field :password, :class => 'text_field' %>
+    <%= f.password_field :password_confirmation, :class => 'text_field' %>
+    <%= f.file_field :avatar, :class => 'text_field' %>
+    <%= f.select :account_type, [["Select Account Type", 0], ["Admin", 1], ["Team Leader", 2], ["Sales Executive", 3]],{ :selected => 0, :disabled => 0 }, :class => 'account_type'  %>
+    <% permitted_to? :index, :companies do %>
+        <%= f.select :company_id, options_for_select(@company.map {|c|[c.company_name, c.id]}), :class => 'account_type'  %>
+    <% end %>
 
-            <%= f.text_field :last_name, :class => 'text_field' %>
+    <div class="hide">
+        <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
+    </div>
 
-            <%= f.text_field :address, :class => 'text_field' %>
-
-            <%= f.text_field :mobile_no, :class => 'text_field' %>
-
-
-            <%= f.password_field :password, :class => 'text_field' %>
-
-            <%= f.password_field :password_confirmation, :class => 'text_field' %>
-
-        <%= f.file_field :avatar, :class => 'text_field' %>
-
-                <%= f.select :account_type, [["Select Account Type", 0], ["Admin", 1], ["Team Leader", 2], ["Sales Executive", 3]],{ :selected => 0, :disabled => 0 }, :class => 'account_type'  %>
-
-        <% permitted_to? :index, :companies do %>
-
-                    <%= f.select :company_id, options_for_select(@company.map {|c|[c.company_name, c.id]}), :class => 'account_type'  %>
-
-        <% end %>
-
-        <div class="hide">
-
-                <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
-
-        </div>
-
-        <div class="form-actions">
-            <%= f.submit nil, :class => 'btn btn-primary' %>
-            <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                users_path, :class => 'btn' %>
-            </div>
-        <% end %>
+    <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn' %>
+    </div>
+<% end %>
 
 <%= javascript_include_tag "users.js" %>
