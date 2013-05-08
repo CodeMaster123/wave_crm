@@ -1,46 +1,13 @@
-<%= form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :first_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :middle_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :middle_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :address, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :address, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :mobile_no, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :mobile_no, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :landline_no, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :landline_no, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :contact_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :contact_type, [["Select Contact Type", "Select Contact Type"], ["Lead", "Lead"], ["Existing Customer", "Existing Customer"]],{:selected => "Select Contact Type", :disabled => "Select Contact Type" }, :class => 'text_field' %>
-    </div>
-  </div>
+<%= bootstrap_form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
+
+   <%= f.text_field :first_name, :class => 'text_field' %>
+   <%= f.text_field :middle_name, :class => 'text_field' %>
+   <%= f.text_field :last_name, :class => 'text_field' %>
+   <%= f.text_field :address, :class => 'text_field' %>
+   <%= f.text_field :mobile_no, :class => 'number_field' %>
+   <%= f.text_field :landline_no, :class => 'number_field' %>
+   <%= f.select :contact_type, [["Select Contact Type", "Select Contact Type"], ["Lead", "Lead"], ["Existing Customer", "Existing Customer"]],{:selected => "Select Contact Type", :disabled => "Select Contact Type" }, :class => 'text_field' %>
+
 
   <div class="control-group">
       <label class="control-label">Select tags</label>
