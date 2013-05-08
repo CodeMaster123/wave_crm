@@ -199,7 +199,6 @@ ActiveRecord::Schema.define(:version => 20130424065848) do
   end
 
   create_table "transactions", :force => true do |t|
-    t.integer  "contact_id"
     t.float    "amount"
     t.datetime "transaction_time"
     t.integer  "company_id"
