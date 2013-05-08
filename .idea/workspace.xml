@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="585e7820-f43e-4790-8865-045c82ed9c36" name="Default" comment="" />
+    <list default="true" id="585e7820-f43e-4790-8865-045c82ed9c36" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/event.rb" afterPath="$PROJECT_DIR$/app/models/event.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/events/_form.html.erb" />
+    </list>
     <ignored path="wave_crm.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,19 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <file leaf-file-name="event.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/event.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="11" column="4" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/events/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="20" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.7975986">
+            <state line="10" column="4" selection-start="450" selection-end="450" vertical-scroll-proportion="0.25167784">
               <folding />
             </state>
           </provider>
@@ -57,8 +61,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/app/views/events/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/notifications/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/transactions/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/targets/index.html.erb" />
@@ -68,11 +70,13 @@
         <option value="$PROJECT_DIR$/app/controllers/targets_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/targets/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tags/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/tag.rb" />
         <option value="$PROJECT_DIR$/app/views/products/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/models/product.rb" />
+        <option value="$PROJECT_DIR$/app/views/users/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/event.rb" />
+        <option value="$PROJECT_DIR$/app/views/events/_form.html.erb" />
       </list>
     </option>
   </component>
@@ -166,28 +170,6 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wave_crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -208,6 +190,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="products" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wave_crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wave_crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="events" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,27 +438,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="90" selection-start="1219" selection-end="1219" vertical-scroll-proportion="0.3310463">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/companies/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="4" selection-end="22" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/contact.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="56" selection-start="614" selection-end="626" vertical-scroll-proportion="0.39538714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20130406092408_create_targets.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -525,9 +508,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/products/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="4" selection-end="22" vertical-scroll-proportion="0.0">
+        <state line="25" column="20" selection-start="1480" selection-end="1480" vertical-scroll-proportion="0.6432247">
           <folding />
         </state>
       </provider>
@@ -539,9 +522,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/event.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="20" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.7975986">
+        <state line="11" column="4" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/events/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/products/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="4" selection-end="22" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/events/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="450" selection-end="450" vertical-scroll-proportion="0.25167784">
           <folding />
         </state>
       </provider>

@@ -13,6 +13,15 @@ class Event < ActiveRecord::Base
     validates :ends_at, :presence => true
     validates :company_id, :presence => true
 
+    validate :validate_ends_at_before_starts_at
+
+    def validate_ends_at_before_starts_at
+      if ends_at && starts_at
+        errors.add(:ends_at, "End Text must be greater than start date") if ends_at < starts_at
+      end
+    end
+
+
     # need to override the json view to return what full_calendar is expecting.
     # http://arshaw.com/fullcalendar/docs/event_data/Event_Object/
     def as_json(options = {})
