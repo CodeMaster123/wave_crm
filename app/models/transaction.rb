@@ -9,6 +9,8 @@ class Transaction < ActiveRecord::Base
     attr_accessible :contacts_attributes, :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type
 
     validates :company_id, :presence => true
+    validates :amount, :presence => true
+    validates :transaction_time, :presence => true
 
     def full_name
         @contacts_list = String.new
