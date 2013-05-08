@@ -54,6 +54,8 @@ class TargetsController < ApplicationController
     def create
       @company = Company.where(:id => current_user.company_id).first
         @target = @company.targets.new(params[:target])
+      @team_leaders = @company.team_leaders.all
+      @sales_executives = @company.sales_executives.all
       @target.company_id = @company.id
         respond_to do |format|
             if @target.save

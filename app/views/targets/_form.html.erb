@@ -1,48 +1,17 @@
-<%= form_for @target, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :targetable_type, :class => 'control-label' %>
-    <div class="controls">
-        <%= f.select :targetable_type, [["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'user_type'  %>
-    </div>
-</div>
+<%= bootstrap_form_for @target, :html => { :class => 'form-horizontal' } do |f| %>
 
-<div class="control-group hide team_leaders">
-    <%= f.label :Team_leader, :class => 'control-label' %>
-    <div class="controls">
-            <%= f.select :targetable_id , options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => true }, :class => 'text_field' %>
+    <%= f.select :targetable_type, [["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'user_type'  %>
+    <div class=" hide team_leaders">
+        <%= f.select :targetable_id , options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Team Leader" }, :class => 'text_field' %>
     </div>
-</div>
-<div class="control-group hide sales_executives">
-    <%= f.label :Sales_executive, :class => 'control-label' %>
-    <div class="controls">
-            <%= f.select :targetable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => true }, :class => 'text_field' %>
+    <div class=" hide sales_executives">
+        <%= f.select :targetable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Sales Executive" }, :class => 'text_field' %>
     </div>
-</div>
+    <%= f.text_field :amount, :class => 'number_field' %>
+    <%= f.text_field :achived, :class => 'number_field' %>
+    <%= f.text_field :start_target_date, :class => 'datetime_select' %>
+    <%= f.text_field :end_target_date, :class => 'datetime_select' %>
 
-<div class="control-group">
-    <%= f.label :amount, :class => 'control-label' %>
-    <div class="controls">
-        <%= f.text_field :amount, :class => 'number_field' %>
-    </div>
-</div>
-<div class="control-group">
-    <%= f.label :achived, :class => 'control-label' %>
-    <div class="controls">
-        <%= f.text_field :achived, :class => 'number_field' %>
-    </div>
-</div>
-<div class="control-group">
-    <%= f.label :start_target_date, :class => 'control-label' %>
-    <div class="controls">
-        <%= f.text_field :start_target_date, :class => 'datetime_select' %>
-    </div>
-</div>
-    <div class="control-group">
-      <%= f.label :end_target_date, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :end_target_date, :class => 'datetime_select' %>
-      </div>
-    </div>
 
 <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

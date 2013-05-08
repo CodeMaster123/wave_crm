@@ -1,28 +1,8 @@
-<%= form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :min_cost, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :min_cost, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :max_cost, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :max_cost, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
-    </div>
-  </div>
+<%= bootstrap_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.text_field :name, :class => 'text_field' %>
+  <%= f.text_field :min_cost, :class => 'text_field' %>
+  <%= f.text_field :max_cost, :class => 'text_field' %>
+  <%= f.text_field :description, :class => 'text_field' %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
