@@ -38,7 +38,7 @@
                     <% end %>
                 </td>
                 <td><%= transaction.amount %></td>
-                <td><%= transaction.transaction_time %></td>
+                <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>
                 <% unless @transaction_field_values.empty? %>
                     <% @transaction_field_values.each do |tf_value| %>

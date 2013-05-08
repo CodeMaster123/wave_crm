@@ -24,10 +24,10 @@
                   <td><%= link_to @i = @i+1, target_path(target) %></td>
                   <td><%= target.full_name %></td>
                   <td><%= target.targetable_type %></td>
-                  <td><%= target.amount %></td>
-                  <td><%= target.achived %></td>
-                  <td><%= target.start_target_date %></td>
-                  <td><%= target.end_target_date %></td>
+                  <td><%= target.amount %> Rs</td>
+                  <td><%= target.achived %> Rs</td>
+                  <td><%= target.start_target_date.strftime('%d-%B-%Y') %></td>
+                  <td><%= target.end_target_date.strftime('%d-%B-%Y') %></td>
                   <td>
                       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_target_path(target), :class => 'btn btn-mini' %>
