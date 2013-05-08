@@ -32,11 +32,7 @@
         <% @transactions.each do |transaction| %>
             <tr>
                 <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
-                <td>
-                    <% transaction.contacts.each do |tc| %>
-                        <%= tc.full_name%>
-                    <% end %>
-                </td>
+                <td><% transaction.full_name %> </td>
                 <td><%= transaction.amount %></td>
                 <td><%= transaction.transaction_time %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>

@@ -2,7 +2,7 @@
 
 one:
   targetable_id: 1
-  targetable_type: TeamLeader 
+  targetable_type: TeamLeader
   amount: 10000
   achived: 1
   start_target_date: 2013-04-06 14:54:08
@@ -11,7 +11,7 @@ one:
 
 two:
   targetable_id: 2
-  targetable_type: SalesExecutive 
+  targetable_type: SalesExecutive
   amount: 10000
   achived: 1
   start_target_date: 2013-04-06 14:54:08

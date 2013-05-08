@@ -9,9 +9,6 @@
             <li>
             <%= link_to "Team Leaders", :team_leaders  %>
             </li>
-            <li>
-            <%= link_to "Team's leads", :leads  %>
-            </li>
             <li class="dropdown-submenu">
             <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
                 Team
@@ -25,7 +22,7 @@
             </li>
 
             <% permitted_to? :index, :sales_executives do %>
-                <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                <li><%= link_to "Sales Executives", :sales_executives  %></li>
                 <li class="dropdown-submenu">
                 <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
                     <span>Targets</span>
@@ -50,12 +47,9 @@
             <li>
             <%= link_to "Team Leaders", :team_leaders  %>
             </li>
-            <li>
-            <%= link_to "Team's leads"  %>
-            </li>
             <li class="dropdown-submenu">
             <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-                <span>team</span>
+                <span>Team</span>
             </a>
             <ul class="dropdown-menu mod-dropdown1">
               <% @company = Company.where(:id => current_user.company_id).first %>
@@ -66,7 +60,7 @@
             </li>
 
             <% permitted_to? :index, :sales_executives do %>
-                <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                <li><%= link_to "Sales Executives", :sales_executives  %></li>
                 <li class="dropdown-submenu">
                 <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
                     <span>Targets</span>
@@ -97,7 +91,7 @@
                     <% end %>
                 </ul>
                 </li>
-                <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                <li><%= link_to "Sales Executives", :sales_executives  %></li>
             </ul>
             </li>
         <% end %>
@@ -117,7 +111,7 @@
                     <% end %>
                 </ul>
                 </li>
-                <li><%= link_to "Sales Executive", :sales_executives  %></li>
+                <li><%= link_to "Sales Executives", :sales_executives  %></li>
             </ul>
             </li>
         <% end %>

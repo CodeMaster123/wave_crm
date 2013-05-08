@@ -2,12 +2,10 @@
 
 one:
   id: 1
-  contact_id: 1
   amount: 12312
   transaction_time: 2013-04-16 10:43:35
 
 two:
   id: 2
-  contact_id: 2
   amount: 123312
   transaction_time: 2013-04-16 10:43:35
