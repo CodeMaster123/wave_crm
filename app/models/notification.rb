@@ -8,8 +8,6 @@ class Notification < ActiveRecord::Base
   validates :company_id, :presence => true
 
   def sms_send
-      puts self.body
-      #puts self.contact.mobile_no
       @sms_gateway_username = "wave"
       @sms_gateway_password = "1492407050"
       @sms_sender_name = "wave"
@@ -24,7 +22,6 @@ class Notification < ActiveRecord::Base
       #if request.length < cur_request.length
       #  response = Net::HTTP.get_response(URI.parse(cur_request))
       #end
-      puts @sms_api_url
   end
 
   def as_json(options = {})

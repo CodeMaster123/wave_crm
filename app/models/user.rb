@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
     end
 
     def create_notification_setting
-        puts "after create executed"
         NotificationSetting.create(:user_id => self.id, :notification_flag => false)
     end
 

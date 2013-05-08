@@ -60,8 +60,7 @@ class NotificationsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @notification = @company.notifications.new(params[:notification])
       @notification2 = @company.notifications.new(params[:notification])
-      puts "aaaaaaaaaaaaaaaaaa = #{params[:Next_Notification]}"
-          @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
+      @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
       @notification.company_id = @company.id
       @notification2.company_id = @company.id
 

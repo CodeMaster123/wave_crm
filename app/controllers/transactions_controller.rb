@@ -67,7 +67,6 @@ class TransactionsController < ApplicationController
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
             else
-              puts "-----------------------------------vijay"
                 format.html { render action: "new" }
                 format.json { render json: @transaction.errors, status: :unprocessable_entity }
             end

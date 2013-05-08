@@ -35,7 +35,6 @@ class NotificationSettingsController < ApplicationController
   # GET /notification_settings/1/edit
   def edit
       @notification_setting = NotificationSetting.find(params[:id])
-      puts "vivekkkkkkkkkkkkkkkk #{params[:id]} kkkkkkk"
       @notification_setting = NotificationSetting.find(params[:id])
       @notification_setting.update_attributes(:notification_flag => false)
 
