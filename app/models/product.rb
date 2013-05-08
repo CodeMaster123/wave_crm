@@ -5,4 +5,9 @@ class Product < ActiveRecord::Base
   has_many :leads, :through => :leads_products
   belongs_to :company
   validates :company_id, :presence => true
+  validates :description, :presence => true
+  validates :max_cost, :presence => true, :numericality => true
+  validates :min_cost, :presence => true, :numericality => true
+  validates :name, :presence => true
+
 end
