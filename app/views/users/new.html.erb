@@ -4,79 +4,35 @@
                                  :default => "New #{model_class.model_name.human}") %></h1>
 </div>
 
-<%= form_for @user,:url => users_path, :html => { :multipart => true } do |f| %>
-    <div class="control-group">
-        <%= f.label :first_name, :class => 'control-label' %>
-        <div class="controls">
+<%= bootstrap_form_for @user,:url => users_path, :html => { :multipart => true } do |f| %>
+
             <%= f.text_field :first_name, :class => 'text_field' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :last_name, :class => 'control-label' %>
-        <div class="controls">
+
             <%= f.text_field :last_name, :class => 'text_field' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :address, :class => 'control-label' %>
-        <div class="controls">
+
             <%= f.text_field :address, :class => 'text_field' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :mobile_no, :class => 'control-label' %>
-        <div class="controls">
+
             <%= f.text_field :mobile_no, :class => 'text_field' %>
-        </div>
-    </div>
-    <div class="control-group">
-        <%= f.label :email, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.email_field :email, :class => 'text_field' %>
-        </div>
-    </div>
 
-    <div class="control-group">
-        <%= f.label :password, :class => 'control-label' %>
-        <div class="controls">
+
             <%= f.password_field :password, :class => 'text_field' %>
-        </div>
-    </div>
 
-    <div class="control-group">
-        <%= f.label :password_confirmation, :class => 'control-label' %>
-        <div class="controls">
             <%= f.password_field :password_confirmation, :class => 'text_field' %>
-        </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :avatar, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.file_field :avatar, :class => 'text_field' %>
-      </div>
-    </div>
 
-        <div class="control-group">
-            <%= f.label :account_type, :class => 'control-label' %>
-            <div class="controls">
+        <%= f.file_field :avatar, :class => 'text_field' %>
+
                 <%= f.select :account_type, [["Select Account Type", 0], ["Admin", 1], ["Team Leader", 2], ["Sales Executive", 3]],{ :selected => 0, :disabled => 0 }, :class => 'account_type'  %>
-            </div>
-        </div>
 
         <% permitted_to? :index, :companies do %>
-            <div class="control-group">
-                <%= f.label :Company, :class => 'control-label' %>
-                <div class="controls">
+
                     <%= f.select :company_id, options_for_select(@company.map {|c|[c.company_name, c.id]}), :class => 'account_type'  %>
-                </div>
-            </div>
+
         <% end %>
 
-        <div class="control-group hide">
-            <%= f.label :team_leader, :class => 'control-label' %>
-            <div class="controls">
+        <div class="hide">
+
                 <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
-            </div>
+
         </div>
 
         <div class="form-actions">

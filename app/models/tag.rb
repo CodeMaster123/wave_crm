@@ -4,6 +4,7 @@ class Tag < ActiveRecord::Base
   has_many :contacts, through: :taggings
   belongs_to :company
   validates :company_id, :presence => true
+  validates :name, :presence => true
 
   def tag_list_string
       @tag_array =Array.new
