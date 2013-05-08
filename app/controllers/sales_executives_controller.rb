@@ -4,7 +4,7 @@ class SalesExecutivesController < ApplicationController
     # GET /sales_executives
     # GET /sales_executives.json
     def index
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @sales_executives = @company.sales_executives.all
 
         respond_to do |format|
@@ -43,11 +43,11 @@ class SalesExecutivesController < ApplicationController
     # POST /sales_executives
     # POST /sales_executives.json
     def create
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @sales_executive = @company.sales_executives.new(params[:sales_executive])
-      @sales_executive.company_id = @company.id
+        @sales_executive.company_id = @company.id
 
-      respond_to do |format|
+        respond_to do |format|
             if @sales_executive.save
                 format.html { redirect_to :sales_executives, notice: 'Sales executive was successfully created.' }
                 format.json { render json: @sales_executive, status: :created, location: @sales_executive }
@@ -61,7 +61,7 @@ class SalesExecutivesController < ApplicationController
     # PUT /sales_executives/1
     # PUT /sales_executives/1.json
     def update
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @sales_executive = @company.sales_executives.find(params[:id])
 
         respond_to do |format|
