@@ -20,4 +20,10 @@ class Lead < ActiveRecord::Base
   validates :title, :presence => true
   validates :description, :presence => true
   validates :company_id, :presence => true
+
+  def lead_by
+      @user = self.leadable.user
+      "#{@user.first_name} #{@user.last_name}"
+  end
+
 end

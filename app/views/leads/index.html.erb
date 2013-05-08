@@ -24,7 +24,7 @@
             <th>Sr.No</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Leadable_id</th>
+            <th>Lead by</th>
             <th>Follow up time</th>
             <th>Actions</th>
         </tr>
@@ -36,12 +36,12 @@
           <td><%= link_to @i = @i+1, lead_path(lead) %></td>
           <td><%= lead.title %></td>
           <td><%= lead.description %></td>
-          <td><%= lead.leadable_id %></td>
+          <td><%= lead.lead_by %></td>
           <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
             <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
             <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%h'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
           <% else %>
-            <td class="tTip" title="vivek varade">asdf</td>
+            <td class="tTip" title="vivek varade">----</td>
           <% end %>
           <td>
             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
