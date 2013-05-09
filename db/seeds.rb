@@ -22,15 +22,15 @@ User.create([
 ])
 
 TeamLeader.create([
-                  {:user_id => 2, :company_id => 1},
-                  {:user_id => 3, :company_id => 1}
+                  {:user_id => 3, :company_id => 1},
+                  {:user_id => 4, :company_id => 1}
 ])
 
 SalesExecutive.create([
-                      {:team_leader_id =>1, :user_id =>4, :company_id => 1},
                       {:team_leader_id =>1, :user_id =>5, :company_id => 1},
-                      {:team_leader_id =>2, :user_id =>6, :company_id => 1},
-                      {:team_leader_id =>2, :user_id =>7, :company_id => 1}
+                      {:team_leader_id =>1, :user_id =>6, :company_id => 1},
+                      {:team_leader_id =>2, :user_id =>7, :company_id => 1},
+                      {:team_leader_id =>2, :user_id =>8, :company_id => 1}
 ])
 
 Event.create([
@@ -315,12 +315,12 @@ User.create([
 ])
 
 TeamLeader.create([
-                  {:user_id => 9, :company_id => 2},
+                  {:user_id => 11, :company_id => 2},
                   {:user_id => 10, :company_id => 2}
 ])
 
 SalesExecutive.create([
-                      {:team_leader_id =>3, :user_id =>11, :company_id => 2},
+                      {:team_leader_id =>3, :user_id =>15, :company_id => 2},
                       {:team_leader_id =>3, :user_id =>12, :company_id => 2},
                       {:team_leader_id =>4, :user_id =>13, :company_id => 2},
                       {:team_leader_id =>4, :user_id =>14, :company_id => 2}
