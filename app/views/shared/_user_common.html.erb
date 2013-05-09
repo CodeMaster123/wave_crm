@@ -1,13 +1,25 @@
 <% if controller_name == "leads" %>
     <li class='active'>
-    <%= link_to(:leads) do %>
-        <span>Leads</span>
+    <% if current_user.account_type == 2 %>
+            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+            <span>Leads</span>
+        <% end %>
+    <% else %>
+        <%= link_to(:leads) do %>
+            <span>Leads</span>
+        <% end %>
     <% end %>
     </li>
 <% elsif %>
     <li>
-    <%= link_to(:leads) do %>
-        <span>Leads</span>
+    <% if current_user.account_type == 2 %>
+            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+            <span>Leads</span>
+        <% end %>
+    <% else %>
+        <%= link_to(:leads) do %>
+            <span>Leads</span>
+        <% end %>
     <% end %>
     </li>
 <% end %>
