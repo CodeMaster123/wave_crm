@@ -18,11 +18,11 @@
       <thead>
           <tr>
               <th>Sr.No</th>
-              <th><%= model_class.human_attribute_name(:contact_name) %></th>
-              <th><%= model_class.human_attribute_name(:address) %></th>
-              <th><%= model_class.human_attribute_name(:mobile_no) %></th>
-              <th><%= model_class.human_attribute_name(:landline_no) %></th>
-              <th><%= model_class.human_attribute_name(:contact_type) %></th>
+              <th>Contact Name</th>
+              <th>Address</th>
+              <th>Mobile No</th>
+              <th>Landline No</th>
+
 
               <th><%=t '.actions', :default => t("helpers.actions") %></th>
           </tr>
@@ -36,7 +36,7 @@
             <td><%= contact.address %></td>
             <td><%= contact.mobile_no %></td>
             <td><%= contact.landline_no %></td>
-            <td><%= contact.contact_type %></td>
+
 
             <td>
               <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>

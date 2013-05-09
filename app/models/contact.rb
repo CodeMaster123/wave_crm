@@ -20,6 +20,13 @@ class Contact < ActiveRecord::Base
 
   before_save :set_defaults
 
+  geocoded_by :geocoding_address
+  after_validation :geocode, :if => :address_changed?
+
+  def geocoding_address
+    self.address
+  end
+
   def full_name
       "#{self.first_name.capitalize} #{self.middle_name.capitalize} #{self.last_name.capitalize}"
   end
