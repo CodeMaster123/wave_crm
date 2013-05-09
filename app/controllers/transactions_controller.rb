@@ -1,8 +1,11 @@
 class TransactionsController < ApplicationController
+    before_filter :authenticate_user!
+    filter_access_to :all
+
     # GET /transactions
     # GET /transactions.json
     def index
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @transactions = Transaction.all
         @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
         @transaction_fields = current_user.transaction_fields
@@ -27,14 +30,14 @@ class TransactionsController < ApplicationController
     # GET /transactions/new
     # GET /transactions/new.json
     def new
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.new
         @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
-      @transaction.contacts.build
+        @transaction.contacts.build
 
 
-      respond_to do |format|
+        respond_to do |format|
             format.html # new.html.erb
             format.json { render json: @transaction }
         end
@@ -42,7 +45,7 @@ class TransactionsController < ApplicationController
 
     # GET /transactions/1/edit
     def edit
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.find(params[:id])
         @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
@@ -51,13 +54,13 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
-      @transaction.company_id = @company.id
-      @contacts = @company.contacts.all
+        @transaction.company_id = @company.id
+        @contacts = @company.contacts.all
 
-      respond_to do |format|
+        respond_to do |format|
 
             if @transaction.save
                 format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
@@ -76,7 +79,7 @@ class TransactionsController < ApplicationController
     # PUT /transactions/1
     # PUT /transactions/1.json
     def update
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.find(params[:id])
         @transaction_fields = current_user.transaction_fields
 
