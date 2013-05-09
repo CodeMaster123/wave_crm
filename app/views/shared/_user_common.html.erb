@@ -44,19 +44,21 @@
     </li>
 <% end %>
 
-<% if controller_name == "transactions" %>
-    <li class="active">
-    <%= link_to(:transactions) do %>
-        <span>Transactions</span>
+<% permitted_to? :index, :transactions do %>
+    <% if controller_name == "transactions" %>
+        <li class="active">
+        <%= link_to(:transactions) do %>
+            <span>Transactions</span>
+        <% end %>
+        </li>
+    <% elsif %>
+        <li>
+        <%= link_to(:transactions) do %>
+            <span>Transactions</span>
+        <% end %>
+        </li>
     <% end %>
-    </li>
-<% elsif %>
-    <li>
-    <%= link_to(:transactions) do %>
-        <span>Transactions</span>
-    <% end %>
-    </li>
-<% end %>
+<% end%>
 
 <% if controller_name == "team_leaders" && action_name == "target_forecast" %>
     <li class="active">
