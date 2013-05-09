@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20130424065848) do
     t.string   "address"
     t.integer  "mobile_no"
     t.integer  "landline_no"
-    t.string   "contact_type"
     t.string   "contactable_type"
     t.integer  "contactable_id"
     t.integer  "company_id"
