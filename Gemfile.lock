@@ -66,6 +66,7 @@ GEM
     ffi (1.6.0)
     formatador (0.2.4)
     g (1.7.2)
+    geocoder (1.1.8)
     guard (1.8.0)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -270,6 +271,7 @@ DEPENDENCIES
   devise
   exceptional
   execjs
+  geocoder
   guard
   irbtools
   jquery-rails
