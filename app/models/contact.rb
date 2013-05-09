@@ -30,7 +30,7 @@ class Contact < ActiveRecord::Base
 
   private
   def set_defaults
-      self.contact_type = "Lead" unless self.contact_type
+      #self.contact_type = "Lead" unless self.contact_type
   end
 
 
