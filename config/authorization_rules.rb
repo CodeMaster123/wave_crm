@@ -11,7 +11,7 @@ authorization do
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
         has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
-        has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :map_index]
         has_permission_on :calendar, :to => [:index]
     end
 
@@ -26,7 +26,7 @@ authorization do
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
         has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
-        has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :map_index]
         has_permission_on :calendar, :to => [:index]
         #has_permission_on :employees, :to => [:index, :create, :read, :update, :destroy, :new, :show]
     end

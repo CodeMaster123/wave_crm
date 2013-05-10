@@ -1,0 +1,12 @@
+<table>
+  <tr>
+  </tr>
+  <% if @contacts %>
+    <% @contacts.each do |contact| %>
+      <tr>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<%= gmaps4rails(@json) %>

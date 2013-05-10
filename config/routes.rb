@@ -39,6 +39,7 @@ WaveCrm::Application.routes.draw do
     match 'notification_search' => 'notifications#search'
     match 'event_search' => 'events#search'
     match 'noticed' => 'notifications#noticed'
+    match 'map_index' => 'contacts#map_index'
 
     root :to => 'leads#index'
 end
