@@ -22,9 +22,9 @@ class EventsController < ApplicationController
         # I'll eventually do that to make the demo a little cleaner.
       @company = Company.where(:id => current_user.company_id).first
       @events = Event.scoped
-        @events = @events.after(params['start']) if (params['start'])
-        @events = @events.before(params['end']) if (params['end'])
-        @events = Event.where(:company_id => current_user.company_id).paginate(:page => params[:page], :per_page => 15)
+        #@events = @events.after(params['start']) if (params['start'])
+        #@events = @events.before(params['end']) if (params['end'])
+        @events = Event.where(:user_id => current_user.id, :company_id => current_user.company_id).paginate(:page => params[:page], :per_page => 15)
         respond_to do |format|
             format.html # index.html.erb
             format.xml  { render :xml => @events }
