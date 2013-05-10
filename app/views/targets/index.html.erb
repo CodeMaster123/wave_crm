@@ -11,14 +11,13 @@
       <th>Executive type</th>
       <th>Target Amount</th>
       <th>Target Achived</th>
-      <th>Start Target Date </th>
-      <th>End Target Date </th>
+      <th>Target Month </th>
       <th>Actions </th>
   </tr>
   </thead>
   <tbody>
   <% render :partial => 'shared/i_calculation' %>
-      <% @targets.each do |target| %>
+      <% @targets_by_months.each do |target| %>
           <tr>
 
                   <td><%= link_to @i = @i+1, target_path(target) %></td>
@@ -26,8 +25,7 @@
                   <td><%= target.targetable_type %></td>
                   <td><%= target.amount %> Rs</td>
                   <td><%= target.achived %> Rs</td>
-                  <td><%= target.start_target_date.strftime('%d-%B-%Y') %></td>
-                  <td><%= target.end_target_date.strftime('%d-%B-%Y') %></td>
+                  <td><%= target.start_target_date.strftime('%B-%Y') %></td>
                   <td>
                       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_target_path(target), :class => 'btn btn-mini' %>
@@ -38,7 +36,7 @@
                               :class => 'btn btn-mini btn-danger' %>
                           </td>
                       <% end %>
-                  </tr>
+          </tr>
 
           </tbody>
       </table>
