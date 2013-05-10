@@ -109,4 +109,14 @@ class ContactsController < ApplicationController
         format.json { head :no_content }
       end
     end
+
+    def map_index
+      @company = Company.where(:id => current_user.company_id).first
+      @contacts = @company.contacts.all
+      @json       = @company.contacts.all.to_gmaps4rails
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @contacts }
+      end
+    end
 end

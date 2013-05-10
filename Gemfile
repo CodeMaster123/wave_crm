@@ -23,6 +23,7 @@ gem "twitter-bootstrap-rails"
 gem 'lazy_high_charts'
 gem 'rails3-jquery-autocomplete'
 gem 'geocoder'
+gem 'gmaps4rails'
 
 group :assets do
     gem 'sass-rails',   '~> 3.2.3'

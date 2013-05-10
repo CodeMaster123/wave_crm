@@ -13,7 +13,7 @@
         <![endif]-->
 
         <%= stylesheet_link_tag "application", :media => "all" %>
-        <%= stylesheet_link_tag "style", :media => "all" %>
+      <%= stylesheet_link_tag "style", :media => "all" %>
         <%= stylesheet_link_tag "style2" %>
         <%= javascript_include_tag "jquery-1.9.1.min" %>
     </head>
@@ -27,6 +27,7 @@
                         <div class="span12">
                             <%= bootstrap_flash %>
                             <%= yield %>
+
                         </div>
 
                     </div><!--/row-->
@@ -58,3 +59,5 @@ context: document.body
     </div>
 </body>
 </html>
+
+

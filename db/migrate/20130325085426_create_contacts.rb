@@ -12,7 +12,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :contactable_type
       t.integer :contactable_id
       t.integer :company_id
-      
+      t.boolean :gmaps
 
       #t.string :contact_type
 

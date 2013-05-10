@@ -1,5 +1,6 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id
+
+  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id, :gmaps
 
   belongs_to :lead
   belongs_to :contactable, :polymorphic => true
@@ -19,6 +20,24 @@ class Contact < ActiveRecord::Base
   validates :company_id, :presence => true
 
   before_save :set_defaults
+
+  geocoded_by :geocoding_address
+  after_validation :geocode, :if => :address_changed?
+
+  def geocoding_address
+    self.address
+  end
+
+  acts_as_gmappable :latitude => 'latitude', :longitude => 'longitude', :process_geocoding => :false,
+                    :address => "address", :normalized_address => "address"
+
+  def gmaps4rails_address
+    self.address
+  end
+
+  def gmaps4rails_infowindow
+    "<h1>#{self.first_name}</h1>"
+  end
 
   def full_name
       "#{self.first_name.capitalize} #{self.middle_name.capitalize} #{self.last_name.capitalize}"
