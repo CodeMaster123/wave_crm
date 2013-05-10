@@ -1,4 +1,10 @@
 WaveCrm::Application.routes.draw do
+  resources :inventory_additions
+
+
+  resources :inventories
+
+
     devise_for :users
 
     resources :companies
@@ -39,6 +45,8 @@ WaveCrm::Application.routes.draw do
     match 'notification_search' => 'notifications#search'
     match 'event_search' => 'events#search'
     match 'noticed' => 'notifications#noticed'
+    match 'notifications_to_all' => 'notifications#notifications_to_all'
+    #post 'notifications_to_all' => 'notifications#notifications_to_all'
     match 'map_index' => 'contacts#map_index'
 
     root :to => 'leads#index'

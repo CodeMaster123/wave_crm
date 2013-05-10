@@ -1,13 +1,25 @@
 <% if controller_name == "leads" %>
     <li class='active'>
-    <%= link_to(:leads) do %>
-        <span>Leads</span>
+    <% if current_user.account_type == 2 %>
+            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+            <span>Leads</span>
+        <% end %>
+    <% else %>
+        <%= link_to(:leads) do %>
+            <span>Leads</span>
+        <% end %>
     <% end %>
     </li>
 <% elsif %>
     <li>
-    <%= link_to(:leads) do %>
-        <span>Leads</span>
+    <% if current_user.account_type == 2 %>
+            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+            <span>Leads</span>
+        <% end %>
+    <% else %>
+        <%= link_to(:leads) do %>
+            <span>Leads</span>
+        <% end %>
     <% end %>
     </li>
 <% end %>
@@ -30,7 +42,7 @@
     <% end %>
 <% end %>
 
-<% if controller_name == "contacts" %>
+<% if controller_name == "contacts" && action_name!= "map_index" %>
     <li class="active">
     <%= link_to(:contacts) do %>
         <span>Contacts</span>
@@ -44,21 +56,57 @@
     </li>
 <% end %>
 
-<% if controller_name == "transactions" %>
-    <li class="active">
-    <%= link_to(:transactions) do %>
-        <span>Transactions</span>
+<% permitted_to? :index, :transactions do %>
+    <% if controller_name == "transactions" %>
+        <li class="active">
+        <%= link_to(:transactions) do %>
+            <span>Transactions</span>
+        <% end %>
+        </li>
+        <% else %>
+        <li>
+        <%= link_to(:transactions) do %>
+            <span>Transactions</span>
+        <% end %>
+        </li>
     <% end %>
-    </li>
-<% elsif %>
-    <li>
-    <%= link_to(:transactions) do %>
-        <span>Transactions</span>
-    <% end %>
-    </li>
-<% end %>
+<% end%>
 
-<% if controller_name == "team_leaders" && action_name == "target_forecast" %>
+<% permitted_to? :index, :transactions do %>
+    <% if controller_name == "inventories" || controller_name == "inventory_additions" %>
+        <li class="active">
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
+            <span>Inventory</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <%= link_to "Inventory", :inventories %>
+            </li>
+            <li>
+            <%= link_to "Add inventory", :inventory_additions %>
+            </li>
+        </ul>
+        </li>
+    <% else %>
+        <li>
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
+            <span>Inventory</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <%= link_to "Inventory", :inventories %>
+            </li>
+            <li>
+            <%= link_to "Add inventory", :inventory_additions %>
+            </li>
+        </ul>
+        </li>
+    <% end%>
+<% end%>
+
+<% if((controller_name == "team_leaders" && action_name == "target_forecast")||(controller_name == "contacts" && action_name == "map_index")) %>
     <li class="active">
     <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
         <span>Intelligence</span>
@@ -72,7 +120,7 @@
         <%= link_to "Transaction graph", :target_forecast %>
         </li>
         <li>
-        <%= link_to "Customer map", :target_forecast %>
+        <%= link_to "Customer map", :map_index %>
         </li>
     </ul>
     </li>
@@ -90,7 +138,7 @@
         <%= link_to "Transaction graph", :target_forecast %>
         </li>
         <li>
-        <%= link_to "Customer map", :target_forecast %>
+        <%= link_to "Customer map", :map_index %>
         </li>
     </ul>
     </li>
@@ -106,8 +154,14 @@
     <ul class="dropdown-menu">
         <li> <%= link_to "Calendar", :calendar %> </li>
         <li> <%= link_to "Tasks", :events %> </li>
-        <li> <%= link_to "Notifications", :notifications %> </li>
-        <li> <%= link_to "Add new notifications", :new_notification %> </li>
+        <li class="dropdown-submenu">
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'> <span>Notifications</span> </a>
+        <ul class="dropdown-menu d3">
+            <li> <%= link_to "Notification's list", :notifications %> </li>
+            <li> <%= link_to "Add new notifications", :new_notification %> </li>
+            <li> <%= link_to "Notifications to all", :notifications_to_all %> </li>
+        </ul>
+        </li>
     </ul>
     </li>
 <% elsif %>
@@ -119,8 +173,14 @@
     <ul class="dropdown-menu">
         <li><%= link_to "Calendar", :calendar %></li>
         <li> <%= link_to "Tasks", :events %> </li>
-        <li> <%= link_to "Notifications", :notifications %> </li>
-        <li> <%= link_to "Add new notifications", :new_notification %> </li>
+        <li class="dropdown-submenu">
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'> <span>Notifications</span> </a>
+        <ul class="dropdown-menu d3">
+            <li> <%= link_to "Notification's list", :notifications %> </li>
+            <li> <%= link_to "Add new notifications", :new_notification %> </li>
+            <li> <%= link_to "Notifications to all", :notifications_to_all %> </li>
+        </ul>
+        </li>
     </ul>
     </li>
 <% end %>

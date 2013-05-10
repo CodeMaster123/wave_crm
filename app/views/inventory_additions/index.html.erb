@@ -1,0 +1,33 @@
+<%- model_class = InventoryAddition -%>
+<div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>product_id</th>
+            <th>addition_date</th>
+            <th>quantity</th>
+            <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @inventory_additions.each do |inventory_addition| %>
+            <tr>
+                <td><%= link_to inventory_addition.id, inventory_addition_path(inventory_addition) %></td>
+                <td><%= inventory_addition.product_id %></td>
+                <td><%= inventory_addition.addition_date.strftime('%l:%M%p %d-%h') %></td>
+                <td><%= inventory_addition.quantity %></td>
+                <td>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_inventory_addition_path(inventory_addition), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), inventory_addition_path(inventory_addition), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+    new_inventory_addition_path,
+    :class => 'btn btn-primary' %>

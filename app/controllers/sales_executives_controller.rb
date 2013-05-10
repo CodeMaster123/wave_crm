@@ -5,7 +5,11 @@ class SalesExecutivesController < ApplicationController
     # GET /sales_executives.json
     def index
         @company = Company.where(:id => current_user.company_id).first
-        @sales_executives = @company.sales_executives.all
+        if current_user.account_type == 1
+            @sales_executives = @company.sales_executives.all
+        elsif current_user.account_type == 2
+            @sales_executives = User.find(current_user.id).team_leader.sales_executives
+        end
 
         respond_to do |format|
             format.html # index.html.erb
