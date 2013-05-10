@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :inventory_additions
+
+
   resources :inventories
 
 
