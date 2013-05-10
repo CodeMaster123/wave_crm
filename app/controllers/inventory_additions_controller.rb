@@ -36,12 +36,14 @@ class InventoryAdditionsController < ApplicationController
   # GET /inventory_additions/1/edit
   def edit
     @inventory_addition = InventoryAddition.find(params[:id])
+    @products = Company.find(current_user.company_id).products
   end
 
   # POST /inventory_additions
   # POST /inventory_additions.json
   def create
     @inventory_addition = InventoryAddition.new(params[:inventory_addition])
+    @products = Company.find(current_user.company_id).products
 
     respond_to do |format|
       if @inventory_addition.save
@@ -58,6 +60,7 @@ class InventoryAdditionsController < ApplicationController
   # PUT /inventory_additions/1.json
   def update
     @inventory_addition = InventoryAddition.find(params[:id])
+    @products = Company.find(current_user.company_id).products
 
     respond_to do |format|
       if @inventory_addition.update_attributes(params[:inventory_addition])
