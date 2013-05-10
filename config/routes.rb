@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :inventories
+
+
     devise_for :users
 
     resources :companies
