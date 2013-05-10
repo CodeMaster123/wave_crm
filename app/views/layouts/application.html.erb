@@ -13,10 +13,9 @@
         <![endif]-->
 
         <%= stylesheet_link_tag "application", :media => "all" %>
-        <%= stylesheet_link_tag "style", :media => "all" %>
+      <%= stylesheet_link_tag "style", :media => "all" %>
         <%= stylesheet_link_tag "style2" %>
         <%= javascript_include_tag "jquery-1.9.1.min" %>
-        <%= stylesheet_link_tag 'gmaps4rails' %>
     </head>
     <body>
         <%= render :partial =>"shared/top_menu" %>
@@ -28,7 +27,7 @@
                         <div class="span12">
                             <%= bootstrap_flash %>
                             <%= yield %>
-                          <%= yield :scripts %>
+
                         </div>
 
                     </div><!--/row-->
@@ -60,3 +59,5 @@ context: document.body
     </div>
 </body>
 </html>
+
+

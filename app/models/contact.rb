@@ -28,7 +28,8 @@ class Contact < ActiveRecord::Base
     self.address
   end
 
-  acts_as_gmappable :process_geocoding => false
+  acts_as_gmappable :latitude => 'latitude', :longitude => 'longitude', :process_geocoding => :false,
+                    :address => "address", :normalized_address => "address"
 
   def gmaps4rails_address
     self.address

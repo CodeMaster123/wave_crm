@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag 'gmaps4rails' %>
+
 <table>
   <tr>
   </tr>
@@ -8,5 +10,16 @@
     <% end %>
   <% end %>
 </table>
-
+<div>
 <%= gmaps4rails(@json) %>
+</div>
+<%= javascript_include_tag "gmaps4rails/gmaps4rails.base" %>
+<%= javascript_include_tag "gmaps4rails/gmaps4rails.googlemaps" %>
+<%= javascript_include_tag "gmaps4rails/gmaps4rails.base" %>
+<%= javascript_include_tag "gmaps4rails/gmaps4rails.bing" %>
+<%= javascript_include_tag "gmaps4rails/gmaps4rails.mapquest" %>
+<%= javascript_include_tag "gmaps4rails/gmaps4rails.openlayers" %>
+
+<%= yield :scripts %>
+
+
