@@ -133,4 +133,16 @@ class NotificationsController < ApplicationController
             format.json { head :no_content }
         end
     end
+
+    def notifications_to_all
+        if request.get?
+            @notification = Notification.new
+        elsif request.post?
+            @contacts = Company.find(current_user.company_id).contacts
+            @contacts.each do |contact|
+                Notification.create(:contact_id => contact.id, :body => params[:body], :notification_time => params[:notification_time], :company_id => current_user.company_id)
+            end
+                redirect_to :notifications, notice: 'Notifications created for all contacts.'
+        end
+    end
 end

@@ -133,8 +133,14 @@
     <ul class="dropdown-menu">
         <li><%= link_to "Calendar", :calendar %></li>
         <li> <%= link_to "Tasks", :events %> </li>
-        <li> <%= link_to "Notifications", :notifications %> </li>
-        <li> <%= link_to "Add new notifications", :new_notification %> </li>
+        <li class="dropdown-submenu">
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'> <span>Targets</span> </a>
+        <ul class="dropdown-menu d3">
+            <li> <%= link_to "Notification's list", :notifications %> </li>
+            <li> <%= link_to "Add new notifications", :new_notification %> </li>
+            <li> <%= link_to "Notifications to all", :notifications_to_all %> </li>
+        </ul>
+        </li>
     </ul>
     </li>
 <% end %>

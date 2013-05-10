@@ -1,0 +1,43 @@
+<%= javascript_include_tag "jquery-ui-1.10.2.custom.min.js" %>
+<%= stylesheet_link_tag "jquery-ui-1.10.2.custom.min.css" %>
+<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
+<%= stylesheet_link_tag "jquery-ui-timepicker-addon.css" %>
+<%= javascript_include_tag "jquery-ui-sliderAccess.js" %>
+
+<%- model_class = Notification -%>
+<div class="page-header">
+    <h1>Notifications to all</h1>
+</div>
+<%= javascript_include_tag "chosen.jquery.min" %>
+<%= stylesheet_link_tag "chosen.css" %>
+
+<%= form_tag "/notifications_to_all",:method => "POST", :class => 'form-horizontal' do %>
+    <div class="control-group">
+    <label class="control-label">Body</label>
+        <div class="controls">
+            <%= text_area_tag :body,'', :rows => "7",  :html =>{:class => 'text_area'} %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%= label_tag :Notification_time,'Notification time', :class => 'control-label' %>
+        <div class="controls">
+            <%= text_field_tag :notification_time,'', :class => 'datetime_select' %>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <%= submit_tag "Create", :class => 'btn btn-primary' %>
+    </div>
+<% end %>
+
+<script>
+    $('.datetime_select').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm tt z'
+    });
+
+    $(document).ready(function() {
+        $('#notification_contact_id').chosen();
+    });
+</script>
