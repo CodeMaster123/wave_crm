@@ -25,6 +25,7 @@ class InventoriesController < ApplicationController
   # GET /inventories/new.json
   def new
     @inventory = Inventory.new
+    @products = Company.find(current_user.company_id).products
 
     respond_to do |format|
       format.html # new.html.erb
