@@ -5,7 +5,7 @@
     <div class="control-group">
       <%= f.label :contact_type, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag :contact_type, options_for_select([["Select Contact Type", 0], ["Existing Contact", 1], ["New Contact", 2]],0),:class => 'contact_type' %>
+        <%= select_tag :contact_type, options_for_select([["Select Contact Type", 0], ["Existing Contact", 1], ["New Contact", 2]],0), :html => {:class => 'contact_type'}  %>
       </div>
     </div>
     <div class="control-group hide existing_contact">

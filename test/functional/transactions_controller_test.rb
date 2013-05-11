@@ -27,7 +27,7 @@ class TransactionsControllerTest < ActionController::TestCase
             post :create, transaction: { amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time }
         end
 
-        assert_redirected_to transaction_path(assigns(:transaction))
+        assert_redirected_to transactions_path
     end
 
     test "should show transaction" do

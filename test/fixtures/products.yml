@@ -1,17 +1,16 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   id: 1
-  name: MyString
-  min_cost: 1.5
-  max_cost: 1.5
-  description: MyString
+  name: CRM
+  min_cost: 110
+  max_cost: 125
+  description: "custom crm"
   company_id: 1
 
 two:
   id: 2
-  name: MyString
-  min_cost: 1.5
-  max_cost: 1.5
+  name: MyString2
+  min_cost: 110
+  max_cost: 115
   description: MyString
   company_id: 1
