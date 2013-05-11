@@ -27,7 +27,6 @@ class Contact < ActiveRecord::Base
   acts_as_gmappable :process_geocoding => false
 
  # def delayed_geocoding
- #     puts "aaaaaaaaaaaaaaa #{self.id}"
  #     Resque.enqueue(GeocodeContact, self.id)
  # end
 

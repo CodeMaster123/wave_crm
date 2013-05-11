@@ -26,7 +26,6 @@ class InventoriesController < ApplicationController
   def new
     @inventory = Inventory.new
     @products = Company.find(current_user.company_id).products
-    puts @products.first
 
     respond_to do |format|
       format.html # new.html.erb

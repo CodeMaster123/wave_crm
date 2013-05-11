@@ -39,9 +39,9 @@ group :development do
 end
 
 group :test do
-    gem 'turn'
-    gem 'minitest'
-    gem 'guard'
+    #gem 'turn'
+    gem 'guard-test'
+    gem 'ruby-prof'
     gem 'rb-inotify'
 end
     gem 'rack-mini-profiler'
