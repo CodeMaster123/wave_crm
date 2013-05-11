@@ -6,10 +6,11 @@ class Product < ActiveRecord::Base
   has_one :inventory
   has_many :inventory_additions
   belongs_to :company
+
   validates :company_id, :presence => true
   validates :description, :presence => true
   validates :max_cost, :presence => true, :numericality => true
   validates :min_cost, :presence => true, :numericality => true
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
 
 end
