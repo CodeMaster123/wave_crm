@@ -21,14 +21,15 @@ class Contact < ActiveRecord::Base
 
   before_save :set_defaults
 
-  #geocoded_by :geocoding_address
-  after_validation :delayed_geocoding
+  geocoded_by :geocoding_address
+  #after_save :delayed_geocoding
 
   acts_as_gmappable :process_geocoding => false
 
-  def delayed_geocoding
-      Resque.enqueue(GeocodeContact, self.id)
-  end
+ # def delayed_geocoding
+ #     puts "aaaaaaaaaaaaaaa #{self.id}"
+ #     Resque.enqueue(GeocodeContact, self.id)
+ # end
 
   def geocoding_address
     self.address
