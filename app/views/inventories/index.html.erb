@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Product id</th>
+      <th>Product</th>
       <th>Quantity</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,7 +15,7 @@
     <% @inventories.each do |inventory| %>
       <tr>
         <td><%= link_to inventory.id, inventory_path(inventory) %></td>
-        <td><%= inventory.product_id %></td>
+        <td><%= inventory.product.name %></td>
         <td><%= inventory.quantity %></td>
         <td>
             <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_inventory_path(inventory), :class => 'btn btn-mini' %>

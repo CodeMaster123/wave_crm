@@ -6,7 +6,7 @@
     <thead>
         <tr>
             <th>id</th>
-            <th>product_id</th>
+            <th>Product</th>
             <th>addition_date</th>
             <th>quantity</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -16,7 +16,7 @@
         <% @inventory_additions.each do |inventory_addition| %>
             <tr>
                 <td><%= link_to inventory_addition.id, inventory_addition_path(inventory_addition) %></td>
-                <td><%= inventory_addition.product_id %></td>
+                <td><%= inventory_addition.product.name %></td>
                 <td><%= inventory_addition.addition_date.strftime('%l:%M%p %d-%h') %></td>
                 <td><%= inventory_addition.quantity %></td>
                 <td>
