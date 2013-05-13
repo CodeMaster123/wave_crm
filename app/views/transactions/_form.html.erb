@@ -15,19 +15,6 @@
                 </div>
             </div>
 
-    <div class="control-group">
-        <%= f.label :payment_type, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.select :transaction_type, options_for_select([["Select Payment Type", 0], ["Cash", "Cash"], ["Cheque", "Cheque"]],0),:class => 'contact_type' %>
-        </div>
-    </div>
-
-    <div class="control-group hide micr_code">
-        <%= f.label :micr_code, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.text_field :micr_code, :class => 'text_field' %>
-        </div>
-    </div>
 
     <%= f.fields_for :contacts do |contact| %>
         <div class="contact_form hide new_contact">
@@ -71,6 +58,12 @@
         <%= contact.hidden_field :company_id, :value => current_user.company_id %>
     <% end %>
 
+    <div class="control-group">
+        <%= f.label :payment_type, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.select :transaction_type, options_for_select([["Select Payment Type", 0], ["Cash", "Cash"], ["Cheque", "Cheque"]],0),:class => 'contact_type' %>
+        </div>
+    </div>
 
     <div class="control-group hide amount">
         <%= f.label :amount, :class => 'control-label' %>
@@ -78,6 +71,14 @@
             <%= f.text_field :amount, :class => 'text_field' %>
         </div>
     </div>
+
+    <div class="control-group hide micr_code">
+        <%= f.label :micr_code, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :micr_code, :class => 'text_field' %>
+        </div>
+    </div>
+
     <div class="control-group">
         <%= f.label :transaction_time, :class => 'control-label' %>
         <div class="controls">
