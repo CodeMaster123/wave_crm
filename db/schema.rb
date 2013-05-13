@@ -219,6 +219,8 @@ ActiveRecord::Schema.define(:version => 20130510094231) do
     t.integer  "company_id"
     t.integer  "contact_type"
     t.integer  "contact_id"
+    t.string   "transaction_type"
+    t.string   "micr_code"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

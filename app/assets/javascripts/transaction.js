@@ -21,4 +21,15 @@ else
     $('.new_contact').fadeIn('hide').removeClass('hide');
 }
 }
+
+});
+$('#transaction_type').change(function() {
+    if($('#transaction_type').val() == 2)
+{
+    $('.micr_code').fadeIn();
+}
+    if($('#transaction_type').val() == 1)
+{
+    $('.micr_code').fadeOut();
+}
 });
