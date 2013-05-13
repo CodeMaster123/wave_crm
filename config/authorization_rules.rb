@@ -18,13 +18,13 @@ authorization do
 
     role :admin do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
-        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :mature]
+        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :mature, :graph]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :follow_ups, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :follow_ups_list]
         has_permission_on :tags, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :search]
         has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
-        has_permission_on :team_leaders, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
+        has_permission_on :team_leaders, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :target_forecast]
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed, :notifications_to_all]
         has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]

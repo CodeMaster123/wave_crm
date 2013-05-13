@@ -32,6 +32,14 @@ WaveCrm::Application.routes.draw do
     mount_sextant if Rails.env.development?
     mount Resque::Server, :at => '/admin_resque'
 
+    match 'contact_search' => 'contacts#search'
+    match 'lead_search' => 'leads#search'
+    match 'tag_search' => 'tags#search'
+    match 'notification_search' => 'notifications#search'
+    match 'event_search' => 'events#search'
+
+    match 'transaction_graph' => 'transactions#graph'
+
     match 'calendar' => "calendar#index"
     match 'sales_executive_leads/:id1' => 'sales_executives#index'
     match 'follow_ups/new/:id1' => 'follow_ups#new'
@@ -39,17 +47,9 @@ WaveCrm::Application.routes.draw do
     match 'target_forecast' => 'team_leaders#target_forecast'
     match 'leads/index/:team_leader' => 'leads#index'
 
-    match 'contact_search' => 'contacts#search'
-    match 'lead_search' => 'leads#search'
-    match 'tag_search' => 'tags#search'
-    match 'notification_search' => 'notifications#search'
-    match 'event_search' => 'events#search'
-
     match 'noticed' => 'notifications#noticed'
     match 'notifications_to_all' => 'notifications#notifications_to_all'
-    #post 'notifications_to_all' => 'notifications#notifications_to_all'
     match 'map_index' => 'contacts#map_index'
-
     match 'transactions/mature/:id1/:matured_by/:executive_type' => 'transactions#mature'
 
     root :to => 'leads#index'

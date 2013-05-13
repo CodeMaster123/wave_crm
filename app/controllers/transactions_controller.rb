@@ -135,4 +135,8 @@ class TransactionsController < ApplicationController
         end
         @transaction_fields = current_user.transaction_fields
     end
+
+    def graph
+        
+    end
 end
