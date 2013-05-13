@@ -6,6 +6,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.integer :company_id
       t.integer :contact_type
       t.integer :contact_id
+      t.integer :matured_by
       t.string :transaction_type
       t.string :micr_code
 
