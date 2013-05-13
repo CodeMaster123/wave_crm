@@ -63,11 +63,16 @@ class TransactionsController < ApplicationController
         respond_to do |format|
 
             if @transaction.save
-                format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
-                format.json { render json: @transaction, status: :created, location: @transaction }
-
                 @transaction_fields.each do |tf|
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
+                end
+
+                if current_user.account_type == 1
+                format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
+                elsif current_user.account_type == 2
+                format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
+                elsif current_user.account_type == 3
+                format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
                 end
             else
                 format.html { render action: "new" }
