@@ -46,10 +46,11 @@ WaveCrm::Application.routes.draw do
     match 'event_search' => 'events#search'
 
     match 'noticed' => 'notifications#noticed'
-    match 'transactions/new/:id1' => 'transactions#new'
     match 'notifications_to_all' => 'notifications#notifications_to_all'
     #post 'notifications_to_all' => 'notifications#notifications_to_all'
     match 'map_index' => 'contacts#map_index'
+
+    match 'transactions/mature/:id1/:matured_by/:executive_type' => 'transactions#mature'
 
     root :to => 'leads#index'
 end

@@ -23,13 +23,15 @@ else
 }
 
 });
-$('#transaction_type').change(function() {
-    if($('#transaction_type').val() == 2)
+$('#transaction_transaction_type').change(function() {
+    if($('#transaction_transaction_type').val() == "Cheque")
 {
+    $('.amount').fadeIn();
     $('.micr_code').fadeIn();
 }
-    if($('#transaction_type').val() == 1)
+    if($('#transaction_transaction_type').val() == "Cash")
 {
+    $('.amount').fadeIn();
     $('.micr_code').fadeOut();
 }
 });
