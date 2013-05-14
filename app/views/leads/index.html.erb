@@ -9,42 +9,94 @@
     </div>
 </div>
 
-<div class="control-group">
-    <div class="controls">
-        Search: <%= text_field_tag :title,"", :class => 'search-c' %>
-        <div class="new-top">
-            <%= link_to "New", new_lead_path, :class => 'btn btn-primary custom-new-button' %>
+
+<% if params[:team_leader].nil? %>
+    <div class="control-group">
+        <div class="controls">
+            Search: <%= text_field_tag :title,"", :class => 'search-c' %>
+            <div class="new-top">
+                <%= link_to "New", new_lead_path, :class => 'btn btn-primary custom-new-button' %>
+            </div>
         </div>
     </div>
-</div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Sr.No</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Lead by</th>
-            <th>Follow up time</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody id="search-data">
-        <% render :partial => 'shared/i_calculation' %>
-        <% @leads.each do |lead| %>
-            <% if lead.matured_at.nil? %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Lead by</th>
+                <th>Follow up time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="search-data">
+            <% render :partial => 'shared/i_calculation' %>
+            <% @leads.each do |lead| %>
+                <% if lead.matured_at.nil? %>
+                    <tr>
+                        <td><%= link_to @i = @i+1, lead_path(lead) %></td>
+                        <td><%= lead.title %></td>
+                        <td><%= lead.description %></td>
+                        <% unless lead.lead_by.nil? %>
+                            <td><%= lead.lead_by %></td>
+                        <% end %>
+                        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
+                            <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+                            <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%h'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
+                        <% else %>
+                            <td class="tTip" title="vivek varade">----</td>
+                        <% end %>
+                        <td>
+                            <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                            <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                            <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini btn-follow-up' %>
+                            <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'mature', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info @leads %>
+        </div>
+        <%= will_paginate @leads, :container => false %>
+    </div>
+<% end %>
+
+<!-- for team leader -->
+
+<% unless params[:team_leader].nil? %>
+    <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
+    <% puts @team_leader.id %>
+    <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Follow up time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% render :partial => 'shared/i_calculation' %>
+            <% @team_leader.leads.each do |lead| %>
                 <tr>
                     <td><%= link_to @i = @i+1, lead_path(lead) %></td>
                     <td><%= lead.title %></td>
                     <td><%= lead.description %></td>
-                    <% unless lead.lead_by.nil? %>
-                    <td><%= lead.lead_by %></td>
-                <% end %>
+
                     <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                        <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                        <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%h'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
+                        <% @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
+                        <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
                     <% else %>
-                        <td class="tTip" title="vivek varade">----</td>
+                        <td class="tTip" title="vivek varade">---</td>
                     <% end %>
                     <td>
                         <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
@@ -54,21 +106,12 @@
                     </td>
                 </tr>
             <% end %>
-        <% end %>
-    </tbody>
-</table>
+        </tbody>
+    </table>
 
-<div class="flickr_pagination">
-    <div class="page_info">
-        <%= page_entries_info @leads %>
-    </div>
-    <%= will_paginate @leads, :container => false %>
-</div>
-
-
-<% unless params[:team_leader].nil? %>
+    <!-- sales_executives -->
     <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
-        <h4>Leads by  <%= "#{executive.id} #{executive.user.first_name} #{executive.user.last_name}" %></h4>
+        <h4>Executive- <%= "#{executive.user.first_name} #{executive.user.last_name}" %></h4>
         <table class="table table-striped">
             <thead>
                 <tr>
