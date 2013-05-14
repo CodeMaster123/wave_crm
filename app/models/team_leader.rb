@@ -10,6 +10,6 @@ class TeamLeader < ActiveRecord::Base
   validates :company_id, :presence => true
 
   def current_target
-      self.targets.where("start_target_date >= \"#{Date.today.at_beginning_of_month}\" and end_target_date <= \"#{Date.today.at_end_of_month}\"").first
+      self.targets.where().first
   end
 end

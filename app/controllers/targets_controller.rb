@@ -4,13 +4,13 @@ class TargetsController < ApplicationController
     # GET /targets
     # GET /targets.json
     def index
-
+       @targets = Target.all
       @team_leaders = TeamLeader.all
       @sales_executives = SalesExecutive.all
-        @company = Company.where(:id => current_user.company_id).first
-        @targets_by_months = Array.new
-        if current_user.account_type == 1
-      @targets_by_months = @company.targets.where(:target_month => Date.today.month, :target_year => Date.today.year)
+      @company = Company.where(:id => current_user.company_id).first
+      @targets_by_months = Array.new
+      if current_user.account_type == 1
+        @targets_by_months = @company.targets.where(:target_month => Date.today.month, :target_year => Date.today.year)
         elsif current_user.account_type == 2
             @team_leader = TeamLeader.where(:user_id => current_user.id).first
             @targets_by_months[0] = @team_leader.current_target
