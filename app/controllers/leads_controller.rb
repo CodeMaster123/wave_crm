@@ -74,27 +74,32 @@ class LeadsController < ApplicationController
   def create
     @company = Company.where(:id => current_user.company_id).first
     @lead = @company.leads.new(params[:lead])
-    @lead.leadable_id = current_user.id
-    @lead.leadable_type = current_user.class.name
+    if User.find(current_user.id).account_type == 2
+        @lead.leadable_id = TeamLeader.where(:user_id => current_user.id).first.id
+        @lead.leadable_type = "TeamLeader"
+    elsif User.find(current_user.id).account_type == 3
+        @lead.leadable_id = SalesExecutive.where(:user_id => current_user.id).first.id
+        @lead.leadable_type = "SalesExecutive"
+    end
     @products = @company.products.all
     @lead.company_id = @company.id
     respond_to do |format|
-          if @lead.save
-              #@follow_up = FollowUp.create(:lead_id = @lead.id,
-              format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
-              format.json { render json: @lead, status: :created, location: @lead }
-          else
-              format.html { render action: "new" }
-              format.json { render json: @lead.errors, status: :unprocessable_entity }
-          end
+        if @lead.save
+            #@follow_up = FollowUp.create(:lead_id = @lead.id,
+            format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
+            format.json { render json: @lead, status: :created, location: @lead }
+        else
+            format.html { render action: "new" }
+            format.json { render json: @lead.errors, status: :unprocessable_entity }
+        end
     end
   end
 
   # PUT /leads/1
   # PUT /leads/1.json
   def update
-    @company = Company.where(:id => current_user.company_id).first
-    @lead = @company.leads.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+      @lead = @company.leads.find(params[:id])
 
       respond_to do |format|
           if @lead.update_attributes(params[:lead])
