@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
   has_many :leads, :through => :leads_products
   has_one :inventory
   has_many :inventory_additions
+  has_many :product_transactions
+  has_many :transactions, :through => :product_transactions
   belongs_to :company
 
   validates :company_id, :presence => true
