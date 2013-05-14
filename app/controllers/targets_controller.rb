@@ -4,11 +4,23 @@ class TargetsController < ApplicationController
     # GET /targets
     # GET /targets.json
     def index
-      @company = Company.where(:id => current_user.company_id).first
-      @targets = @company.targets.paginate(:page => params[:page], :per_page => 15)
-      @team_leaders = TeamLeader.all
-      @sales_executives = SalesExecutive.all
-      @targets_by_months = @company.targets.paginate(:page => params[:page], :per_page => 15).where("MONTH(start_target_date) = ? and YEAR(start_target_date) = ?", Date.today.month, Date.today.year)
+        @company = Company.where(:id => current_user.company_id).first
+        @targets_by_months = Array.new
+        if current_user.account_type == 1
+            @targets_by_months = @company.targets.where("MONTH(start_target_date) = ? and YEAR(start_target_date) = ?", Date.today.month, Date.today.year)
+        elsif current_user.account_type == 2
+            @team_leader = TeamLeader.where(:user_id => current_user.id).first
+            @targets_by_months[0] = @team_leader.current_target
+            @i = 1
+           # @team_leader.sales_executives.each do |sales_executive|
+           #     if sales_executive.targets.nil?
+           #         @targets_by_months[@i] = nil
+           #     else
+           #         @targets_by_months[@i] = sales_executive.current_target
+           #     end
+           #     @i = @i+1
+           # end
+        end
 
         respond_to do |format|
             format.html # index.html.erb
@@ -30,7 +42,7 @@ class TargetsController < ApplicationController
     # GET /targets/new
     # GET /targets/new.json
     def new
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @target = Target.new
         @team_leaders = @company.team_leaders.all
         @sales_executives = @company.sales_executives.all
@@ -43,7 +55,7 @@ class TargetsController < ApplicationController
 
     # GET /targets/1/edit
     def edit
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @team_leaders = @company.team_leaders.all
         @sales_executives = @company.sales_executives.all
         @target = Target.find(params[:id])
@@ -52,11 +64,11 @@ class TargetsController < ApplicationController
     # POST /targets
     # POST /targets.json
     def create
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @target = @company.targets.new(params[:target])
-      @team_leaders = @company.team_leaders.all
-      @sales_executives = @company.sales_executives.all
-      @target.company_id = @company.id
+        @team_leaders = @company.team_leaders.all
+        @sales_executives = @company.sales_executives.all
+        @target.company_id = @company.id
         respond_to do |format|
             if @target.save
                 format.html { redirect_to :targets, notice: 'Target was successfully created.' }
@@ -71,7 +83,7 @@ class TargetsController < ApplicationController
     # PUT /targets/1
     # PUT /targets/1.json
     def update
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @target = @company.targets.find(params[:id])
 
         respond_to do |format|
