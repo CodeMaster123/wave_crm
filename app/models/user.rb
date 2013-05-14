@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
 
+
     after_create :create_notification_setting
 
     def role_symbols
@@ -52,4 +53,16 @@ class User < ActiveRecord::Base
     def full_name
         "#{self.first_name} #{self.last_name}"
     end
+
+    #after_destroy :delete_team_leaders
+    #after_destroy :delete_team_leaders
+
+ # private
+   # def delete_team_leaders
+     # self.class.delete_all "team_leader_id = #{id}"
+    #end
+
+   # def delete_sales_executives
+     # self.class.delete_all "sales_executive_id = #{id}"
+   # end
 end

@@ -10,6 +10,7 @@ class CreateTargets < ActiveRecord::Migration
       t.timestamp :end_target_date
 
       t.timestamps
+
     end
   end
 end
