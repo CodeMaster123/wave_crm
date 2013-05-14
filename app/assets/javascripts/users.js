@@ -3,4 +3,8 @@
             {
                 $('.hide').fadeIn('hide').removeClass('hide');
             }
+            else
+            {
+                $('.hide').fadeOut('hide').addClass('hide');
+            }
         });

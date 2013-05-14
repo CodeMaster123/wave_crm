@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130510094231) do
     t.string   "contactable_type"
     t.integer  "contactable_id"
     t.integer  "company_id"
+    t.boolean  "gmaps"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end

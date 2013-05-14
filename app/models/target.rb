@@ -8,10 +8,9 @@ class Target < ActiveRecord::Base
   validates :achived, :presence => true, :numericality => true
   validates :company_id, :presence => true
   validates :amount, :presence => true, :numericality => true
-  validates :start_target_date, :presence => true
-  validates :targetable_id, :presence => true
-  validates :targetable_type, :presence => true
   validates :end_target_date, :presence => true
+  validates :start_target_date, :uniqueness => { :scope => [:targetable_type, :targetable_id] }
+  validates :targetable_type, :targetable_id, :presence => true
 
   def full_name
       @user = self.targetable.user
