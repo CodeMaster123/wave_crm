@@ -12,6 +12,7 @@
       <th>Target Amount</th>
       <th>Target Achived</th>
       <th>Target Month </th>
+      <th>Target Year </th>
       <th>Actions </th>
   </tr>
   </thead>
@@ -25,7 +26,8 @@
                   <td><%= target.targetable_type %></td>
                   <td><%= target.amount %> Rs</td>
                   <td><%= target.achived %> Rs</td>
-                  <td><%= target.start_target_date.strftime('%B-%Y') %></td>
+                  <td><%= target.target_month %></td>
+                  <td><%= target.target_year %></td>
                   <td>
                       <%= link_to t('.edit', :default => t("helpers.links.edit")),
                           edit_target_path(target), :class => 'btn btn-mini' %>
@@ -44,10 +46,3 @@
       <%= link_to t('.new', :default => t("helpers.links.new")),
           new_target_path,
           :class => 'btn btn-primary' %>
-
-<div class="flickr_pagination">
-  <div class="page_info">
-    <%= page_entries_info @targets %>
-  </div>
-  <%= will_paginate @targetss, :container => false %>
-</div>

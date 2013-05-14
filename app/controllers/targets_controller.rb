@@ -8,7 +8,7 @@ class TargetsController < ApplicationController
       @targets = @company.targets.paginate(:page => params[:page], :per_page => 15)
       @team_leaders = TeamLeader.all
       @sales_executives = SalesExecutive.all
-      @targets_by_months = @company.targets.paginate(:page => params[:page], :per_page => 15).where("MONTH(start_target_date) = ? and YEAR(start_target_date) = ?", Date.today.month, Date.today.year)
+      @targets_by_months = @company.targets.where(:target_month => Date.today.month, :target_year => Date.today.year)
 
         respond_to do |format|
             format.html # index.html.erb
