@@ -4,6 +4,13 @@ class TargetsController < ApplicationController
     # GET /targets
     # GET /targets.json
     def index
+<<<<<<< HEAD
+      @company = Company.where(:id => current_user.company_id).first
+      @targets = @company.targets.paginate(:page => params[:page], :per_page => 15)
+      @team_leaders = TeamLeader.all
+      @sales_executives = SalesExecutive.all
+      @targets_by_months = @company.targets.where(:target_month => Date.today.month, :target_year => Date.today.year)
+=======
         @company = Company.where(:id => current_user.company_id).first
         @targets_by_months = Array.new
         if current_user.account_type == 1
@@ -21,6 +28,7 @@ class TargetsController < ApplicationController
            #     @i = @i+1
            # end
         end
+>>>>>>> 3d7dca4cdaf38d2b61a44133106425084e245af2
 
         respond_to do |format|
             format.html # index.html.erb

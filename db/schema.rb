@@ -194,11 +194,11 @@ ActiveRecord::Schema.define(:version => 20130514080505) do
     t.string   "targetable_type"
     t.integer  "amount"
     t.integer  "achived"
-    t.datetime "start_target_date"
     t.integer  "company_id"
-    t.datetime "end_target_date"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "target_month"
+    t.integer  "target_year"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "team_leaders", :force => true do |t|

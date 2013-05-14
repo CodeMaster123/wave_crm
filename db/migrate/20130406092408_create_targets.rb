@@ -5,9 +5,9 @@ class CreateTargets < ActiveRecord::Migration
       t.string :targetable_type
       t.integer :amount
       t.integer :achived
-      t.timestamp :start_target_date
       t.integer :company_id
-      t.timestamp :end_target_date
+      t.integer :target_month
+      t.integer :target_year
 
       t.timestamps
 
