@@ -35,6 +35,8 @@ class TransactionsController < ApplicationController
         @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
         @transaction.contacts.build
+        @transaction.product_transactions.build
+        @products = Company.find(current_user.company_id).products
 
 
         respond_to do |format|
@@ -45,6 +47,7 @@ class TransactionsController < ApplicationController
 
     # GET /transactions/1/edit
     def edit
+        @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.find(params[:id])
         @contacts = @company.contacts.all
@@ -54,6 +57,7 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
+        @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
@@ -84,6 +88,7 @@ class TransactionsController < ApplicationController
     # PUT /transactions/1
     # PUT /transactions/1.json
     def update
+        @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.find(params[:id])
         @transaction_fields = current_user.transaction_fields

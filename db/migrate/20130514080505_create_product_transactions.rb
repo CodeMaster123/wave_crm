@@ -4,6 +4,7 @@ class CreateProductTransactions < ActiveRecord::Migration
       t.integer :product_id
       t.integer :transaction_id
       t.float :price
+      t.integer :quantity
 
       t.timestamps
     end

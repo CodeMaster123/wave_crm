@@ -3,13 +3,13 @@ $('.contact_type').change(function() {
 {
     $('.existing_contact').fadeIn('hide').removeClass('hide');
     $('.new_contact').fadeOut('hide').addClass('hide');
-    $fields = $('.fields').clone();
-    $('.fields').remove();
+    $fields = $('.contact_fields').clone();
+    $('.contact_fields').remove();
 }
 else
 if ($('.contact_type').val() == 2)
 {
-    if($('.fields').length == 0)
+    if($('.contact_fields').length == 0)
 {
     $('#new_transaction').append($fields);
     $('.existing_contact').fadeOut('hide').addClass('hide');
@@ -35,3 +35,12 @@ $('#transaction_transaction_type').change(function() {
     $('.micr_code').fadeOut();
 }
 });
+
+$('.product_price').change(function() {
+    var $total = 0;
+    $('.product_price').each(function(){
+        $total = $total + this.value;
+        console.debug($total);
+    });
+});
+
