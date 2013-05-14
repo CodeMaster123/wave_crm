@@ -21,4 +21,17 @@ else
     $('.new_contact').fadeIn('hide').removeClass('hide');
 }
 }
+
+});
+$('#transaction_transaction_type').change(function() {
+    if($('#transaction_transaction_type').val() == "Cheque")
+{
+    $('.amount').fadeIn();
+    $('.micr_code').fadeIn();
+}
+    if($('#transaction_transaction_type').val() == "Cash")
+{
+    $('.amount').fadeIn();
+    $('.micr_code').fadeOut();
+}
 });

@@ -63,11 +63,16 @@ class TransactionsController < ApplicationController
         respond_to do |format|
 
             if @transaction.save
-                format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
-                format.json { render json: @transaction, status: :created, location: @transaction }
-
                 @transaction_fields.each do |tf|
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
+                end
+
+                if current_user.account_type == 1
+                    format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
+                elsif current_user.account_type == 2
+                    format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
+                elsif current_user.account_type == 3
+                    format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
                 end
             else
                 format.html { render action: "new" }
@@ -109,5 +114,25 @@ class TransactionsController < ApplicationController
             format.html { redirect_to transactions_url }
             format.json { head :no_content }
         end
+    end
+
+    def mature
+        if request.post?
+            if params[:executive_type] == "TeamLeader"
+                @company_id = TeamLeader.find(params[:matured_by].to_i).company_id
+            else
+                @company_id = SalesExecutive.find(params[:matured_by].to_i).company_id
+            end
+
+            @created = Transaction.last.id
+            Transaction.create(:amount => params[:amount],:contact_id => params[:contact_id], :micr_code => params[:micr_code], :transaction_time => params[:transaction_time].to_time, :transaction_type => params[:transaction_type], :company_id => @company_id, :matured_by => params[:matured_by], :executive_type => params[:executive_type])
+            if Transaction.last.id == @created
+                session[:errors] = 'Fill the form carefully'
+            else
+                Lead.find(params[:id1]).update_attributes(:matured_at => params[:transaction_time])
+                redirect_to leads_path, notice: "Lead successfully matured"
+            end
+        end
+        @transaction_fields = current_user.transaction_fields
     end
 end

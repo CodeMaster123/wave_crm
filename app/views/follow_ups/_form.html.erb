@@ -1,24 +1,42 @@
+<%= javascript_include_tag "jquery-ui-1.10.2.custom.min.js" %>
+<%= stylesheet_link_tag "jquery-ui-1.10.2.custom.min.css" %>
+<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
+<%= stylesheet_link_tag "jquery-ui-timepicker-addon.css" %>
+<%= javascript_include_tag "jquery-ui-sliderAccess.js" %>
+
 <%= form_for @follow_up, :html => { :class => 'form-horizontal' } do |f| %>
 
 
 
-  <%= f.hidden_field :lead_id, :value => params[:id1], :class => 'number_field' %>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :description, :class => 'text_field' %>
+    <%= f.hidden_field :lead_id, :value => params[:id1], :class => 'number_field' %>
+    <div class="control-group">
+        <%= f.label :description, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_area :description, :rows => 3, :class => 'text_field' %>
+        </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :follow_up_time, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.datetime_select :follow_up_time, :class => 'datetime_select' %>
+    <div class="control-group">
+        <%= f.label :follow_up_time, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :follow_up_time, :class => 'datetime_select' %>
+        </div>
     </div>
-  </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                follow_ups_path, :class => 'btn' %>
-  </div>
+    <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), follow_ups_path, :class => 'btn' %>
+    </div>
 <% end %>
+
+<script>
+    $('.datetime_select').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm tt z'
+    });
+</script>
+<script>
+    $('.datetime_select').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timeFormat: 'hh:mm tt z'
+    });
+</script>

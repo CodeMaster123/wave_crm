@@ -22,13 +22,18 @@ class Contact < ActiveRecord::Base
   before_save :set_defaults
 
   geocoded_by :geocoding_address
-  after_validation :geocode, :if => :address_changed?
+  #after_save :delayed_geocoding
+
+  acts_as_gmappable :process_geocoding => false
+
+ # def delayed_geocoding
+ #     Resque.enqueue(GeocodeContact, self.id)
+ # end
 
   def geocoding_address
     self.address
   end
 
-  acts_as_gmappable
 
   def gmaps4rails_address
     self.address

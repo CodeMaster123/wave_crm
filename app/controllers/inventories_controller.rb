@@ -25,6 +25,7 @@ class InventoriesController < ApplicationController
   # GET /inventories/new.json
   def new
     @inventory = Inventory.new
+    @products = Company.find(current_user.company_id).products
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,14 @@ class InventoriesController < ApplicationController
   # GET /inventories/1/edit
   def edit
     @inventory = Inventory.find(params[:id])
+    @products = Company.find(current_user.company_id).products
   end
 
   # POST /inventories
   # POST /inventories.json
   def create
     @inventory = Inventory.new(params[:inventory])
+    @products = Company.find(current_user.company_id).products
 
     respond_to do |format|
       if @inventory.save
@@ -57,6 +60,7 @@ class InventoriesController < ApplicationController
   # PUT /inventories/1.json
   def update
     @inventory = Inventory.find(params[:id])
+    @products = Company.find(current_user.company_id).products
 
     respond_to do |format|
       if @inventory.update_attributes(params[:inventory])

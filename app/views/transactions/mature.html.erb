@@ -1,0 +1,88 @@
+<%= javascript_include_tag "jquery-ui-1.10.2.custom.min.js" %>
+<%= stylesheet_link_tag "jquery-ui-1.10.2.custom.min.css" %>
+<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
+<%= stylesheet_link_tag "jquery-ui-timepicker-addon.css" %>
+<%= javascript_include_tag "jquery-ui-sliderAccess.js" %>
+<%= javascript_include_tag "chosen.jquery.min" %>
+<%= stylesheet_link_tag "chosen.css" %>
+
+<%- model_class = Transaction -%>
+<div class="page-header">
+    <h1>Transactions</h1>
+</div>
+<% unless session[:errors].empty? %>
+    <div class="alert"><%= session[:errors] %></div>
+<% end %>
+<% session[:errors] = "" %>
+<%= form_tag "/transactions/mature/#{params[:id1]}/#{params[:matured_by]}/#{params[:executive_type]}", :class => 'form-horizontal' do %>
+
+    <%= hidden_field_tag :contact_id, params[:id1] %>
+    <div class="control-group">
+        <label class ="control-label">Contact name </label>
+        <div class="controls fixed_contact">
+            <b><%= Contact.find(params[:id1]).full_name %></b>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Transaction Type</label>
+        <div class="controls">
+            <%= select_tag :transaction_type, options_for_select([["Select Contact Type", 0], ["Cash", "Cash"], ["Cheque", "Cheque"]],0), :class => 'contact_type' %>
+        </div>
+    </div>
+
+    <div class="control-group hide micr_code">
+        <label class ="control-label">MICR code</label>
+        <div class="controls">
+            <%= text_field_tag :micr_code,"", :class => 'text_field' %>
+        </div>
+    </div>
+
+    <div class="control-group hide amount">
+        <label class ="control-label">Amount</label>
+        <div class="controls">
+            <%= text_field_tag :amount,"", :class => 'text_field' %>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class ="control-label">Transaction Time</label>
+        <div class="controls">
+            <%= text_field_tag :transaction_time,'', :class => 'datetime_select' %>
+        </div>
+    </div>
+
+    <% @transaction_fields.each do |tf| %>
+        <div class="control-group">
+            <label class='control-label' ><%= tf.field_name %></label>
+            <div class="controls">
+                <%= text_field_tag tf.field_name,"", :class => 'text_field' %>
+            </div>
+        </div>
+    <% end %>
+
+
+    <div class="form-actions">
+        <%= submit_tag nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            transactions_path, :class => 'btn' %>
+        </div>
+    <% end %>
+
+    <script>
+        $(document).ready(function() {
+            $('#transaction_contact_id').chosen();
+        });
+    </script>
+
+
+    <%= javascript_include_tag "transaction_mature.js" %>
+    <%= javascript_include_tag  "jquery_nested_form.js" %>
+
+
+    <script>
+        $('.datetime_select').datetimepicker({
+            dateFormat: 'yy-mm-dd',
+            timeFormat: 'hh:mm tt z'
+        });
+    </script>
+

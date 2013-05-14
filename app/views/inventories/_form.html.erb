@@ -1,20 +1,9 @@
-<%= form_for @inventory, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :product_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :product_id, :class => 'number_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :quantity, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :quantity, :class => 'number_field' %>
-    </div>
-  </div>
+<%= bootstrap_form_for @inventory, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+    <%= f.text_field :quantity, :class => 'number_field' %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                inventories_path, :class => 'btn' %>
-  </div>
+    <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), inventories_path, :class => 'btn' %>
+    </div>
 <% end %>

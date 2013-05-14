@@ -44,11 +44,12 @@ class ProductsController < ApplicationController
     # POST /products
     # POST /products.json
     def create
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @product = @company.products.new(params[:product])
-      @product.company_id = @company.id
+        @product.company_id = @company.id
+        @product.max_cost = 123
 
-      respond_to do |format|
+        respond_to do |format|
             if @product.save
                 format.html { redirect_to :products, notice: 'Product was successfully created.' }
                 format.json { render json: @product, status: :created, location: @product }
@@ -62,7 +63,7 @@ class ProductsController < ApplicationController
     # PUT /products/1
     # PUT /products/1.json
     def update
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @product = @company.products.find(params[:id])
 
         respond_to do |format|

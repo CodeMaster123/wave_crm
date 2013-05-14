@@ -1397,6 +1397,9 @@ input,textarea {
     background: #e51400;
 }
 
+.btn-group.open .dropdown-toggle.btn-mature {
+    background: #e51400;
+}
 .btn-group.open .dropdown-toggle.btn-inverse {
     background: #333;
 }
@@ -1427,6 +1430,15 @@ input,textarea {
 }
 
 .dropdown-menu.dropdown-danger>li>a:hover {
+    background: #e51400;
+    color: #fff;
+}
+
+.dropdown-menu.dropdown-mature {
+    border-color: #e51400;
+}
+
+.dropdown-menu.dropdown-mature >li>a:hover {
     background: #e51400;
     color: #fff;
 }
@@ -1542,6 +1554,15 @@ nger {
 
 .btn.btn-danger:hover {
     background: #e51400;
+}
+
+.btn.btn-mature:hover {
+    background: #393;
+    color: white;
+}
+.btn.btn-follow-up:hover {
+    background: #368ee0;
+    color: white;
 }
 
 .btn.btn-success {
@@ -5239,4 +5260,8 @@ div.new-top {
 
 .lead{
     background-color:  #CCE6FF;
+}
+
+.fixed_contact{
+    margin-top: 7px;
 }

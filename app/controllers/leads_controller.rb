@@ -132,4 +132,7 @@ class LeadsController < ApplicationController
           format.json { head :no_content }
       end
   end
+
+  def mature
+  end
 end

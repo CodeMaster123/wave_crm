@@ -1,0 +1,96 @@
+<%= javascript_include_tag "chosen.jquery.min" %>
+<%= stylesheet_link_tag "chosen.css" %>
+
+<%= nested_form_for @transaction, :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="control-group">
+      <%= f.label :contact_type, :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag :contact_type, options_for_select([["Select Contact Type", 0], ["Existing Contact", 1], ["New Contact", 2]],0), :html => {:class => 'contact_type'}  %>
+      </div>
+    </div>
+    <div class="control-group hide existing_contact">
+      <%= f.label :contact_id, :class => 'control-label' %>
+      <div class="controls">
+                    <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
+      </div>
+    </div>
+
+    <%= f.fields_for :contacts do |contact| %>
+        <div class="contact_form hide new_contact">
+          <div class="control-group">
+            <%= contact.label :first_name, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :first_name, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :middle_name, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :middle_name, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :last_name, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :last_name, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :address, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :mobile_no, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :mobile_no, :class => 'text_field' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= contact.label :landline_no, :class => 'control-label' %>
+            <div class="controls">
+              <%= contact.text_field :landline_no, :class => 'text_field' %>
+            </div>
+          </div>
+        </div>
+        <%= contact.hidden_field :company_id, :value => current_user.company_id %>
+    <% end %>
+
+
+    <div class="control-group">
+      <%= f.label :amount, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :amount, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :transaction_time, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :transaction_time, :class => 'datetime_select' %>
+      </div>
+    </div>
+
+    <% @transaction_fields.each do |tf| %>
+        <div class="control-group">
+          <label class='control-label' ><%= tf.field_name %></label>
+          <div class="controls">
+            <%= text_field_tag tf.field_name,"", :class => 'text_field' %>
+          </div>
+        </div>
+    <% end %>
+
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  transactions_path, :class => 'btn' %>
+    </div>
+<% end %>
+
+<script>
+    $(document).ready(function() {
+        $('#transaction_contact_id').chosen();
+    });
+</script>
+
