@@ -135,4 +135,37 @@ class TransactionsController < ApplicationController
         end
         @transaction_fields = current_user.transaction_fields
     end
+
+    def graph
+        @amounts = Array.new
+        @i = 0
+        @last_amount = 0
+
+
+        @transactions = Company.find(current_user.company_id).transactions.where("transaction_time>= \'#{Date.today.at_beginning_of_month.to_time}\' and transaction_time<= \'#{Date.today.at_end_of_month.to_time}\'").order("transaction_time")
+
+        @transactions.each do |transaction|
+            @last_amount = @last_amount + transaction.amount
+            @amounts[@i] = @last_amount
+            @i = @i+1
+        end
+
+        @team_leaders = Company.find(current_user.company_id).team_leaders
+        @sales_executives = Company.find(current_user.company_id).sales_executives
+
+        @chart = LazyHighCharts::HighChart.new('graph') do |f|
+            f.title({ :text=>"Basic line chart"})
+            f.options[:xAxis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+            f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])      
+
+            f.series(:type=> 'spline',:name=> 'All', :data=> @amounts)
+            f.series(:type=> 'spline',:name=> 'Without executive', :data=> [3, 2.67, 3, 6.33, 3.33])
+            @team_leaders.each do |tl|
+                f.series(:type=> 'spline',:name=> "TL - #{tl.user.full_name}", :data=> [3, 2.67, 3, 6.33, 3.33])
+            end
+            @sales_executives.each do |se|
+                f.series(:type=> 'spline',:name=> "SE - #{se.user.full_name}", :data=> [3, 2.67, 3, 6.33, 3.33])
+            end
+        end
+    end
 end

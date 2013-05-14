@@ -57,7 +57,7 @@
 <% end %>
 
 <% permitted_to? :index, :transactions do %>
-    <% if controller_name == "transactions" %>
+    <% if controller_name == "transactions" && action_name != "graph" %>
         <li class="active">
         <%= link_to(:transactions) do %>
             <span>Transactions</span>
@@ -106,7 +106,7 @@
     <% end%>
 <% end%>
 
-<% if((controller_name == "team_leaders" && action_name == "target_forecast")||(controller_name == "contacts" && action_name == "map_index")) %>
+<% if((controller_name == "transactions" && action_name == "graph")||(controller_name == "contacts" && action_name == "map_index")) %>
     <li class="active">
     <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
         <span>Intelligence</span>
@@ -117,14 +117,14 @@
         <%= link_to "Target graph", :target_forecast %>
         </li>
         <li>
-        <%= link_to "Transaction graph", :target_forecast %>
+        <%= link_to "Transaction graph", :transaction_graph %>
         </li>
         <li>
         <%= link_to "Customer map", :map_index %>
         </li>
     </ul>
     </li>
-<% elsif %>
+    <% else%>
     <li>
     <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
         <span>Intelligence</span>
@@ -135,7 +135,7 @@
         <%= link_to "Target graph", :target_forecast %>
         </li>
         <li>
-        <%= link_to "Transaction graph", :target_forecast %>
+        <%= link_to "Transaction graph", :transaction_graph %>
         </li>
         <li>
         <%= link_to "Customer map", :map_index %>
