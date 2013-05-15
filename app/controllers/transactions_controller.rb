@@ -158,7 +158,7 @@ class TransactionsController < ApplicationController
         @team_leaders = Company.find(current_user.company_id).team_leaders
         @sales_executives = Company.find(current_user.company_id).sales_executives
 
-        @chart = LazyHighCharts::HighChart.new('graph', :height => "800px") do |f|
+        @chart = LazyHighCharts::HighChart.new('graph') do |f|
             f.title({ :text=>"Sale Growth"})
             f.height(800)
 
