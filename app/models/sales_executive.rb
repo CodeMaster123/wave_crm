@@ -9,7 +9,6 @@ class SalesExecutive < ActiveRecord::Base
   validates :company_id, :presence => true
 
   def current_target
-      @vivek = self.targets.where("start_target_date >= \"#{Date.today.at_beginning_of_month}\" and end_target_date <= \"#{Date.today.at_end_of_month}\"").first
-      puts @vivek.id
+      self.targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
   end
 end

@@ -23,6 +23,8 @@ class TargetsController < ApplicationController
             #     end
             #     @i = @i+1
             # end
+        elsif current_user.account_type == 3
+            @targets_by_months = current_user.sales_executive.current_target
         end
 
 
