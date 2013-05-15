@@ -58,12 +58,14 @@
             <ul class="dropdown-menu mod-dropdown1">
                 <li><%= link_to "Target's list", :targets %></li>
                 <li><%= link_to "Assign new target", :new_target %></li>
+                <li><%= link_to "Previous targets", :old_target %></li>
             </ul>
             </li>
         </ul>
         </li>
     <% end %>
 <% end %>
+<!-- For team_leader and sales_executives -->
 
 <% if controller_name == "team_leaders" || controller_name == "sales_executives" || controller_name == "" %>
     <% unless current_user.account_type == 1 %>

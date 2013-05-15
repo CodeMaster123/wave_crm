@@ -4,7 +4,7 @@
         <ul class='main-nav'>
             <% unless current_user.account_type == 4 %>
                 <% permitted_to? :index, :leads do %>
-                    <%= render :partial => "shared/common" %>
+                    <%= render :partial => "shared/user_common" %>
                     <%= render :partial => "shared/inventory" %>
                     <%= render :partial => "shared/intelligence" %>
                     <%= render :partial => "shared/appointments" %>
@@ -15,6 +15,6 @@
                 <%= render :partial => "shared/superuser_top" %>
             <% end %>
         </ul>
-        <%= render :partial => "shared/user_menu_right" %>
+        <%= render :partial => "shared/user_menu" %>
     </div>
 </div>
