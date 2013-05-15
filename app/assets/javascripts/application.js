@@ -16,6 +16,8 @@
 //= require twitter/bootstrap
 //= require_self
 //= require highcharts
+//= require fullcalendar.min
+//= require_tree .
 
 
 

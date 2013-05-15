@@ -1,9 +1,5 @@
 <div id='calendar' style="margin-top: 60px"></div>
 
-<%= javascript_include_tag 'fullcalendar.min' %>
-<%= javascript_include_tag 'gcal' %>
-<%= javascript_include_tag 'jquery.rest' %>
-<%= javascript_include_tag 'calendar.js' %>
-<%= stylesheet_link_tag 'fullcalendar.css' %>
 
+<%= stylesheet_link_tag 'fullcalendar.css' %>
 

@@ -12,9 +12,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+//= require jquery-ui-1.10.2.custom.min
 //= require twitter/bootstrap
 //= require_self
 //= require highcharts
+//= require fullcalendar
+//= require_tree .
 
 
 
