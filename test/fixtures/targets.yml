@@ -5,15 +5,15 @@ one:
   targetable_type: TeamLeader
   amount: 10000
   achived: 1
-  start_target_date: 2013-04-06 14:54:08
-  end_target_date: 2013-04-06 16:54:08
+  target_month: 1
+  target_year: 2013
   company_id: 1
 
 two:
   targetable_id: 2
   targetable_type: SalesExecutive
   amount: 10000
+  target_month: 1
+  target_year: 2013
   achived: 1
-  start_target_date: 2013-04-06 14:54:08
-  end_target_date: 2013-04-06 16:54:08
   company_id: 1

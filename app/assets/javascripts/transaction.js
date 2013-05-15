@@ -26,21 +26,32 @@ else
 $('#transaction_transaction_type').change(function() {
     if($('#transaction_transaction_type').val() == "Cheque")
 {
-    $('.amount').fadeIn();
     $('.micr_code').fadeIn();
 }
     if($('#transaction_transaction_type').val() == "Cash")
 {
-    $('.amount').fadeIn();
     $('.micr_code').fadeOut();
 }
 });
 
-$('.product_price').change(function() {
-    var $total = 0;
-    $('.product_price').each(function(){
-        $total = $total + this.value;
-        console.debug($total);
-    });
-});
+//$('.product_price').change(function() {
+//    var $total = 0;
+//    $('.product_price').each(function(){
+//        $total = $total + parseInt(this.value);
+//    });
+//            $('.amount_field').val($total);
+//        console.debug($total);
+//});
 
+
+
+$('.amount_field').focus(
+        function(){
+            var $total = 0;
+            $('.product_price').each(function(){
+                $total = $total + parseInt(this.value);
+            });
+            $('.amount_field').val($total);
+            console.debug($total);
+        }
+        );
