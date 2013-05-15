@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "pagination.css" %>
+<%- model_class = Target -%>
+<div class="page-header">
+  <h1>Individual Targets</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Sr.No</th>
+    <th>Executive name</th>
+    <th>Executive type</th>
+    <th>Target Amount</th>
+    <th>Target Achived</th>
+    <th>Target Month </th>
+    <th>Target Year </th>
+  </tr>
+  </thead>
+  <tbody>
+  <% render :partial => 'shared/i_calculation' %>
+  <% @targets.each do |target| %>
+      <tr>
+
+        <td><%= link_to @i = @i+1, target_path(target) %></td>
+        <td><%= target.full_name %></td>
+        <td><%= target.targetable_type %></td>
+        <td><%= target.amount %> Rs</td>
+        <td><%= target.achived %> Rs</td>
+        <td><%= target.target_month %></td>
+        <td><%= target.target_year %></td>
+      </tr>
+  <% end %>
+</tbody>
+</table>
+
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @targets %>
+  </div>
+  <%= will_paginate @targets, :container => false %>
+</div>
+
