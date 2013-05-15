@@ -101,14 +101,10 @@ function updateNotification(the_event) {
             function (reponse) { alert('successfully updated notification.'); }
             );
 
+$('.fc-header-left').append('<span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active"><span class="fc-button-inner"><span class="fc-button-content"><a style="color: white; text-decoration: none;" href="/notifications/new">New notifications</a></span></span></span>')
+$('.fc-header-left').append('<span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active"><span class="fc-button-inner"><span class="fc-button-content"><a style="color: white; text-decoration: none;" href="/events/new">New task</a></span></span></span>')
 
 };
 
 
-
-  $(document).ready(function() {
-$('.fc-header-left').append('<span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active"><span class="fc-button-inner"><span class="fc-button-content"><a style="color: white; text-decoration: none;" href="/notifications/new">New notifications</a></span></span></span>')
-$('.fc-header-left').append('<span class="fc-button fc-button-month fc-state-default fc-corner-left fc-state-active"><span class="fc-button-inner"><span class="fc-button-content"><a style="color: white; text-decoration: none;" href="/events/new">New task</a></span></span></span>')
-
-});
 
