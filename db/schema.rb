@@ -231,7 +231,7 @@ ActiveRecord::Schema.define(:version => 20130514080505) do
     t.integer  "contact_type"
     t.integer  "contact_id"
     t.integer  "matured_by"
-    t.integer  "executive_type"
+    t.string   "executive_type"
     t.string   "transaction_type"
     t.string   "micr_code"
     t.datetime "created_at",       :null => false

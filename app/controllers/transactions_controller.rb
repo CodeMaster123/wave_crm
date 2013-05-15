@@ -57,8 +57,6 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
-        puts "ID========================#{params[:transaction][:product_transactions_attributes][:product_id]}"
-        puts "transaction_id========================#{params[:transaction][:product_transactions_attributes][:quantity]}"
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.new(params[:transaction])
@@ -132,7 +130,9 @@ class TransactionsController < ApplicationController
             end
 
             @created = Transaction.last.id
-            Transaction.create(:amount => params[:amount],:contact_id => params[:contact_id], :micr_code => params[:micr_code], :transaction_time => params[:transaction_time].to_time, :transaction_type => params[:transaction_type], :company_id => @company_id, :matured_by => params[:matured_by], :executive_type => params[:executive_type])
+            puts params[:executive_type].to_s
+            Transaction.create(:amount => params[:amount],:contact_id => params[:contact_id], :micr_code => params[:micr_code], :transaction_time => params[:transaction_time].to_time, :transaction_type => params[:transaction_type], :company_id => @company_id, :matured_by => params[:matured_by], :executive_type => params[:executive_type].to_s)
+            puts params[:executive_type].to_s
             if Transaction.last.id == @created
                 session[:errors] = 'Fill the form carefully'
             else
