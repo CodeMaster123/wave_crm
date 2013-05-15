@@ -34,9 +34,9 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.address %></td>
-        <% if user.team_leader != nil %>
+        <% if user.account_type == 2 %>
             <td>Team Leader</td>
-        <% elsif user.sales_executive != nil %>
+        <% elsif user.account_type == 3 %>
             <td>Sales executive</td>
         <% else %>
             <td>Admin</td>

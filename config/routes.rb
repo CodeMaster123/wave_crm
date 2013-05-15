@@ -51,6 +51,7 @@ WaveCrm::Application.routes.draw do
     match 'notifications_to_all' => 'notifications#notifications_to_all'
     match 'map_index' => 'contacts#map_index'
     match 'transactions/mature/:id1/:matured_by/:executive_type' => 'transactions#mature'
+    match 'old_target' => 'targets#old_target'
 
     root :to => 'leads#index'
 end

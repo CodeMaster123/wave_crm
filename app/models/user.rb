@@ -54,15 +54,4 @@ class User < ActiveRecord::Base
         "#{self.first_name} #{self.last_name}"
     end
 
-    #after_destroy :delete_team_leaders
-    #after_destroy :delete_team_leaders
-
- # private
-   # def delete_team_leaders
-     # self.class.delete_all "team_leader_id = #{id}"
-    #end
-
-   # def delete_sales_executives
-     # self.class.delete_all "sales_executive_id = #{id}"
-   # end
 end
