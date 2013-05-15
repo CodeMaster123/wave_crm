@@ -5,24 +5,24 @@ class TargetsController < ApplicationController
     # GET /targets.json
     def index
 
-      @team_leaders = TeamLeader.all
-      @sales_executives = SalesExecutive.all
+        @team_leaders = TeamLeader.all
+        @sales_executives = SalesExecutive.all
         @company = Company.where(:id => current_user.company_id).first
         @targets_by_months = Array.new
         if current_user.account_type == 1
-      @targets_by_months = @company.targets.where(:target_month => Date.today.month, :target_year => Date.today.year)
+            @targets_by_months = @company.targets.where(:target_month => Date.today.month, :target_year => Date.today.year)
         elsif current_user.account_type == 2
             @team_leader = TeamLeader.where(:user_id => current_user.id).first
             @targets_by_months[0] = @team_leader.current_target
             @i = 1
-           # @team_leader.sales_executives.each do |sales_executive|
-           #     if sales_executive.targets.nil?
-           #         @targets_by_months[@i] = nil
-           #     else
-           #         @targets_by_months[@i] = sales_executive.current_target
-           #     end
-           #     @i = @i+1
-           # end
+            # @team_leader.sales_executives.each do |sales_executive|
+            #     if sales_executive.targets.nil?
+            #         @targets_by_months[@i] = nil
+            #     else
+            #         @targets_by_months[@i] = sales_executive.current_target
+            #     end
+            #     @i = @i+1
+            # end
         end
 
 
