@@ -3,9 +3,11 @@
 one:
   product_id: 1
   transaction_id: 1
-  price: 1.5
+  price: 11
+  quantity: 10
 
 two:
   product_id: 1
-  transaction_id: 1
-  price: 1.5
+  transaction_id: 2
+  price: 11
+  quantity: 10

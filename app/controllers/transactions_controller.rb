@@ -57,6 +57,8 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
+        puts "ID========================#{params[:transaction][:product_transactions_attributes][:product_id]}"
+        puts "transaction_id========================#{params[:transaction][:product_transactions_attributes][:quantity]}"
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.new(params[:transaction])
