@@ -1,6 +1,3 @@
-<%= javascript_include_tag "chosen.jquery.min" %>
-<%= stylesheet_link_tag "chosen.css" %>
-
 <%= nested_form_for @transaction, :html => { :class => 'form-horizontal' } do |f| %>
     <div class="control-group">
         <%= f.label :contact_type, :class => 'control-label' %>
@@ -119,10 +116,3 @@
         transactions_path, :class => 'btn' %>
     </div>
 <% end %>
-
-<script>
-    $(document).ready(function() {
-        $('#transaction_contact_id').chosen();
-    });
-</script>
-

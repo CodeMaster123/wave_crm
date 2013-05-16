@@ -70,7 +70,6 @@ $(document).ready(function() {
         },
     });
     $(".fc-button-effect").remove();
-    console.log("asdf");
     $(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");
     $(".fc-button-prev .fc-button-content").html("<i class='icon-chevron-left'></i>");
     $(".fc-button-today").addClass('fc-corner-right');

@@ -1,3 +1,20 @@
+$(document).ready(function() {
+    $('.datetime_select').datetimepicker({
+        dateFormat: 'yy-mm-dd',
+    timeFormat: 'hh:mm tt z'
+    });
+
+    $(document).ready(function() {
+        $('#transaction_contact_id').chosen();
+    });
+
+$('.search-c').searchbox({
+url: '/lead_search.html',
+param: 'q',
+dom_id: '#search-data',
+delay: 100,
+});
+
 $('.contact_type').change(function() {
     if ($('.contact_type').val() == 1)
 {
@@ -21,14 +38,15 @@ else
     $('.new_contact').fadeIn('hide').removeClass('hide');
 }
 }
-
 });
+
+
 $('#transaction_transaction_type').change(function() {
     if($('#transaction_transaction_type').val() == "Cheque")
 {
     $('.micr_code').fadeIn();
 }
-    if($('#transaction_transaction_type').val() == "Cash")
+if($('#transaction_transaction_type').val() == "Cash")
 {
     $('.micr_code').fadeOut();
 }
@@ -53,5 +71,5 @@ $('.amount_field').focus(
             });
             $('.amount_field').val($total);
             console.debug($total);
-        }
-        );
+        });
+});
