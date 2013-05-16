@@ -1,15 +1,15 @@
 <table>
-  <tr>
-  </tr>
-  <% if @contacts %>
-    <% @contacts.each do |contact| %>
-      <tr>
-      </tr>
+    <tr>
+    </tr>
+    <% if @contacts %>
+        <% @contacts.each do |contact| %>
+            <tr>
+            </tr>
+        <% end %>
     <% end %>
-  <% end %>
 </table>
 <div>
-<%= gmaps4rails(@json) %>
+    <%= gmaps4rails(@json) %>
 </div>
 
 <%= yield :scripts %>
