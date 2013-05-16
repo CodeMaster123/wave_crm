@@ -1,3 +1,7 @@
+$(document).ready(function() {
+});
+
+
 $('.user_type').change(function() {
     if ($('.user_type').val() == "TeamLeader")
     {

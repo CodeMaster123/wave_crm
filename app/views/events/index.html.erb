@@ -1,5 +1,3 @@
-<%= javascript_include_tag "searchbox.js" %>
-<%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Event -%>
 <div class="page-header">
     <h1>Tasks</h1>
@@ -35,33 +33,17 @@
                 <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                 <td><%= event.description %></td>
                 <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_event_path(event), :class => 'btn btn-mini' %>
-                        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                            event_path(event),
-                            :method => :delete,
-                            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                            :class => 'btn btn-mini btn-danger' %>
-                        </td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_event_path(event), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
 
-        <div class="flickr_pagination">
-            <div class="page_info">
-                <%= page_entries_info @events %>
-            </div>
-            <%= will_paginate @events, :container => false %>
-        </div>
-
-        <script type="text/javascript">
-
-            $('.search-c').searchbox({
-url: '/event_search.html',
-param: 'q',
-dom_id: '#search-data',
-delay: 100
-})
-</script>
-
+<div class="flickr_pagination">
+    <div class="page_info">
+        <%= page_entries_info @events %>
+    </div>
+    <%= will_paginate @events, :container => false %>
+</div>
