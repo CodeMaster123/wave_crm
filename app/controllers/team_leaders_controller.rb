@@ -87,10 +87,6 @@ class TeamLeadersController < ApplicationController
             format.json { head :no_content }
         end
     end
-
-    def target_forecast
-        @all_team_leader = TeamLeader.first
-    end
 end
 
 
