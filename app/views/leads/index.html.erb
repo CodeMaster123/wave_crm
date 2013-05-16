@@ -1,14 +1,8 @@
-<%= javascript_include_tag "searchbox.js" %>
-<%= javascript_include_tag "jquery.betterTooltip" %>
-<%= stylesheet_link_tag "better_tooltip_style" %>
-<%= stylesheet_link_tag "pagination.css" %>
-
 <div class="page-header">
     <div class="pull-left">
         <h1>Leads</h1>
     </div>
 </div>
-
 
 <% if params[:team_leader].nil? %>
     <div class="control-group">
@@ -148,17 +142,3 @@
         </table>
     <% end %>
 <% end %>
-
-
-<script type="text/javascript">
-    $(document).ready(function(){
-            $('.tTip').betterTooltip({speed: 150, delay: 300});
-            });
-
-$('.search-c').searchbox({
-url: '/lead_search.html',
-param: 'q',
-dom_id: '#search-data',
-delay: 100
-})
-</script>
