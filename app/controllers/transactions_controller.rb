@@ -57,8 +57,6 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
-        puts "ID========================#{params[:transaction][:product_transactions_attributes][:product_id]}"
-        puts "transaction_id========================#{params[:transaction][:product_transactions_attributes][:quantity]}"
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = @company.transactions.new(params[:transaction])
@@ -132,7 +130,7 @@ class TransactionsController < ApplicationController
             end
 
             @created = Transaction.last.id
-            Transaction.create(:amount => params[:amount],:contact_id => params[:contact_id], :micr_code => params[:micr_code], :transaction_time => params[:transaction_time].to_time, :transaction_type => params[:transaction_type], :company_id => @company_id, :matured_by => params[:matured_by], :executive_type => params[:executive_type])
+            Transaction.create(:amount => params[:amount],:contact_id => params[:contact_id], :micr_code => params[:micr_code], :transaction_time => params[:transaction_time].to_time, :transaction_type => params[:transaction_type], :company_id => @company_id, :matured_by => params[:matured_by], :executive_type => params[:executive_type].to_s)
             if Transaction.last.id == @created
                 session[:errors] = 'Fill the form carefully'
             else
@@ -153,7 +151,7 @@ class TransactionsController < ApplicationController
 
         @transactions.each do |transaction|
             @last_amount = @last_amount + transaction.amount
-            @amounts[@i] = @last_amount
+            @amounts[@i] = [transaction.transaction_time.day, @last_amount]
             @i = @i+1
         end
 
@@ -161,17 +159,47 @@ class TransactionsController < ApplicationController
         @sales_executives = Company.find(current_user.company_id).sales_executives
 
         @chart = LazyHighCharts::HighChart.new('graph') do |f|
-            f.title({ :text=>"Basic line chart"})
-            f.options[:xAxis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
-            f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])      
+            f.title({ :text=>"Sale Growth"})
+            f.height(800)
+
+            @days = Array.new
+            @day = 0
+            (1..30).each do
+                @day = @day+1
+                puts @days[@day] = @day
+            end
+
+            @vivek = ['vivek','varade']
+            f.options[:xAxis][:categories] = @days
+            f.options[:xAxis][:max] = 30
+            f.labels(:items=>[:html=>"Amount/Day", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
 
             f.series(:type=> 'spline',:name=> 'All', :data=> @amounts)
-            f.series(:type=> 'spline',:name=> 'Without executive', :data=> [3, 2.67, 3, 6.33, 3.33])
+
+            #f.series(:type=> 'spline',:name=> 'Without executive', :data=> [[4, 10],[30, 20]])
+
             @team_leaders.each do |tl|
-                f.series(:type=> 'spline',:name=> "TL - #{tl.user.full_name}", :data=> [3, 2.67, 3, 6.33, 3.33])
+                @team_leader_amounts = Array.new
+                @i = 0
+                @team_leader_last_amount = 0
+                Transaction.where(:matured_by => tl.id, :executive_type => "TeamLeader").order(:transaction_time).each do |transaction|
+                    @team_leader_last_amount = @team_leader_last_amount + transaction.amount
+                    @team_leader_amounts[@i] = [transaction.transaction_time.day, @team_leader_last_amount]
+                    @i = @i+1
+                end
+                f.series(:type=> 'spline',:name=> "TL - #{tl.user.full_name}", :data=> @team_leader_amounts)
             end
+
             @sales_executives.each do |se|
-                f.series(:type=> 'spline',:name=> "SE - #{se.user.full_name}", :data=> [3, 2.67, 3, 6.33, 3.33])
+                @sales_executive_amounts = Array.new
+                @i = 0
+                @sales_executive_last_amount = 0
+                Transaction.where(:matured_by => se.id, :executive_type => "SalesExecutive").order(:transaction_time).each do |transaction|
+                    @sales_executive_last_amount = @sales_executive_last_amount + transaction.amount
+                    @sales_executive_amounts[@i] = [transaction.transaction_time.day, @sales_executive_last_amount]
+                    @i = @i+1
+                end
+                f.series(:type=> 'spline',:name=> "SE - #{se.user.full_name}", :data=> @sales_executive_amounts)
             end
         end
     end

@@ -1,0 +1,77 @@
+<% if controller_name == "leads" %>
+    <li class='active'>
+    <% if current_user.account_type == 2 %>
+            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+            <span>Leads</span>
+        <% end %>
+    <% else %>
+        <%= link_to(:leads) do %>
+            <span>Leads</span>
+        <% end %>
+    <% end %>
+    </li>
+<% elsif %>
+    <li>
+    <% if current_user.account_type == 2 %>
+            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+            <span>Leads</span>
+        <% end %>
+    <% else %>
+        <%= link_to(:leads) do %>
+            <span>Leads</span>
+        <% end %>
+    <% end %>
+    </li>
+<% end %>
+
+<% if controller_name == "employees" %>
+    <% permitted_to? :index, :employees do %>
+        <li class="active" >
+        <%= link_to(:employees) do %>
+            <span>Employees</span>
+        <% end %>
+        </li>
+    <% end %>
+<% elsif %>
+    <% permitted_to? :index, :employees do %>
+        <li>
+        <%= link_to(:employees) do %>
+            <span>Employees</span>
+        <% end %>
+        </li>
+    <% end %>
+<% end %>
+
+<% if controller_name == "contacts" && action_name!= "map_index" %>
+    <li class="active">
+    <%= link_to(:contacts) do %>
+        <span>Contacts</span>
+    <% end %>
+    </li>
+<% elsif %>
+    <li>
+    <%= link_to(:contacts) do %>
+        <span>Contacts</span>
+    <% end %>
+    </li>
+<% end %>
+
+<% permitted_to? :index, :transactions do %>
+    <% if controller_name == "transactions" && action_name != "graph" %>
+        <li class="active">
+        <%= link_to(:transactions) do %>
+            <span>Transactions</span>
+        <% end %>
+        </li>
+        <% else %>
+        <li>
+        <%= link_to(:transactions) do %>
+            <span>Transactions</span>
+        <% end %>
+        </li>
+    <% end %>
+<% end%>
+
+
+
+
