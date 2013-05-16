@@ -1,11 +1,3 @@
-<%= javascript_include_tag "jquery-ui-1.10.2.custom.min.js" %>
-<%= stylesheet_link_tag "jquery-ui-1.10.2.custom.min.css" %>
-<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
-<%= stylesheet_link_tag "jquery-ui-timepicker-addon.css" %>
-<%= javascript_include_tag "jquery-ui-sliderAccess.js" %>
-
-
-
 <%= bootstrap_form_for @inventory_addition, :html => { :class => 'form-horizontal' } do |f| %>
     <%= f.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
     <%= f.text_field :addition_date, :class => 'datetime_select' %>
@@ -16,10 +8,3 @@
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")), inventory_additions_path, :class => 'btn' %>
     </div>
 <% end %>
-
-<script>
-    $('.datetime_select').datetimepicker({
-        dateFormat: 'yy-mm-dd',
-        timeFormat: 'hh:mm tt z'
-    });
-</script>
