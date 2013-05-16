@@ -21,6 +21,7 @@
 //= require searchbox
 //= require chosen.jquery.min
 //= require jquery.betterTooltip
+//= require magicsuggest-1.2.7
 //= require jquery_nested_form
 //= require twitter/bootstrap
 //= require highcharts
