@@ -13,8 +13,6 @@
         <![endif]-->
 
         <%= stylesheet_link_tag "application", :media => "all" %>
-      <%= stylesheet_link_tag "style", :media => "all" %>
-        <%= stylesheet_link_tag "style2" %>
         <%= javascript_include_tag "jquery-1.9.1.min" %>
     </head>
     <body>
@@ -27,17 +25,12 @@
                         <div class="span12">
                             <%= bootstrap_flash %>
                             <%= yield %>
-
                         </div>
-
                     </div><!--/row-->
-
                     <footer>
                     <p>Wave Techline India pvt. ltd. &copy; Company 2012</p>
                     </footer>
-
                 </div> <!-- /container -->
-
                 <!-- Javascripts
                 ================================================== -->
                 <!-- Placed at the end of the document so the pages load faster -->
@@ -46,14 +39,14 @@
 {
     $('.lightred').fadeOut();
     $.ajax({
-url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
-context: document.body
-}).done(function() {
-    $(this).addClass("done");
+    url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
+    context: document.body
+    }).done(function() {
+        $(this).addClass("done");
     });
 }
 </script>
-<%= javascript_include_tag :application %>
+                <%= javascript_include_tag :application %>
             </div>
         </div>
     </div>
