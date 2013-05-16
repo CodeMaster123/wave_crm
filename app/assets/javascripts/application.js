@@ -12,11 +12,21 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
-//= require jquery-ui-1.10.2.custom.min
-//= require twitter/bootstrap
+
 //= require_self
+//= require jquery-1.9.1.min
+//= require jquery-ui-1.10.2.custom.min
+//= require jquery-ui-timepicker-addon
+//= require jquery-ui-sliderAccess
+//= require searchbox
+//= require chosen.jquery.min
+//= require jquery.betterTooltip
+//= require jquery_nested_form
+//= require twitter/bootstrap
 //= require highcharts
+
 //= require fullcalendar.min
+//= require chosen.jquery.min
 //= require_tree .
 
 

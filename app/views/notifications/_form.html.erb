@@ -1,6 +1,3 @@
-<%= javascript_include_tag "chosen.jquery.min" %>
-<%= stylesheet_link_tag "chosen.css" %>
-
 <%= form_for @notification, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :contact_id, :class => 'control-label' %>
@@ -34,9 +31,3 @@
           notifications_path, :class => 'btn' %>
       </div>
   <% end %>
-  <script>
-      $(document).ready(function() {
-          $('#notification_contact_id').chosen();
-      });
-  </script>
-
