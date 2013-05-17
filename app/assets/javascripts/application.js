@@ -11,10 +11,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require jquery
 //= require jquery_ujs
 
 //= require_self
-//= require jquery-1.9.1.min
 //= require jquery-ui-1.10.2.custom.min
 //= require jquery-ui-timepicker-addon
 //= require jquery-ui-sliderAccess
