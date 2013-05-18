@@ -1,0 +1,9 @@
+$(document).ready(function(){
+    $('.lightred').fadeOut();
+    $.ajax({
+        url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
+        context: document.body
+    }).done(function() {
+        $(this).addClass("done");
+    });
+)};

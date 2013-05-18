@@ -33,7 +33,7 @@ group :assets do
 end
 
 group :development do
-    gem 'quiet_assets'
+    #gem 'quiet_assets'
     gem 'irbtools'
     gem 'sextant'
 end

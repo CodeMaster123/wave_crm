@@ -10,10 +10,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require pagination
  *= require fullcalendar.css
  *= require jquery-ui-1.10.2.custom.min
  *= require jquery-ui-timepicker-addon
- *= pagination
+ *= require magicsuggest-1.2.7
+ *= require gmaps4rails
  *= better_tooltip_style
  *= require chosen
  *= require_tree .
