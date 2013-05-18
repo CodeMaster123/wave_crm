@@ -7,13 +7,13 @@
       </div>
     </div>
     <div class="control-group hide team_leaders">
-      <%= f.label :executive_name, :class => 'control-label' %>
+      <%= f.label :leadable_id, :class => 'control-label' %>
       <div class="controls">
         <%= f.select :leadable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Team Leader" }, :class => 'text_field' %>
       </div>
     </div>
     <div class="control-group hide sales_executives">
-      <%= f.label :executive_name, :class => 'control-label' %>
+      <%= f.label :leadable_id, :class => 'control-label' %>
       <div class="controls">
         <%= f.select :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Sales Executive" }, :class => 'text_field' %>
       </div>

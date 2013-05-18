@@ -15,6 +15,11 @@ $(document).ready(function() {
         delay: 100,
     });
 
+
+
+
+
+
     $('.contact_type').change(function() {
         if ($('.contact_type').val() == 1)
     {
@@ -28,7 +33,7 @@ $(document).ready(function() {
     {
         if($('.contact_fields').length == 0)
     {
-        $('#new_transaction').append($fields);
+        $('.contact').append($fields);
         $('.existing_contact').fadeOut('hide').addClass('hide');
         $('.new_contact').fadeIn('hide').removeClass('hide');
     }
@@ -39,6 +44,10 @@ $(document).ready(function() {
     }
     }
     });
+
+
+
+
 
 
     $('#transaction_transaction_type').change(function() {

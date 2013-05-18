@@ -1,4 +1,5 @@
 <%= nested_form_for @transaction, :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="contact">
     <div class="control-group">
         <%= f.label :contact_type, :class => 'control-label' %>
         <div class="controls">
@@ -55,6 +56,7 @@
         </div>
         <%= contact.hidden_field :company_id, :value => current_user.company_id %>
     <% end %>
+</div>
 </div>
 
 <%= f.fields_for :product_transactions do |pt| %>
