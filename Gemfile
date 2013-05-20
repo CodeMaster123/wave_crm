@@ -47,4 +47,5 @@ end
     gem 'rack-mini-profiler'
     gem 'exceptional'
     gem 'ruby_parser'
+    #gem 'aws-ses'
 
