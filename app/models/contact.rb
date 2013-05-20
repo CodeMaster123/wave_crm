@@ -13,7 +13,6 @@ class Contact < ActiveRecord::Base
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-  validates :middle_name, :presence => true
   validates :address, :presence => true
   validates :mobile_no, :presence => true, :numericality => true
   validates :landline_no, :presence => true, :numericality => true
