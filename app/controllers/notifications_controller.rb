@@ -69,7 +69,13 @@ class NotificationsController < ApplicationController
 
         respond_to do |format|
             if @notification.save
-                @notification.sms_send
+                if @notification.is_sms
+                    @notification.sms_send
+                end
+                if @notification.is_email
+                    @notification.email_send(current_user.id)
+                    puts "In controllerrrrrrrrrrrr"
+                end
                 if params[:Next_Notification].empty? == true
                 else
                     @notification2.save
@@ -142,7 +148,7 @@ class NotificationsController < ApplicationController
             @contacts.each do |contact|
                 Notification.create(:contact_id => contact.id, :body => params[:body], :notification_time => params[:notification_time], :company_id => current_user.company_id)
             end
-                redirect_to :notifications, notice: 'Notifications created for all contacts.'
+            redirect_to :notifications, notice: 'Notifications created for all contacts.'
         end
     end
 end

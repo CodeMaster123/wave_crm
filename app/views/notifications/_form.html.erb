@@ -18,12 +18,27 @@
           <%= f.text_field :notification_time, :class => 'datetime_select' %>
       </div>
   </div>
-    <div class="control-group">
+
+  <div class="control-group">
       <%= f.label :Next_Notification, :class => 'control-label' %>
       <div class="controls">
-        <%= select_tag :Next_Notification, options_for_select([["Select One", ""], ["after 1 month", 1], ["after 2 month", 2], ["after 3 month", 3], ["after 4 month", 4], ["after 5 month", 5], ["after 6 month", 6], ["after 7 month", 7], ["after 8 month", 8], ["after 9 month", 9], ["after 10 month", 10], ["after 11 month", 11], ["after 12 month", 12]]), :class => 'datetime_select' %>
+          <%= select_tag :Next_Notification, options_for_select([["Select One", ""], ["after 1 month", 1], ["after 2 month", 2], ["after 3 month", 3], ["after 4 month", 4], ["after 5 month", 5], ["after 6 month", 6], ["after 7 month", 7], ["after 8 month", 8], ["after 9 month", 9], ["after 10 month", 10], ["after 11 month", 11], ["after 12 month", 12]]), :class => 'datetime_select' %>
       </div>
-    </div>
+  </div>
+
+
+  <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.check_box :is_email %>
+      </div>
+  </div>
+  <div class="control-group">
+      <%= f.label :sms, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.check_box :is_sms %>
+      </div>
+  </div>
 
   <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

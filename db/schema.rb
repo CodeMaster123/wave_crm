@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514080505) do
+ActiveRecord::Schema.define(:version => 20130521072126) do
 
   create_table "companies", :force => true do |t|
     t.string   "company_name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20130514080505) do
     t.boolean  "gmaps"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "email_id"
   end
 
   create_table "crm_customers", :force => true do |t|
@@ -132,8 +133,10 @@ ActiveRecord::Schema.define(:version => 20130514080505) do
     t.string   "body"
     t.datetime "notification_time"
     t.integer  "company_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "is_sms",            :default => false, :null => false
+    t.boolean  "is_email",          :default => false, :null => false
   end
 
   create_table "product_transactions", :force => true do |t|

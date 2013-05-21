@@ -2,7 +2,7 @@ class Notification < ActiveRecord::Base
   belongs_to :contact
   belongs_to :company
 
-  attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id
+  attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id, :is_sms, :is_email
 
   validates :contact_id, :presence => true
   validates :company_id, :presence => true
@@ -22,6 +22,14 @@ class Notification < ActiveRecord::Base
       #if request.length < cur_request.length
       #  response = Net::HTTP.get_response(URI.parse(cur_request))
       #end
+  end
+
+  def email_send(user_id)
+      puts "In modellllllllllllllll"
+      @user_email_id = User.find(user_id).email
+      @contact_id = self.id
+
+      Resque.enqueue_at(self.notification_time, EmailScheduler, @user_email_id, @contact_id)
   end
 
   def as_json(options = {})
