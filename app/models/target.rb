@@ -8,7 +8,7 @@ class Target < ActiveRecord::Base
   validates :achived, :presence => true, :numericality => true
   validates :company_id, :presence => true
   validates :amount, :presence => true, :numericality => true
-  validates :target_month, :presence => true
+  validates :target_month, :uniqueness => {:scope => [:targetable_type, :targetable_id, :target_year]}, :presence => true
   validates :target_year, :presence => true
   validates :targetable_type, :presence => true
   validates :targetable_id, :presence => true

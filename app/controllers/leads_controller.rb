@@ -55,7 +55,8 @@ class LeadsController < ApplicationController
       @lead.contacts.build
       @lead.follow_ups.build
       @lead.leads_products.build
-
+    @team_leaders = @company.team_leaders.all
+    @sales_executives = @company.sales_executives.all
       @products = @company.products.all
 
       respond_to do |format|
@@ -69,6 +70,8 @@ class LeadsController < ApplicationController
     @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
       @products = @company.products.all
+    @team_leaders = @company.team_leaders.all
+    @sales_executives = @company.sales_executives.all
   end
 
   def create
