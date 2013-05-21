@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521072126) do
+ActiveRecord::Schema.define(:version => 20130521121542) do
+
+  create_table "call_logs", :force => true do |t|
+    t.string   "call_result"
+    t.string   "subject"
+    t.string   "call_type"
+    t.string   "call_purpose"
+    t.datetime "call_start_time"
+    t.integer  "call_duration"
+    t.integer  "call_owner_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "company_name"

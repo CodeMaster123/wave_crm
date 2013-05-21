@@ -41,6 +41,7 @@ class LeadsController < ApplicationController
   end
 
   def show
+      @call_logs = CallLog.all
       @lead = Lead.find(params[:id])
 
       respond_to do |format|

@@ -19,30 +19,46 @@
   <dd><%= @lead.contacts.first.mobile_no %></dd>
 </dl>
 
-<div><h6>Emails</h6></div>
 <div><h6>Pending activities</h6></div>
+
 <div><h6>Closed activities</h6></div>
+<div><h6>Call logs</h6></div>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Subject</th>
-            <th>Activity type</th>
-            <th>Status</th>
-            <th>Due date</th>
+            <th>Call result</th>
+            <th>Call type</th>
+            <th>Call purpose</th>
             <th>Call start time</th>
+            <th>Call duration</th>
             <th>Owner name</th>
             <th>Modified at</th>
         </tr>
     </thead>
     <tbody id="search-data">
+        <% @call_logs.each do |call_log| %>
+            <tr>
+                <td><%= call_log.subject %></td>
+                <td><%= call_log.call_result %></td>
+                <td><%= call_log.call_type %></td>
+                <td><%= call_log.call_purpose %></td>
+                <td><%= call_log.call_start_time %></td>
+                <td><%= call_log.call_duration %></td>
+                <td><%= call_log.call_owner_id %></td>
+                <td><%=l call_log.updated_at %></td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
 
-        <div class="form-actions">
-            <%= link_to t('.back', :default => t("helpers.links.back")), leads_path, :class => 'btn'  %>
-            <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_lead_path(@lead), :class => 'btn' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), lead_path(@lead), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger' %>
-        </div>
+<div><h6>Emails</h6></div>
+
+<div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")), leads_path, :class => 'btn'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_lead_path(@lead), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), lead_path(@lead), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger' %>
+</div>
 
 
 

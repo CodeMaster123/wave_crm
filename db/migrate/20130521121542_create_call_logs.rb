@@ -8,6 +8,7 @@ class CreateCallLogs < ActiveRecord::Migration
       t.datetime :call_start_time
       t.integer :call_duration
       t.integer :call_owner_id
+      t.integer :lead_id
 
       t.timestamps
     end

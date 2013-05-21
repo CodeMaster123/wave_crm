@@ -1,45 +1,55 @@
-<%= form_for(@call_log) do |f| %>
-  <% if @call_log.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@call_log.errors.count, "error") %> prohibited this call_log from being saved:</h2>
-
-      <ul>
-      <% @call_log.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @call_log, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :call_result %><br />
-    <%= f.text_field :call_result %>
+  <div class="control-group">
+    <%= f.label :call_result, :class => 'control-label' %>
+    <div class="controls">
+        <%= f.text_area :call_result, :class => 'text_field', :rows => 3 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+
+  <div class="control-group">
+    <%= f.label :call_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :call_type , options_for_select(["Outbound", "Inbound"]) ,:class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :call_type %><br />
-    <%= f.text_field :call_type %>
+  <div class="control-group">
+    <%= f.label :call_purpose, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :call_purpose, options_for_select(["Administrative", "Prospective", "Demo", "Negotiation", "Support"]) ,:class => 'text_field' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :call_purpose %><br />
-    <%= f.text_field :call_purpose %>
+  <div class="control-group">
+      <%= f.label :call_owner_id, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.select :call_owner_id, options_for_select(@call_owner.map{|c|[c.user.full_name, c.id]}), :class => 'number_field' %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :call_start_time %><br />
-    <%= f.datetime_select :call_start_time %>
+
+  <div class="control-group">
+      <%= f.label :call_start_time, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.text_field :call_start_time, :class => 'datetime_select' %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :call_duration %><br />
-    <%= f.number_field :call_duration %>
+
+  <div class="control-group">
+      <%= f.label :call_duration, :class => 'control-label' %>
+      <div class="controls">
+          <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Minutes
+          <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Seconds
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :call_owner_id %><br />
-    <%= f.number_field :call_owner_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+
+  <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), call_logs_path, :class => 'btn' %>
   </div>
 <% end %>
