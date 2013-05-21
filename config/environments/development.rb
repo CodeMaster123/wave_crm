@@ -39,4 +39,13 @@ WaveCrm::Application.configure do
 
   Paperclip.options[:command_path] = '/usr/local/bin/'
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "email-smtp.us-east-1.amazonaws.com",
+      :user_name => "AKIAILLNH5QMTTWK2YDQ",
+      :password => "ApowpJ834BaTPEXe6nmIlqWjhXkiJRD+ZCYIFOK/rokm",
+      :authentication => :login,
+      :enable_starttls_auto => true
+  }
+
 end
