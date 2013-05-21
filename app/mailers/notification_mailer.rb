@@ -6,6 +6,13 @@ class NotificationMailer < ActionMailer::Base
   end
 
   def new_notification(sender_id, receiver_id, body, subject)
-      mail(:to=> receiver_id, :subject => subject, :from => sender_id)
+      @receiver_email = Contact.find(receiver_id).email_id
+      if Rails.env == "development"
+          puts "in mailerrrrrrrrrrrrrrrr"
+          mail(:to=> @receiver_email, :subject => subject, :from => "varade.vivek@wavetechline.com")
+          puts "in mailerrrrrrrrrrrrrrrr"
+      else
+          mail(:to=> @receiver_email, :subject => subject, :from => sender_id)
+      end
   end
 end

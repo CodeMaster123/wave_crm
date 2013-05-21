@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :call_logs
+
+
   resources :inventory_additions
 
 
