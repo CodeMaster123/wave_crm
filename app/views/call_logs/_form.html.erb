@@ -1,0 +1,45 @@
+<%= form_for(@call_log) do |f| %>
+  <% if @call_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@call_log.errors.count, "error") %> prohibited this call_log from being saved:</h2>
+
+      <ul>
+      <% @call_log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :call_result %><br />
+    <%= f.text_field :call_result %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :call_type %><br />
+    <%= f.text_field :call_type %>
+  </div>
+  <div class="field">
+    <%= f.label :call_purpose %><br />
+    <%= f.text_field :call_purpose %>
+  </div>
+  <div class="field">
+    <%= f.label :call_start_time %><br />
+    <%= f.datetime_select :call_start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :call_duration %><br />
+    <%= f.number_field :call_duration %>
+  </div>
+  <div class="field">
+    <%= f.label :call_owner_id %><br />
+    <%= f.number_field :call_owner_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<h1>Listing call_logs</h1>
+
+<table>
+  <tr>
+    <th>Call result</th>
+    <th>Subject</th>
+    <th>Call type</th>
+    <th>Call purpose</th>
+    <th>Call start time</th>
+    <th>Call duration</th>
+    <th>Call owner</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @call_logs.each do |call_log| %>
+  <tr>
+    <td><%= call_log.call_result %></td>
+    <td><%= call_log.subject %></td>
+    <td><%= call_log.call_type %></td>
+    <td><%= call_log.call_purpose %></td>
+    <td><%= call_log.call_start_time %></td>
+    <td><%= call_log.call_duration %></td>
+    <td><%= call_log.call_owner_id %></td>
+    <td><%= link_to 'Show', call_log %></td>
+    <td><%= link_to 'Edit', edit_call_log_path(call_log) %></td>
+    <td><%= link_to 'Destroy', call_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Call log', new_call_log_path %>

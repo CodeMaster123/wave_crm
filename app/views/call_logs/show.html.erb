@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Call result:</b>
+  <%= @call_log.call_result %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @call_log.subject %>
+</p>
+
+<p>
+  <b>Call type:</b>
+  <%= @call_log.call_type %>
+</p>
+
+<p>
+  <b>Call purpose:</b>
+  <%= @call_log.call_purpose %>
+</p>
+
+<p>
+  <b>Call start time:</b>
+  <%= @call_log.call_start_time %>
+</p>
+
+<p>
+  <b>Call duration:</b>
+  <%= @call_log.call_duration %>
+</p>
+
+<p>
+  <b>Call owner:</b>
+  <%= @call_log.call_owner_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_call_log_path(@call_log) %> |
+<%= link_to 'Back', call_logs_path %>
