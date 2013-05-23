@@ -5,6 +5,8 @@ authorization do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
+        has_permission_on :crm_customers, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
+        has_permission_on :companies , :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :follow_ups, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :follow_ups_list]
         has_permission_on :tags, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :search]
         has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]

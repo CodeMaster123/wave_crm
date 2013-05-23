@@ -1,3 +1,35 @@
+<% permitted_to? :index, :crm_customers do %>
+    <% if controller_name == "crm_customers" %>
+        <li class='active'>
+        <%= link_to(:crm_customers) do %>
+            <span>CRM customers</span>
+        <% end %>
+        </li>
+    <% elsif %>
+        <li>
+        <%= link_to(:crm_customers) do %>
+            <span>CRM customers</span>
+        <% end %>
+        </li>
+    <% end %>
+<% end %>
+
+<% permitted_to? :index, :companies do %>
+    <% if controller_name == "companies" %>
+        <li class='active'>
+        <%= link_to(:companies) do %>
+            <span>Companies</span>
+        <% end %>
+        </li>
+    <% elsif %>
+        <li>
+        <%= link_to(:companies) do %>
+            <span>Companies</span>
+        <% end %>
+        </li>
+    <% end %>
+<% end %>
+
 <% if controller_name == "users" %>
     <li class='active'>
     <%= link_to(:users) do %>

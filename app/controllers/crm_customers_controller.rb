@@ -1,6 +1,7 @@
 class CrmCustomersController < ApplicationController
-  # GET /crm_customers
-  # GET /crm_customers.json
+  before_filter :authenticate_user!
+  filter_access_to :all
+
   def index
     @crm_customers = CrmCustomer.all
 
