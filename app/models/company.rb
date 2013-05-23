@@ -12,6 +12,7 @@ class Company < ActiveRecord::Base
     has_many :targets
     has_many :transactions
 
+    belongs_to :crm_customer
     attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
 
     validates :contact_number1, :numericality => true
