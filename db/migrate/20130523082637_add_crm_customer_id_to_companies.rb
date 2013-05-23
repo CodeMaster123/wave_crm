@@ -1,7 +1,7 @@
 class AddCrmCustomerIdToCompanies < ActiveRecord::Migration
-  def change
+    def change
         change_table(:companies) do |t|
             t.integer :crm_customer_id
         end
-  end
+    end
 end
