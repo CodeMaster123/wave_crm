@@ -1,27 +1,78 @@
 <%- model_class = Lead -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+    <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
-  <dt><strong>Lead owner :</strong></dt>
-  <dd><%= @lead.leadable.user.full_name %></dd>
-  <dt><strong>Title :</strong></dt>
-  <dd><%= @lead.title %></dd>
-  <dt><strong> Description :</strong></dt>
-  <dd><%= @lead.description %></dd>
-  <dt><strong> Phone number :</strong></dt>
-  <dd><%= @lead.contacts.first.landline_no %></dd>
-  <dt><strong> Mobile number :</strong></dt>
-  <dd><%= @lead.contacts.first.mobile_no %></dd>
-  <dt><strong> Lead status :</strong></dt>
-  <dd><%= @lead.contacts.first.mobile_no %></dd>
+    <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
+    <dt><strong>Lead owner :</strong></dt>
+    <dd><%= @lead.leadable.user.full_name %></dd>
+    <dt><strong>Title :</strong></dt>
+    <dd><%= @lead.title %></dd>
+    <dt><strong> Description :</strong></dt>
+    <dd><%= @lead.description %></dd>
+    <dt><strong> Phone number :</strong></dt>
+    <dd><%= @lead.contacts.first.landline_no %></dd>
+    <dt><strong> Mobile number :</strong></dt>
+    <dd><%= @lead.contacts.first.mobile_no %></dd>
+    <dt><strong> Lead status :</strong></dt>
+    <dd><%= @lead.contacts.first.mobile_no %></dd>
 </dl>
 
-<div><h6>Pending activities</h6></div>
-
 <div><h6>Closed activities</h6></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>starts at</th>
+            <th>Ends at</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody id="search-data">
+        <% @lead_events.each do |event| %>
+            <tr>
+                <td><%= event.title %></td>
+                <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                <td><%= event.description %></td>
+                <td>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_event_path(event), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<div><h6>Pending activities</h6></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>starts at</th>
+            <th>Ends at</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody id="search-data">
+        <% @lead_events.each do |event| %>
+            <tr>
+                <td><%= event.title %></td>
+                <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                <td><%= event.description %></td>
+                <td>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_event_path(event), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), event_path(event), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
 <div><h6>Call logs</h6></div>
 <table class="table table-striped">
     <thead>

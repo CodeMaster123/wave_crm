@@ -43,6 +43,7 @@ class LeadsController < ApplicationController
   def show
       @call_logs = CallLog.all
       @lead_notifications = Lead.first.contacts.first.notifications.order(:updated_at)
+      @lead_events = current_user.events.all
       @lead = Lead.find(params[:id])
 
       respond_to do |format|
