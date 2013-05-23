@@ -13,21 +13,43 @@ class ContactsController < ApplicationController
 
     def index
         if current_user.account_type ==1
-            @company = Company.where(:id => current_user.company_id).first
-            @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).all
+            if params[:type] == "client"
+                @company = Company.where(:id => current_user.company_id).first
+                @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).all
+            elsif params[:type] == "potential_customer"
+                @company = Company.where(:id => current_user.company_id).first
+                @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).all
+            end
         elsif current_user.account_type == 2
-            @contacts = Array.new
-            User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
-                @contacts += lead.contacts
-                @contacts.paginate(:page => params[:page], :per_page => 15)
+            if params[:type] == "client"
+                @contacts = Array.new
+                User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
+                    @contacts += lead.contacts
+                    @contacts.paginate(:page => params[:page], :per_page => 15)
+                end
+            elsif params[:type] == "potential_customer"
+                @contacts = Array.new
+                User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
+                    @contacts += lead.contacts
+                    @contacts.paginate(:page => params[:page], :per_page => 15)
+                end
             end
         elsif current_user.account_type == 3
-            @contacts = Array.new
-            User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
-                @contacts += lead.contacts
+            if params[:type] == "client"
+                @contacts = Array.new
+                User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
+                    @contacts += lead.contacts
+                    @contacts.paginate(:page => params[:page], :per_page => 15)
+                end
+                @contacts.paginate(:page => params[:page], :per_page => 15)
+            elsif params[:type] == "potential_customer"
+                @contacts = Array.new
+                User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
+                    @contacts += lead.contacts
+                    @contacts.paginate(:page => params[:page], :per_page => 15)
+                end
                 @contacts.paginate(:page => params[:page], :per_page => 15)
             end
-            @contacts.paginate(:page => params[:page], :per_page => 15)
         end
 
         respond_to do |format|
@@ -59,9 +81,9 @@ class ContactsController < ApplicationController
     end
 
     def create
-      @company = Company.where(:id => current_user.company_id).first
-      @contact = @company.contacts.new(params[:contact])
-      @contact.company_id = @company.id
+        @company = Company.where(:id => current_user.company_id).first
+        @contact = @company.contacts.new(params[:contact])
+        @contact.company_id = @company.id
 
         respond_to do |format|
             if @contact.save
@@ -75,8 +97,8 @@ class ContactsController < ApplicationController
     end
 
     def update
-      @company = Company.where(:id => current_user.company_id).first
-      @contact = @company.contacts.find(params[:id])
+        @company = Company.where(:id => current_user.company_id).first
+        @contact = @company.contacts.find(params[:id])
 
         respond_to do |format|
             if @contact.update_attributes(params[:contact])
@@ -100,23 +122,23 @@ class ContactsController < ApplicationController
     end
 
     def search
-      if current_user.account_type == 1
-        @contacts = Contact.search params[:q], :with => {:company_id => current_user.company_id}
-      end
+        if current_user.account_type == 1
+            @contacts = Contact.search params[:q], :with => {:company_id => current_user.company_id}
+        end
 
-      respond_to do |format|
-        format.html
-        format.json { head :no_content }
-      end
+        respond_to do |format|
+            format.html
+            format.json { head :no_content }
+        end
     end
 
     def map_index
-      @company = Company.where(:id => current_user.company_id).first
-      @contacts = @company.contacts.all
-      @json       = @company.contacts.all.to_gmaps4rails
-      respond_to do |format|
-        format.html # index.html.erb
-        format.json { render json: @contacts }
-      end
+        @company = Company.where(:id => current_user.company_id).first
+        @contacts = @company.contacts.all
+        @json       = @company.contacts.all.to_gmaps4rails
+        respond_to do |format|
+            format.html # index.html.erb
+            format.json { render json: @contacts }
+        end
     end
 end
