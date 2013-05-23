@@ -32,6 +32,22 @@ class Notification < ActiveRecord::Base
       Resque.enqueue_at(self.notification_time, EmailScheduler, @user_email_id, @contact_id)
   end
 
+  def check_if_sms
+      if self.is_sms == true
+          "Yes"
+      else
+          "No"
+      end
+  end
+
+  def check_if_email
+      if self.is_email == true
+          "Yes"
+      else
+          "No"
+      end
+  end
+
   def as_json(options = {})
       {
           :id => self.id,

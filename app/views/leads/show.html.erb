@@ -43,7 +43,7 @@
                 <td><%= call_log.call_result %></td>
                 <td><%= call_log.call_type %></td>
                 <td><%= call_log.call_purpose %></td>
-                <td><%= call_log.call_start_time %></td>
+                <td><%= call_log.call_start_time.strftime('%l:%M%P %d-%b')%></td>
                 <td><%= call_log.call_duration %></td>
                 <td><%= call_log.call_owner_id %></td>
                 <td><%=l call_log.updated_at %></td>
@@ -52,7 +52,31 @@
     </tbody>
 </table>
 
-<div><h6>Emails</h6></div>
+<div><h6>Emails/SMS</h6></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>SMS</th>
+            <th>Email</th>
+            <th>Sending time</th>
+            <th>Body</th>
+            <th>Content</th>
+            <th>Modified at</th>
+        </tr>
+    </thead>
+    <tbody id="search-data">
+        <% @lead_notifications.each do |notification| %>
+            <tr>
+                <td><%= notification.check_if_sms %></td>
+                <td><%= notification.check_if_email %></td>
+                <td><%= notification.notification_time.strftime('%l:%M%P  %d-%b') %></td>
+                <td></td>
+                <td><%= notification.body %></td>
+                <td><%= notification.updated_at.strftime('%l:%M%P %d-%b') %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
 
 <div class="form-actions">
     <%= link_to t('.back', :default => t("helpers.links.back")), leads_path, :class => 'btn'  %>
