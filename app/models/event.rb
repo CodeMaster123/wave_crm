@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
     belongs_to :user
     belongs_to :company
+    belongs_to :lead
 
     attr_accessible :title, :description, :starts_at, :ends_at, :all_day, :recurring, :url, :user_id, :company_id
 
