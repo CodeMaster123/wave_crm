@@ -19,6 +19,9 @@
 # Ignore paperclip images
 /public/system/avatars/*
 
+# Ignore assets
+/public/assets/*
+
 # Ignore Sphinx generated files
 /db/sphinx/*
 
