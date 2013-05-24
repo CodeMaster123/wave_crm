@@ -7,6 +7,7 @@ class CrmCustomersControllerTest < ActionController::TestCase
 
     setup do
         @crm_customer = crm_customers(:one)
+
         @user = users(:one)
         sign_in @user
     end
@@ -24,7 +25,10 @@ class CrmCustomersControllerTest < ActionController::TestCase
 
     test "should create crm_customer" do
         assert_difference('CrmCustomer.count') do
+            puts CrmCustomer.last.id
             post :create, crm_customer: { address: @crm_customer.address, amount_paid: @crm_customer.amount_paid, first_name: @crm_customer.first_name, last_name: @crm_customer.last_name, middle_name: @crm_customer.middle_name, subscription_ends: @crm_customer.subscription_ends, subscription_start: @crm_customer.subscription_start }
+            puts @crm_customer.address
+            puts CrmCustomer.last.id
         end
 
         assert_redirected_to crm_customer_path(assigns(:crm_customer))

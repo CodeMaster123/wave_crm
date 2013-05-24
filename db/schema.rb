@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130523112714) do
     t.datetime "call_start_time"
     t.integer  "call_duration"
     t.integer  "call_owner_id"
+    t.integer  "lead_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -48,10 +49,10 @@ ActiveRecord::Schema.define(:version => 20130523112714) do
     t.integer  "contactable_id"
     t.integer  "company_id"
     t.boolean  "gmaps"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "email_id"
-    t.integer  "crm_customer_id"
+    t.string   "contact_relationship"
   end
 
   create_table "crm_customers", :force => true do |t|
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20130523112714) do
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "lead_id"
+    t.integer  "lead_id"
   end
 
   create_table "follow_ups", :force => true do |t|

@@ -6,6 +6,7 @@ one:
   company_address: MyString
   contact_number1: 1
   contact_number2: 1
+  crm_customer_id: 1
 
 two:
   id: 2
@@ -13,3 +14,4 @@ two:
   company_address: MyString
   contact_number1: 1
   contact_number2: 1
+  crm_customer_id: 2

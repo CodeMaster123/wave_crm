@@ -42,6 +42,7 @@ class CrmCustomersController < ApplicationController
   # POST /crm_customers.json
   def create
     @crm_customer = CrmCustomer.new(params[:crm_customer])
+    puts 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 
     respond_to do |format|
       if @crm_customer.save

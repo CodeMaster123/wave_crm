@@ -23,8 +23,9 @@ class TargetsControllerTest < ActionController::TestCase
     end
 
     test "should create target" do
+        @new_target = {:achived => 5000, :amount => 10000, :target_month => 2, :target_year => 2013, :targetable_id => 1, :targetable_type => "TeamLeader", :company_id =>1}
         assert_difference('Target.count') do
-          post :create, target: { achived: @target.achived, amount: @target.amount, target_month: @target.target_month, target_year: @target.target_year, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type, company_id: @target.company_id }
+          post :create, target: @new_target
         end
 
         assert_redirected_to targets_path

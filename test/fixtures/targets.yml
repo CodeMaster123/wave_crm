@@ -4,7 +4,7 @@ one:
   targetable_id: 1
   targetable_type: TeamLeader
   amount: 10000
-  achived: 1
+  achived: 6000
   target_month: 1
   target_year: 2013
   company_id: 1
@@ -15,5 +15,5 @@ two:
   amount: 10000
   target_month: 1
   target_year: 2013
-  achived: 1
+  achived: 7000
   company_id: 1

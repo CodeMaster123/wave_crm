@@ -3,4 +3,11 @@ class CrmCustomer < ActiveRecord::Base
 
   has_one :company
 
+  validates :address, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+  validates :amount_paid, :presence => true
+  validates :subscription_start, :presence => true
+  validates :subscription_ends, :presence => true
+
 end

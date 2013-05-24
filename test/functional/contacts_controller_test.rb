@@ -12,7 +12,7 @@ class ContactsControllerTest < ActionController::TestCase
     end
 
     test "should get index" do
-        get :index
+        get :index, :type => "client"
         assert_response :success
         assert_not_nil assigns(:contacts)
     end
