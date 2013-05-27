@@ -55,6 +55,7 @@ WaveCrm::Application.routes.draw do
     match 'map_index' => 'contacts#map_index'
     match 'transactions/mature/:id1/:matured_by/:executive_type' => 'transactions#mature'
     match 'old_target' => 'targets#old_target'
+    match 'transaction_invoice/:id' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
 
     match 'contacts/index/:type' => 'contacts#index'
     root :to => 'leads#index'

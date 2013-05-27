@@ -1,0 +1,33 @@
+<body style="border: solid 2px; width: 800px; height: 800px;" >
+    <div class="head" style="margin-right: 20px;">
+        <h1 style="text-align: center"><%= @company.company_name.capitalize %></h1>
+        <div style="text-align: right">Invoice id: <%= params[:id] %></div>
+        <div style="text-align: right"><%= @company.company_address %></div>
+        <div style="text-align: right">Ph.no.1:- <%= @company.contact_number1 %></div>
+        <div style="text-align: right">Ph.no.2:- <%= @company.contact_number2 %></div>
+    </div>
+    <hr style="border: solid 2px;">
+    <div class="product_table" >
+        <table style="border: solid 1px; width: 780px; margin-left: 10px">
+            <thead style="border: solid 2px;">
+                <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Unit price</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% @product_transactions.each do |pt| %>
+                <tr style="text-align: center;">
+                    <td><%= pt.product.name %></td>
+                    <td><%= pt.quantity %></td>
+                    <td><%= pt.price %></td>
+                    <td><%= pt.quantity * pt.price %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+</body>

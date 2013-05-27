@@ -143,6 +143,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    pdfkit (0.5.3)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -153,8 +154,6 @@ GEM
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-mini-profiler (0.1.26)
-      rack (>= 1.1.3)
     rack-protection (1.5.0)
       rack
     rack-ssl (1.3.3)
@@ -288,8 +287,8 @@ DEPENDENCIES
   mysql2 (= 0.3.12b4)
   nested_form (= 0.3.2)
   paperclip
+  pdfkit
   quiet_assets
-  rack-mini-profiler
   rails (= 3.2.13)
   rails3-jquery-autocomplete
   rb-inotify

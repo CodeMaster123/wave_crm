@@ -44,8 +44,10 @@ group :test do
     gem 'ruby-prof'
     gem 'rb-inotify'
 end
-    gem 'rack-mini-profiler'
+    #gem 'rack-mini-profiler'
     gem 'exceptional'
     gem 'ruby_parser'
     #gem 'aws-ses'
-
+    gem 'pdfkit'
+    #gem 'wkhtmltopdf-binary'
+    #gem 'wkhtmltopdf'

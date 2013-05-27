@@ -23,6 +23,7 @@ class TransactionsController < ApplicationController
 
         respond_to do |format|
             format.html # show.html.erb
+            format.pdf {render false } # show.html.erb
             format.json { render json: @transaction }
         end
     end
@@ -201,6 +202,14 @@ class TransactionsController < ApplicationController
                 end
                 f.series(:type=> 'spline',:name=> "SE - #{se.user.full_name}", :data=> @sales_executive_amounts)
             end
+        end
+    end
+
+    def invoice
+        @company = current_user.company
+        @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
+        respond_to do |format|
+            format.html
         end
     end
 end
