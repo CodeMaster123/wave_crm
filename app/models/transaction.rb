@@ -21,11 +21,12 @@ class Transaction < ActiveRecord::Base
 
 
     def full_name
-        @contacts_list = String.new
-        self.contacts.each do |contact|
-            @contacts_list = @contacts_list + "#{contact.first_name.capitalize} #{contact.middle_name.capitalize} #{contact.last_name.capitalize}"
-        end
-            @contacts_list
+        @contact = Contact.where(:id => self.contact_id).first.full_name
+    #    @contacts_list = String.new
+    #    self.contacts.each do |contact|
+    #        @contacts_list = @contacts_list + "#{contact.first_name.capitalize} #{contact.middle_name.capitalize} #{contact.last_name.capitalize}"
+    #    end
+    #        @contacts_list
     end
 
 end

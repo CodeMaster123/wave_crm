@@ -20,6 +20,7 @@ class TransactionsController < ApplicationController
     # GET /transactions/1.json
     def show
         @transaction = Transaction.find(params[:id])
+        @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
 
         respond_to do |format|
             format.html # show.html.erb
