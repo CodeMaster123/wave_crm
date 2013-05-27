@@ -60,6 +60,8 @@ class ContactsController < ApplicationController
 
     def show
         @contact = Contact.find(params[:id])
+        @transactions = Transaction.where(:contact_id => params[:id])
+        @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
             format.html # show.html.erb
