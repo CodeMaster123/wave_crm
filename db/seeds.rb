@@ -8,9 +8,12 @@ User.create([
 #################################################################
 
 Company.create([
-                   {:company_name => "wave tech line", :company_address => "cbs nasik", :contact_number1 => 154154158, :contact_number2 => 541555555}
+                   {:company_name => "wave tech line", :company_address => "cbs nasik", :contact_number1 => 154154158, :contact_number2 => 541555555, :crm_customer_id => 1}
 ])
 
+CrmCustomer.create([
+                   {:first_name => "Ramesh", :middle_name => "Suresh", :last_name => "Kidchudkar", :address => "Near city center mall, Nashik", :amount_paid => 50000, :subscription_start => (Date.today - 1.year + 4.months), :subscription_ends => (Date.today + 4.months), :customer_type => 'B2B'}
+])
 User.create([
             {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 9876674554, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1, :company_id => 1},
             {:first_name => "Ramesh", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9973546324, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 1},
@@ -320,7 +323,11 @@ SpecialOccasion.create([
 #################################################################
 
 Company.create([
-               {:company_name => "Dental Hospital", :company_address => "USA", :contact_number1 => 15465665556, :contact_number2 => 416515654165}
+               {:company_name => "Dental Hospital", :company_address => "USA", :contact_number1 => 15465665556, :contact_number2 => 416515654165, :crm_customer_id => 2}
+])
+
+CrmCustomer.create([
+                   {:first_name => "Pratik", :middle_name => "Piyush", :last_name => "Pagare", :address => "Indranil appt., Pathardi phata, Nashik", :amount_paid => 50000, :subscription_start => (Date.today - 1.year + 4.months), :subscription_ends => (Date.today + 4.months), :customer_type => 'B2C'}
 ])
 
 User.create([
