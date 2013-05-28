@@ -3,24 +3,24 @@ class Event < ActiveRecord::Base
     belongs_to :company
     belongs_to :lead
 
-    attr_accessible :title, :description, :starts_at, :ends_at, :all_day, :recurring, :url, :user_id, :company_id
+    attr_accessible :title, :description, :starts_at, :recurring, :url, :user_id, :company_id
 
-    scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
-    scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
+    #scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
+    #scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
 
     validates :title, :presence => true
     validates :description, :presence => true
     validates :starts_at, :presence => true
-    validates :ends_at, :presence => true
+    #validates :ends_at, :presence => true
     validates :company_id, :presence => true
 
-    validate :validate_ends_at_before_starts_at
+    #validate :validate_ends_at_before_starts_at
 
-    def validate_ends_at_before_starts_at
-      if ends_at && starts_at
-        errors.add(:ends_at, "End Text must be greater than start date") if ends_at < starts_at
-      end
-    end
+   # def validate_ends_at_before_starts_at
+   #   if ends_at && starts_at
+   #     errors.add(:ends_at, "End Text must be greater than start date") if ends_at < starts_at
+   #   end
+   # end
 
 
     # need to override the json view to return what full_calendar is expecting.
@@ -32,8 +32,8 @@ class Event < ActiveRecord::Base
             :title => self.title,
             :description => self.description || "",
             :start => starts_at.rfc822,
-            :end => ends_at.rfc822,
-            :allDay => self.all_day,
+            #:end => ends_at.rfc822,
+            #:allDay => self.all_day,
             :recurring => false,
             :url => Rails.application.routes.url_helpers.event_path(id)
         }

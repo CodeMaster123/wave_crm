@@ -4,24 +4,28 @@
         <h3 id="myModalLabel">New Event</h3>
     </div>
     <div class="modal-body">
-<%= bootstrap_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.text_field :title, :class => 'text_field' %>
-  <%= f.text_field :starts_at, :class => 'datetime_select' %>
-  <%= f.text_field :ends_at, :class => 'datetime_select' %>
-  <div class="control-group">
-    <%= f.label :all_day, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :all_day, :class => 'check_box' %>
+        <%= form_tag @event, :html => { :class => 'rvent-form form-horizontal' } do |f| %>
+            <div class="control-group">
+                <label class="control-label"> Title</label>
+                <div class="controls">
+                    <%= text_field_tag :title,'', :class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"> Meeting time</label>
+                <div class="controls">
+                    <%= text_field_tag :starts_at,'', :class => 'datetime_select' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"> Description</label>
+                <div class="controls">
+                    <%= text_area_tag :description,'', :rows => "4", :class => 'text_area' %>
+                </div>
+            </div>
+        <% end %>
     </div>
-  </div>
-    <%= f.text_area :description, :rows => "7", :class => 'text_area' %>
 
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-  </div>
-<% end %>
-    </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         <button class="btn btn-primary">Save changes</button>
