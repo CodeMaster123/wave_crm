@@ -1,0 +1,67 @@
+<div id="call-log" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Call log</h3>
+    </div>
+    <div class="modal-body">
+        <%= form_for @call_log, :html => { :class => 'form-horizontal' } do |f| %>
+            <div class="control-group">
+                <%= f.label :subject, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.text_field :subject, :class => 'text_field' %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= f.label :call_result, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.text_area :call_result, :class => 'text_field', :rows => 3 %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= f.label :call_type, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.select :call_type , options_for_select(["Outbound", "Inbound"]) ,:class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <%= f.label :call_purpose, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.select :call_purpose, options_for_select(["Administrative", "Prospective", "Demo", "Negotiation", "Support"]) ,:class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <%= f.label :call_owner_id, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.select :call_owner_id, options_for_select(@call_owner.map{|c|[c.user.full_name, c.id]}), :class => 'number_field' %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= f.label :call_start_time, :class => 'control-label' %>
+                <div class="controls">
+                    <%= f.text_field :call_start_time, :class => 'datetime_select' %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <%= f.label :call_duration, :class => 'control-label' %>
+                <div class="controls">
+                    <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Minutes
+                    <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Seconds
+                </div>
+            </div>
+
+
+            <div class="form-actions">
+                <%= f.submit nil, :class => 'btn btn-primary' %>
+                <%= link_to t('.cancel', :default => t("helpers.links.cancel")), call_logs_path, :class => 'btn' %>
+            </div>
+        <% end %>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>

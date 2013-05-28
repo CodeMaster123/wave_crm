@@ -46,6 +46,18 @@ class LeadsController < ApplicationController
       @lead_events = Lead.find(params[:id]).events.all
       @lead = Lead.find(params[:id])
 
+      #--- Modal variables for call logs ---
+      @call_log = CallLog.new
+      @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
+
+      #--- Modal variables for notifications ---
+      @company = Company.where(:id => current_user.company_id).first
+      @notification = Notification.new
+      @contacts = @company.contacts.all
+
+      #--- Modal variables for events ---
+      @event = Event.new
+
       respond_to do |format|
           format.html # show.html.erb
           format.json { render json: @lead }
@@ -53,13 +65,13 @@ class LeadsController < ApplicationController
   end
 
   def new
-    @company = Company.where(:id => current_user.company_id).first
+      @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.new
       @lead.contacts.build
       @lead.follow_ups.build
       @lead.leads_products.build
-    @team_leaders = @company.team_leaders.all
-    @sales_executives = @company.sales_executives.all
+      @team_leaders = @company.team_leaders.all
+      @sales_executives = @company.sales_executives.all
       @products = @company.products.all
 
       respond_to do |format|
@@ -70,35 +82,35 @@ class LeadsController < ApplicationController
 
   # GET /leads/1/edit
   def edit
-    @company = Company.where(:id => current_user.company_id).first
+      @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
       @products = @company.products.all
-    @team_leaders = @company.team_leaders.all
-    @sales_executives = @company.sales_executives.all
+      @team_leaders = @company.team_leaders.all
+      @sales_executives = @company.sales_executives.all
   end
 
   def create
-    @company = Company.where(:id => current_user.company_id).first
-    @lead = @company.leads.new(params[:lead])
-    if User.find(current_user.id).account_type == 2
-        @lead.leadable_id = TeamLeader.where(:user_id => current_user.id).first.id
-        @lead.leadable_type = "TeamLeader"
-    elsif User.find(current_user.id).account_type == 3
-        @lead.leadable_id = SalesExecutive.where(:user_id => current_user.id).first.id
-        @lead.leadable_type = "SalesExecutive"
-    end
-    @products = @company.products.all
-    @lead.company_id = @company.id
-    respond_to do |format|
-        if @lead.save
-            #@follow_up = FollowUp.create(:lead_id = @lead.id,
-            format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
-            format.json { render json: @lead, status: :created, location: @lead }
-        else
-            format.html { render action: "new" }
-            format.json { render json: @lead.errors, status: :unprocessable_entity }
-        end
-    end
+      @company = Company.where(:id => current_user.company_id).first
+      @lead = @company.leads.new(params[:lead])
+      if User.find(current_user.id).account_type == 2
+          @lead.leadable_id = TeamLeader.where(:user_id => current_user.id).first.id
+          @lead.leadable_type = "TeamLeader"
+      elsif User.find(current_user.id).account_type == 3
+          @lead.leadable_id = SalesExecutive.where(:user_id => current_user.id).first.id
+          @lead.leadable_type = "SalesExecutive"
+      end
+      @products = @company.products.all
+      @lead.company_id = @company.id
+      respond_to do |format|
+          if @lead.save
+              #@follow_up = FollowUp.create(:lead_id = @lead.id,
+              format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
+              format.json { render json: @lead, status: :created, location: @lead }
+          else
+              format.html { render action: "new" }
+              format.json { render json: @lead.errors, status: :unprocessable_entity }
+          end
+      end
   end
 
   # PUT /leads/1
