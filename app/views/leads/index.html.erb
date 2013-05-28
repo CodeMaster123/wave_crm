@@ -20,7 +20,7 @@
                 <th>Sr.No</th>
                 <th>Title</th>
                 <th>Description</th>
-                <th>Lead to</th>
+                <th>Lead owner</th>
                 <th>Executive type</th>
                 <th>Follow up time</th>
                 <th>Actions</th>
@@ -39,7 +39,7 @@
                         <% else %>
                             <td></td>
                         <% end %>
-                        <td><%= lead.leadable_type %></td>
+                        <td><%= lead.show_executive_type%></td>
                         <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
                             <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
                             <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%B'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
