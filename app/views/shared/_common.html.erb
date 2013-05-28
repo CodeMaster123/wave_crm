@@ -66,21 +66,23 @@
     </li>
 <% end %>
 
-<% if controller_name == "accounts" %>
-    <% permitted_to? :index, :transactions do %>
-        <li class="active" >
-        <%= link_to(:accounts) do %>
-            <span>Accounts</span>
+<% if current_user.company.crm_customer.customer_type == "B2B" %>
+    <% if controller_name == "accounts" %>
+        <% permitted_to? :index, :transactions do %>
+            <li class="active" >
+            <%= link_to(:accounts) do %>
+                <span>Accounts</span>
+            <% end %>
+            </li>
         <% end %>
-        </li>
-    <% end %>
-<% elsif %>
-    <% permitted_to? :index, :transactions do %>
-        <li>
-        <%= link_to(:accounts) do %>
-            <span>Accounts</span>
+    <% elsif %>
+        <% permitted_to? :index, :transactions do %>
+            <li>
+            <%= link_to(:accounts) do %>
+                <span>Accounts</span>
+            <% end %>
+            </li>
         <% end %>
-        </li>
     <% end %>
 <% end %>
 

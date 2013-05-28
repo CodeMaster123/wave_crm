@@ -1,17 +1,18 @@
 $(document).ready(function() {
+    window.setTimeout(function(){$('.alert').fadeOut()}, 400);
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',
     timeFormat: 'hh:mm tt z'
     });
 
 
-    $('.search-c').searchbox({
-        url: '/lead_search.html',
-        param: 'q',
-        dom_id: '#search-data',
-        delay: 100
-    })
-    $('.tTip').betterTooltip({speed: 150, delay: 300});
+$('.search-c').searchbox({
+    url: '/lead_search.html',
+    param: 'q',
+    dom_id: '#search-data',
+    delay: 100
+})
+$('.tTip').betterTooltip({speed: 150, delay: 300});
 });
 
 
@@ -42,8 +43,9 @@ else
 
 $('.event-form').submit(function() {
     var valuesToSubmit = $(this).serialize();
+    console.log('vivek');
     $.ajax({
-        url: $(this).attr('action'), //sumbits it to the given url of the form
+        url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
         dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
     }).success(function(json){

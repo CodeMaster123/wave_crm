@@ -9,6 +9,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :ownership_type
       t.string :billing_address
       t.string :shipping_address
+      t.integer :company_id
 
       t.timestamps
     end

@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     has_many :transaction_fields
     belongs_to :company
 
-    belongs_to :company
+    #belongs_to :company
 
 
     has_attached_file :avatar,
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     validates :first_name, :presence => true
     validates :last_name, :presence => true
     validates :address, :presence => true
-    validates :mobile_no, :presence => true, :numericality => true
+    validates :mobile_no, :numericality => true
     validates :email, :presence => true
     validates :password, :presence => true
     validates :password_confirmation, :presence => true

@@ -32,13 +32,14 @@ class TransactionsController < ApplicationController
     # GET /transactions/new
     # GET /transactions/new.json
     def new
-        @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.new
-        @contacts = @company.contacts.all
         @transaction_fields = current_user.transaction_fields
         @transaction.contacts.build
         @transaction.product_transactions.build
-        @products = Company.find(current_user.company_id).products
+        @products = current_user.company.products
+
+        @contacts = current_user.company.contacts.all
+        @accounts = current_user.company.accounts
 
 
         respond_to do |format|

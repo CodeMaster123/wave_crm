@@ -52,37 +52,37 @@ class UsersController < ApplicationController
     @user.company_id = @company.id
 
 
-   if params[:user][:account_type].to_i == 2
-      TeamLeader.create(:user_id => User.last.id.to_i + 1, :company_id => current_user.company.id)
-     puts "---------------------------------------------#{User.last.id.to_i + 1}"
-    elsif params[:user][:account_type].to_i == 3
-      SalesExecutive.create(:user_id => User.last.id.to_i + 1, :team_leader_id => params[:user][:team_leader].to_i, :company_id => current_user.company.id)
-      puts "---------------------------------------------#{User.last.id.to_i + 1}"
-    end
 
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to :users, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+        if @user.save
+            if params[:user][:account_type].to_i == 2
+                TeamLeader.create(:user_id => @user.id, :company_id => current_user.company.id)
+                puts "---------------------------------------------#{User.last.id.to_i + 1}"
+            elsif params[:user][:account_type].to_i == 3
+                SalesExecutive.create(:user_id => User.last.id.to_i + 1, :team_leader_id => params[:user][:team_leader].to_i, :company_id => current_user.company.id)
+                puts "---------------------------------------------#{User.last.id.to_i + 1}"
+            end
+            format.html { redirect_to :users, notice: 'User was successfully created.' }
+            format.json { render json: @user, status: :created, location: @user }
+        else
+            format.html { render action: "new" }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
     end
   end
 
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @company = Company.where(:id => current_user.company_id).first
+      @company = Company.where(:id => current_user.company_id).first
       @user = @company.users.find(params[:id])
-    @all_team_leaders = @company.team_leaders.all
+      @all_team_leaders = @company.team_leaders.all
 
       respond_to do |format|
           if @user.update_attributes(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar])
               if params[:user][:account_type].to_i == 2
-                  @user.team_leader.update_attributes.(:user_id => @user.id)
+                  @user.team_leader.update_attributes(:user_id => @user.id)
               elsif params[:user][:account_type].to_i == 3
                   @user.sales_executive.update_attributes(:user_id => @user.id, :team_leader_id => params[:user][:team_leader].to_i)
               end
