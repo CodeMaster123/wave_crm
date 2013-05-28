@@ -44,6 +44,7 @@ class CallLogsController < ApplicationController
     def create
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.new(params[:call_log])
+        @call_log.call_duration = params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i
 
         respond_to do |format|
             if @call_log.save

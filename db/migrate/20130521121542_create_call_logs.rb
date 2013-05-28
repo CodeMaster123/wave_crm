@@ -6,7 +6,7 @@ class CreateCallLogs < ActiveRecord::Migration
       t.string :call_type
       t.string :call_purpose
       t.datetime :call_start_time
-      t.integer :call_duration
+      t.integer :call_duration #should be in seconds
       t.integer :call_owner_id
       t.integer :lead_id
 

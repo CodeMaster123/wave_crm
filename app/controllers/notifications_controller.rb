@@ -74,7 +74,6 @@ class NotificationsController < ApplicationController
                 end
                 if @notification.is_email
                     @notification.email_send(current_user.id)
-                    puts "In controllerrrrrrrrrrrr"
                 end
                 if params[:Next_Notification].empty? == true
                 else
