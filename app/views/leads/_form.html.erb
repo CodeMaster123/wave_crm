@@ -88,13 +88,13 @@
           </div>
         </div>
         <div class="control-group">
-            <%= contact.label :mobile_no, :class => 'control-label' %>
+            <%= contact.label :mobile_number, :class => 'control-label' %>
             <div class="controls">
                 <%= contact.text_field :mobile_no, :class => 'text_field' %>
             </div>
         </div>
         <div class="control-group-landline_no">
-            <%= contact.label :landline_no, :class => 'control-label' %>
+            <%= contact.label :phone_number, :class => 'control-label' %>
             <div class="controls">
              <%= contact.text_field :landline_no, :class => 'text_field' %>
              <%= contact.link_to_remove "Remove this contact", :class => 'remove'%>
