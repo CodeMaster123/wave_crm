@@ -1,35 +1,56 @@
 <%- model_class = Contact -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+    <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
-  <dd><%= @contact.first_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:middle_name) %>:</strong></dt>
-  <dd><%= @contact.middle_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
-  <dd><%= @contact.last_name %></dd>
+    <dt><strong>Name: </strong></dt>
+    <dd><%= @contact.full_name %></dd>
 
-  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
-  <dd><%= @contact.address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mobile_no) %>:</strong></dt>
-  <dd><%= @contact.mobile_no %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:landline_no) %>:</strong></dt>
-  <dd><%= @contact.landline_no %></dd>
-
+    <dt><strong>Address: </strong></dt>
+    <dd><%= @contact.address %></dd>
+    <dt><strong>Mobile Number: </strong></dt>
+    <dd><%= @contact.mobile_no %></dd>
+    <dt><strong>Landline Number: </strong></dt>
+    <dd><%= @contact.landline_no %></dd>
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              contacts_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_contact_path(@contact), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              contact_path(@contact),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+    <%= link_to t('.back', :default => t("helpers.links.back")), contacts_path, :class => 'btn'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(@contact), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(@contact), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger' %>
 </div>
 
+<% if @contact.contact_relationship == "client" %>
+    <h2>Previous Transactions </h2>
 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Amount</th>
+                <th>Transaction time</th>
+                <% @i = 0 %>
+                <% @transaction_fields.each do |tf| %>
+                    <th><%= tf.field_name %></th>
+                <% end %>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @transactions.each do |transaction| %>
+                <tr>
+                    <td><%= link_to transaction.id, transaction_path(transaction) %></td>
+                    <td><%= transaction.amount %></td>
+                    <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
+
+                    <td>
+                        <%= link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-mini' %>
+                        <%= link_to 'Destroy', transaction_path(transaction), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                        <%= link_to 'Invoice', {:controller => "transactions", :action => "invoice", :id => transaction.id, :format => 'pdf'}, :class => 'btn btn-mini btn-mature' %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% end %>

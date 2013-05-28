@@ -13,11 +13,12 @@ class Company < ActiveRecord::Base
     has_many :transactions
 
     belongs_to :crm_customer
-    attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
+    attr_accessible :company_address, :company_name, :contact_number1, :contact_number2, :crm_customer_id
 
     validates :contact_number1, :numericality => true
     validates :contact_number2, :numericality => true
     validates :company_name, :presence => true
     validates :company_address, :presence => true
+    validates :crm_customer_id, :uniqueness => true
 
 end

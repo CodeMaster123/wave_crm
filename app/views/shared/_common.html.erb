@@ -66,6 +66,24 @@
     </li>
 <% end %>
 
+<% if controller_name == "accounts" %>
+    <% permitted_to? :index, :transactions do %>
+        <li class="active" >
+        <%= link_to(:transactions) do %>
+            <span>Accounts</span>
+        <% end %>
+        </li>
+    <% end %>
+<% elsif %>
+    <% permitted_to? :index, :transactions do %>
+        <li>
+        <%= link_to(:transactions) do %>
+            <span>Accounts</span>
+        <% end %>
+        </li>
+    <% end %>
+<% end %>
+
 <% permitted_to? :index, :transactions do %>
     <% if controller_name == "transactions" && action_name != "graph" %>
         <li class="active">

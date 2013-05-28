@@ -49,10 +49,26 @@ GEM
     multi_json (1.7.3)
     mysql2 (0.3.12b4)
     orm_adapter (0.4.0)
+<<<<<<< HEAD
+=======
+    paint (0.8.6)
+    paperclip (3.4.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+    pdfkit (0.5.3)
+>>>>>>> bc9aaedf452ef0dcce32fad37204e771fe640010
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
+<<<<<<< HEAD
+=======
+    rack-protection (1.5.0)
+      rack
+>>>>>>> bc9aaedf452ef0dcce32fad37204e771fe640010
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -96,4 +112,11 @@ DEPENDENCIES
   declarative_authorization (~> 0.5.7)
   devise
   mysql2 (= 0.3.12b4)
+<<<<<<< HEAD
+=======
+  nested_form (= 0.3.2)
+  paperclip
+  pdfkit
+  quiet_assets
+>>>>>>> bc9aaedf452ef0dcce32fad37204e771fe640010
   rails (= 3.2.13)

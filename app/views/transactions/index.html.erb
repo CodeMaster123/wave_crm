@@ -48,6 +48,7 @@
                 <td>
                     <%= link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-mini' %>
                     <%= link_to 'Destroy', transaction_path(transaction), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                    <%= link_to 'Invoice', {:controller => "transactions", :action => "invoice", :id => transaction.id, :format => 'pdf'}, :class => 'btn btn-mini btn-mature' %>
                 </td>
             </tr>
         <% end %>

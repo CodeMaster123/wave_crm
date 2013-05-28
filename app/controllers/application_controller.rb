@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
     def check_controller
         if devise_controller?
             "login"
+        elsif action_name == 'invoice'
+            false
         else
             "application"
         end

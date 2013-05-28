@@ -15,10 +15,10 @@ class ContactsController < ApplicationController
         if current_user.account_type ==1
             if params[:type] == "client"
                 @company = Company.where(:id => current_user.company_id).first
-                @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).all
+                @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).where(:contact_relationship => "client")
             elsif params[:type] == "potential_customer"
                 @company = Company.where(:id => current_user.company_id).first
-                @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).all
+                @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).where(:contact_relationship => "potential_customer")
             end
         elsif current_user.account_type == 2
             if params[:type] == "client"
@@ -60,6 +60,8 @@ class ContactsController < ApplicationController
 
     def show
         @contact = Contact.find(params[:id])
+        @transactions = Transaction.where(:contact_id => params[:id])
+        @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
             format.html # show.html.erb

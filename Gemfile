@@ -26,25 +26,28 @@ gem 'geocoder'
 gem 'gmaps4rails'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'less'
+    gem 'sass-rails',   '~> 3.2.3'
+    gem 'coffee-rails', '~> 3.2.1'
+    gem 'uglifier', '>= 1.0.3'
+    gem 'less'
 end
 
 group :development do
-  gem 'quiet_assets'
-  gem 'irbtools'
-  gem 'sextant'
+    gem 'quiet_assets'
+    gem 'irbtools'
+    gem 'sextant'
 end
 
 group :test do
-  #gem 'turn'
-  gem 'guard-test'
-  gem 'ruby-prof'
-  gem 'rb-inotify'
+    #gem 'turn'
+    gem 'guard-test'
+    gem 'ruby-prof'
+    gem 'rb-inotify'
 end
-gem 'rack-mini-profiler'
-gem 'exceptional'
-gem 'ruby_parser'
-#gem 'aws-ses'
+    #gem 'rack-mini-profiler'
+    gem 'exceptional'
+    gem 'ruby_parser'
+    #gem 'aws-ses'
+    gem 'pdfkit'
+    #gem 'wkhtmltopdf-binary'
+    #gem 'wkhtmltopdf'
