@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130528083840) do
     t.string   "ownership_type"
     t.string   "billing_address"
     t.string   "shipping_address"
+    t.integer  "company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

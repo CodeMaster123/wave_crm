@@ -62,9 +62,9 @@
 <% elsif current_user.company.crm_customer.customer_type == "B2B" %>
     
     <div class="control-group existing_contact">
-        <%= f.label :contact_id, :class => 'control-label' %>
+        <%= f.label :accounts, :class => 'control-label' %>
         <div class="controls">
-            <%= f.select :contact_id, options_for_select(@accounts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
+            <%= f.select :contact_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}), :class => 'contacts_text_field' %>
         </div>
     </div>
 <% end %>
