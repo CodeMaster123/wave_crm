@@ -43,8 +43,9 @@ else
 
 $('.event-form').submit(function() {
     var valuesToSubmit = $(this).serialize();
+    console.log('vivek');
     $.ajax({
-        url: $(this).attr('action'), //sumbits it to the given url of the form
+        url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
         dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
     }).success(function(json){
