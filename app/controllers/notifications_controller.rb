@@ -17,6 +17,7 @@ class NotificationsController < ApplicationController
         #@notifications = Notification.all
         if current_user.account_type == 1
             @notifications = @company.notifications.paginate(:page => params[:page], :per_page => 15)
+            @notification_now_to_30days = @company.notifications.where(:notification_time => Date.today..Date.today+30.days).paginate(:page => params[:page], :per_page => 15)
         end
 
         respond_to do |format|

@@ -26,7 +26,7 @@
   </thead>
   <tbody id="search-data">
   <% render :partial => 'shared/i_calculation' %>
-    <% @notifications.each do |notification| %>
+    <% @notification_now_to_30days.each do |notification| %>
       <tr>
         <td><%= link_to @i = @i+1, notification_path(notification) %></td>
         <td><%= notification.sms_sent %></td>
