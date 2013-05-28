@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  account_owner: 1
+  account_name: MyString
+  number_of_employees: 1
+  phone_number: 1
+  website: MyString
+  ownership_type: MyString
+  billing_address: MyString
+  shipping_address: MyString
+
+two:
+  account_owner: 1
+  account_name: MyString
+  number_of_employees: 1
+  phone_number: 1
+  website: MyString
+  ownership_type: MyString
+  billing_address: MyString
+  shipping_address: MyString

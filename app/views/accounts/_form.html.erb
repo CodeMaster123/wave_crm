@@ -1,0 +1,13 @@
+<%= bootstrap_form_for @account, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= f.select :account_owner, @account_owner.map{|ao|[ao.full_name, ao.id]}, :class => 'number_field' %>
+    <%= f.select :ownership_type, options_for_select([["Proprietership","proprietership"],["Private", "Private"], ["Public", "Public"]]), :class => 'text_field' %>
+    <%= f.text_field :account_name, :class => 'text_field' %>
+    <%= f.text_field :number_of_employees, :class => 'number_field' %>
+    <%= f.text_field :phone_number, :class => 'number_field' %>
+    <%= f.text_field :website, :class => 'text_field' %>
+    <%= f.text_area :billing_address, :rows => 3, :class => 'text_field' %>
+    <%= f.text_area :shipping_address, :rows => 3, :class => 'text_field' %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), accounts_path, :class => 'btn' %>
+</div>
+    <% end %>

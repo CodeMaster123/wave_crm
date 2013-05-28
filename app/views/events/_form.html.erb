@@ -1,19 +1,11 @@
 <%= bootstrap_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.text_field :title, :class => 'text_field' %>
-  <%= f.text_field :starts_at, :class => 'datetime_select' %>
-  <%= f.text_field :ends_at, :class => 'datetime_select' %>
-  <div class="control-group">
-    <%= f.label :all_day, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.check_box :all_day, :class => 'check_box' %>
+    <%= f.text_field :title, :class => 'text_field' %>
+    <%= f.text_field :starts_at, :class => 'datetime_select' %>
+    <%= f.text_area :description, :rows => "4", :class => 'text_area' %>
+
+
+    <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn' %>
     </div>
-  </div>
-    <%= f.text_area :description, :rows => "7", :class => 'text_area' %>
-
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                events_path, :class => 'btn' %>
-  </div>
 <% end %>

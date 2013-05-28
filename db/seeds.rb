@@ -37,26 +37,26 @@ SalesExecutive.create([
 ])
 
 Event.create([
-             {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-04 01:17:00 UTC", :ends_at => "2013-04-04 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-05 12:17:00 UTC", :ends_at => "2013-04-05 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-06 07:17:00 UTC", :ends_at => "2013-04-06 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "ERP to Salim Khan", :starts_at => "2013-04-08 12:17:00 UTC", :ends_at => "2013-04-08 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :ends_at => "2013-04-08 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :ends_at => "2013-04-09 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-10 12:17:00 UTC", :ends_at => "2013-04-10 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-12 20:17:00 UTC", :ends_at => "2013-04-12 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-14 12:13:00 UTC", :ends_at => "2013-04-14 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-15 12:17:00 UTC", :ends_at => "2013-04-15 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-16 01:17:00 UTC", :ends_at => "2013-04-16 02:17:00 UTC", :all_day => "true", :description => "application demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-17 12:17:00 UTC", :ends_at => "2013-04-17 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-18 07:17:00 UTC", :ends_at => "2013-04-18 08:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "ERP to Salim Khan", :starts_at => "2013-04-19 12:17:00 UTC", :ends_at => "2013-04-19 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-20 06:17:00 UTC", :ends_at => "2013-04-20 06:17:00 UTC", :all_day => "true", :description => "This meeting for web application demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-21 12:17:00 UTC", :ends_at => "2013-04-21 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-22 12:17:00 UTC", :ends_at => "2013-04-22 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-23 20:17:00 UTC", :ends_at => "2013-04-23 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-24 12:13:00 UTC", :ends_at => "2013-04-24 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
-             {:title => "Meeting", :starts_at => "2013-04-25 12:17:00 UTC", :ends_at => "2013-04-25 01:17:00 UTC", :all_day => "false", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1}
+             {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-04 01:17:00 UTC", :description => "application demo", :user_id => 1, :company_id => 1},
+             {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-05 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-06 07:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "ERP to Salim Khan", :starts_at => "2013-04-08 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-08 06:17:00 UTC", :description => "This meeting for web application demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-09 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-10 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-12 20:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-14 12:13:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-15 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting with ramesh pawar", :starts_at => "2013-04-16 01:17:00 UTC", :description => "application demo", :user_id => 1, :company_id => 1},
+             {:title => "Demo of ERP to Prakash industries", :starts_at => "2013-04-17 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Demo of website to iconic photo studios", :starts_at => "2013-04-18 07:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "ERP to Salim Khan", :starts_at => "2013-04-19 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-20 06:17:00 UTC", :description => "This meeting for web application demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-21 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-22 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-23 20:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-24 12:13:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
+             {:title => "Meeting", :starts_at => "2013-04-25 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1}
 ])
 
 Lead.create([
@@ -230,26 +230,26 @@ Tag.create([
 ])
 
 Notification.create([
-                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 2, :body => "msg body", :notification_time => "2013-04-07 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 3, :body => "msg body", :notification_time => "2013-04-08 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 10, :body => "msg body", :notification_time => "2013-04-09 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 8, :body => "msg body", :notification_time => "2013-04-10 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 7, :body => "msg body", :notification_time => "2013-04-11 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 5, :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 9, :body => "msg body", :notification_time => "2013-04-13 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 14, :body => "msg body", :notification_time => "2013-04-14 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 11, :body => "msg body", :notification_time => "2013-04-15 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 1, :body => "msg body", :notification_time => "2013-04-16 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 2, :body => "msg body", :notification_time => "2013-04-17 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 13, :body => "msg body", :notification_time => "2013-04-18 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 10, :body => "msg body", :notification_time => "2013-04-19 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 18, :body => "msg body", :notification_time => "2013-04-20 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 17, :body => "msg body", :notification_time => "2013-04-21 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 15, :body => "msg body", :notification_time => "2013-04-22 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 19, :body => "msg body", :notification_time => "2013-04-23 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 14, :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 1}
+                    {:sms_sent => false, :contact_id => 1, :subject =>"", :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 1, :subject =>"", :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 2, :subject =>"", :body => "msg body", :notification_time => "2013-04-07 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 3, :subject =>"", :body => "msg body", :notification_time => "2013-04-08 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 10, :subject =>"", :body => "msg body", :notification_time => "2013-04-09 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 8, :subject =>"", :body => "msg body", :notification_time => "2013-04-10 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 7, :subject =>"", :body => "msg body", :notification_time => "2013-04-11 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 5, :subject =>"", :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 9, :subject =>"", :body => "msg body", :notification_time => "2013-04-13 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 14,:subject =>"", :body => "msg body", :notification_time => "2013-04-14 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 11,:subject =>"", :body => "msg body", :notification_time => "2013-04-15 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 1,:subject =>"", :body => "msg body", :notification_time => "2013-04-16 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 2,:subject =>"", :body => "msg body", :notification_time => "2013-04-17 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 13,:subject =>"", :body => "msg body", :notification_time => "2013-04-18 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 10,:subject =>"", :body => "msg body", :notification_time => "2013-04-19 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 18,:subject =>"", :body => "msg body", :notification_time => "2013-04-20 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 17,:subject =>"", :body => "msg body", :notification_time => "2013-04-21 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 15,:subject =>"", :body => "msg body", :notification_time => "2013-04-22 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 19,:subject =>"", :body => "msg body", :notification_time => "2013-04-23 01:17:00 UTC", :company_id => 1},
+                    {:sms_sent => false, :contact_id => 14,:subject =>"", :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 1}
 ])
 
 Transaction.create([
@@ -331,7 +331,7 @@ CrmCustomer.create([
 ])
 
 User.create([
-            {:first_name => "George", :last_name => "Stinson", :address => "New york, USA", :mobile_no => 9871456416, :email => "admin1@gmail.com", :password => "admin123123", :password_confirmation => "admin123123", :account_type => 1, :company_id => 2},
+            {:first_name => "George", :last_name => "Stinson", :address => "New york, USA", :mobile_no => 9871456416, :email => "admin1@gmail.com", :password => "admin1123", :password_confirmation => "admin13123", :account_type => 1, :company_id => 2},
             {:first_name => "Patrick", :last_name => "Ericssen", :address => "Los Angeles", :mobile_no => 9973546324, :email => "team_leader123@gmail.com", :password => "team_leader123123", :password_confirmation => "team_leader123123", :account_type => 2, :company_id => 2},
             {:first_name => "Margaret", :last_name => "Smith", :address => "Michigan, nashik", :mobile_no => 9973546324, :email => "team_leader1231@gmail.com", :password => "team_leader1231", :password_confirmation => "team_leader1231", :account_type => 2, :company_id => 2},
             {:first_name => "Harris", :last_name => "Radclief", :address => "Florida, Nashik", :mobile_no => 9912324212, :email => "sales_executive123@gmail.com", :password => "sales_executive123", :password_confirmation => "sales_executive123", :account_type => 3, :company_id => 2},

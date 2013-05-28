@@ -1,0 +1,35 @@
+<%- model_class = Account -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:account_owner) %>:</strong></dt>
+  <dd><%= @account.account_owner %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:account_name) %>:</strong></dt>
+  <dd><%= @account.account_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:number_of_employees) %>:</strong></dt>
+  <dd><%= @account.number_of_employees %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @account.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
+  <dd><%= @account.website %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ownership_type) %>:</strong></dt>
+  <dd><%= @account.ownership_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:billing_address) %>:</strong></dt>
+  <dd><%= @account.billing_address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:shipping_address) %>:</strong></dt>
+  <dd><%= @account.shipping_address %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              accounts_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_account_path(@account), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              account_path(@account),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
