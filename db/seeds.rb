@@ -8,7 +8,7 @@ User.create([
 #################################################################
 
 Company.create([
-                   {:company_name => "wave tech line", :company_address => "cbs nasik", :contact_number1 => 2805656, :contact_number2 => 2493131, :crm_customer_id => 1}
+                   {:company_name => "wave tech line", :company_address => "Arrisrocrapt appt, Behind SBI bank, CBS, Nasik", :contact_number1 => 2805656, :contact_number2 => 2493131, :crm_customer_id => 1}
 ])
 
 CrmCustomer.create([

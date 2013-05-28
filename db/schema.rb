@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527120357) do
+ActiveRecord::Schema.define(:version => 20130528083840) do
 
   create_table "call_logs", :force => true do |t|
     t.string   "call_result"
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20130527120357) do
     t.datetime "updated_at",                           :null => false
     t.boolean  "is_sms",            :default => false, :null => false
     t.boolean  "is_email",          :default => false, :null => false
+    t.string   "subject"
   end
 
   create_table "product_transactions", :force => true do |t|

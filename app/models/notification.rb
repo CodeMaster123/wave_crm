@@ -2,10 +2,12 @@ class Notification < ActiveRecord::Base
   belongs_to :contact
   belongs_to :company
 
-  attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id, :is_sms, :is_email
+  attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id, :is_sms, :is_email, :subject
 
   validates :contact_id, :presence => true
   validates :company_id, :presence => true
+  validates :subject, :presence => true
+
 
   def sms_send
       @sms_gateway_username = "wave"
