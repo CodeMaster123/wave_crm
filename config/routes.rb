@@ -61,5 +61,8 @@ WaveCrm::Application.routes.draw do
     match 'transaction_invoice/:id' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
 
     match 'contacts/index/:type' => 'contacts#index'
-    root :to => 'leads#index'
+
+    match 'notifications/index/:type' => 'notifications#index'
+
+  root :to => 'leads#index'
 end
