@@ -353,26 +353,26 @@ SalesExecutive.create([
 ])
 
 Lead.create([
-            {:title => "James Jack", :description => "Root canal patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "Bleaching patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 8, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 9, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "hospital", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 10, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 12, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 12, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 11, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 13, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 14, :leadable_type => "SalesExecutive", :company_id => 2}
+            {:title => "James Jack", :description => "Root canal patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "Bleaching patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "hospital", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 7, :leadable_type => "SalesExecutive", :company_id => 2},
+            {:title => "Patient", :description => "patient", :leadable_id => 8, :leadable_type => "SalesExecutive", :company_id => 2}
 ])
 
 Contact.create([
