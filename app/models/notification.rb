@@ -64,7 +64,7 @@ class Notification < ActiveRecord::Base
   end
 
   def self.old_notifications(company_id)
-    @old_notification = Notification.where(:notification_time => Date.today, :company_id => company_id)
+    @old_notification = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
   end
 
   def self.current_notifications(company_id)
@@ -72,7 +72,7 @@ class Notification < ActiveRecord::Base
   end
 
   def self.future_notifications(company_id)
-    @future_notification = Notification.where(:notification_time => Date.today, :company_id => company_id)
+    @future_notification = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
   end
 
 end
