@@ -8,6 +8,7 @@ one:
   amount_paid: 15
   subscription_start: 2013-04-24
   subscription_ends: 2013-04-24
+  customer_type: B2C
 
 two:
   first_name: MyString
@@ -17,3 +18,4 @@ two:
   amount_paid: 15
   subscription_start: 2013-04-24
   subscription_ends: 2013-04-24
+  customer_type: B2B

@@ -2,8 +2,6 @@ one:
   id: 1
   title: MyString
   starts_at: 2013-04-03 11:48:32
-  ends_at: 2013-04-03 11:48:32
-  all_day: true
   description: Event
   user_id: 1
   company_id: 1
@@ -12,8 +10,6 @@ two:
   id: 2
   title: MyString
   starts_at: 2013-04-11 11:48:32
-  ends_at: 2013-05-13 11:48:32
-  all_day: true
   description: Event
   user_id: 1
   company_id: 1
