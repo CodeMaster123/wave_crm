@@ -5178,6 +5178,14 @@ div.new-top {
     float: right;
     margin-right: 70%;
 }
+
+div.notification-btn{
+    float: right;
+    margin-top: -40px;
+    margin-bottom: 10px;
+}
+
+
 #ms1 {
     width: 220px;
 }

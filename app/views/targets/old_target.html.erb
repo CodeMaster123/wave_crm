@@ -25,7 +25,31 @@
         <td><%= target.targetable_type %></td>
         <td><%= target.amount %> Rs</td>
         <td><%= target.achived %> Rs</td>
-        <td><%= target.target_month %></td>
+        <% if target.target_month == 1 %>
+            <th>January</th>
+        <% elsif target.target_month == 2 %>
+            <th>February</th>
+        <% elsif target.target_month == 3 %>
+            <th>March</th>
+        <% elsif target.target_month == 4 %>
+            <th>April</th>
+        <% elsif target.target_month == 5 %>
+            <th>May</th>
+        <% elsif target.target_month == 6 %>
+            <th>June</th>
+        <% elsif target.target_month == 7 %>
+            <th>July</th>
+        <% elsif target.target_month == 8 %>
+            <th>August</th>
+        <% elsif target.target_month == 9 %>
+            <th>September</th>
+        <% elsif target.target_month == 10 %>
+            <th>October</th>
+        <% elsif target.target_month == 11 %>
+            <th>November</th>
+        <% elsif target.target_month == 12 %>
+            <th>December</th>
+        <% end %>
         <td><%= target.target_year %></td>
       </tr>
   <% end %>

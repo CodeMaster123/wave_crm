@@ -6,12 +6,17 @@
 <div class="control-group">
   <div class="controls">
     Search: <%= text_field_tag :title,"", :class => 'search-c' %>
+
     <div class="new-top">
-      <%= link_to "New", new_notification_path, :class => 'btn btn-primary' %>
+    <%= link_to "New", new_notification_path, :class => 'btn btn-primary' %>
+    </div>
+    <div class="notification-btn">
+      <%= link_to "Old Notification", {:controller=>"notifications", :action=>"index", :type=>"old"}, :class => 'btn btn-primary' %>
+      <%= link_to "Current Notification", {:controller=>"notifications", :action=>"index", :type=>"current"}, :class => 'btn btn-primary' %>
+      <%= link_to "Future Notification", {:controller=>"notifications", :action=>"index", :type=>"future"}, :class => 'btn btn-primary' %>
     </div>
   </div>
 </div>
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -26,7 +31,8 @@
   </thead>
   <tbody id="search-data">
   <% render :partial => 'shared/i_calculation' %>
-    <% @notifications.each do |notification| %>
+  <% unless @notifications.nil? %>
+  <% @notifications.each do |notification| %>
       <tr>
         <td><%= link_to @i = @i+1, notification_path(notification) %></td>
         <td><%= notification.sms_sent %></td>
@@ -42,9 +48,11 @@
 <% end %>
       </tbody>
   </table>
-  <div class="flickr_pagination">
+    <div class="flickr_pagination">
       <div class="page_info">
-          <%= page_entries_info @notifications %>
+        <%= page_entries_info @notifications %>
       </div>
       <%= will_paginate @notifications, :container => false %>
-  </div>
+    </div>
+
+<% end %>

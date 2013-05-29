@@ -13,10 +13,14 @@ class NotificationsController < ApplicationController
     # GET /notifications
     # GET /notifications.json
     def index
-        @company = Company.where(:id => current_user.company_id).first
-        #@notifications = Notification.all
         if current_user.account_type == 1
-            @notifications = @company.notifications.paginate(:page => params[:page], :per_page => 15)
+          if params[:type] == "old"
+            @notifications = Notification.old_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
+          elsif params[:type] == "current"
+              @notifications = Notification.current_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
+          elsif params[:type] == "future"
+            @notifications = Notification.future_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
+          end
         end
 
         respond_to do |format|
@@ -150,4 +154,6 @@ class NotificationsController < ApplicationController
             redirect_to :notifications, notice: 'Notifications created for all contacts.'
         end
     end
+
+
 end

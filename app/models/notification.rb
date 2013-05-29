@@ -62,4 +62,17 @@ class Notification < ActiveRecord::Base
               :url => Rails.application.routes.url_helpers.notification_path(id)
       }
   end
+
+  def self.old_notifications(company_id)
+    @old_notification = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
+  end
+
+  def self.current_notifications(company_id)
+    @current_notification = Notification.where(:notification_time => Date.today..Date.today+30.days, :company_id => company_id)
+  end
+
+  def self.future_notifications(company_id)
+    @future_notification = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
+  end
+
 end

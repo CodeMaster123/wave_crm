@@ -13,6 +13,6 @@ class Product < ActiveRecord::Base
   validates :description, :presence => true
   validates :max_cost, :presence => true, :numericality => true
   validates :min_cost, :presence => true, :numericality => true
-  validates :name, :presence => true, :uniqueness => true
+  validates :name, :presence => true
 
 end
