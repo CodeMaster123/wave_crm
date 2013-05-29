@@ -157,7 +157,7 @@
         <li class="dropdown-submenu">
         <a href="#" data-toggle="dropdown" class='dropdown-toggle'> <span>Notifications</span> </a>
         <ul class="dropdown-menu d3">
-            <li> <%= link_to "Notification's list", :notifications %> </li>
+            <li> <%= link_to "Notification's list", {:controller=>"notifications", :action=>"index", :type=>"current"} %> </li>
             <li> <%= link_to "Add new notifications", :new_notification %> </li>
             <li> <%= link_to "Notifications to all", :notifications_to_all %> </li>
         </ul>
@@ -176,7 +176,7 @@
         <li class="dropdown-submenu">
         <a href="#" data-toggle="dropdown" class='dropdown-toggle'> <span>Notifications</span> </a>
         <ul class="dropdown-menu d3">
-            <li> <%= link_to "Notification's list", :notifications %> </li>
+            <li> <%= link_to "Notification's list", {:controller=>"notifications", :action=>"index", :type=>"current"} %> </li>
             <li> <%= link_to "Add new notifications", :new_notification %> </li>
             <li> <%= link_to "Notifications to all", :notifications_to_all %> </li>
         </ul>
