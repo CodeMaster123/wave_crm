@@ -19,3 +19,13 @@ two:
   email: vijay@gmail.com
   account_type: 2
   company_id: 1
+
+superadmin:
+  id: 3
+  first_name: "vivek"
+  last_name: "varade"
+  address: "vrindavan nagar"
+  mobile_no: 9503444444
+  email: super.admin@gmail.com
+  account_type: 4
+  company_id: 1
