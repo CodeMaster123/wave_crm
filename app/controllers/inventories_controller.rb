@@ -14,6 +14,8 @@ class InventoriesController < ApplicationController
   # GET /inventories/1.json
   def show
     @inventory = Inventory.find(params[:id])
+    @inventory_additions = @inventory.inventory_additions
+    @inventory_removal = @inventory.product.product_transactions
 
     respond_to do |format|
       format.html # show.html.erb
