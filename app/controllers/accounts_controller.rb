@@ -2,7 +2,8 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+
+    @accounts = current_user.company.accounts.where(:is_matured => true)
 
     respond_to do |format|
       format.html # index.html.erb

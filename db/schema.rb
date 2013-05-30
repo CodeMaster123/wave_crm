@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530124604) do
+ActiveRecord::Schema.define(:version => 20130530132515) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130530124604) do
     t.integer  "company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_matured"
   end
 
   create_table "call_logs", :force => true do |t|
