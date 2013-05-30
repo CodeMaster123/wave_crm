@@ -27,7 +27,6 @@ class Notification < ActiveRecord::Base
   end
 
   def email_send(user_id)
-      puts "In modellllllllllllllll"
       @user_email_id = User.find(user_id).email
       @contact_id = self.id
 

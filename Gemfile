@@ -1,4 +1,4 @@
-source 'https://github.com'
+source 'https://www.github.com'
 
 gem 'rails', '3.2.13'
 gem 'mysql2', '0.3.12b4'

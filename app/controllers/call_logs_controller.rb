@@ -42,6 +42,11 @@ class CallLogsController < ApplicationController
     # POST /call_logs
     # POST /call_logs.json
     def create
+        puts "params===================> #{params}"
+        #aparams = Hash.new
+        #aparams = {:utf8 => params[:utf8], :authenticity_token => params[:authenticity_token], :commit => "Create Call log", :call_duration_minutes => params[:call_duration_minutes], :call_dration_seconds => params[:call_duration_seconds], :call_log => {:subject => params[:subject], :call_start_time => params[:call_start_time], :call_duration => 30, :call_purpose => params[:call_purpose]}}
+        #params = aparams
+        #puts "subject ====> #{params}"
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.new(params[:call_log])
         @call_log.call_duration = params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i
@@ -84,5 +89,17 @@ class CallLogsController < ApplicationController
             format.html { redirect_to call_logs_url }
             format.json { head :no_content }
         end
+    end
+
+    def create_log
+        puts "aaaaaa================> #{params[:call_duration]}"
+        @call_log =CallLog.new(:call_result =>params[:call_result], :call_type => params[:call_type], :call_purpose => params[:call_purpose], :call_owner_id => params[:call_owner_id].to_i, :call_start_time => params[:call_start_time].to_date)#, :call_duration => :params[:call_duration].to_i)
+        puts @call_log.call_result
+        puts @call_log.call_type
+        puts @call_log.call_purpose
+        puts @call_log.call_owner_id
+        puts @call_log.call_start_time.to_date
+        @call_log.save
+
     end
 end

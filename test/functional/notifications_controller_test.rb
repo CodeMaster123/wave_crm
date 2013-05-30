@@ -12,7 +12,7 @@ class NotificationsControllerTest < ActionController::TestCase
     end
 
     test "should get index" do
-        get :index
+        get :index, type: "future"
         assert_response :success
         assert_not_nil assigns(:notifications)
     end
@@ -22,13 +22,13 @@ class NotificationsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-#    test "should create notification" do
-#        assert_difference('Notification.count') do
-#            post :create, notification: { body: @notification.body, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent }
-#        end
-#
-#        assert_redirected_to notification_path(assigns(:notification))
-#    end
+    test "should create notification" do
+        assert_difference('Notification.count') do
+            post :create, Next_Notification: "", notification: { body: @notification.body, subject: @notification.subject, is_sms: @notification.is_sms, is_email: @notification.is_sms, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent}
+        end
+
+        assert_redirected_to notifications_path
+    end
 
     test "should show notification" do
         get :show, id: @notification

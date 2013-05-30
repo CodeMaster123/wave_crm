@@ -3,6 +3,9 @@ one:
   sms_sent: false
   contact_id: 1
   body: MyString
+  subject: Mail
+  is_sms: true
+  is_email: false
   notification_time: 2013-04-03 11:48:32
   company_id: 1
 
@@ -11,5 +14,8 @@ two:
   sms_sent: false
   contact_id: 2
   body: MyString
+  subject: Demo
+  is_sms: true
+  is_email: false
   notification_time: 2013-04-03 11:48:32
   company_id: 1

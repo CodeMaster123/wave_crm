@@ -29,7 +29,6 @@ class TransactionsControllerTest < ActionController::TestCase
    #     @product_transactions.delete('created_at')
    #     @product_transactions.delete('updated_at')
    #     @product_transactions.delete('transaction_id')
-   #     puts "aaaaaaaaaaa #{@product_transactions}"
    #     assert_difference('Transaction.count') do
    #         post :create, transaction: { amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time, matured_by: @transaction.matured_by, contact_type: 1 , product_transactions_attributes: @product_transactions}
    #     end
