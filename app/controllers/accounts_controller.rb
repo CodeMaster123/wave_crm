@@ -14,6 +14,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
       @account = Account.find(params[:id])
+      @contacts = @account.contacts
       @transactions = Transaction.where(:contact_id => @account.account_owner)
       @transaction_fields = current_user.transaction_fields
 

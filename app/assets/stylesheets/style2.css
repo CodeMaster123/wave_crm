@@ -5265,3 +5265,7 @@ div.notification-btn{
     margin-top: -110px;
     margin-left: 50%;
 }
+
+.show-header {
+    margin-bottom: -15px;
+}

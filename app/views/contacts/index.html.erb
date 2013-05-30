@@ -23,28 +23,28 @@
           </tr>
       </thead>
       <tbody id ="search-data">
-        <% render :partial => 'shared/i_calculation' %>
-        <% @contacts.each do |contact| %>
-          <tr>
-            <td><%= link_to @i = @i+1, contact_path(contact) %></td>
-            <td><%= contact.full_name %></td>
-            <td><%= contact.address %></td>
-            <td><%= contact.mobile_no %></td>
-            <td><%= contact.landline_no %></td>
-            <td>
-                <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>
-                <%= link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(contact), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
-            </td>
-        </tr>
-    <% end %>
-</tbody>
-      </table>
-      <% if current_user.account_type == 1 %>
+          <% render :partial => 'shared/i_calculation' %>
+          <% @contacts.each do |contact| %>
+              <tr>
+                  <td><%= link_to @i = @i+1, contact_path(contact) %></td>
+                  <td><%= contact.full_name %></td>
+                  <td><%= contact.address %></td>
+                  <td><%= contact.mobile_no %></td>
+                  <td><%= contact.landline_no %></td>
+                  <td>
+                      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(contact), :class => 'btn btn-mini' %>
+                      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(contact), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                  </td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table>
+  <% if current_user.account_type == 1 %>
 
-          <div class="flickr_pagination">
-              <div class="page_info">
-                  <%= page_entries_info @contacts %>
-              </div>
-              <%= will_paginate @contacts, :container => false %>
+      <div class="flickr_pagination">
+          <div class="page_info">
+              <%= page_entries_info @contacts %>
           </div>
-      <% end %>
+          <%= will_paginate @contacts, :container => false %>
+      </div>
+  <% end %>
