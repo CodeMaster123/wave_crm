@@ -1,6 +1,6 @@
 <%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
-
-    <div class="control-group leads">
+   <div class="leads">
+    <div class="control-group">
       <%= f.label :executive_type, :class => 'control-label' %>
       <div class="controls">
         <%= f.select :leadable_type, [["Select Lead Owner", ""], ["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'lead_owner' %>
@@ -18,13 +18,16 @@
         <%= f.select :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Sales Executive" }, :class => 'text_field' %>
       </div>
     </div>
+   </div>
 
-   <div class="control-group">
-    <%= f.label :lead_title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
-    </div>
-  </div>
+
+
+
+
+
+
+
+
   <div class="control-group-description">
     <%= f.label :lead_description, :class => 'control-label' %>
     <div class="controls">
