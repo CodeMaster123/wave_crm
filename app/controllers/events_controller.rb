@@ -126,4 +126,10 @@ class EventsController < ApplicationController
             format.json { head :no_content }
         end
     end
+
+    def create_event
+        @event =Event.new(:starts_at =>params[:starts_at], :title => params[:title], :description => params[:description], :user_id => current_user.id, :company_id => current_user.company.id)
+        @event.save
+        #render false
+    end
 end

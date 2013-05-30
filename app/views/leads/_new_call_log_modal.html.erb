@@ -4,7 +4,7 @@
         <h3 id="myModalLabel">Call log</h3>
     </div>
     <div class="modal-body">
-        <%= form_tag '/create_call_logs', :class => 'call-log-form' do |f| %>
+        <%= form_tag '/create_call_logs', :class => 'call-log-form form-horizontal' do |f| %>
             <div class="control-group">
                 <label class = 'control-label'>Subject</label>
                 <div class="controls">
@@ -26,41 +26,37 @@
                 </div>
             </div>
             <div class="control-group">
-                <%= label_tag :call_purpose %>
+                <label class ='control-label'>Call purpose</label>
                 <div class="controls">
                     <%= select_tag :call_purpose, options_for_select(["Administrative", "Prospective", "Demo", "Negotiation", "Support"]) ,:class => 'text_field' %>
                 </div>
             </div>
             <div class="control-group">
-                <%= label_tag :call_owner_id %>
+                <label class ='control-label'>Call owner</label>
                 <div class="controls">
                     <%= select_tag :call_owner_id, options_for_select(@call_owner.map{|c|[c.user.full_name, c.id]}), :class => 'number_field' %>
                 </div>
             </div>
 
             <div class="control-group">
-                <%= label_tag :call_start_time %>
+                <label class ='control-label'>Call start time</label>
                 <div class="controls">
                     <%= text_field_tag :call_start_time,'', :class => 'datetime_select' %>
                 </div>
             </div>
 
             <div class="control-group">
-                <%= label_tag :call_duration %>
+                <label class ='control-label'>Call duration</label>
                 <div class="controls">
-                    <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Minutes
+                    <%= text_field_tag :call_duration,'', {:class => 'number_field', :width => 2, :size => 2} %> :Minutes
                     <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Seconds
                 </div>
             </div>
+        </div>
 
 
-            <div class="form-actions">
-                <%= submit_tag nil, :class => 'btn btn-primary' %>
-            </div>
-        <% end %>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
+        <div class="modal-footer">
+            <%= submit_tag nil, :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
 </div>
