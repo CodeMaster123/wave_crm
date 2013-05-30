@@ -5202,13 +5202,6 @@ div.notification-btn{
     padding: 2px;
 }
 
-
-
-
-.contact_form{
-    background-color: #CCE6FF;
-}
-
 .lead{
     background-color:  #CCE6FF;
 }
@@ -5230,4 +5223,33 @@ div.notification-btn{
 .contact-accounts {
     margin-top: -110px;
     margin-left: 50%;
+}
+
+/* ---------------------------------- lead_form css --------------------------------------- */
+
+.lead_header{
+    opacity: 0.6;
+}
+
+.product_header{
+    opacity: 0.6;
+}
+
+.description_header{
+    opacity: 0.6;
+}
+
+.control-group-middle_name{
+    float: right;
+    margin-top: -50px;
+}
+
+.control-group-email{
+    float: right;
+    margin-top: -50px;
+}
+
+.control-group-phone_number{
+    float: right;
+    margin-top: -50px;
 }
