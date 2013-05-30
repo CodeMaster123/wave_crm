@@ -1,5 +1,5 @@
 class InventoryAddition < ActiveRecord::Base
-    attr_accessible :addition_date, :product_id, :quantity
+    attr_accessible :addition_date, :product_id, :quantity, :company_id
 
     belongs_to :product
 

@@ -341,6 +341,63 @@ Account.create([
 {:account_owner => 37, :account_name => "MediaTech pvt ltd", :number_of_employees => 900, :phone_number => 2458745, :website => "www.mediaTech.com", :ownership_type => "Public", :billing_address => "CBS, Nasik", :shipping_address => "Sinnar, Nasik", :company_id => 1}
 ])
 
+Inventory.create([
+                  { :product_id => 1, :quantity => 10, :company_id => 1},
+                  { :product_id => 2, :quantity => 25, :company_id => 1},
+                  { :product_id => 3, :quantity => 65, :company_id => 1},
+                  { :product_id => 4, :quantity => 35, :company_id => 1},
+                  { :product_id => 5, :quantity => 67, :company_id => 1},
+])
+
+InventoryAddition.create([
+                         {:product_id => 1, :addition_date => "2013-02-20 01:17:00 UTC", :quantity => 20, :company_id => 1},
+                         {:product_id => 2, :addition_date => "2013-05-21 02:17:00 UTC", :quantity => 25, :company_id => 1},
+                         {:product_id => 3, :addition_date => "2013-05-22 05:17:00 UTC", :quantity => 42, :company_id => 1},
+                         {:product_id => 4, :addition_date => "2013-05-22 10:17:00 UTC", :quantity => 52, :company_id => 1},
+                         {:product_id => 5, :addition_date => "2013-05-23 12:17:00 UTC", :quantity => 63, :company_id => 1},
+                         {:product_id => 2, :addition_date => "2013-05-23 07:17:00 UTC", :quantity => 12, :company_id => 1},
+                         {:product_id => 5, :addition_date => "2013-05-24 03:17:00 UTC", :quantity => 32, :company_id => 1},
+                         {:product_id => 3, :addition_date => "2013-05-25 02:17:00 UTC", :quantity => 62, :company_id => 1},
+                         {:product_id => 2, :addition_date => "2013-05-26 04:17:00 UTC", :quantity => 42, :company_id => 1},
+                         {:product_id => 3, :addition_date => "2013-05-27 06:17:00 UTC", :quantity => 32, :company_id => 1},
+                         {:product_id => 5, :addition_date => "2013-05-27 06:17:00 UTC", :quantity => 25, :company_id => 1},
+                         {:product_id => 5, :addition_date => "2013-05-27 06:17:00 UTC", :quantity => 44, :company_id => 1},
+                         {:product_id => 5, :addition_date => "2013-05-27 06:17:00 UTC", :quantity => 63, :company_id => 1},
+                         {:product_id => 2, :addition_date => "2013-05-28 06:17:00 UTC", :quantity => 12, :company_id => 1},
+                         {:product_id => 1, :addition_date => "2013-05-28 06:17:00 UTC", :quantity => 45, :company_id => 1},
+                         {:product_id => 1, :addition_date => "2013-05-28 06:17:00 UTC", :quantity => 52, :company_id => 1},
+                         {:product_id => 3, :addition_date => "2013-05-28 06:17:00 UTC", :quantity => 85, :company_id => 1},
+                         {:product_id => 4, :addition_date => "2013-05-29 06:17:00 UTC", :quantity => 96, :company_id => 1},
+                         {:product_id => 4, :addition_date => "2013-05-29 06:17:00 UTC", :quantity => 67, :company_id => 1},
+                         {:product_id => 5, :addition_date => "2013-05-29 06:17:00 UTC", :quantity => 54, :company_id => 1},
+                         {:product_id => 4, :addition_date => "2013-05-30 06:17:00 UTC", :quantity => 34, :company_id => 1},
+                         {:product_id => 4, :addition_date => "2013-05-30 06:17:00 UTC", :quantity => 23, :company_id => 1},
+                         {:product_id => 3, :addition_date => "2013-05-30 06:17:00 UTC", :quantity => 98, :company_id => 1}
+])
+
+CallLog.create([
+               {:call_result => "Confirm After Second Call", :subject => "Call for Marketing", :call_type => "Outbound", :call_purpose => "Administrative", :call_start_time => "2013-05-20 01:17:00 UTC", :call_duration => 256, :call_owner_id => 2, :lead_id => 1},
+               {:call_result => "Requirement for web Site", :subject => "Call for Marketing", :call_type => "Inbound", :call_purpose => "Administrative", :call_start_time => "2013-05-21 02:20:00 UTC", :call_duration => 285, :call_owner_id => 3, :lead_id => 2},
+               {:call_result => "Requirement for offline application", :subject => "Call for Marketing", :call_type => "Outbound", :call_purpose => "Administrative", :call_start_time => "2013-05-21 03:17:00 UTC", :call_duration => 500, :call_owner_id => 4, :lead_id => 3},
+               {:call_result => "Requirement for web Application", :subject => "Call for Marketing", :call_type => "Inbound", :call_purpose => "Administrative", :call_start_time => "2013-05-21 01:17:00 UTC", :call_duration => 245, :call_owner_id => 4, :lead_id => 4},
+               {:call_result => "Second meeting final", :subject => "about second meeting", :call_type => "Outbound", :call_purpose => "Prospective", :call_start_time => "2013-05-25 02:17:00 UTC", :call_duration => 120, :call_owner_id => 2, :lead_id => 1},
+               {:call_result => "require demo", :subject => "about demo meeting", :call_type => "Outbound", :call_purpose => "Prospective", :call_start_time => "2013-05-25 03:17:00 UTC", :call_duration => 365, :call_owner_id => 3, :lead_id => 2},
+               {:call_result => "Final after second call", :subject => "about second meeting", :call_type => "Inbound", :call_purpose => "Prospective", :call_start_time => "2013-05-26 04:17:00 UTC", :call_duration => 845, :call_owner_id => 4, :lead_id => 3},
+               {:call_result => "agree to demo", :subject => "about second meeting", :call_type => "Outbound", :call_purpose => "Prospective", :call_start_time => "2013-05-26 05:17:00 UTC", :call_duration => 652, :call_owner_id => 4, :lead_id => 4},
+               {:call_result => "Meeting for demo date final", :subject => "about demo meeting", :call_type => "Outbound", :call_purpose => "Demo", :call_start_time => "2013-05-27 01:17:00 UTC", :call_duration => 325, :call_owner_id => 2, :lead_id => 1},
+               {:call_result => "Agree for demo", :subject => "about demo meeting", :call_type => "Inbound", :call_purpose => "Demo", :call_start_time => "2013-05-27 02:17:00 UTC", :call_duration => 635, :call_owner_id => 3, :lead_id => 2},
+               {:call_result => "demo date confirm", :subject => "about demo meeting", :call_type => "Outbound", :call_purpose => "Demo", :call_start_time => "2013-05-27 03:17:00 UTC", :call_duration => 452, :call_owner_id => 4, :lead_id => 3},
+               {:call_result => "he is agree and final after demo", :subject => "about demo meeting", :call_type => "Inbound", :call_purpose => "Demo", :call_start_time => "2013-05-27 04:17:00 UTC", :call_duration => 675, :call_owner_id => 4, :lead_id => 4},
+               {:call_result => "negotiate for payment installment", :subject => "payment negotiation", :call_type => "Outbound", :call_purpose => "Negotiation", :call_start_time => "2013-05-29 01:17:00 UTC", :call_duration => 456, :call_owner_id => 2, :lead_id => 1},
+               {:call_result => "negotiate for payment amount", :subject => "payment negotiation", :call_type => "Inbound", :call_purpose => "Negotiation", :call_start_time => "2013-05-29 02:17:00 UTC", :call_duration => 344, :call_owner_id => 3, :lead_id => 2},
+               {:call_result => "negotiate for cost of product", :subject => "payment negotiation", :call_type => "Outbound", :call_purpose => "Negotiation", :call_start_time => "2013-05-29 03:17:00 UTC", :call_duration => 333, :call_owner_id => 4, :lead_id => 3},
+               {:call_result => "final after negotiation", :subject => "payment negotiation", :call_type => "Inbound", :call_purpose => "Negotiation", :call_start_time => "2013-05-29 04:17:00 UTC", :call_duration => 545, :call_owner_id => 4, :lead_id => 4},
+               {:call_result => "delivery time of product final", :subject => "about delivery time", :call_type => "Outbound", :call_purpose => "Support", :call_start_time => "2013-05-30 01:17:00 UTC", :call_duration => 645, :call_owner_id => 2, :lead_id => 1},
+               {:call_result => "deliver in next 2 hour", :subject => "about delivery time", :call_type => "Inbound", :call_purpose => "Support", :call_start_time => "2013-05-30 02:17:00 UTC", :call_duration => 543, :call_owner_id => 3, :lead_id => 2},
+               {:call_result => "delivery meeting final at 2pm today", :subject => "about delivery time", :call_type => "Outbound", :call_purpose => "Support", :call_start_time => "2013-05-30 03:17:00 UTC", :call_duration => 243, :call_owner_id => 4, :lead_id => 3},
+               {:call_result => "delivery meeting final at 2pm next monday", :subject => "about delivery time", :call_type => "Outbound", :call_purpose => "Support", :call_start_time => "2013-05-30 04:17:00 UTC", :call_duration => 467, :call_owner_id => 4, :lead_id => 4}
+])
+
 #################################################################
 ################# American Dental Clinic #######################
 #################################################################
