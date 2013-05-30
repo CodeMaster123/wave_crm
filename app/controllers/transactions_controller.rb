@@ -169,7 +169,6 @@ class TransactionsController < ApplicationController
             @day = 0
             (1..30).each do
                 @day = @day+1
-                puts @days[@day] = @day
             end
 
             @vivek = ['vivek','varade']

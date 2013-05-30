@@ -72,7 +72,6 @@
 
 <% unless params[:team_leader].nil? %>
     <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
-    <% puts @team_leader.id %>
     <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
     <table class="table table-striped">
         <thead>

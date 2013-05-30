@@ -58,8 +58,6 @@ class NotificationsController < ApplicationController
         @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.find(params[:id])
         @contacts = @company.contacts.all
-        puts "vivek"
-        puts @contacts.first.full_name
     end
 
     # POST /notifications

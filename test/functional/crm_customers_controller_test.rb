@@ -24,8 +24,6 @@ class CrmCustomersControllerTest < ActionController::TestCase
     end
 
     test "should create crm_customer" do
-        puts 'vivekkkkkkkkkk'
-        puts @user.account_type
         assert_difference('CrmCustomer.count') do
             post :create, crm_customer: { address: @crm_customer.address, amount_paid: @crm_customer.amount_paid, first_name: @crm_customer.first_name, last_name: @crm_customer.last_name, middle_name: @crm_customer.middle_name, subscription_ends: @crm_customer.subscription_ends, subscription_start: @crm_customer.subscription_start }
         end

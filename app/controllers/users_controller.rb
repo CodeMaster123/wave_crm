@@ -58,10 +58,8 @@ class UsersController < ApplicationController
         if @user.save
             if params[:user][:account_type].to_i == 2
                 TeamLeader.create(:user_id => @user.id, :company_id => current_user.company.id)
-                puts "---------------------------------------------#{User.last.id.to_i + 1}"
             elsif params[:user][:account_type].to_i == 3
                 SalesExecutive.create(:user_id => User.last.id.to_i + 1, :team_leader_id => params[:user][:team_leader].to_i, :company_id => current_user.company.id)
-                puts "---------------------------------------------#{User.last.id.to_i + 1}"
             end
             format.html { redirect_to :users, notice: 'User was successfully created.' }
             format.json { render json: @user, status: :created, location: @user }
