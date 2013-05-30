@@ -1,6 +1,8 @@
 <%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
-   <div class="leads">
-    <div class="control-group">
+
+
+    <div class="leads">
+    <div class="control-group leads">
       <%= f.label :executive_type, :class => 'control-label' %>
       <div class="controls">
         <%= f.select :leadable_type, [["Select Lead Owner", ""], ["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'lead_owner' %>
@@ -28,7 +30,7 @@
 
 
 
-  <div class="control-group-description">
+  <div class="control-group">
     <%= f.label :lead_description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :description, :class => 'text_field' %>
@@ -36,25 +38,25 @@
   </div>
 
  <%= f.fields_for :leads_products do |leads_products| %>
-       <div class="control-group-lead-product">
+       <div class="control-group">
           <%= leads_products.label :product_name, :class => 'control-label' %>
           <div class="controls">
             <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
-            <%= leads_products.link_to_remove "Remove this product", :class => 'remove' %>
+            <%= leads_products.link_to_remove "Remove this product" %>
           </div>
         </div>
        <% end %>
-    <%= f.link_to_add "Add a product", :leads_products, :class => 'add' %>
+    <%= f.link_to_add "Add a product", :leads_products %>
 
 
     <%= f.fields_for :follow_ups do |follow_up| %>
-        <div class="control-group-lead-follow_up">
+        <div class="control-group">
           <%= follow_up.label :follow_up_description, :class => 'control-label' %>
           <div class="controls">
             <%= follow_up.text_field :description, :class => 'text_field' %>
           </div>
         </div>
-        <div class="control-group-follow-up-time">
+        <div class="control-group">
           <%= follow_up.label :follow_up_time, :class => 'control-label' %>
           <div class="controls">
             <%= follow_up.text_field :follow_up_time, :class => 'datetime_select' %>
@@ -65,7 +67,7 @@
 
  <%= f.fields_for :contacts do |contact| %>
         <div class="contact_form">
-        <div class="control-group-first_name">
+        <div class="control-group">
           <%= contact.label :first_name, :class => 'control-label' %>
           <div class="controls">
             <%= contact.text_field :first_name, :class => 'text_field' %>
@@ -96,17 +98,17 @@
                 <%= contact.text_field :mobile_no, :class => 'text_field' %>
             </div>
         </div>
-        <div class="control-group-landline_no">
+        <div class="control-group">
             <%= contact.label :phone_number, :class => 'control-label' %>
             <div class="controls">
              <%= contact.text_field :landline_no, :class => 'text_field' %>
-             <%= contact.link_to_remove "Remove this contact", :class => 'remove'%>
+             <%= contact.link_to_remove "Remove this contact"%>
              </div>
         </div>
         </div>
         <%= contact.hidden_field :company_id, :value => current_user.company_id %>
        <% end %>
-    <%= f.link_to_add "Add a contact", :contacts, :class => 'add'%>
+    <%= f.link_to_add "Add a contact", :contacts%>
  <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

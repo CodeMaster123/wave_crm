@@ -5201,42 +5201,8 @@ div.notification-btn{
     padding: 2px;
 }
 
-.remove{
-    margin-left: 35px;
-}
 
-.add{
-   margin-left: 600px;
-}
 
-.control-group-lead-follow_up{
-   margin-top: 30px;
-   margin-bottom: 20px;
-
-}
-
-.control-group-lead-product{
-    margin-top: 25px;
-    margin-bottom: -26px;
-    padding-top: 23px;
-
-}
-.control-group-description{
-    margin-bottom: -25px;
-}
-
-.control-group-landline_no{
-    margin-bottom: -26px;
-}
-
-.control-group-first_name{
-    margin-top: 45px;
-    margin-bottom: 20px;
-}
-
-.control-group-follow-up-time{
-    margin-bottom: -25px;
-}
 
 .contact_form{
     background-color: #CCE6FF;
