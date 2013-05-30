@@ -1,9 +1,10 @@
 class Contact < ActiveRecord::Base
 
-  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id, :gmaps, :email_id, :contact_relationship
+  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id, :gmaps, :email_id, :contact_relationship, :account_id
 
   belongs_to :lead
   belongs_to :contactable, :polymorphic => true
+  belongs_to :account
   has_many :notifications
 
   has_many :taggings
@@ -49,6 +50,14 @@ class Contact < ActiveRecord::Base
 
   def first_last_name
       "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def self.clients
+      Contact.where(:contact_relationship => "client")
+  end
+
+  def self.potential_customer
+      Contact.where(:contact_relationship => "potential_customer")
   end
 
   private
