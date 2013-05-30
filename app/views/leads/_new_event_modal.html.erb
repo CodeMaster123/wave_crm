@@ -4,7 +4,7 @@
         <h3 id="myModalLabel">New Event</h3>
     </div>
     <div class="modal-body">
-        <%= form_tag '/notifications/new', :class => 'event-form form-horizontal' do |f| %>
+        <%= form_tag '/create_events', :class => 'event-form form-horizontal' do |f| %>
             <div class="control-group">
                 <label class="control-label"> Title</label>
                 <div class="controls">
@@ -23,12 +23,10 @@
                     <%= text_area_tag :description,'', :rows => "4", :class => 'text_area' %>
                 </div>
             </div>
+        </div>
+        <div class="modal-footer">
             <%= submit_tag 'submit', :class => 'btn btn-primary' %>
-        <% end %>
-    </div>
-
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+    <% end %>
 </div>

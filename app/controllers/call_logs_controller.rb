@@ -92,14 +92,7 @@ class CallLogsController < ApplicationController
     end
 
     def create_log
-        puts "aaaaaa================> #{params[:call_duration]}"
         @call_log =CallLog.new(:call_result =>params[:call_result], :call_type => params[:call_type], :call_purpose => params[:call_purpose], :call_owner_id => params[:call_owner_id].to_i, :call_start_time => params[:call_start_time].to_date)#, :call_duration => :params[:call_duration].to_i)
-        puts @call_log.call_result
-        puts @call_log.call_type
-        puts @call_log.call_purpose
-        puts @call_log.call_owner_id
-        puts @call_log.call_start_time.to_date
         @call_log.save
-
     end
 end
