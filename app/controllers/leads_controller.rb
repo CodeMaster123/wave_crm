@@ -103,6 +103,7 @@ class LeadsController < ApplicationController
       end
       @products = @company.products.all
       @lead.company_id = @company.id
+
       respond_to do |format|
           if @lead.save
               #@follow_up = FollowUp.create(:lead_id = @lead.id,
