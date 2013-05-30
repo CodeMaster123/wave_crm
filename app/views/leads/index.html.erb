@@ -18,7 +18,7 @@
         <thead>
             <tr>
                 <th>Sr.No</th>
-                <th>Title</th>
+
                 <th>Description</th>
                 <th>Lead owner</th>
                 <th>Executive type</th>
@@ -32,7 +32,7 @@
                 <% if lead.matured_at.nil? %>
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-                        <td><%= lead.title %></td>
+
                         <td><%= lead.description %></td>
                         <% unless lead.leadable_id.nil? %>
                             <td><%= lead.lead_by %></td>
@@ -77,7 +77,7 @@
         <thead>
             <tr>
                 <th>Sr.No</th>
-                <th>Title</th>
+
                 <th>Description</th>
                 <th>Follow up time</th>
                 <th>Actions</th>
@@ -88,7 +88,7 @@
             <% @team_leader.leads.each do |lead| %>
                 <tr>
                     <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-                    <td><%= lead.title %></td>
+
                     <td><%= lead.description %></td>
 
                     <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
@@ -115,7 +115,7 @@
             <thead>
                 <tr>
                     <th>Sr.No</th>
-                    <th>Title</th>
+
                     <th>Description</th>
                     <th>Follow up time</th>
                     <th>Actions</th>
@@ -126,7 +126,7 @@
                 <% executive.leads.each do |lead| %>
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-                        <td><%= lead.title %></td>
+
                         <td><%= lead.description %></td>
 
                         <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>

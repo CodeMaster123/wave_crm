@@ -2,7 +2,7 @@
     <div class="target" >
      <%= f.select :targetable_type, [["Select Executive", ""], ["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'user_type'  %>
 
-    <div class=" hide team_leaders">
+     <div class=" hide team_leaders">
            <%= f.select :targetable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Team Leader" }, :class => 'text_field' %>
      </div>
      <div class=" hide sales_executives">

@@ -91,6 +91,8 @@ class LeadsController < ApplicationController
 
   def create
       @company = Company.where(:id => current_user.company_id).first
+      @team_leaders = @company.team_leaders.all
+      @sales_executives = @company.sales_executives.all
       @lead = @company.leads.new(params[:lead])
       if User.find(current_user.id).account_type == 2
           @lead.leadable_id = TeamLeader.where(:user_id => current_user.id).first.id
@@ -101,6 +103,7 @@ class LeadsController < ApplicationController
       end
       @products = @company.products.all
       @lead.company_id = @company.id
+
       respond_to do |format|
           if @lead.save
               #@follow_up = FollowUp.create(:lead_id = @lead.id,
@@ -117,6 +120,8 @@ class LeadsController < ApplicationController
   # PUT /leads/1.json
   def update
       @company = Company.where(:id => current_user.company_id).first
+      @team_leaders = @company.team_leaders.all
+      @sales_executives = @company.sales_executives.all
       @lead = @company.leads.find(params[:id])
 
       respond_to do |format|

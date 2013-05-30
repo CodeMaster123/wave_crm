@@ -2,7 +2,7 @@
 <% @leads.each do |lead| %>
     <tr>
         <td><%= @i = @i+1 %></td>
-        <td><%= lead.title %></td>
+
         <td><%= lead.description %></td>
         <td><%= lead.leadable_id %></td>
         <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
