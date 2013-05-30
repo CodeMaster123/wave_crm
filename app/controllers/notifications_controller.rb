@@ -58,6 +58,8 @@ class NotificationsController < ApplicationController
         @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.find(params[:id])
         @contacts = @company.contacts.all
+        puts "vivek"
+        puts @contacts.first.full_name
     end
 
     # POST /notifications
@@ -65,11 +67,14 @@ class NotificationsController < ApplicationController
     def create
         @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.new(params[:notification])
+        @contacts = @company.contacts.all
+
+        unless params[:Next_Notification].empty?
         @notification2 = @company.notifications.new(params[:notification])
         @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
         @notification.company_id = @company.id
         @notification2.company_id = @company.id
-
+        end
 
         respond_to do |format|
             if @notification.save
@@ -98,6 +103,7 @@ class NotificationsController < ApplicationController
     def update
         @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.find(params[:id])
+        @contacts = @company.contacts.all
 
         respond_to do |format|
             if @notification.update_attributes(params[:notification])
