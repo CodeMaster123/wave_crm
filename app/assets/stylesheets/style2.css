@@ -5169,9 +5169,11 @@ body.error .wrapper .input-append .btn:hover {
 }
 .d3 {
     border-top: 2px solid #368ee0 !important;
+    border-radius: 0 !important;
 }
 .d3-active {
     border-top: 2px solid #368ee0 !important;
+    border-radius: 0 !important;
     margin-left: 162px !important;
 }
 .custom-new-button {
