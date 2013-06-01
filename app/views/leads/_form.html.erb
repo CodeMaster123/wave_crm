@@ -2,6 +2,7 @@
 
   <h4 class="lead_header show-header">Lead Information</h4>
   <hr>
+  <% if current_user.account_type == 1 %>
   <div class="leads">
     <div class="control-group">
       <%= f.label :executive_type, :class => 'control-label' %>
@@ -91,7 +92,77 @@
         <%= f.text_field :description, :class => 'text_field' %>
       </div>
     </div>
+    <% else  %>
+        <%= f.fields_for :contacts do |contact| %>
+            <div class="control-group">
+              <%= contact.label :first_name, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.text_field :first_name, :class => 'text_field' %>
+              </div>
+            </div>
 
+            <div class="control-group-middle_name">
+              <%= contact.label :middle_name, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.text_field :middle_name, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= contact.label :last_name, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.text_field :last_name, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group-email">
+              <%= contact.label :email, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.email_field :email_id, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= contact.label :mobile_number, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.text_field :mobile_no, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group-phone_number">
+              <%= contact.label :phone_number, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.text_field :landline_no, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= contact.label :address, :class => 'control-label' %>
+              <div class="controls">
+                <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
+              </div>
+            </div>
+            <%= contact.hidden_field :company_id, :value => current_user.company_id %>
+            <%= contact.hidden_field :contact_relationship, :value => "potential_customer" %>
+        <% end %>
+
+        <h4 class="product_header show-header">Product Details</h4>
+        <hr>
+        <%= f.fields_for :leads_products do |leads_products| %>
+            <div class="control-group">
+              <%= leads_products.label :product_name, :class => 'control-label' %>
+              <div class="controls">
+                <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+                <%= leads_products.link_to_remove "Remove this product" %>
+              </div>
+            </div>
+        <% end %>
+        <%= f.link_to_add "Add a product", :leads_products, :class => 'add'%>
+
+        <h4 class="description_header show-header">Description</h4>
+        <hr>
+        <div class="control-group">
+          <%= f.label :lead_description, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :description, :class => 'text_field' %>
+          </div>
+        </div>
+    <% end %>
     <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
