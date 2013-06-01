@@ -44,8 +44,9 @@
         <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_contact_path(@contact), :class => 'btn' %>
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")), contact_path(@contact), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger' %>
     </div>
-    </div>
+</div>
 
+<% if current_user.company.crm_customer == "B2C" %>
     <% if @contact.contact_relationship == "client" %>
         <h2>Previous Transactions </h2>
 
@@ -79,3 +80,4 @@
             </tbody>
         </table>
     <% end %>
+<% end %>
