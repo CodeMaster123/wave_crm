@@ -64,13 +64,11 @@
           <%= contact.label :address, :class => 'control-label' %>
           <div class="controls">
             <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
-            <%= contact.link_to_remove "Remove this contact", :class => 'remove'%>
           </div>
         </div>
         <%= contact.hidden_field :company_id, :value => current_user.company_id %>
         <%= contact.hidden_field :contact_relationship, :value => "potential_customer" %>
     <% end %>
-    <%= f.link_to_add "Add a contact", :contacts, :class => 'add'%>
 
     <h4 class="product_header show-header">Product Details</h4>
     <hr>
