@@ -20,6 +20,7 @@ authorization do
 
     role :admin do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
         has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :mature, :graph, :invoice]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]

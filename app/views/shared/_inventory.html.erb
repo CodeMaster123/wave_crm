@@ -1,34 +1,12 @@
 <% permitted_to? :index, :transactions do %>
     <% if controller_name == "inventories" || controller_name == "inventory_additions" %>
         <li class="active">
-        <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
-            <span>Inventory</span>
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            <li>
             <%= link_to "Inventory", :inventories %>
-            </li>
-            <li>
-            <%= link_to "Add inventory", :inventory_additions %>
-            </li>
-        </ul>
         </li>
     <% else %>
         <li>
-        <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
-            <span>Inventory</span>
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            <li>
             <%= link_to "Inventory", :inventories %>
             </li>
-            <li>
-            <%= link_to "Add inventory", :inventory_additions %>
-            </li>
-        </ul>
-        </li>
     <% end%>
 <% end%>
 

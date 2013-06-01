@@ -1,4 +1,6 @@
 class InventoriesController < ApplicationController
+  before_filter :authenticate_user!
+  filter_access_to :all
   # GET /inventories
   # GET /inventories.json
   def index

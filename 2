@@ -42,12 +42,14 @@ class InventoryAdditionsController < ApplicationController
   # POST /inventory_additions
   # POST /inventory_additions.json
   def create
-      @inventory = Inventory.where(:product_id => params[:inventory_addition][:product_id]).first
+      @inventory = Inventory.where(:product_id => params[:product_id]).first
 
       @inventory_addition = InventoryAddition.new(params[:inventory_addition])
-      @inventory_addition.inventory_id = @inventory.id
+      #@inventory_addition.inventory_id = @inventory.id
 
       @products = Company.find(current_user.company_id).products
+              puts "@inventory quantity = #{@inventory.quantity}"
+              puts "@inventory_addition quantity = #{@inventory_addition.quantity}"
 
       respond_to do |format|
           if @inventory_addition.save
