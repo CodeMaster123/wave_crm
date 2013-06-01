@@ -17,19 +17,6 @@ class InventoriesControllerTest < ActionController::TestCase
         assert_not_nil assigns(:inventories)
     end
 
-    test "should get new" do
-        get :new
-        assert_response :success
-    end
-
-    test "should create inventory" do
-        assert_difference('Inventory.count') do
-            post :create, inventory: { product_id: @inventory.product_id, quantity: @inventory.quantity }
-        end
-
-        assert_redirected_to inventory_path(assigns(:inventory))
-    end
-
     test "should show inventory" do
         get :show, id: @inventory
         assert_response :success
@@ -38,11 +25,6 @@ class InventoriesControllerTest < ActionController::TestCase
     test "should get edit" do
         get :edit, id: @inventory
         assert_response :success
-    end
-
-    test "should update inventory" do
-        put :update, id: @inventory, inventory: { product_id: @inventory.product_id, quantity: @inventory.quantity }
-        assert_redirected_to inventory_path(assigns(:inventory))
     end
 
     test "should destroy inventory" do
