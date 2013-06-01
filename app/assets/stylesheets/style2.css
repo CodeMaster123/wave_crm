@@ -1234,7 +1234,7 @@ ul.icons li [class^="icon-"],ul.icons li [class*=" icon-"] {
 .dropdown-menu {
     border: 2px solid #666;
     background: #fff;
-    margin-top: 0;
+    margin-top: 1px;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -5169,7 +5169,10 @@ body.error .wrapper .input-append .btn:hover {
 }
 .d3 {
     border-top: 2px solid #368ee0 !important;
-    border-radius: 0 !important;
+}
+.d3-active {
+    border-top: 2px solid #368ee0 !important;
+    margin-left: 162px !important;
 }
 .custom-new-button {
     width: 40px;
