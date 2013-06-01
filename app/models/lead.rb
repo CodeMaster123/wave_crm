@@ -7,6 +7,8 @@ class Lead < ActiveRecord::Base
   has_many :products, :through => :leads_products
   has_many :call_logs
   has_many :product_transactions
+  has_one :account
+
   belongs_to :leadable, :polymorphic => true
   belongs_to :company
 

@@ -1,7 +1,9 @@
 class Account < ActiveRecord::Base
-  attr_accessible :account_name, :account_owner, :billing_address, :number_of_employees, :ownership_type, :phone_number, :shipping_address, :website, :company_id, :is_matured
+  attr_accessible :account_name, :account_owner, :billing_address, :number_of_employees, :ownership_type, :phone_number, :shipping_address, :website, :company_id, :is_matured, :lead_id
 
+  belongs_to :lead
   belongs_to :company
+  has_one :account
   has_many :contacts
 
   validates :account_name, :presence => true
