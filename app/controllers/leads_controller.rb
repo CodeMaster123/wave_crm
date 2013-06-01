@@ -41,10 +41,10 @@ class LeadsController < ApplicationController
   end
 
   def show
-      @call_logs = CallLog.all
       @lead_notifications = Lead.find(params[:id]).contacts.first.notifications.order(:updated_at)
       @lead_events = Lead.find(params[:id]).events.all
       @lead = Lead.find(params[:id])
+      @call_logs = @lead.call_logs
 
       #--- Modal variables for call logs ---
       @call_log = CallLog.new
