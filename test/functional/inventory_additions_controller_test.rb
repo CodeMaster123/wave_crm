@@ -27,7 +27,7 @@ class InventoryAdditionsControllerTest < ActionController::TestCase
             post :create, inventory_addition: { addition_date: @inventory_addition.addition_date, product_id: @inventory_addition.product_id, quantity: @inventory_addition.quantity }
         end
 
-        assert_redirected_to inventory_addition_path(assigns(:inventory_addition))
+        assert_redirected_to inventories_path
     end
 
     test "should show inventory_addition" do
@@ -42,7 +42,7 @@ class InventoryAdditionsControllerTest < ActionController::TestCase
 
     test "should update inventory_addition" do
         put :update, id: @inventory_addition, inventory_addition: { addition_date: @inventory_addition.addition_date, product_id: @inventory_addition.product_id, quantity: @inventory_addition.quantity }
-        assert_redirected_to inventory_addition_path(assigns(:inventory_addition))
+        assert_redirected_to inventories_path
     end
 
     test "should destroy inventory_addition" do

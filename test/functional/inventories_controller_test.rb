@@ -22,11 +22,6 @@ class InventoriesControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    test "should get edit" do
-        get :edit, id: @inventory
-        assert_response :success
-    end
-
     test "should destroy inventory" do
         assert_difference('Inventory.count', -1) do
             delete :destroy, id: @inventory
