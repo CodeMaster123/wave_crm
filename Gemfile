@@ -1,7 +1,8 @@
-source 'https://www.github.comg'
+source 'https://www.github.com'
 
 gem 'rails', '3.2.13'
 gem 'mysql2', '0.3.12b4'
+gem 'rails_admin'
 gem 'devise'
 gem 'declarative_authorization', '~> 0.5.7'
 gem 'nested_form', '0.3.2'
