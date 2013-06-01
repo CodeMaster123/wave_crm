@@ -21,7 +21,7 @@ authorization do
     role :admin do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
-        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :mature, :graph, :invoice]
+        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :follow_ups, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :follow_ups_list]
@@ -31,7 +31,7 @@ authorization do
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :create_event]
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed, :notifications_to_all, :create_notification]
         has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :old_target]
-        has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :map_index]
+        has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :map_index, :create_contact]
         has_permission_on :calendar, :to => [:index]
         #has_permission_on :employees, :to => [:index, :create, :read, :update, :destroy, :new, :show]
     end

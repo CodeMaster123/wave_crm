@@ -59,7 +59,9 @@
           <% end %>
         </tbody>
     </table>
-
+<div class="leads_new_button">
+    <a href="#" data-target="#new-contact" class="btn btn-mature" data-toggle="modal">New contact</a>
+</div>
 
     <h4 class="show-header">Previous Transactions </h4>
     <hr>
@@ -92,3 +94,9 @@
             <% end %>
         </tbody>
     </table>
+<div class="leads_new_button">
+    <a href="#" data-target="#call-log" class="btn btn-mature" data-toggle="modal">New order</a>
+</div>
+
+<%= render :partial => "accounts/new_transaction_modal" %>
+<%= render :partial => "accounts/new_contact_modal" %>

@@ -1,0 +1,45 @@
+<div id="call-log" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Call log</h3>
+    </div>
+    <div class="modal-body">
+        <%= form_tag '/create_call_logs', :class => 'call-log-form form-horizontal' do |f| %>
+
+            <div class="control-group">
+                <label class = 'control-label'> Payment type</label>
+                <div class="controls">
+                    <%= select_tag :transaction_type, options_for_select([["Select Payment Type", 0], ["Cash", "Cash"], ["Cheque", "Cheque"]],0),:class => 'contact_type' %>
+                </div>
+            </div>
+
+            <div class="control-group amount">
+                <label class ='control-label'>Amount</label>
+                <div class="controls">
+                    <%= text_field_tag :amount,'', :class => 'amount_field text_field' %>
+                </div>
+            </div>
+
+            <div class="control-group hide micr_code">
+            <label class ='control-label'>MICR code</label>
+                <div class="controls">
+                    <%= text_field_tag :micr_code,'', :class => 'text_field' %>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class = 'control-label'>Transaction time</label>
+                <div class="controls">
+                    <%= text_field_tag :transaction_time,'', :class => 'datetime_select' %>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <%= submit_tag nil, :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>

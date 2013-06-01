@@ -1,0 +1,58 @@
+<div id="new-contact" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Call log</h3>
+    </div>
+    <div class="modal-body">
+        <%= form_tag '/create_contact', :class => 'contact-form form-horizontal' do |f| %>
+            <div class="control-group">
+                <label class = 'control-label'>First name:</label>
+                <div class="controls">
+                    <%= text_field_tag :first_name,'', :class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class = 'control-label'>Middle name:</label>
+                <div class="controls">
+                    <%= text_field_tag :middle_name,'', :class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class = 'control-label'>Last name:</label>
+                <div class="controls">
+                    <%= text_field_tag :last_name,'', :class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class = 'control-label'>Email id:</label>
+                <div class="controls">
+                    <%= text_field_tag :email_id,'', :class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class = 'control-label'>Address:</label>
+                <div class="controls">
+                    <%= text_field_tag :address,'', :class => 'text_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class = 'control-label'>Mobile number:</label>
+                <div class="controls">
+                    <%= text_field_tag :mobile_no,'', :class => 'number_field' %>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class = 'control-label'>Landline number:</label>
+                <div class="controls">
+                    <%= text_field_tag :landline_no,'', :class => 'number_field' %>
+                </div>
+            </div>
+        </div>
+
+                    <%= hidden_field_tag :account_id, params[:id] %>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <%= submit_tag nil, :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>

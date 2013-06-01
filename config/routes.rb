@@ -70,6 +70,8 @@ WaveCrm::Application.routes.draw do
     match 'create_call_logs' => 'call_logs#create_log'
     match 'create_events' => 'events#create_event'
     match 'create_notification' => 'notifications#create_notification'
+    match 'create_contact' => 'contacts#create_contact'
+    match 'create_transaction' => 'transactions#create_transaction'
 
   root :to => 'leads#index'
 end

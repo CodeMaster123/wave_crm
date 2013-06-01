@@ -143,4 +143,10 @@ class ContactsController < ApplicationController
             format.json { render json: @contacts }
         end
     end
+
+    def create_contact
+        @contact = Contact.new(:first_name =>params[:first_name], :middle_name => params[:middle_name], :last_name => params[:last_name], :email_id => params[:email_id], :address => params[:address], :mobile_no=> params[:mobile_no], :landline_no => params[:landline_no], :company_id => current_user.id, :contact_relationship => "client", :account_id => params[:account_id])
+        @contact.company_id = current_user.company.id
+        @contact.save
+    end
 end
