@@ -43,7 +43,7 @@
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
                         <% unless lead.leadable_id.nil? %>
-                            <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'mature', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                            <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                         <% end %>
                         </td>
                     </tr>
