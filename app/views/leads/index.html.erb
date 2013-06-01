@@ -22,7 +22,6 @@
                 <th>Description</th>
                 <th>Lead owner</th>
                 <th>Executive type</th>
-                <th>Follow up time</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,16 +39,9 @@
                             <td></td>
                         <% end %>
                         <td><%= lead.show_executive_type%></td>
-                        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                            <%  @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                            <td class="tTip" title="<%= @follow_up.description %>" ><%= link_to @follow_up.follow_up_time.strftime('%l:%M%p %d-%B'), {:controller => 'follow_ups', :action => 'follow_ups_list', :id => lead.id} %></td>
-                        <% else %>
-                            <td class="tTip" title="vivek varade">----</td>
-                        <% end %>
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                            <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini btn-follow-up' %>
                         <% unless lead.leadable_id.nil? %>
                             <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'mature', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                         <% end %>
@@ -79,7 +71,6 @@
                 <th>Sr.No</th>
 
                 <th>Description</th>
-                <th>Follow up time</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -91,16 +82,9 @@
 
                     <td><%= lead.description %></td>
 
-                    <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                        <% @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                        <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
-                    <% else %>
-                        <td class="tTip" title="vivek varade">---</td>
-                    <% end %>
                     <td>
                         <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                         <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                        <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini btn-follow-up' %>
                         <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'mature', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                     </td>
                 </tr>
@@ -117,7 +101,6 @@
                     <th>Sr.No</th>
 
                     <th>Description</th>
-                    <th>Follow up time</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -129,12 +112,6 @@
 
                         <td><%= lead.description %></td>
 
-                        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-                            <% @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-                            <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
-                        <% else %>
-                            <td class="tTip" title="vivek varade">---</td>
-                        <% end %>
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>

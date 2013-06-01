@@ -5,6 +5,7 @@ class Lead < ActiveRecord::Base
   has_many :leads_products
   has_many :events
   has_many :products, :through => :leads_products
+  has_many :call_logs
   belongs_to :leadable, :polymorphic => true
   belongs_to :company
 

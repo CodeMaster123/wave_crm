@@ -52,8 +52,8 @@
     <tbody>
         <% @inventory_removal.each do |inventory_removal| %>
             <tr>
-                <td><%= link_to inventory_removal.id, inventory_addition_path(inventory_addition) %></td>
-                <td><%= inventory_removal.addition_date.strftime('%l:%M%p %d-%h') %></td>
+                <td><%= link_to inventory_removal.id, inventory_addition_path(inventory_removal) %></td>
+                <td><%= inventory_removal.created_at.strftime('%l:%M%p %d-%h') %></td>
                 <td><%= inventory_removal.quantity %></td>
             </tr>
         <% end %>
