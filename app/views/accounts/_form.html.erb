@@ -1,5 +1,5 @@
 <%= bootstrap_form_for @account, :html => { :class => 'form-horizontal' } do |f| %>
-    <%= f.select :account_owner, @account_owner.map{|ao|[ao.full_name, ao.id]}, :class => 'number_field' %>
+    <%= f.select :account_owner, @account_owner.map{|ao|[ao.full_name, ao.id]}, :class => 'contacts_text_field' %>
     <%= f.select :ownership_type, options_for_select([["Proprietership","proprietership"],["Private", "Private"], ["Public", "Public"]]), :class => 'text_field' %>
     <%= f.text_field :account_name, :class => 'text_field' %>
     <%= f.text_field :number_of_employees, :class => 'number_field' %>
