@@ -43,6 +43,8 @@ class Lead < ActiveRecord::Base
     end
 
     def assign_account_owner
-        self.account.update_attributes(:account_owner => self.contacts.last.id)
+        unless self.account.nil?
+            self.account.update_attributes(:account_owner => self.contacts.last.id)
+        end
     end
 end
