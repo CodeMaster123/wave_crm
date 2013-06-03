@@ -60,26 +60,26 @@ Event.create([
 ])
 
 Lead.create([
-            {:title => "mahindra", :description => "automobile company", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Prakash wines", :description => "wine shoppee", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Gurvindar garage", :description => "Garage", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Pravin garage", :description => "Garage", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Ramesh garage", :description => "Garage", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Suresh restaurant", :description => "restaurant", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Rahul bar", :description => "bar", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Harish ca", :description => "ca", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Pravesh ca", :description => "ca", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:title => "Ramesh garage", :description => "Garage", :leadable_id => 4, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "mahindra", :description => "automobile company", :leadable_id => 4, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Prakash wines", :description => "wine shoppee", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Gurvindar garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Pravin garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Ramesh garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Suresh restaurant", :description => "restaurant", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Rahul bar", :description => "bar", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Harish ca", :description => "ca", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Pravesh ca", :description => "ca", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:title => "Ramesh garage", :description => "Garage", :leadable_id => 7, :leadable_type => "SalesExecutive", :company_id => 1}
+            {:lead_status => "Lead", :lead_source => "cold_call", :title => "mahindra", :description => "automobile company", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "cold_call", :title => "Prakash wines", :description => "wine shoppee", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "cold_call", :title => "Gurvindar garage", :description => "Garage", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "advertisement", :title => "Pravin garage", :description => "Garage", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "advertisement", :title => "Ramesh garage", :description => "Garage", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Dead", :lead_source => "advertisement", :title => "Suresh restaurant", :description => "restaurant", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Dead", :lead_source => "direct_marketing", :title => "Rahul bar", :description => "bar", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Dead", :lead_source => "direct_marketing", :title => "Harish ca", :description => "ca", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Future", :lead_source => "direct_marketing", :title => "Pravesh ca", :description => "ca", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
+            {:lead_status => "Future", :lead_source => "partner", :title => "Ramesh garage", :description => "Garage", :leadable_id => 4, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Future", :lead_source => "partner", :title => "mahindra", :description => "automobile company", :leadable_id => 4, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Future", :lead_source => "partner", :title => "Prakash wines", :description => "wine shoppee", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Prospecting", :lead_source => "public_relations", :title => "Gurvindar garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Prospecting", :lead_source => "public_relations", :title => "Pravin garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "public_relations", :title => "Ramesh garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "seminar", :title => "Suresh restaurant", :description => "restaurant", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "seminar", :title => "Rahul bar", :description => "bar", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Harish ca", :description => "ca", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Pravesh ca", :description => "ca", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 1},
+            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Ramesh garage", :description => "Garage", :leadable_id => 7, :leadable_type => "SalesExecutive", :company_id => 1}
 ])
 
 Contact.create([

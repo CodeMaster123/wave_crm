@@ -10,6 +10,20 @@
         <%= f.select :leadable_type, [["Select Lead Owner", ""], ["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'lead_owner' %>
       </div>
     </div>
+
+    <div class="control-group">
+      <%= f.label :lead_source, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.select :lead_source, [["Select Lead Source", ""], ["Direct Marketing", "direct_marketing"], ["Advertisement", "advertisement"], ["Cold call","cold_call"], ["External referral","external_referral"], ["Partner","partner"], ["Public Relations","public_relations"], ["Sales Mail","sales_mail"], ["Seminar","seminar"], ["Trade show","trade_show"], ["Whitepaper","whitepaper"], ["Web research", "web_research"], ["Google search","google_search"]], {}, :class => 'lead_owner' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :lead_status, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :lead_status, [["Select Lead status", ""], ["In queue", "queue"], ["Prospecting", "prospecting"], ["Lead", "lead"], ["Qualified", "qualified"], ["Dead", "dead"], ["Won", "won"], ["Future", "future"]], {}, :class => 'lead_owner' %>
+      </div>
+    </div>
+
     <div class="control-group hide team_leaders">
        <%= f.label :leadable_id, :class => 'control-label' %>
        <div class="controls">
@@ -75,7 +89,6 @@
     <h4 class="product_header show-header">Account Details</h4>
     <hr>
     <%= f.fields_for :account do |account| %>
-        <%#= puts "vivekkkkkkkk============ #{contact.company_id}" %>
         <%= account.hidden_field :company_id, :value => current_user.company.id %>
         <div class="control-group">
             <label class ='control-label'>Account name</label>
