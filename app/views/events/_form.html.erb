@@ -3,9 +3,8 @@
     <%= f.text_field :starts_at, :class => 'datetime_select' %>
     <%= f.text_area :description, :rows => "4", :class => 'text_area' %>
 
-
     <div class="form-actions">
-        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= f.submit "Update", :class => 'btn btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")), events_path, :class => 'btn' %>
     </div>
 <% end %>

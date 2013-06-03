@@ -41,7 +41,7 @@
                 <tr>
                     <td><%= event.title %></td>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
-                    <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                    <td><%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <td><%= event.description %></td>
                 </tr>
             <% end %>
@@ -57,6 +57,7 @@
             <th>starts at</th>
             <th>Ends at</th>
             <th>Description</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody id="search-data">
@@ -65,8 +66,11 @@
                 <tr>
                     <td><%= event.title %></td>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
-                    <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                    <td><%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <td><%= event.description %></td>
+                    <td>
+                        <%= link_to "Edit", edit_event_path(event), :class => 'btn btn-mini' %>
+                    </td>
                 </tr>
             <% end %>
         <% end %>
