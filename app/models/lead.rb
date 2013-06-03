@@ -76,7 +76,7 @@ class Lead < ActiveRecord::Base
             self.contacts.last.update_attributes(:account_id => self.account.id, :contact_relationship => "client")
 
             self.account.contacts.each do |acc|
-                acc.update_attributes(:contact_relationship = "client")
+                acc.update_attributes(:contact_relationship => "client")
             end
         end
     end
