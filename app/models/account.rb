@@ -7,8 +7,8 @@ class Account < ActiveRecord::Base
   has_many :contacts
 
   validates :account_name, :presence => true
-  validates :account_name, :presence => true
-  validates :account_name, :presence => true
+  #validates :account_name, :presence => true
+  #validates :account_name, :presence => true
   validates :phone_number, :presence => true
   validates :billing_address, :presence => true
 end

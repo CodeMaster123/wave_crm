@@ -73,6 +73,7 @@ class LeadsController < ApplicationController
       @lead.contacts.build
       @lead.follow_ups.build
       @lead.leads_products.build
+      @lead.build_account
       @team_leaders = @company.team_leaders.all
       @sales_executives = @company.sales_executives.all
       @products = @company.products.all
@@ -112,7 +113,6 @@ class LeadsController < ApplicationController
 
       respond_to do |format|
           if @lead.save
-              #@follow_up = FollowUp.create(:lead_id = @lead.id,
               format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
               format.json { render json: @lead, status: :created, location: @lead }
           else
