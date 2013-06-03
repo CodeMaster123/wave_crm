@@ -132,7 +132,7 @@ class LeadsController < ApplicationController
 
       respond_to do |format|
           if @lead.update_attributes(params[:lead])
-              format.html { redirect_to @lead, notice: 'Lead was successfully updated.' }
+              format.html { redirect_to :leads, notice: 'Lead was successfully updated.' }
               format.json { head :no_content }
           else
               format.html { render action: "edit" }
