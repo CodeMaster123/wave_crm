@@ -41,10 +41,13 @@ class LeadsController < ApplicationController
   end
 
   def show
-      @lead_notifications = Lead.find(params[:id]).contacts.first.notifications.order(:updated_at)
-      @lead_events = Lead.find(params[:id]).events.all
       @lead = Lead.find(params[:id])
+      @lead_events = @lead.events.all
       @call_logs = @lead.call_logs
+
+      unless @lead.contacts.empty?
+          @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
+      end
 
       #--- Modal variables for call logs ---
       @call_log = CallLog.new
@@ -84,6 +87,9 @@ class LeadsController < ApplicationController
   def edit
       @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
+      if @lead.contacts.empty?
+          @lead.contacts.build
+      end
       @products = @company.products.all
       @team_leaders = @company.team_leaders.all
       @sales_executives = @company.sales_executives.all

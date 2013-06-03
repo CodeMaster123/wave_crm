@@ -4,17 +4,25 @@
 </div>
 
 <dl class="dl-horizontal">
-    <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
+    <% unless @lead.contacts.empty? %>
+        <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
+    <% end %>
     <dt><strong>Lead owner :</strong></dt>
     <dd><%= @lead.leadable.user.full_name %></dd>
     <dt><strong> Description :</strong></dt>
     <dd><%= @lead.description %></dd>
     <dt><strong> Phone number :</strong></dt>
-    <dd><%= @lead.contacts.first.landline_no %></dd>
+    <% unless @lead.contacts.empty? %>
+        <dd><%= @lead.contacts.first.landline_no %></dd>
+    <% end %>
     <dt><strong> Mobile number :</strong></dt>
-    <dd><%= @lead.contacts.first.mobile_no %></dd>
+    <% unless @lead.contacts.empty? %>
+        <dd><%= @lead.contacts.first.mobile_no %></dd>
+    <% end %>
     <dt><strong> Lead status :</strong></dt>
-    <dd><%= @lead.contacts.first.mobile_no %></dd>
+    <% unless @lead.contacts.empty? %>
+        <dd><%= @lead.contacts.first.mobile_no %></dd>
+    <% end %>
 </dl>
 
 <div><h6>Closed Meetings</h6></div>
@@ -30,13 +38,13 @@
     <tbody id="search-data">
         <% @lead_events.each do |event| %>
             <% if event.starts_at.to_date < Date.today %>
-            <tr>
-                <td><%= event.title %></td>
-                <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
-                <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
-                <td><%= event.description %></td>
-            </tr>
-        <% end %>
+                <tr>
+                    <td><%= event.title %></td>
+                    <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                    <td><%= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                    <td><%= event.description %></td>
+                </tr>
+            <% end %>
         <% end %>
     </tbody>
 </table>
@@ -114,15 +122,17 @@
         </tr>
     </thead>
     <tbody id="search-data">
-        <% @lead_notifications.each do |notification| %>
-            <tr>
-                <td><%= notification.check_if_sms %></td>
-                <td><%= notification.check_if_email %></td>
-                <td><%= notification.notification_time.strftime('%l:%M%P  %d-%b') %></td>
-                <td></td>
-                <td><%= notification.body %></td>
-                <td><%= notification.updated_at.strftime('%l:%M%P %d-%b') %></td>
-            </tr>
+        <% unless @lead.contacts.empty? %>
+            <% @lead_notifications.each do |notification| %>
+                <tr>
+                    <td><%= notification.check_if_sms %></td>
+                    <td><%= notification.check_if_email %></td>
+                    <td><%= notification.notification_time.strftime('%l:%M%P  %d-%b') %></td>
+                    <td></td>
+                    <td><%= notification.body %></td>
+                    <td><%= notification.updated_at.strftime('%l:%M%P %d-%b') %></td>
+                </tr>
+            <% end %>
         <% end %>
     </tbody>
 </table>
