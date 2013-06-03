@@ -73,7 +73,11 @@ class Lead < ActiveRecord::Base
     def post_processing
         unless self.account.nil?
             self.account.update_attributes(:account_owner => self.contacts.last.id)
-            self.contacts.last.update_attributes(:account_id => self.account.id)
+            self.contacts.last.update_attributes(:account_id => self.account.id, :contact_relationship => "client")
+
+            self.account.contacts.each do |acc|
+                acc.update_attributes(:contact_relationship = "client")
+            end
         end
     end
 end
