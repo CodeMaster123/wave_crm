@@ -4,8 +4,9 @@ class Transaction < ActiveRecord::Base
     has_many :product_transactions
     has_many :products, :through => :product_transactions
     belongs_to :company
+    belongs_to :account
 
-    attr_accessible :amount, :transaction_time, :company_id, :contact_id, :transaction_type, :micr_code, :matured_by, :executive_type, :account_id
+    attr_accessible :amount, :transaction_time, :company_id, :contact_id, :transaction_type, :micr_code, :matured_by, :executive_type, :account_id, :account_id
 
     accepts_nested_attributes_for :contacts, :allow_destroy => true
     accepts_nested_attributes_for :product_transactions, :allow_destroy => true

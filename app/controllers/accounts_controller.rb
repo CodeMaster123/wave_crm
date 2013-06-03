@@ -16,7 +16,7 @@ class AccountsController < ApplicationController
   def show
       @account = Account.find(params[:id])
       @contacts = @account.contacts
-      @transactions = Transaction.where(:contact_id => @account.account_owner)
+      @transactions = @account.transactions
       @transaction_fields = current_user.transaction_fields
 
       respond_to do |format|
