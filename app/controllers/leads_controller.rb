@@ -72,7 +72,7 @@ class LeadsController < ApplicationController
       @lead = Lead.new
       @lead.contacts.build
       @lead.follow_ups.build
-      @lead.leads_products.build
+      @lead.product_transactions.build
       @lead.build_account
       @team_leaders = @company.team_leaders.all
       @sales_executives = @company.sales_executives.all

@@ -138,16 +138,28 @@
 
 <h4 class="product_header show-header">Product Details</h4>
 <hr>
-<%= f.fields_for :leads_products do |leads_products| %>
+<%= f.fields_for :product_transactions do |product_transaction| %>
     <div class="control-group">
-        <%= leads_products.label :product_name, :class => 'control-label' %>
+        <%= product_transaction.label :product_name, :class => 'control-label' %>
         <div class="controls">
-            <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
-            <%= leads_products.link_to_remove "Remove this product" %>
+            <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+        </div>
+    </div>
+    <div class="control-group">
+        <%= product_transaction.label :price, :class => 'control-label' %>
+        <div class="controls">
+            <%= product_transaction.text_field :price, :class => 'text_field' %>
+        </div>
+    </div>
+    <div class="control-group">
+        <%= product_transaction.label :quantity, :class => 'control-label' %>
+        <div class="controls">
+            <%= product_transaction.text_field :quantity, :class => 'text_field' %>
+            <%= product_transaction.link_to_remove "Remove this product" %>
         </div>
     </div>
 <% end %>
-<%= f.link_to_add "Add a product", :leads_products, :class => 'add'%>
+<%= f.link_to_add "Add a product", :product_transactions, :class => 'add'%>
 
 <h4 class="description_header show-header">Description</h4>
 <hr>
