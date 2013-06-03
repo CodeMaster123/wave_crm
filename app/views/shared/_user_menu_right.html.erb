@@ -32,7 +32,7 @@
         </li>
     </ul>
     <div class="dropdown">
-        <a href="#" class='dropdown-toggle' data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %></a>
+        <a href="#" class='dropdown-toggle' data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %><%= image_tag "#{current_user.avatar.url(:thumb)}" %></a>
         <ul class="dropdown-menu pull-right">
             <li>
             <% permitted_to? :index, :tags do %>
