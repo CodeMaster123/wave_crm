@@ -29,7 +29,7 @@ class Lead < ActiveRecord::Base
     validates :description, :presence => true
     validates :company_id, :presence => true
 
-    after_create :assign_account_owner
+    after_create :post_processing
 
     def lead_by
         @user = self.leadable.user
@@ -70,9 +70,10 @@ class Lead < ActiveRecord::Base
         end
     end
 
-    def assign_account_owner
+    def post_processing
         unless self.account.nil?
             self.account.update_attributes(:account_owner => self.contacts.last.id)
+            self.contacts.last.update_attributes(:account_id => self.account.id)
         end
     end
 end
