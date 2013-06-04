@@ -1,4 +1,4 @@
-<%= form_for @crm_customer, :html => { :class => 'form-horizontal' } do |f| %>
+<%= nested_form_for @crm_customer, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :first_name, :class => 'control-label' %>
     <div class="controls">
@@ -41,6 +41,33 @@
       <%= f.date_select :subscription_ends, :class => 'date_select' %>
     </div>
   </div>
+
+    <%= f.fields_for :company do |company| %>
+        <div class="control-group">
+          <%= company.label :company_name, :class => 'control-label' %>
+          <div class="controls">
+            <%= company.text_field :company_name, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= company.label :company_address, :class => 'control-label' %>
+          <div class="controls">
+            <%= company.text_field :company_address, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= company.label :contact_number1, :class => 'control-label' %>
+          <div class="controls">
+            <%= company.text_field :contact_number1, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= company.label :contact_number2, :class => 'control-label' %>
+          <div class="controls">
+            <%= company.text_field :contact_number2, :class => 'text_field' %>
+          </div>
+        </div>
+    <% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>

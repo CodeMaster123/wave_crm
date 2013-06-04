@@ -1,7 +1,7 @@
 <%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
 
   <h4 class="lead_header show-header">Lead Information</h4>
-  <hr>
+  <hr class="line">
   <% if current_user.account_type == 1 %>
   <div class="leads">
     <div class="control-group">
@@ -87,7 +87,7 @@
 
     <% if current_user.company.crm_customer.customer_type == "B2B" %>
     <h4 class="product_header show-header">Account Details</h4>
-    <hr>
+    <hr class="line">
     <%= f.fields_for :account do |account| %>
         <%= account.hidden_field :company_id, :value => current_user.company.id %>
         <div class="control-group">
@@ -137,7 +137,7 @@
 <% end %>
 
 <h4 class="product_header show-header">Product Details</h4>
-<hr>
+<hr class="line">
 <%= f.fields_for :product_transactions do |product_transaction| %>
     <div class="control-group">
         <%= product_transaction.label :product_name, :class => 'control-label' %>
@@ -162,7 +162,7 @@
 <%= f.link_to_add "Add a product", :product_transactions, :class => 'add'%>
 
 <h4 class="description_header show-header">Description</h4>
-<hr>
+<hr class="line">
 <div class="control-group">
     <%= f.label :lead_description, :class => 'control-label' %>
     <div class="controls">
@@ -232,7 +232,7 @@
 
         <% if current_user.company.crm_customer.customer_type == "B2B" %>
             <h4 class="product_header show-header">Account Details</h4>
-            <hr>
+            <hr class="line">
             <%= f.fields_for :account do |account| %>
                 <%= account.hidden_field :company_id, :value => current_user.company.id %>
                 <div class="control-group">
@@ -282,7 +282,7 @@
         <% end %>
 
         <h4 class="product_header show-header">Product Details</h4>
-        <hr>
+        <hr class="line">
         <%= f.fields_for :product_transactions do |product_transaction| %>
             <div class="control-group">
               <%= product_transaction.label :product_name, :class => 'control-label' %>
@@ -307,7 +307,7 @@
         <%= f.link_to_add "Add a product", :product_transactions, :class => 'add'%>
 
         <h4 class="description_header show-header">Description</h4>
-        <hr>
+        <hr class="line">
         <div class="control-group">
             <%= f.label :lead_description, :class => 'control-label' %>
             <div class="controls">
