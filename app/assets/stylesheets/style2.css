@@ -5292,6 +5292,16 @@ div.notification-btn{
 }
 
 
+/* ---------------------------------- call_log_on_lead_form css --------------------------------------- */
+
+
+.number_field-minute{
+    width: 35px;
+}
+
+.number_field-second{
+    width: 35px;
+}
 
 
 

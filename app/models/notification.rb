@@ -7,6 +7,11 @@ class Notification < ActiveRecord::Base
   validates :contact_id, :presence => true
   validates :company_id, :presence => true
   validates :subject, :presence => true
+  validate :custom_checkbox_validation, :presence => true, :message => "At least click on sms or email"
+
+  def custom_checkbox_validation
+    errors.add(:base, "Please check atleast one checkbox.") unless is_email || is_sms
+  end
 
 
   def sms_send
@@ -74,10 +79,8 @@ class Notification < ActiveRecord::Base
     @future_notification = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
   end
 
-  validate :custom_checkbox_validation, :presence => true
 
-  def custom_checkbox_validation
-    errors.add(:base, 'Please check atleast one checkbox.') unless is_email || is_sms
-  end
+
+
 
 end
