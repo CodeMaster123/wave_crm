@@ -398,6 +398,31 @@ CallLog.create([
                {:call_result => "delivery meeting final at 2pm next monday", :subject => "about delivery time", :call_type => "Outbound", :call_purpose => "Support", :call_start_time => "2013-05-30 04:17:00 UTC", :call_duration => 467, :call_owner_id => 4, :lead_id => 4}
 ])
 
+ProductTransaction.create([
+                          {:price => 32564, :product_id => 1, :transaction_id => 1, :lead_id => 1, :quantity => 1},
+                          {:price => 56744, :product_id => 2, :transaction_id => 2, :lead_id => 2, :quantity => 2},
+                          {:price => 45456, :product_id => 3, :transaction_id => 3, :lead_id => 3, :quantity => 1},
+                          {:price => 45653, :product_id => 4, :transaction_id => 4, :lead_id => 4, :quantity => 1},
+                          {:price => 878565, :product_id => 5, :transaction_id => 5, :lead_id => 5, :quantity => 1},
+                          {:price => 35466, :product_id => 5, :transaction_id => 6, :lead_id => 6, :quantity => 3},
+                          {:price => 786785, :product_id => 2, :transaction_id => 7, :lead_id => 7, :quantity => 1},
+                          {:price => 67554, :product_id => 4, :transaction_id => 8, :lead_id => 8, :quantity => 1},
+                          {:price => 657574, :product_id => 3, :transaction_id => 9, :lead_id => 9, :quantity => 2},
+                          {:price => 75454, :product_id => 1, :transaction_id => 10, :lead_id => 10, :quantity => 1},
+                          {:price => 34545, :product_id => 1, :transaction_id => 11, :lead_id => 11, :quantity => 1},
+                          {:price => 76765, :product_id => 5, :transaction_id => 12, :lead_id => 15, :quantity => 5},
+                          {:price => 68688, :product_id => 4, :transaction_id => 13, :lead_id => 16, :quantity => 1},
+                          {:price => 86765, :product_id => 4, :transaction_id => 14, :lead_id => 12, :quantity => 1},
+                          {:price => 67857, :product_id => 3, :transaction_id => 15, :lead_id => 13, :quantity => 2},
+                          {:price => 56757, :product_id => 3, :transaction_id => 16, :lead_id => 14, :quantity => 2},
+                          {:price => 87657, :product_id => 5, :transaction_id => 17, :lead_id => 19, :quantity => 1},
+                          {:price => 567657, :product_id => 2, :transaction_id => 18, :lead_id => 18, :quantity => 1},
+                          {:price => 567656, :product_id => 4, :transaction_id => 19, :lead_id => 17, :quantity => 1},
+                          {:price => 687567, :product_id => 3, :transaction_id => 20, :lead_id => 21, :quantity => 2},
+                          {:price => 897867, :product_id => 2, :transaction_id => 22, :lead_id => 27, :quantity => 2},
+                          {:price => 464565, :product_id => 2, :transaction_id => 25, :lead_id => 23, :quantity => 1}
+])
+
 #################################################################
 ################# American Dental Clinic #######################
 #################################################################
