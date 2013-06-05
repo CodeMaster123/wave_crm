@@ -5271,3 +5271,38 @@ div.notification-btn{
     float: right;
     margin-top: -50px;
 }
+
+.control-group-lead_status{
+    float: right;
+    margin-top: -50px;
+}
+
+.control-group-account{
+    float: right;
+    margin-top: -50px;
+}
+
+.control-group-price{
+    float: right;
+    margin-top: -50px;
+}
+
+.line{
+    color: #000000;
+}
+
+
+/* ---------------------------------- call_log_on_lead_form css --------------------------------------- */
+
+
+.number_field-minute{
+    width: 35px;
+}
+
+.number_field-second{
+    width: 35px;
+}
+
+
+
+

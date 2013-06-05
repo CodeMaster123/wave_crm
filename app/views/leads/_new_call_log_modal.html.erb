@@ -48,8 +48,8 @@
             <div class="control-group">
                 <label class ='control-label'>Call duration</label>
                 <div class="controls">
-                    <%= text_field_tag :call_duration,'', {:class => 'number_field', :width => 2, :size => 2} %> :Minutes
-                    <%= text_field_tag :call_duration,'', {:class => 'number_field', :size => 2} %> :Seconds
+                    <%= text_field_tag :call_duration,'', :class => 'number_field-minute' %> :Minutes
+                    <%= text_field_tag :call_duration,'', :class => 'number_field-second' %> :Seconds
                 </div>
             </div>
         </div>

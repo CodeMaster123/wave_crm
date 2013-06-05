@@ -87,7 +87,7 @@ class NotificationsController < ApplicationController
                     @notification2.save
                     @notification2.sms_send
                 end
-                format.html { redirect_to :notifications, notice: 'Notification was successfully created.' }
+                format.html { redirect_to :controller=>"notifications", :action=>"index", :type=>"current", notice: 'Notification was successfully created.' }
                 format.json { render json: @notification, status: :created, location: @notification }
             else
                 format.html { render action: "new" }
