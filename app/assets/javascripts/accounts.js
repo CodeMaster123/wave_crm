@@ -31,3 +31,10 @@ if(window.location.pathname.indexOf("accounts")>0)
         return false; // prevents normal behaviour
     });
 }
+
+$(document).on("mouseenter",".reply",function(event){
+    $(this).popover({
+        placement:'top',
+        trigger: 'hover'
+    }).popover('show');
+});
