@@ -6,7 +6,7 @@ class Transaction < ActiveRecord::Base
     belongs_to :company
     belongs_to :account
 
-    attr_accessible :amount, :transaction_time, :company_id, :contact_id, :transaction_type, :micr_code, :matured_by, :executive_type, :account_id, :account_id
+    attr_accessible :amount, :transaction_time, :company_id, :contact_id, :transaction_type, :micr_code, :matured_by, :executive_type, :account_id
 
     accepts_nested_attributes_for :contacts, :allow_destroy => true
     accepts_nested_attributes_for :product_transactions, :allow_destroy => true

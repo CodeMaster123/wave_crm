@@ -1,7 +1,7 @@
 authorization do
     role :superadmin do
         has_permission_on :transaction_fields, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
-        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit]
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
@@ -21,7 +21,7 @@ authorization do
     role :admin do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
-        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction]
+        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :follow_ups, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :follow_ups_list]
