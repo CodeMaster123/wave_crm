@@ -29,6 +29,12 @@
       <%= f.text_field :amount_paid, :class => 'text_field' %>
     </div>
   </div>
+        <div class="control-group">
+          <%= f.label :customer_type, :class => 'control-label' %>
+          <div class="controls">
+              <%= f.select :customer_type, [['Business to businesses','B2B'],['Business to customers','B2C']] %>
+          </div>
+        </div>
   <div class="control-group">
     <%= f.label :subscription_start, :class => 'control-label' %>
     <div class="controls">

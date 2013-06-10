@@ -9,6 +9,7 @@ class CrmCustomer < ActiveRecord::Base
   validates :amount_paid, :presence => true
   validates :subscription_start, :presence => true
   validates :subscription_ends, :presence => true
+  validate :customer_type, :presence => true
 
   accepts_nested_attributes_for :company
   attr_accessible :company, :company_attributes
