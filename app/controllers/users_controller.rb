@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @company = Company.where(:id => current_user.company_id).first
+    @companies = Company.all
     @user = User.new
     @all_team_leaders = @company.team_leaders.all
 
