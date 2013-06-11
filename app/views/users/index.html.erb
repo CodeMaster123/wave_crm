@@ -16,12 +16,13 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th>Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
       <th>User type</th>
-      <th><%= model_class.human_attribute_name(:mobile_no) %></th>
+      <th>Email</th>
+      <th>Mobile Number</th>
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -41,6 +42,7 @@
         <% else %>
             <td>Admin</td>
         <% end %>
+        <td><%= user.email %></td>
         <td><%= user.mobile_no %></td>
 
         <td>
