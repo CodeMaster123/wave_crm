@@ -38,7 +38,7 @@ WaveCrm::Application.routes.draw do
     resources :events
 
     mount_sextant if Rails.env.development?
-    mount Resque::Server, :at => '/admin_resque'
+    mount Resque::Server, :at => '/resque_panel'
 
     match 'contact_search' => 'contacts#search'
     match 'lead_search' => 'leads#search'
