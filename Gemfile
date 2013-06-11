@@ -49,6 +49,7 @@ end
 
 #gem 'rack-mini-profiler'
 gem 'better_errors'
+gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
