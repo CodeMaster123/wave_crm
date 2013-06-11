@@ -48,6 +48,7 @@ group :test do
 end
 
 #gem 'rack-mini-profiler'
+gem 'better_errors'
 gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
