@@ -17,10 +17,10 @@ class TransactionsControllerTest < ActionController::TestCase
         assert_not_nil assigns(:transactions)
     end
 
-    test "should get new" do
-        get :new
-        assert_response :success
-    end
+   # test "should get new" do
+   #     get :new
+   #     assert_response :success
+   # end
 
    # test "should create transaction" do
    #     @product_transactions = product_transactions(:one)

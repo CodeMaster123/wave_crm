@@ -65,7 +65,7 @@ WaveCrm::Application.routes.draw do
 
     match 'contacts/index/:type' => 'contacts#index'
 
-    match 'notifications/index/:type' => 'notifications#index'
+    match 'notifications/index/:type' => 'notifications#index', :as => 'notifications_change'
 
     match 'create_call_logs' => 'call_logs#create_log'
     match 'create_events' => 'events#create_event'
