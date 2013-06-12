@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
     validates :account_type, :presence => true
+    validates :company_id, :presence => true
 
 
     after_create :create_notification_setting
