@@ -31,12 +31,16 @@
                     <%= select_tag :call_purpose, options_for_select(["Administrative", "Prospective", "Demo", "Negotiation", "Support"]) ,:class => 'text_field' %>
                 </div>
             </div>
-            <div class="control-group">
-                <label class ='control-label'>Call owner</label>
-                <div class="controls">
-                    <%= select_tag :call_owner_id, options_for_select(@call_owner.map{|c|[c.user.full_name, c.id]}), :class => 'number_field' %>
+            <% if current_user.account_type == 4 %>
+                <div class="control-group">
+                    <label class ='control-label'>Call owner</label>
+                    <div class="controls">
+                        <%= select_tag :call_owner_id, options_for_select(@call_owner.map{|c|[c.user.full_name, c.id]}), :class => 'number_field' %>
+                    </div>
                 </div>
-            </div>
+            <% else %>
+                <%= hidden_field_tag :call_owner_id, current_user.id %>
+            <% end %>
 
             <div class="control-group">
                 <label class ='control-label'>Call start time</label>
