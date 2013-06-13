@@ -48,14 +48,15 @@ $('.event-form').submit(function() {
         data: valuesToSubmit,
         success: function(json){
             $('.modal').modal('hide');
+            $('tbody#search-data tr').last().after("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
         }
     //,
-        //error: function(xhr, err) {
-        //    console.log("readyState: " + xhr.readyState);
-        //    console.log("responseText: "+ xhr.responseText);
-        //    console.log("status: " + xhr.status);
-        //    console.log("error: " + err);
-        //    }
+    //error: function(xhr, err) {
+    //    console.log("readyState: " + xhr.readyState);
+    //    console.log("responseText: "+ xhr.responseText);
+    //    console.log("status: " + xhr.status);
+    //    console.log("error: " + err);
+    //    }
 
     })
     return false; // prevents normal behaviour
@@ -69,7 +70,6 @@ $('.call-log-form').submit(function() {
         method: "POST"
     }).success(function(json){
         $('.modal').modal('hide');
-        console.log(valuesToSubmit);
         $('tbody#search-data tr').last().after("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
     });
     return false; // prevents normal behaviour
@@ -83,6 +83,14 @@ $('.notification-form').submit(function() {
         method: "POST"
     }).success(function(json){
         $('.modal').modal('hide');
+        if $('tbody#notifications-data').children().length==0;
+        {
+            $('tbody#notifications-data').append("<tr><td>yes</td><td>yes</td><td>"+$('.new-notification #notification_time').val()+"</td><td>"+$('.new-notification #subject').val()+"</td><td>"+$('.call-log-form #body').val()+"</td><td>"+$('.new-notification #notification_time').val()+"</td></tr>");
+        }
+        else
+    {
+        $('tbody#notifications-data tr').last().after("<tr><td>yes</td><td>yes</td><td>"+$('.new-notification #notification_time').val()+"</td><td>"+$('.new-notification #subject').val()+"</td><td>"+$('.call-log-form #body').val()+"</td><td>"+$('.new-notification #notification_time').val()+"</td></tr>");
+    }
     });
     return false; // prevents normal behaviour
 });

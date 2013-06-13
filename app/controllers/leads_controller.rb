@@ -57,6 +57,7 @@ class LeadsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @notification = Notification.new
       @contacts = @company.contacts.all
+      @notifications_contact = @lead.contacts.all
 
       #--- Modal variables for events ---
       @event = Event.new

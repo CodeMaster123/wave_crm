@@ -31,7 +31,6 @@
         <tr>
             <th>Title</th>
             <th>starts at</th>
-            <th>Ends at</th>
             <th>Description</th>
         </tr>
     </thead>
@@ -55,18 +54,17 @@
         <tr>
             <th>Title</th>
             <th>starts at</th>
-            <th>Ends at</th>
             <th>Description</th>
             <th>Actions</th>
         </tr>
     </thead>
-    <tbody id="search-data">
+    <tbody id="events-data">
         <% @lead_events.each do |event| %>
             <% if event.starts_at.to_date >= Date.today %>
                 <tr>
                     <td><%= event.title %></td>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
-                    <td><%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
+                    <%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %>
                     <td><%= event.description %></td>
                     <td>
                         <%= link_to "Edit", edit_event_path(event), :class => 'btn btn-mini' %>
@@ -94,7 +92,7 @@
             <th>Modified at</th>
         </tr>
     </thead>
-    <tbody id="search-data">
+    <tbody id="call-log-data">
         <% @call_logs.each do |call_log| %>
             <tr>
                 <td><%= call_log.subject %></td>
@@ -125,7 +123,7 @@
             <th>Modified at</th>
         </tr>
     </thead>
-    <tbody id="search-data">
+    <tbody id="notifications-data">
         <% unless @lead.contacts.empty? %>
             <% @lead_notifications.each do |notification| %>
                 <tr>
