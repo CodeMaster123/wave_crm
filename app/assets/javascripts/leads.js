@@ -43,14 +43,21 @@ else
 
 $('.event-form').submit(function() {
     var valuesToSubmit = $(this).serialize();
-    console.log('vivek');
     $.ajax({
         url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
-        dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
-    }).success(function(json){
-        //act on result.
-    });
+        success: function(json){
+            $('.modal').modal('hide');
+        }
+    //,
+        //error: function(xhr, err) {
+        //    console.log("readyState: " + xhr.readyState);
+        //    console.log("responseText: "+ xhr.responseText);
+        //    console.log("status: " + xhr.status);
+        //    console.log("error: " + err);
+        //    }
+
+    })
     return false; // prevents normal behaviour
 });
 
@@ -59,10 +66,11 @@ $('.call-log-form').submit(function() {
     $.ajax({
         url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
-        dataType: "JSON", // you want a difference between normal and ajax-calls, and json is standard
         method: "POST"
     }).success(function(json){
-        //act on result.
+        $('.modal').modal('hide');
+        console.log(valuesToSubmit);
+        $('tbody#search-data tr').last().after("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
     });
     return false; // prevents normal behaviour
 });
@@ -72,10 +80,9 @@ $('.notification-form').submit(function() {
     $.ajax({
         url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
-        dataType: "JSON", // you want a difference between normal and ajax-calls, and json is standard
         method: "POST"
     }).success(function(json){
-        //act on result.
+        $('.modal').modal('hide');
     });
     return false; // prevents normal behaviour
 });
