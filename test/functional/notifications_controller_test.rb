@@ -27,7 +27,7 @@ class NotificationsControllerTest < ActionController::TestCase
             post :create, Next_Notification: "", notification: { body: @notification.body, subject: @notification.subject, is_sms: @notification.is_sms, is_email: @notification.is_sms, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent}
         end
 
-        assert_redirected_to notifications_change_path
+        assert_redirected_to :controller => 'notifications', :action => 'index', :type => 'current'
     end
 
     test "should show notification" do

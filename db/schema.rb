@@ -172,8 +172,8 @@ ActiveRecord::Schema.define(:version => 20130603103304) do
     t.integer  "company_id"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.boolean  "is_sms",            :default => false, :null => false
-    t.boolean  "is_email",          :default => false, :null => false
+    t.boolean  "is_sms",            :default => false
+    t.boolean  "is_email",          :default => false
     t.string   "subject"
   end
 

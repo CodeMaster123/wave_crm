@@ -9,6 +9,7 @@ one:
   transaction_type: "Cash"
   micr_code: "123123"
   matured_by: 12
+  account_id: 1
 
 two:
   id: 2
@@ -19,3 +20,4 @@ two:
   transaction_type: "Cash"
   micr_code: "123123"
   matured_by: 12
+  account_id: 1

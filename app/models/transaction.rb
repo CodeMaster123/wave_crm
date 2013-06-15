@@ -19,6 +19,7 @@ class Transaction < ActiveRecord::Base
     validates :amount, :presence => true
     validates :transaction_time, :presence => true
     validates :transaction_type, :presence => true
+    validates :account_id, :presence => true
 
 
     def full_name
