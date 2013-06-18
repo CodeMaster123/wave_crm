@@ -8,7 +8,11 @@
         <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
     <% end %>
     <dt><strong>Lead owner :</strong></dt>
+    <% unless @lead.leadable.nil? %>
     <dd><%= @lead.leadable.user.full_name %></dd>
+<% else %>
+    <dd>No executive assigned</dd>
+<% end %>
     <dt><strong> Description :</strong></dt>
     <dd><%= @lead.description %></dd>
     <dt><strong> Phone number :</strong></dt>
