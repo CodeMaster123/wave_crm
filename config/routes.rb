@@ -1,4 +1,6 @@
 WaveCrm::Application.routes.draw do
+    devise_for :users
+
     resources :accounts
     resources :call_logs
     resources :inventory_additions
@@ -26,7 +28,6 @@ WaveCrm::Application.routes.draw do
     resources :events
 
     mount_sextant if Rails.env.development?
-    devise_for :users
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
     mount Resque::Server, :at => '/resque_panel'
 
