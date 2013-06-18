@@ -21,7 +21,7 @@ authorization do
     role :admin do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
-        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction]
+        has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction, :new]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :users, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :follow_ups, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :follow_ups_list]
@@ -38,7 +38,7 @@ authorization do
 
     role :team_leader do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search]
-        has_permission_on :transactions, :to => [:mature]
+        has_permission_on :transactions, :to => [:mature, :new]
         has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :show, :search, :edit]
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
@@ -49,7 +49,7 @@ authorization do
 
     role :sales_executive do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search]
-        has_permission_on :transactions, :to => [:mature]
+        has_permission_on :transactions, :to => [:mature, :new]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :show, :search, :edit]
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
