@@ -1,20 +1,10 @@
 WaveCrm::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  resources :accounts
-
-
-  resources :call_logs
-
-
-  resources :inventory_additions
-
-
-  resources :inventories
-
-
     devise_for :users
 
+    resources :accounts
+    resources :call_logs
+    resources :inventory_additions
+    resources :inventories
     resources :companies
     resources :special_occasions
     resources :transaction_field_values
@@ -38,7 +28,8 @@ WaveCrm::Application.routes.draw do
     resources :events
 
     mount_sextant if Rails.env.development?
-    mount Resque::Server, :at => '/admin_resque'
+    mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+    mount Resque::Server, :at => '/resque_panel'
 
     match 'contact_search' => 'contacts#search'
     match 'lead_search' => 'leads#search'
@@ -65,7 +56,7 @@ WaveCrm::Application.routes.draw do
 
     match 'contacts/index/:type' => 'contacts#index'
 
-    match 'notifications/index/:type' => 'notifications#index'
+    match 'notifications/index/:type' => 'notifications#index', :as => :n_change
 
     match 'create_call_logs' => 'call_logs#create_log'
     match 'create_events' => 'events#create_event'
@@ -73,5 +64,5 @@ WaveCrm::Application.routes.draw do
     match 'create_contact' => 'contacts#create_contact'
     match 'create_transaction' => 'transactions#create_transaction'
 
-  root :to => 'leads#index'
+    root :to => 'leads#index'
 end

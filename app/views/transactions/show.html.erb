@@ -1,11 +1,11 @@
 <%- model_class = Transaction -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1> 
 </div>
 
 <dl class="dl-horizontal">
-    <dt><strong> Contact :</strong></dt>
-  <dd><%= @transaction.full_name %></dd>
+    <dt><strong> Account :</strong></dt>
+  <dd><%= @transaction.account.account_name %></dd>
   <dt><strong>Amount:</strong></dt>
   <dd><%= @transaction.amount %></dd>
   <dt><strong>Transaction Time: </strong></dt>

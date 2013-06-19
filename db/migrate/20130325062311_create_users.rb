@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
             t.string :first_name
             t.string :last_name
             t.string :address
-            t.integer :mobile_no
+            t.integer :mobile_no, :limit => 8
             t.integer :account_type
             t.integer :company_id
 

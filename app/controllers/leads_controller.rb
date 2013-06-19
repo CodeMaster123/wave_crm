@@ -41,10 +41,13 @@ class LeadsController < ApplicationController
   end
 
   def show
-      @lead_notifications = Lead.find(params[:id]).contacts.first.notifications.order(:updated_at)
-      @lead_events = Lead.find(params[:id]).events.all
       @lead = Lead.find(params[:id])
+      @lead_events = @lead.events.all
       @call_logs = @lead.call_logs
+
+      unless @lead.contacts.empty?
+          @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
+      end
 
       #--- Modal variables for call logs ---
       @call_log = CallLog.new
@@ -54,6 +57,7 @@ class LeadsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @notification = Notification.new
       @contacts = @company.contacts.all
+      @notifications_contact = @lead.contacts.all
 
       #--- Modal variables for events ---
       @event = Event.new
@@ -69,7 +73,8 @@ class LeadsController < ApplicationController
       @lead = Lead.new
       @lead.contacts.build
       @lead.follow_ups.build
-      @lead.leads_products.build
+      @lead.product_transactions.build
+      @lead.build_account
       @team_leaders = @company.team_leaders.all
       @sales_executives = @company.sales_executives.all
       @products = @company.products.all
@@ -84,6 +89,9 @@ class LeadsController < ApplicationController
   def edit
       @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
+      if @lead.contacts.empty?
+          @lead.contacts.build
+      end
       @products = @company.products.all
       @team_leaders = @company.team_leaders.all
       @sales_executives = @company.sales_executives.all
@@ -106,7 +114,6 @@ class LeadsController < ApplicationController
 
       respond_to do |format|
           if @lead.save
-              #@follow_up = FollowUp.create(:lead_id = @lead.id,
               format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
               format.json { render json: @lead, status: :created, location: @lead }
           else
@@ -126,7 +133,7 @@ class LeadsController < ApplicationController
 
       respond_to do |format|
           if @lead.update_attributes(params[:lead])
-              format.html { redirect_to @lead, notice: 'Lead was successfully updated.' }
+              format.html { redirect_to :leads, notice: 'Lead was successfully updated.' }
               format.json { head :no_content }
           else
               format.html { render action: "edit" }

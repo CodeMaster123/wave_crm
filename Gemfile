@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+#gem 'turbolinks'
 gem 'mysql2', '0.3.12b4'
 gem 'rails_admin'
 gem 'devise'
@@ -47,6 +48,9 @@ group :test do
 end
 
 #gem 'rack-mini-profiler'
+gem 'better_errors'
+gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
+gem 'newrelic_rpm'

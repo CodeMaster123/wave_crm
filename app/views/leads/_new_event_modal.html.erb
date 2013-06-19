@@ -24,6 +24,7 @@
                 </div>
             </div>
         </div>
+                    <%= hidden_field_tag :lead_id, @lead.id %>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             <%= submit_tag 'submit', :class => 'btn btn-primary' %>

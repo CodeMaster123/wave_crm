@@ -13,7 +13,6 @@
       <th><%= model_class.human_attribute_name(:amount_paid) %></th>
       <th><%= model_class.human_attribute_name(:subscription_start) %></th>
       <th><%= model_class.human_attribute_name(:subscription_ends) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -28,7 +27,6 @@
         <td><%= crm_customer.amount_paid %></td>
         <td><%= crm_customer.subscription_start %></td>
         <td><%= crm_customer.subscription_ends %></td>
-        <td><%=l crm_customer.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_crm_customer_path(crm_customer), :class => 'btn btn-mini' %>

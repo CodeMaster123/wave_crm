@@ -61,7 +61,7 @@
             <div class="control-group">
                 <%= f.label :Company, :class => 'control-label' %>
                 <div class="controls">
-                    <%= f.select :company_id, options_for_select(@company.map {|c|[c.company_name, c.id]}), :class => 'account_type'  %>
+                    <%= f.select :company_id, options_for_select(@companies.map {|c|[c.company_name, c.id]}), :class => 'account_type'  %>
                 </div>
             </div>
         <% end %>

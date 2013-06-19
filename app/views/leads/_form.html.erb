@@ -1,7 +1,7 @@
 <%= nested_form_for @lead, :html => { :class => 'form-horizontal' } do |f| %>
 
   <h4 class="lead_header show-header">Lead Information</h4>
-  <hr>
+  <hr class="line">
   <% if current_user.account_type == 1 %>
   <div class="leads">
     <div class="control-group">
@@ -23,6 +23,20 @@
         </div>
     </div>
   </div>
+        <div class="control-group">
+          <%= f.label :lead_source, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :lead_source, [["Select Lead Source", ""], ["Direct Marketing", "direct_marketing"], ["Advertisement", "advertisement"], ["Cold call","cold_call"], ["External referral","external_referral"], ["Partner","partner"], ["Public Relations","public_relations"], ["Sales Mail","sales_mail"], ["Seminar","seminar"], ["Trade show","trade_show"], ["Whitepaper","whitepaper"], ["Web research", "web_research"], ["Google search","google_search"]], {}, :class => 'lead_owner' %>
+          </div>
+        </div>
+        <div class="control-group-lead_status">
+          <%= f.label :lead_status, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :lead_status, [["Select Lead status", ""], ["In queue", "queue"], ["Prospecting", "prospecting"], ["Lead", "lead"], ["Qualified", "qualified"], ["Dead", "dead"], ["Won", "won"], ["Future", "future"]], {}, :class => 'lead_owner' %>
+          </div>
+        </div>
+
+
     <%= f.fields_for :contacts do |contact| %>
         <div class="control-group">
           <%= contact.label :first_name, :class => 'control-label' %>
@@ -71,102 +85,240 @@
         <%= contact.hidden_field :contact_relationship, :value => "potential_customer" %>
     <% end %>
 
-    <h4 class="product_header show-header">Product Details</h4>
-    <hr>
-    <%= f.fields_for :leads_products do |leads_products| %>
+    <% if current_user.company.crm_customer.customer_type == "B2B" %>
+    <h4 class="product_header show-header">Account Details</h4>
+    <hr class="line">
+    <%= f.fields_for :account do |account| %>
+        <%= account.hidden_field :company_id, :value => current_user.company.id %>
         <div class="control-group">
-          <%= leads_products.label :product_name, :class => 'control-label' %>
-          <div class="controls">
-            <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
-            <%= leads_products.link_to_remove "Remove this product" %>
-          </div>
+            <label class ='control-label'>Account name</label>
+            <div class="controls">
+                <%= account.text_field :account_name, :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group-account">
+            <label class ='control-label'>Ownership type</label>
+            <div class="controls">
+                <%= account.select :ownership_type, options_for_select([["Proprietership","proprietership"],["Private", "Private"], ["Public", "Public"]]), :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class ='control-label'>Number of employees</label>
+            <div class="controls">
+                <%= account.text_field :number_of_employees, :class => 'number_field' %>
+            </div>
+        </div>
+        <div class="control-group-account">
+            <label class ='control-label'>Phone number</label>
+            <div class="controls">
+                <%= account.text_field :phone_number, :class => 'number_field' %>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class ='control-label'>Website</label>
+            <div class="controls">
+                <%= account.text_field :website, :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group-account">
+            <label class ='control-label'>Billing address</label>
+            <div class="controls">
+                <%= account.text_area :billing_address, :rows => 3, :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class ='control-label'>Shipping address</label>
+            <div class="controls">
+                <%= account.text_area :shipping_address, :rows => 3, :class => 'text_field' %>
+            </div>
         </div>
     <% end %>
-    <%= f.link_to_add "Add a product", :leads_products, :class => 'add'%>
 
-    <h4 class="description_header show-header">Description</h4>
-    <hr>
+<% end %>
+
+<h4 class="product_header show-header">Product Details</h4>
+<hr class="line">
+<%= f.fields_for :product_transactions do |product_transaction| %>
     <div class="control-group">
-      <%= f.label :lead_description, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :description, :class => 'text_field' %>
-      </div>
+        <%= product_transaction.label :product_name, :class => 'control-label' %>
+        <div class="controls">
+            <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+        </div>
     </div>
+    <div class="control-group-price">
+        <%= product_transaction.label :price, :class => 'control-label' %>
+        <div class="controls">
+            <%= product_transaction.text_field :price, :class => 'text_field' %>
+        </div>
+    </div>
+    <div class="control-group">
+        <%= product_transaction.label :quantity, :class => 'control-label' %>
+        <div class="controls">
+            <%= product_transaction.text_field :quantity, :class => 'text_field' %>
+            <%= product_transaction.link_to_remove "Remove this product" %>
+        </div>
+    </div>
+<% end %>
+<%= f.link_to_add "Add a product", :product_transactions, :class => 'add'%>
+
+<h4 class="description_header show-header">Description</h4>
+<hr class="line">
+<div class="control-group">
+    <%= f.label :lead_description, :class => 'control-label' %>
+    <div class="controls">
+        <%= f.text_area :description, :rows => 3, :class => 'text_field' %>
+    </div>
+</div>
     <% else  %>
+        <div class="control-group">
+          <%= f.label :lead_source, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :lead_source, [["Select Lead Source", ""], ["Direct Marketing", "direct_marketing"], ["Advertisement", "advertisement"], ["Cold call","cold_call"], ["External referral","external_referral"], ["Partner","partner"], ["Public Relations","public_relations"], ["Sales Mail","sales_mail"], ["Seminar","seminar"], ["Trade show","trade_show"], ["Whitepaper","whitepaper"], ["Web research", "web_research"], ["Google search","google_search"]], {}, :class => 'lead_owner' %>
+          </div>
+        </div>
+        <div class="control-group-lead_status">
+          <%= f.label :lead_status, :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select :lead_status, [["Select Lead status", ""], ["In queue", "queue"], ["Prospecting", "prospecting"], ["Lead", "lead"], ["Qualified", "qualified"], ["Dead", "dead"], ["Won", "won"], ["Future", "future"]], {}, :class => 'lead_owner' %>
+          </div>
+        </div>
         <%= f.fields_for :contacts do |contact| %>
             <div class="control-group">
-              <%= contact.label :first_name, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.text_field :first_name, :class => 'text_field' %>
-              </div>
+                <%= contact.label :first_name, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.text_field :first_name, :class => 'text_field' %>
+                </div>
             </div>
 
             <div class="control-group-middle_name">
-              <%= contact.label :middle_name, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.text_field :middle_name, :class => 'text_field' %>
-              </div>
+                <%= contact.label :middle_name, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.text_field :middle_name, :class => 'text_field' %>
+                </div>
             </div>
             <div class="control-group">
-              <%= contact.label :last_name, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.text_field :last_name, :class => 'text_field' %>
-              </div>
+                <%= contact.label :last_name, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.text_field :last_name, :class => 'text_field' %>
+                </div>
             </div>
             <div class="control-group-email">
-              <%= contact.label :email, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.email_field :email_id, :class => 'text_field' %>
-              </div>
+                <%= contact.label :email, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.email_field :email_id, :class => 'text_field' %>
+                </div>
             </div>
             <div class="control-group">
-              <%= contact.label :mobile_number, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.text_field :mobile_no, :class => 'text_field' %>
-              </div>
+                <%= contact.label :mobile_number, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.text_field :mobile_no, :class => 'text_field' %>
+                </div>
             </div>
             <div class="control-group-phone_number">
-              <%= contact.label :phone_number, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.text_field :landline_no, :class => 'text_field' %>
-              </div>
+                <%= contact.label :phone_number, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.text_field :landline_no, :class => 'text_field' %>
+                </div>
             </div>
             <div class="control-group">
-              <%= contact.label :address, :class => 'control-label' %>
-              <div class="controls">
-                <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
-              </div>
+                <%= contact.label :address, :class => 'control-label' %>
+                <div class="controls">
+                    <%= contact.text_area :address, :rows => 2, :class => 'text_field' %>
+                </div>
             </div>
             <%= contact.hidden_field :company_id, :value => current_user.company_id %>
             <%= contact.hidden_field :contact_relationship, :value => "potential_customer" %>
         <% end %>
 
+        <% if current_user.company.crm_customer.customer_type == "B2B" %>
+            <h4 class="product_header show-header">Account Details</h4>
+            <hr class="line">
+            <%= f.fields_for :account do |account| %>
+                <%= account.hidden_field :company_id, :value => current_user.company.id %>
+                <div class="control-group">
+                  <label class ='control-label'>Account name</label>
+                  <div class="controls">
+                    <%= account.text_field :account_name, :class => 'text_field' %>
+                  </div>
+                </div>
+                <div class="control-group-account">
+                  <label class ='control-label'>Ownership type</label>
+                  <div class="controls">
+                    <%= account.select :ownership_type, options_for_select([["Proprietership","proprietership"],["Private", "Private"], ["Public", "Public"]]), :class => 'text_field' %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class ='control-label'>Number of employees</label>
+                  <div class="controls">
+                    <%= account.text_field :number_of_employees, :class => 'number_field' %>
+                  </div>
+                </div>
+                <div class="control-group-account">
+                  <label class ='control-label'>Phone number</label>
+                  <div class="controls">
+                    <%= account.text_field :phone_number, :class => 'number_field' %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class ='control-label'>Website</label>
+                  <div class="controls">
+                    <%= account.text_field :website, :class => 'text_field' %>
+                  </div>
+                </div>
+                <div class="control-group-account">
+                  <label class ='control-label'>Billing address</label>
+                  <div class="controls">
+                    <%= account.text_area :billing_address, :rows => 3, :class => 'text_field' %>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class ='control-label'>Shipping address</label>
+                  <div class="controls">
+                    <%= account.text_area :shipping_address, :rows => 3, :class => 'text_field' %>
+                  </div>
+                </div>
+            <% end %>
+
+        <% end %>
+
         <h4 class="product_header show-header">Product Details</h4>
-        <hr>
-        <%= f.fields_for :leads_products do |leads_products| %>
+        <hr class="line">
+        <%= f.fields_for :product_transactions do |product_transaction| %>
             <div class="control-group">
-              <%= leads_products.label :product_name, :class => 'control-label' %>
+              <%= product_transaction.label :product_name, :class => 'control-label' %>
               <div class="controls">
-                <%= leads_products.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
-                <%= leads_products.link_to_remove "Remove this product" %>
+                <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group-price">
+              <%= product_transaction.label :price, :class => 'control-label' %>
+              <div class="controls">
+                <%= product_transaction.text_field :price, :class => 'text_field' %>
+              </div>
+            </div>
+            <div class="control-group">
+              <%= product_transaction.label :quantity, :class => 'control-label' %>
+              <div class="controls">
+                <%= product_transaction.text_field :quantity, :class => 'text_field' %>
+                <%= product_transaction.link_to_remove "Remove this product" %>
               </div>
             </div>
         <% end %>
-        <%= f.link_to_add "Add a product", :leads_products, :class => 'add'%>
+        <%= f.link_to_add "Add a product", :product_transactions, :class => 'add'%>
 
         <h4 class="description_header show-header">Description</h4>
-        <hr>
+        <hr class="line">
         <div class="control-group">
-          <%= f.label :lead_description, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :description, :class => 'text_field' %>
-          </div>
+            <%= f.label :lead_description, :class => 'control-label' %>
+            <div class="controls">
+                <%= f.text_area :description, :rows => 3, :class => 'text_field' %>
+            </div>
         </div>
     <% end %>
     <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
         <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                leads_path, :class => 'btn' %>
-    </div>
-<% end %>
+            leads_path, :class => 'btn' %>
+        </div>
+    <% end %>
 

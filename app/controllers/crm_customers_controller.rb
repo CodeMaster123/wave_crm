@@ -1,3 +1,4 @@
+#Pull this file
 class CrmCustomersController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
@@ -26,6 +27,7 @@ class CrmCustomersController < ApplicationController
   # GET /crm_customers/new.json
   def new
     @crm_customer = CrmCustomer.new
+    @crm_customer.build_company
 
     respond_to do |format|
       format.html # new.html.erb

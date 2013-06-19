@@ -32,15 +32,28 @@ class TransactionsController < ApplicationController
     # GET /transactions/new
     # GET /transactions/new.json
     def new
-        @transaction = Transaction.new
-        @transaction_fields = current_user.transaction_fields
-        @transaction.contacts.build
-        @transaction.product_transactions.build
-        @products = current_user.company.products
+        if params[:matured_by].nil?
+            @transaction = Transaction.new
+            @transaction_fields = current_user.transaction_fields
+            @transaction.contacts.build
+            @transaction.product_transactions.build
+        else
+            @transaction = current_user.company.transactions.build
+            @lead = Lead.find(params[:id1])
+            @lead.product_transactions.each do |pt|
+                puts "@tranasction ==============> #{@transaction}"
+                @transaction.product_transactions.new(:price => pt.price, :quantity => pt.quantity, :product_id => pt.product_id)
+            end
+            @transaction.account = @lead.account
+            #.product_transaction
+            @transaction_fields = current_user.transaction_fields
+            @transaction.contacts.build
+            @transaction.product_transactions.build
+        end
 
+        @products = current_user.company.products
         @contacts = current_user.company.contacts.all
         @accounts = current_user.company.accounts
-
 
         respond_to do |format|
             format.html # new.html.erb
@@ -60,8 +73,8 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
-        @products = Company.find(current_user.company_id).products
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
+        @products = @company.products
         @transaction = @company.transactions.new(params[:transaction])
         @transaction_fields = current_user.transaction_fields
         @transaction.company_id = @company.id
@@ -73,6 +86,8 @@ class TransactionsController < ApplicationController
                 @transaction_fields.each do |tf|
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
+                @transaction.account.lead.update_attributes(:matured => true, :matured_at => Date.today)
+                @transaction.account.update_attributes(:lead_id => nil, :is_matured => true)
 
                 if current_user.account_type == 1
                     format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }

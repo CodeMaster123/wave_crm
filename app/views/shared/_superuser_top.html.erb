@@ -44,17 +44,14 @@
     </li>
 <% end %>
 
-<% if controller_name == "transaction_fields" %>
-    <li class='active'>
-    <%= link_to(:transaction_fields) do %>
-        <span>Transaction fields</span>
-    <% end %>
-    </li>
-<% elsif %>
-    <li>
-    <%= link_to(:transaction_fields) do %>
-        <span>Transaction fields</span>
-    <% end %>
-    </li>
+<li>
+<%= link_to(:rails_admin) do %>
+    <span>Rails Admin</span>
 <% end %>
+</li>
 
+<li>
+<%= link_to(:resque_server) do %>
+    <span>Resque Admin</span>
+<% end %>
+</li>

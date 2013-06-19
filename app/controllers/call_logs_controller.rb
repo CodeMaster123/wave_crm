@@ -90,7 +90,7 @@ class CallLogsController < ApplicationController
     end
 
     def create_log
-        @call_log =CallLog.new(:call_result =>params[:call_result], :call_type => params[:call_type], :call_purpose => params[:call_purpose], :call_owner_id => params[:call_owner_id].to_i, :call_start_time => params[:call_start_time].to_date)#, :call_duration => :params[:call_duration].to_i)
+        @call_log =CallLog.new(:call_result =>params[:call_result], :call_type => params[:call_type], :call_purpose => params[:call_purpose], :call_owner_id => params[:call_owner_id].to_i, :call_start_time => params[:call_start_time].to_date, :subject => params[:subject], :lead_id => params[:lead_id])#, :call_duration => :params[:call_duration].to_i)
         @call_log.save
     end
 end

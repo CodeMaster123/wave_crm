@@ -3,12 +3,13 @@ class Account < ActiveRecord::Base
 
   belongs_to :lead
   belongs_to :company
-  has_one :account
+  #has_one :account
   has_many :contacts
+  has_many :transactions
 
   validates :account_name, :presence => true
-  validates :account_name, :presence => true
-  validates :account_name, :presence => true
+  #validates :account_name, :presence => true
+  #validates :account_name, :presence => true
   validates :phone_number, :presence => true
   validates :billing_address, :presence => true
 end

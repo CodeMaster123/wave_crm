@@ -4,6 +4,7 @@ class Transaction < ActiveRecord::Base
     has_many :product_transactions
     has_many :products, :through => :product_transactions
     belongs_to :company
+    belongs_to :account
 
     attr_accessible :amount, :transaction_time, :company_id, :contact_id, :transaction_type, :micr_code, :matured_by, :executive_type, :account_id
 
@@ -18,6 +19,7 @@ class Transaction < ActiveRecord::Base
     validates :amount, :presence => true
     validates :transaction_time, :presence => true
     validates :transaction_type, :presence => true
+    validates :account_id, :presence => true
 
 
     def full_name

@@ -21,6 +21,7 @@
 
                 <th>Description</th>
                 <th>Lead owner</th>
+                <th>Lead source</th>
                 <th>Executive type</th>
                 <th>Actions</th>
             </tr>
@@ -38,6 +39,7 @@
                         <% else %>
                             <td></td>
                         <% end %>
+                        <td><%= lead.get_lead_source%></td>
                         <td><%= lead.show_executive_type%></td>
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
@@ -115,7 +117,6 @@
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                            <%= link_to 'Add follow up', {:controller => 'follow_ups', :action => 'new', :id1 => lead.id}, :class => 'btn btn-mini btn-follow-up' %>
                             <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                         </td>
                     </tr>

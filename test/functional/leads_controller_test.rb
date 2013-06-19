@@ -43,7 +43,7 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should update lead" do
         put :update, id: @lead, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type}
-        assert_redirected_to lead_path(assigns(:lead))
+        assert_redirected_to leads_path
     end
 
     test "should destroy lead" do

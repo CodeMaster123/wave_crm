@@ -2,17 +2,17 @@ $(document).ready(function() {
     window.setTimeout(function(){$('.alert').fadeOut()}, 400);
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',
-    timeFormat: 'hh:mm tt z'
+        timeFormat: 'hh:mm tt z'
     });
 
 
-$('.search-c').searchbox({
-    url: '/lead_search.html',
-    param: 'q',
-    dom_id: '#search-data',
-    delay: 100
-})
-$('.tTip').betterTooltip({speed: 150, delay: 300});
+    $('.search-c').searchbox({
+        url: '/lead_search.html',
+        param: 'q',
+        dom_id: '#search-data',
+        delay: 100
+    })
+    $('.tTip').betterTooltip({speed: 150, delay: 300});
 });
 
 
@@ -43,14 +43,23 @@ else
 
 $('.event-form').submit(function() {
     var valuesToSubmit = $(this).serialize();
-    console.log('vivek');
     $.ajax({
         url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
-        dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
-    }).success(function(json){
-        //act on result.
-    });
+        success: function(json){
+            $('.modal').modal('hide');
+            if ($('tbody#events-data').children().length==0)
+    {
+        console.log('vivek');
+        $('tbody#events-data').append("<tr><td>"+$('.event-form #title').val()+"</td><td>"+$('.event-form #starts_at').val()+"</td><td>"+$('.event-form #description').val()+"</td></tr>");
+    }
+            else
+    {
+        $('tbody#events-data tr').last().after("<tr><td>"+$('.event-form #title').val()+"</td><td>"+$('.event-form #starts_at').val()+"</td><td>"+$('.event-form #description').val()+"</td></tr>");
+    }
+        }
+
+    })
     return false; // prevents normal behaviour
 });
 
@@ -59,10 +68,17 @@ $('.call-log-form').submit(function() {
     $.ajax({
         url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
-        dataType: "JSON", // you want a difference between normal and ajax-calls, and json is standard
         method: "POST"
     }).success(function(json){
-        //act on result.
+        $('.modal').modal('hide');
+        if ($('tbody#call-log-data').children().length==0)
+    {
+        $('tbody#call-log-data').append("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
+    }
+        else
+    {
+        $('tbody#call-log-data tr').last().after("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
+    }
     });
     return false; // prevents normal behaviour
 });
@@ -72,10 +88,17 @@ $('.notification-form').submit(function() {
     $.ajax({
         url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
         data: valuesToSubmit,
-        dataType: "JSON", // you want a difference between normal and ajax-calls, and json is standard
         method: "POST"
     }).success(function(json){
-        //act on result.
+        $('.modal').modal('hide');
+        if ($('tbody#notifications-data').children().length==0)
+    {
+        $('tbody#notifications-data').append("<tr><td>yes</td><td>yes</td><td>"+$('.notification-form #notification_time').val()+"</td><td>"+$('.notification-form #subject').val()+"</td><td>"+$('.notification-form #body').val()+"</td><td>Just now</td></tr>");
+    }
+        else
+    {
+        $('tbody#notifications-data tr').last().after("<tr><td>yes</td><td>yes</td><td>"+$('.notification-form #notification_time').val()+"</td><td>"+$('.notification-form #subject').val()+"</td><td>"+$('.notification-form #body').val()+"</td><td>Just now</td></tr>");
+    }
     });
     return false; // prevents normal behaviour
 });

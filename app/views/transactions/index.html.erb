@@ -31,7 +31,11 @@
         <% @transactions.each do |transaction| %>
             <tr>
                 <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
-                <td><%= transaction.full_name %> </td>
+                <% unless Contact.where(:id => transaction.contact_id).empty? %>
+                    <td><%= transaction.full_name %> </td>
+                <% else %>
+                    <td></td>
+                <% end %>
                 <td><%= transaction.amount %></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>

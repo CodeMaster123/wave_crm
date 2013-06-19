@@ -64,7 +64,8 @@
         <div class="control-group existing_contact">
             <%= f.label :accounts, :class => 'control-label' %>
             <div class="controls">
-                <%= f.select :contact_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}), :class => 'contacts_text_field' %>
+                <%= @transaction.account.account_name %>
+                <%= f.hidden_field :account_id, :value => @transaction.account.id %>
             </div>
         </div>
     <% end %>

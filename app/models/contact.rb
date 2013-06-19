@@ -5,7 +5,7 @@ class Contact < ActiveRecord::Base
   belongs_to :lead
   belongs_to :contactable, :polymorphic => true
   belongs_to :account
-  has_many :notifications
+  has_many :notifications, :dependent => :destroy
 
   has_many :taggings
   has_many :tags, through: :taggings

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601081438) do
+ActiveRecord::Schema.define(:version => 20130603103304) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -146,6 +146,8 @@ ActiveRecord::Schema.define(:version => 20130601081438) do
     t.integer  "company_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "lead_source"
+    t.string   "lead_status"
   end
 
   create_table "leads_products", :force => true do |t|
@@ -170,8 +172,8 @@ ActiveRecord::Schema.define(:version => 20130601081438) do
     t.integer  "company_id"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.boolean  "is_sms",            :default => false, :null => false
-    t.boolean  "is_email",          :default => false, :null => false
+    t.boolean  "is_sms",            :default => false
+    t.boolean  "is_email",          :default => false
     t.string   "subject"
   end
 
@@ -296,17 +298,17 @@ ActiveRecord::Schema.define(:version => 20130601081438) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "address"
-    t.integer  "mobile_no"
+    t.integer  "mobile_no",              :limit => 8
     t.integer  "account_type"
     t.integer  "company_id"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
