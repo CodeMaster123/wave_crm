@@ -17,18 +17,39 @@ class LeadsController < ApplicationController
       end
 
       if current_user.account_type == 1
-        @company = Company.where(:id => current_user.company_id).first
-        @leads = @company.leads.paginate(:page => params[:page], :per_page => 15).all
+          @company = current_user.company
+          if params[:type] == "current"
+              @leads = @company.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15).all
+          elsif params[:type] == "future"
+              @leads = @company.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15).all
+          else
+              @leads = @company.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15).all
+          end
           unless params[:id1].nil?
               @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
               executive_name = SalesExecutive.where(:id => params[:id1]).first.user
               @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
           end
       elsif current_user.account_type  == 2
-          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 15)
+          if params[:type] == "current"
+              @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
+          elsif params[:type] == "future"
+              @leads = current_user.team_leader.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15)
+          else
+              @leads = current_user.team_leader.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15)
+          end
           @team = current_user.team_leader.sales_executives.each do |executive|
           end
       elsif current_user.account_type ==3
+          if params[:type] == "current"
+              @leads = current_user.sales_executive.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
+          elsif params[:type] == "future"
+              @leads = current_user.sales_executive.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15)
+          else
+              @leads = current_user.sales_executive.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15)
+          end
+          @team = current_user.team_leader.sales_executives.each do |executive|
+          end
           @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
       elsif current_user.account_type ==4
           @leads = Lead.all.paginate(:page => params[:page], :per_page => 15)

@@ -44,7 +44,6 @@ WaveCrm::Application.routes.draw do
     match 'follow_ups/new/:id1' => 'follow_ups#new'
     match 'follow_ups_list/:id' => 'follow_ups#follow_ups_list'
     match 'target_forecast' => 'team_leaders#target_forecast'
-    match 'leads/index/:team_leader' => 'leads#index'
 
     match 'noticed' => 'notifications#noticed'
     match 'notifications_to_all' => 'notifications#notifications_to_all'
@@ -63,6 +62,9 @@ WaveCrm::Application.routes.draw do
     match 'create_notification' => 'notifications#create_notification'
     match 'create_contact' => 'contacts#create_contact'
     match 'create_transaction' => 'transactions#create_transaction'
+
+    match 'leads/index/:type' => 'leads#index', :as => :lead_change
+    match 'leads/index/:team_leader' => 'leads#index'
 
     root :to => 'leads#index'
 end

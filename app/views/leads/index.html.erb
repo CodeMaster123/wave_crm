@@ -11,6 +11,11 @@
             <div class="new-top">
                 <%= link_to "New", new_lead_path, :class => 'btn btn-primary custom-new-button' %>
             </div>
+            <div class="notification-btn">
+                <%= link_to "Current Leads", {:controller=>"leads", :action=>"index", :type=>"current"}, :class => 'btn btn-primary' %>
+                <%= link_to "Future leads", {:controller=>"leads", :action=>"index", :type=>"future"}, :class => 'btn btn-primary' %>
+                <%= link_to "Dead leads", {:controller=>"leads", :action=>"index", :type=>"dead"}, :class => 'btn btn-primary' %>
+            </div>
         </div>
     </div>
 
@@ -44,9 +49,9 @@
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                        <% unless lead.leadable_id.nil? %>
-                            <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
-                        <% end %>
+                            <% unless lead.leadable_id.nil? %>
+                                <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                            <% end %>
                         </td>
                     </tr>
                 <% end %>
@@ -65,38 +70,9 @@
 <!-- for team leader -->
 
 <% unless params[:team_leader].nil? %>
-    <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
-    <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Sr.No</th>
-
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% render :partial => 'shared/i_calculation' %>
-            <% @team_leader.leads.each do |lead| %>
-                <tr>
-                    <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-
-                    <td><%= lead.description %></td>
-
-                    <td>
-                        <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
-                        <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                        <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
-                    </td>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-
-    <!-- sales_executives -->
-    <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
-        <h4>Executive- <%= "#{executive.user.first_name} #{executive.user.last_name}" %></h4>
+    <% unless params[:team_leader].empty? %>
+        <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
+        <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -108,7 +84,7 @@
             </thead>
             <tbody>
                 <% render :partial => 'shared/i_calculation' %>
-                <% executive.leads.each do |lead| %>
+                <% @team_leader.leads.each do |lead| %>
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
 
@@ -123,5 +99,36 @@
                 <% end %>
             </tbody>
         </table>
+
+        <!-- sales_executives -->
+        <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
+            <h4>Executive- <%= "#{executive.user.first_name} #{executive.user.last_name}" %></h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% render :partial => 'shared/i_calculation' %>
+                    <% executive.leads.each do |lead| %>
+                        <tr>
+                            <td><%= link_to @i = @i+1, lead_path(lead) %></td>
+
+                            <td><%= lead.description %></td>
+
+                            <td>
+                                <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                                <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                                <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
     <% end %>
 <% end %>
