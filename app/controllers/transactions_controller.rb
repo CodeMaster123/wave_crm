@@ -87,7 +87,7 @@ class TransactionsController < ApplicationController
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
                 @transaction.account.lead.update_attributes(:matured => true, :matured_at => Date.today)
-                @transaction.account.update_attributes(:lead_id => nil, :is_matured => true)
+                @transaction.account.update_attributes(:is_matured => true)
 
                 if current_user.account_type == 1
                     format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }

@@ -85,8 +85,7 @@ $(document).ready(function() {
                 console.debug($total);
             });
 
-    $('.add').on("click",function(){
-    $('.quantity').focus(
+        $('.quantity').focus(
             function(){
                 var $total = 0;
                 $('.product').each(function(){
@@ -103,7 +102,41 @@ $(document).ready(function() {
                 console.debug($total);
             });
 
-    $('.product_price').focus(
+        $('.product_price').focus(
+            function(){
+                var $total = 0;
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
+                    $(this).find($('.sub-total')).html(sub_total);
+                });
+                $('.amount_field').val($total);
+                console.debug("Total=");
+                console.debug($total);
+            });
+
+    $('.add').on("click",function(){
+        $('.quantity').focus(
+            function(){
+                var $total = 0;
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+                    console.log('vivek');
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
+                    $(this).find($('.sub-total')).html(sub_total);
+                });
+                $('.amount_field').val($total);
+                console.debug("Total=");
+                console.debug($total);
+            });
+
+        $('.product_price').focus(
             function(){
                 var $total = 0;
                 $('.product').each(function(){

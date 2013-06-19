@@ -31,10 +31,14 @@
         <% @transactions.each do |transaction| %>
             <tr>
                 <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
-                <% unless Contact.where(:id => transaction.contact_id).empty? %>
-                    <td><%= transaction.full_name %> </td>
+                <% if current_user.company.crm_customer.customer_type == 'B2C' %>
+                    <% unless Contact.where(:id => transaction.contact_id).empty? %>
+                        <td><%= transaction.full_name %> </td>
+                    <% else %>
+                        <td></td>
+                    <% end %>
                 <% else %>
-                    <td></td>
+                        <td><%= transaction.account.contacts.first.full_name %> </td>
                 <% end %>
                 <td><%= transaction.amount %></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
