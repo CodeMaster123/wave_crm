@@ -29,6 +29,26 @@
     <% end %>
 </dl>
 
+<div><h6>Products</h6></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Products</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody id="search-data">
+        <% @lead.product_transactions.each do |pt| %>
+            <tr>
+                <td><%= pt.product.name %></td>
+                <td><%= pt.quantity %></td>
+                <td><%= pt.price %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
 <div><h6>Closed Meetings</h6></div>
 <table class="table table-striped">
     <thead>

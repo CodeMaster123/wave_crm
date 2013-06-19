@@ -67,8 +67,9 @@
                 <% if params[:matured_by].nil? %>
                     <%= f.select :contact_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}), :class => 'contacts_text_field' %>
                 <% else %>
-                    <%= @lead.account.account_name %>
-                    <%= f.hidden_field :account_id, :value => @lead.account.id %>
+                    <% @account = Account.where(:lead_id => @lead.id).first %>
+                    <%= @account.account_name %>
+                    <%= f.hidden_field :account_id, :value => @account.id %>
                 <% end %>
             </div>
         </div>
@@ -78,7 +79,7 @@
         <div class="control-group product">
             <%= pt.label :products, :class => 'control-label' %>
             <div class="controls">
-                <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]}),:class => 'contact_type' %>
+                <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),:class => 'contact_type', :selected => 3 %>
                 Quantity
                 <%= pt.text_field :quantity, :class=>'text_field quantity' %>
                 Price
