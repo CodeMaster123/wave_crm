@@ -75,14 +75,15 @@
     <% end %>
 
     <%= f.fields_for :product_transactions do |pt| %>
-        <div class="control-group">
+        <div class="control-group product">
             <%= pt.label :products, :class => 'control-label' %>
             <div class="controls">
                 <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]}),:class => 'contact_type' %>
                 Quantity
-                <%= pt.text_field :quantity, :class=>'text_field' %>
+                <%= pt.text_field :quantity, :class=>'text_field quantity' %>
                 Price
                 <%= pt.text_field :price, :class=>'text_field product_price' %>
+                <b class="sub-total">0</b>
                 <%= pt.link_to_remove "Remove this product", :class => 'remove' %>
             </div>
         </div>
