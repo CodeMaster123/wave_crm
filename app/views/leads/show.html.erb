@@ -54,6 +54,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Meeting with</th>
             <th>starts at</th>
             <th>Description</th>
         </tr>
@@ -63,6 +64,11 @@
             <% if event.starts_at.to_date < Date.today %>
                 <tr>
                     <td><%= event.title %></td>
+                    <% if event.contact.nil? %>
+                        <td></td>
+                    <% else %>
+                        <td><%= event.contact.full_name %></td>
+                    <% end %>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <td><%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <td><%= event.description %></td>
@@ -77,6 +83,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Meeting with</th>
             <th>starts at</th>
             <th>Description</th>
             <th>Actions</th>
@@ -87,6 +94,11 @@
             <% if event.starts_at.to_date >= Date.today %>
                 <tr>
                     <td><%= event.title %></td>
+                    <% if event.contact.nil? %>
+                        <td></td>
+                    <% else %>
+                        <td><%= event.contact.full_name %></td>
+                    <% end %>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %>
                     <td><%= event.description %></td>

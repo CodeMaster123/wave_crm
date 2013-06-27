@@ -128,7 +128,7 @@ class EventsController < ApplicationController
     end
 
     def create_event
-        @event =Event.new(:starts_at =>params[:starts_at], :title => params[:title], :description => params[:description], :user_id => current_user.id, :company_id => current_user.company.id, :lead_id => params[:lead_id])
+        @event =Event.new(:starts_at =>params[:starts_at], :title => params[:title], :description => params[:description], :user_id => current_user.id, :company_id => current_user.company.id, :lead_id => params[:lead_id], :contact_id => params[:contact_id])
         @event.save
         #render false
 

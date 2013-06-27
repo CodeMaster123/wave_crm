@@ -13,6 +13,7 @@ $(document).ready(function() {
         delay: 100
     })
     $('.tTip').betterTooltip({speed: 150, delay: 300});
+        $('#contact_id').chosen();
 });
 
 
