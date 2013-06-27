@@ -4,7 +4,7 @@ class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.json
   def index
-    @inventories = Inventory.all
+    @inventories = current_user.company.inventories.all
 
     respond_to do |format|
       format.html # index.html.erb

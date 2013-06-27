@@ -63,6 +63,7 @@ class TransactionsController < ApplicationController
 
     # GET /transactions/1/edit
     def edit
+        @accounts = current_user.company.accounts
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.find(params[:id])
@@ -73,6 +74,7 @@ class TransactionsController < ApplicationController
     # POST /transactions
     # POST /transactions.json
     def create
+        @accounts = current_user.company.accounts
         @company = current_user.company
         @products = @company.products
         @transaction = @company.transactions.new(params[:transaction])

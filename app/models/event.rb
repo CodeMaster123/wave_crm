@@ -14,6 +14,14 @@ class Event < ActiveRecord::Base
     #validates :ends_at, :presence => true
     validates :company_id, :presence => true
 
+    validate :date_validation
+
+    def date_validation
+        unless self.starts_at > Date.yesterday
+        errors.add(:date_error, "Cannot use past date")
+        end
+    end
+
     #validate :validate_ends_at_before_starts_at
 
    # def validate_ends_at_before_starts_at
