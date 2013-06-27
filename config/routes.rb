@@ -65,6 +65,7 @@ WaveCrm::Application.routes.draw do
 
     match 'leads/index/:type' => 'leads#index', :as => :lead_change
     match 'leads/index/:team_leader' => 'leads#index'
+    match 'change_owner' => 'leads#change_owner'
 
     root :to => 'leads#index'
 end

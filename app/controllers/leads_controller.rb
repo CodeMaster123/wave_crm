@@ -65,6 +65,8 @@ class LeadsController < ApplicationController
       @lead = Lead.find(params[:id])
       @lead_events = @lead.events.all
       @call_logs = @lead.call_logs
+      @team_leaders = current_user.company.team_leaders
+      @sales_executives = current_user.company.sales_executives
 
       unless @lead.contacts.empty?
           @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
@@ -190,5 +192,11 @@ class LeadsController < ApplicationController
   end
 
   def mature
+  end
+
+  def change_owner
+      puts params[:lead_id]
+
+      Lead.find(params[:lead_id].to_i).update_attributes(:leadable_type => params[:leadable_type], :leadable_id => params[:leadable_id])
   end
 end

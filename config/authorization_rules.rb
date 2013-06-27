@@ -19,7 +19,7 @@ authorization do
     end
 
     role :admin do
-        has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :change_owner]
         has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
         has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction, :new]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]

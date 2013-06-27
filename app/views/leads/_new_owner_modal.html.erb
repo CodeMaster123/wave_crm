@@ -1,0 +1,35 @@
+<div id="change-owner" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Change owner</h3>
+    </div>
+    <div class="modal-body">
+        <%= form_tag '/change_owner', :class => 'change-owner-form form-horizontal' do |f| %>
+            <div class="leads">
+                <div class="control-group">
+                    Executive type
+                    <div class="controls">
+                        <%= select_tag :leadable_type, '<option value="">Select Lead Owner</option><option value="TeamLeader">Team leader</option><option value="SalesExecutive">Sales executive</option>'.html_safe, :class => 'lead_owner' %>
+                    </div>
+                </div>
+                <div class="control-group hide team_leaders">
+                    Team leader
+                    <div class="controls">
+                        <%= select_tag :leadable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
+                    </div>
+                </div>
+                <div class="control-group hide sales_executives">
+                    Sales executives
+                    <div class="controls">
+                        <%= select_tag :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
+                    </div>
+                </div>
+            </div>
+
+            <%= hidden_field_tag :lead_id, @lead.id %>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <%= submit_tag nil, :class => 'btn btn-primary' %>
+            </div>
+        <% end %>
+    </div>
