@@ -18,14 +18,7 @@ class Product < ActiveRecord::Base
   after_save :create_empty_inventory
 
   def create_empty_inventory
-      puts "vivek"
-      @empty_inventory = self.build_inventory
-      puts @empty_inventory.product_id
-      @empty_inventory.company_id = self.company_id
-      puts @empty_inventory.company_id
-      @empty_inventory.quantity = 0
-      puts @empty_inventory.quantity
-      @empty_inventory.save
+      self.build_inventory(:company_id => self.company_id, :quantity => 0).save
 
   end
 end
