@@ -26,6 +26,12 @@
                     <td><%= pt.quantity * pt.price %>
                 </tr>
                 <% end %>
+                <tr style="text-align: center;">
+                    <td></td>
+                    <td></td>
+                    <td>Grand total</td>
+                    <td><%= @transaction.amount %></td>
+                </tr>
             </tbody>
         </table>
     </div>

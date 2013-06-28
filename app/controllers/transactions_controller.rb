@@ -225,7 +225,8 @@ class TransactionsController < ApplicationController
 
     def invoice
         @company = current_user.company
-        @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
+        @transaction = Transaction.find(params[:id])
+        @product_transactions = @transaction.product_transactions
         respond_to do |format|
             format.html
         end
