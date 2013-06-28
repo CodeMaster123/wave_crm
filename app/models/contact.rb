@@ -52,13 +52,13 @@ class Contact < ActiveRecord::Base
       "#{self.first_name.capitalize} #{self.last_name.capitalize}"
   end
 
-  def self.clients
-      Contact.where(:contact_relationship => "client")
-  end
+  #def self.clients
+  #    Contact.where(:contact_relationship => "client")
+  #end
 
-  def self.potential_customer
-      Contact.where(:contact_relationship => "potential_customer")
-  end
+  #def self.potential_customer
+  #    Contact.where(:contact_relationship => "potential_customer")
+  #end
 
   private
   def set_defaults
