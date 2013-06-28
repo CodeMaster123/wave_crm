@@ -1,6 +1,4 @@
 class TaggingsController < ApplicationController
-  # GET /taggings
-  # GET /taggings.json
   def index
     @taggings = Tagging.all
 
@@ -10,8 +8,6 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # GET /taggings/1
-  # GET /taggings/1.json
   def show
     @tagging = Tagging.find(params[:id])
 
@@ -21,8 +17,6 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # GET /taggings/new
-  # GET /taggings/new.json
   def new
     @tagging = Tagging.new
 
@@ -32,13 +26,10 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # GET /taggings/1/edit
   def edit
     @tagging = Tagging.find(params[:id])
   end
 
-  # POST /taggings
-  # POST /taggings.json
   def create
     @tagging = Tagging.new(params[:tagging])
 
@@ -47,14 +38,12 @@ class TaggingsController < ApplicationController
         format.html { redirect_to @tagging, notice: 'Tagging was successfully created.' }
         format.json { render json: @tagging, status: :created, location: @tagging }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @tagging.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /taggings/1
-  # PUT /taggings/1.json
   def update
     @tagging = Tagging.find(params[:id])
 
@@ -63,14 +52,12 @@ class TaggingsController < ApplicationController
         format.html { redirect_to @tagging, notice: 'Tagging was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @tagging.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /taggings/1
-  # DELETE /taggings/1.json
   def destroy
     @tagging = Tagging.find(params[:id])
     @tagging.destroy

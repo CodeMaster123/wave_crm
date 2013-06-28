@@ -13,5 +13,8 @@ class CreateTransactions < ActiveRecord::Migration
 
             t.timestamps
         end
+
+        add_index :transactions, :company_id
+        add_index :transactions, [:contact_id, :contact_type]
     end
 end

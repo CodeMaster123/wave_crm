@@ -1,6 +1,4 @@
 class NotificationSettingsController < ApplicationController
-  # GET /notification_settings
-  # GET /notification_settings.json
   def index
     @notification_settings = NotificationSetting.all
 
@@ -10,8 +8,6 @@ class NotificationSettingsController < ApplicationController
     end
   end
 
-  # GET /notification_settings/1
-  # GET /notification_settings/1.json
   def show
     @notification_setting = NotificationSetting.find(params[:id])
 
@@ -21,8 +17,6 @@ class NotificationSettingsController < ApplicationController
     end
   end
 
-  # GET /notification_settings/new
-  # GET /notification_settings/new.json
   def new
     @notification_setting = NotificationSetting.new
 
@@ -32,7 +26,6 @@ class NotificationSettingsController < ApplicationController
     end
   end
 
-  # GET /notification_settings/1/edit
   def edit
       @notification_setting = NotificationSetting.find(params[:id])
       @notification_setting = NotificationSetting.find(params[:id])
@@ -43,8 +36,6 @@ class NotificationSettingsController < ApplicationController
       end
   end
 
-  # POST /notification_settings
-  # POST /notification_settings.json
   def create
       @notification_setting = NotificationSetting.new(params[:notification_setting])
 
@@ -53,14 +44,12 @@ class NotificationSettingsController < ApplicationController
               format.html { redirect_to @notification_setting, notice: 'Notification setting was successfully created.' }
               format.json { render json: @notification_setting, status: :created, location: @notification_setting }
           else
-              format.html { render action: "new" }
+              format.html { render "new" }
               format.json { render json: @notification_setting.errors, status: :unprocessable_entity }
           end
       end
   end
 
-  # PUT /notification_settings/1
-  # PUT /notification_settings/1.json
   def update
       @notification_setting = NotificationSetting.find(params[:id])
 
@@ -69,14 +58,12 @@ class NotificationSettingsController < ApplicationController
               format.html { redirect_to @notification_setting, notice: 'Notification setting was successfully updated.' }
               format.json { head :no_content }
           else
-              format.html { render action: "edit" }
+              format.html { render "edit" }
               format.json { render json: @notification_setting.errors, status: :unprocessable_entity }
           end
       end
   end
 
-  # DELETE /notification_settings/1
-  # DELETE /notification_settings/1.json
   def destroy
       @notification_setting = NotificationSetting.find(params[:id])
       @notification_setting.destroy

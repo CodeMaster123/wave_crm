@@ -8,7 +8,11 @@
         <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
     <% end %>
     <dt><strong>Lead owner :</strong></dt>
-    <dd><%= @lead.leadable.user.full_name %></dd>
+    <% unless @lead.leadable.nil? %>
+        <dd><b class="lead-owner-show"><%= @lead.leadable.user.full_name %></b><a href="#" data-target="#change-owner" class="" data-toggle="modal"> Change</a></dd>
+<% else %>
+        <dd><b class="lead-owner-show">No executive assigned</b><a href="#" data-target="#change-owner" class="" data-toggle="modal"> Change</a></dd>
+<% end %>
     <dt><strong> Description :</strong></dt>
     <dd><%= @lead.description %></dd>
     <dt><strong> Phone number :</strong></dt>
@@ -25,11 +29,32 @@
     <% end %>
 </dl>
 
+<div><h6>Products</h6></div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Products</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody id="search-data">
+        <% @lead.product_transactions.each do |pt| %>
+            <tr>
+                <td><%= pt.product.name %></td>
+                <td><%= pt.quantity %></td>
+                <td><%= pt.price %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
 <div><h6>Closed Meetings</h6></div>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Title</th>
+            <th>Meeting with</th>
             <th>starts at</th>
             <th>Description</th>
         </tr>
@@ -39,6 +64,11 @@
             <% if event.starts_at.to_date < Date.today %>
                 <tr>
                     <td><%= event.title %></td>
+                    <% if event.contact.nil? %>
+                        <td></td>
+                    <% else %>
+                        <td><%= event.contact.full_name %></td>
+                    <% end %>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <td><%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <td><%= event.description %></td>
@@ -53,6 +83,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Meeting with</th>
             <th>starts at</th>
             <th>Description</th>
             <th>Actions</th>
@@ -63,6 +94,11 @@
             <% if event.starts_at.to_date >= Date.today %>
                 <tr>
                     <td><%= event.title %></td>
+                    <% if event.contact.nil? %>
+                        <td></td>
+                    <% else %>
+                        <td><%= event.contact.full_name %></td>
+                    <% end %>
                     <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                     <%#= event.ends_at.strftime("%I:%M%P  %d-%b-%Y") %>
                     <td><%= event.description %></td>
@@ -152,3 +188,4 @@
 <%= render :partial => "leads/new_event_modal" %>
 <%= render :partial => "leads/new_notification_modal" %>
 <%= render :partial => "leads/new_call_log_modal" %>
+<%= render :partial => "leads/new_owner_modal" %>

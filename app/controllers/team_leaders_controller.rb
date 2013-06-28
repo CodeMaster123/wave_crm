@@ -1,8 +1,6 @@
 class TeamLeadersController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    # GET /team_leaders
-    # GET /team_leaders.json
     def index
       @company = Company.where(:id => current_user.company_id).first
       @team_leaders = @company.team_leaders.all
@@ -14,8 +12,6 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # GET /team_leaders/1
-    # GET /team_leaders/1.json
     def show
         @team_leader = TeamLeader.find(params[:id])
 
@@ -25,8 +21,6 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # GET /team_leaders/new
-    # GET /team_leaders/new.json
     def new
         @team_leader = TeamLeader.new
 
@@ -36,33 +30,27 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # GET /team_leaders/1/edit
     def edit
         @team_leader = TeamLeader.find(params[:id])
     end
 
-    # POST /team_leaders
-    # POST /team_leaders.json
     def create
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @team_leader = @company.team_leaders.new(params[:team_leader])
-      @team_leader.company_id = @company.id
 
-      respond_to do |format|
+        respond_to do |format|
             if @team_leader.save
                 format.html { redirect_to :team_leaders, notice: 'Team leader was successfully created.' }
                 format.json { render json: @team_leader, status: :created, location: @team_leader }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @team_leader.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # PUT /team_leaders/1
-    # PUT /team_leaders/1.json
     def update
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @team_leader = @company.team_leaders.find(params[:id])
 
         respond_to do |format|
@@ -70,14 +58,12 @@ class TeamLeadersController < ApplicationController
                 format.html { redirect_to @team_leader, notice: 'Team leader was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @team_leader.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # DELETE /team_leaders/1
-    # DELETE /team_leaders/1.json
     def destroy
         @team_leader = TeamLeader.find(params[:id])
         @team_leader.destroy

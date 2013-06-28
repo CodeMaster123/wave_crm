@@ -1,34 +1,42 @@
 class LeadsController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
-  layout :choose_layout
-
-  def choose_layout
-      if action_name == 'search'
-          false
-      else
-          'application'
-      end
-  end
 
   def index
-      unless (Lead.first.nil? || Lead.first.follow_ups.empty?)
-          @follow_up_time = Lead.first.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h')
-      end
-
       if current_user.account_type == 1
-        @company = Company.where(:id => current_user.company_id).first
-        @leads = @company.leads.paginate(:page => params[:page], :per_page => 15).all
+          @company = current_user.company
+          if params[:type] == "current"
+              @leads = @company.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15).all
+          elsif params[:type] == "future"
+              @leads = @company.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15).all
+          else
+              @leads = @company.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15).all
+          end
           unless params[:id1].nil?
               @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
               executive_name = SalesExecutive.where(:id => params[:id1]).first.user
               @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
           end
       elsif current_user.account_type  == 2
-          @leads = current_user.team_leader.leads.paginate(:page => params[:page], :per_page => 15)
+          if params[:type] == "current"
+              @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
+          elsif params[:type] == "future"
+              @leads = current_user.team_leader.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15)
+          else
+              @leads = current_user.team_leader.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15)
+          end
           @team = current_user.team_leader.sales_executives.each do |executive|
           end
       elsif current_user.account_type ==3
+          if params[:type] == "current"
+              @leads = current_user.sales_executive.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
+          elsif params[:type] == "future"
+              @leads = current_user.sales_executive.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15)
+          else
+              @leads = current_user.sales_executive.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15)
+          end
+          @team = current_user.team_leader.sales_executives.each do |executive|
+          end
           @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
       elsif current_user.account_type ==4
           @leads = Lead.all.paginate(:page => params[:page], :per_page => 15)
@@ -44,6 +52,8 @@ class LeadsController < ApplicationController
       @lead = Lead.find(params[:id])
       @lead_events = @lead.events.all
       @call_logs = @lead.call_logs
+      @team_leaders = current_user.company.team_leaders
+      @sales_executives = current_user.company.sales_executives
 
       unless @lead.contacts.empty?
           @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
@@ -72,7 +82,6 @@ class LeadsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.new
       @lead.contacts.build
-      @lead.follow_ups.build
       @lead.product_transactions.build
       @lead.build_account
       @team_leaders = @company.team_leaders.all
@@ -85,7 +94,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  # GET /leads/1/edit
   def edit
       @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
@@ -98,33 +106,31 @@ class LeadsController < ApplicationController
   end
 
   def create
-      @company = Company.where(:id => current_user.company_id).first
+      @company = current_user.company
+      @products = @company.products.all
       @team_leaders = @company.team_leaders.all
       @sales_executives = @company.sales_executives.all
+
       @lead = @company.leads.new(params[:lead])
-      if User.find(current_user.id).account_type == 2
-          @lead.leadable_id = TeamLeader.where(:user_id => current_user.id).first.id
+      if current_user.account_type == 2
+          @lead.leadable_id = current_user.team_leader.id
           @lead.leadable_type = "TeamLeader"
-      elsif User.find(current_user.id).account_type == 3
-          @lead.leadable_id = SalesExecutive.where(:user_id => current_user.id).first.id
+      elsif current_user.account_type == 3
+          @lead.leadable_id = current_user.sales_executive.id
           @lead.leadable_type = "SalesExecutive"
       end
-      @products = @company.products.all
-      @lead.company_id = @company.id
 
       respond_to do |format|
           if @lead.save
               format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
               format.json { render json: @lead, status: :created, location: @lead }
           else
-              format.html { render action: "new" }
+              format.html { render "new" }
               format.json { render json: @lead.errors, status: :unprocessable_entity }
           end
       end
   end
 
-  # PUT /leads/1
-  # PUT /leads/1.json
   def update
       @company = Company.where(:id => current_user.company_id).first
       @team_leaders = @company.team_leaders.all
@@ -136,14 +142,12 @@ class LeadsController < ApplicationController
               format.html { redirect_to :leads, notice: 'Lead was successfully updated.' }
               format.json { head :no_content }
           else
-              format.html { render action: "edit" }
+              format.html { render "edit" }
               format.json { render json: @lead.errors, status: :unprocessable_entity }
           end
       end
   end
 
-  # DELETE /leads/1
-  # DELETE /leads/1.json
   def destroy
       @lead = Lead.find(params[:id])
       @lead.destroy
@@ -169,5 +173,11 @@ class LeadsController < ApplicationController
   end
 
   def mature
+  end
+
+  def change_owner
+      puts params[:lead_id]
+
+      Lead.find(params[:lead_id].to_i).update_attributes(:leadable_type => params[:leadable_type], :leadable_id => params[:leadable_id])
   end
 end

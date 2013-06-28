@@ -2,8 +2,6 @@ class TransactionsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
 
-    # GET /transactions
-    # GET /transactions.json
     def index
         @company = Company.where(:id => current_user.company_id).first
         @transactions = Transaction.all
@@ -16,8 +14,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # GET /transactions/1
-    # GET /transactions/1.json
     def show
         @transaction = Transaction.find(params[:id])
         @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
@@ -29,8 +25,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # GET /transactions/new
-    # GET /transactions/new.json
     def new
         if params[:matured_by].nil?
             @transaction = Transaction.new
@@ -38,8 +32,8 @@ class TransactionsController < ApplicationController
             @transaction.contacts.build
             @transaction.product_transactions.build
         else
-            @transaction = current_user.company.transactions.build
             @lead = Lead.find(params[:id1])
+            @transaction = current_user.company.transactions.build
             @lead.product_transactions.each do |pt|
                 puts "@tranasction ==============> #{@transaction}"
                 @transaction.product_transactions.new(:price => pt.price, :quantity => pt.quantity, :product_id => pt.product_id)
@@ -61,8 +55,8 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # GET /transactions/1/edit
     def edit
+        @accounts = current_user.company.accounts
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
         @transaction = Transaction.find(params[:id])
@@ -70,9 +64,8 @@ class TransactionsController < ApplicationController
         @transaction_fields = current_user.transaction_fields
     end
 
-    # POST /transactions
-    # POST /transactions.json
     def create
+        @accounts = current_user.company.accounts
         @company = current_user.company
         @products = @company.products
         @transaction = @company.transactions.new(params[:transaction])
@@ -87,7 +80,7 @@ class TransactionsController < ApplicationController
                     TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
                 @transaction.account.lead.update_attributes(:matured => true, :matured_at => Date.today)
-                @transaction.account.update_attributes(:lead_id => nil, :is_matured => true)
+                @transaction.account.update_attributes(:is_matured => true)
 
                 if current_user.account_type == 1
                     format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
@@ -97,14 +90,12 @@ class TransactionsController < ApplicationController
                     format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
                 end
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @transaction.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # PUT /transactions/1
-    # PUT /transactions/1.json
     def update
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
@@ -121,14 +112,12 @@ class TransactionsController < ApplicationController
                     @transaction_field_value.update_attributes(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @transaction.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # DELETE /transactions/1
-    # DELETE /transactions/1.json
     def destroy
         @transaction = Transaction.find(params[:id])
         @transaction.destroy
@@ -223,7 +212,8 @@ class TransactionsController < ApplicationController
 
     def invoice
         @company = current_user.company
-        @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
+        @transaction = Transaction.find(params[:id])
+        @product_transactions = @transaction.product_transactions
         respond_to do |format|
             format.html
         end

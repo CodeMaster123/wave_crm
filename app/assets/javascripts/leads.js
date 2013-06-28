@@ -5,7 +5,6 @@ $(document).ready(function() {
         timeFormat: 'hh:mm tt z'
     });
 
-
     $('.search-c').searchbox({
         url: '/lead_search.html',
         param: 'q',
@@ -13,6 +12,7 @@ $(document).ready(function() {
         delay: 100
     })
     $('.tTip').betterTooltip({speed: 150, delay: 300});
+        $('#contact_id').chosen();
 });
 
 
@@ -50,7 +50,6 @@ $('.event-form').submit(function() {
             $('.modal').modal('hide');
             if ($('tbody#events-data').children().length==0)
     {
-        console.log('vivek');
         $('tbody#events-data').append("<tr><td>"+$('.event-form #title').val()+"</td><td>"+$('.event-form #starts_at').val()+"</td><td>"+$('.event-form #description').val()+"</td></tr>");
     }
             else
@@ -98,6 +97,26 @@ $('.notification-form').submit(function() {
         else
     {
         $('tbody#notifications-data tr').last().after("<tr><td>yes</td><td>yes</td><td>"+$('.notification-form #notification_time').val()+"</td><td>"+$('.notification-form #subject').val()+"</td><td>"+$('.notification-form #body').val()+"</td><td>Just now</td></tr>");
+    }
+    });
+    return false; // prevents normal behaviour
+});
+
+$('.change-owner-form').submit(function() {
+    var valuesToSubmit = $(this).serialize();
+    $.ajax({
+        url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
+        data: valuesToSubmit,
+        method: "POST"
+    }).success(function(json){
+        $('.modal').modal('hide');
+        if($('.change-owner-form .control-group option:selected').val()=="TeamLeader")
+    {
+        $('.lead-owner-show').html($('.team_leaders option:selected').text());
+    }
+        if($('.change-owner-form .control-group option:selected').val()=="SalesExecutive")
+    {
+        $('.lead-owner-show').html($('.sales_executives option:selected').text());
     }
     });
     return false; // prevents normal behaviour

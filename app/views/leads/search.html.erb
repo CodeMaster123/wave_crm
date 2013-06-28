@@ -5,12 +5,6 @@
 
         <td><%= lead.description %></td>
         <td><%= lead.leadable_id %></td>
-        <% unless lead.follow_ups.all(:order => 'follow_up_time').last.nil? %>
-            <%= @follow_up = lead.follow_ups.all(:order => 'follow_up_time').last %>
-            <td class="tTip" title="<%= @follow_up.description %>" ><%= @follow_up.follow_up_time.strftime('%l:%M%p %d-%h') %></td>
-        <% else %>
-            <td class="tTip" title="vivek varade">asdf</td>
-        <% end %>
 
         <td>
             <%= link_to "Edit" , edit_lead_path(lead), :class => 'btn btn-mini' %>

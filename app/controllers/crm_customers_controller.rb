@@ -12,8 +12,6 @@ class CrmCustomersController < ApplicationController
     end
   end
 
-  # GET /crm_customers/1
-  # GET /crm_customers/1.json
   def show
     @crm_customer = CrmCustomer.find(params[:id])
 
@@ -23,8 +21,6 @@ class CrmCustomersController < ApplicationController
     end
   end
 
-  # GET /crm_customers/new
-  # GET /crm_customers/new.json
   def new
     @crm_customer = CrmCustomer.new
     @crm_customer.build_company
@@ -35,13 +31,10 @@ class CrmCustomersController < ApplicationController
     end
   end
 
-  # GET /crm_customers/1/edit
   def edit
     @crm_customer = CrmCustomer.find(params[:id])
   end
 
-  # POST /crm_customers
-  # POST /crm_customers.json
   def create
     @crm_customer = CrmCustomer.new(params[:crm_customer])
 
@@ -50,14 +43,12 @@ class CrmCustomersController < ApplicationController
         format.html { redirect_to @crm_customer, notice: 'Crm customer was successfully created.' }
         format.json { render json: @crm_customer, status: :created, location: @crm_customer }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @crm_customer.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /crm_customers/1
-  # PUT /crm_customers/1.json
   def update
     @crm_customer = CrmCustomer.find(params[:id])
 
@@ -66,14 +57,12 @@ class CrmCustomersController < ApplicationController
         format.html { redirect_to @crm_customer, notice: 'Crm customer was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @crm_customer.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /crm_customers/1
-  # DELETE /crm_customers/1.json
   def destroy
     @crm_customer = CrmCustomer.find(params[:id])
     @crm_customer.destroy

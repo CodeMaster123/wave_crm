@@ -15,11 +15,6 @@ $(document).ready(function() {
         delay: 100,
     });
 
-
-
-
-
-
     $('.contact_type').change(function() {
         if ($('.contact_type').val() == 1)
     {
@@ -45,11 +40,6 @@ $(document).ready(function() {
     }
     });
 
-
-
-
-
-
     $('#transaction_transaction_type').change(function() {
         if($('#transaction_transaction_type').val() == "Cheque")
     {
@@ -71,14 +61,95 @@ $(document).ready(function() {
     //});
 
 
+    //$('.quantity').focus(
+    //        function(){
+    //            this
+    //        })
+
+    //$('.product_price').focus(
+    //        function(){
+    //        })
 
     $('.amount_field').focus(
             function(){
                 var $total = 0;
-                $('.product_price').each(function(){
-                    $total = $total + parseInt(this.value);
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
                 });
                 $('.amount_field').val($total);
+                console.debug("Total=");
                 console.debug($total);
             });
+
+        $('.quantity').focus(
+            function(){
+                var $total = 0;
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+                    console.log('vivek');
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
+                    $(this).find($('.sub-total')).html(sub_total);
+                });
+                $('.amount_field').val($total);
+                console.debug("Total=");
+                console.debug($total);
+            });
+
+        $('.product_price').focus(
+            function(){
+                var $total = 0;
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
+                    $(this).find($('.sub-total')).html(sub_total);
+                });
+                $('.amount_field').val($total);
+                console.debug("Total=");
+                console.debug($total);
+            });
+
+    $('.add').on("click",function(){
+        $('.quantity').focus(
+            function(){
+                var $total = 0;
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+                    console.log('vivek');
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
+                    $(this).find($('.sub-total')).html(sub_total);
+                });
+                $('.amount_field').val($total);
+                console.debug("Total=");
+                console.debug($total);
+            });
+
+        $('.product_price').focus(
+            function(){
+                var $total = 0;
+                $('.product').each(function(){
+                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
+                    var price = parseInt($(this).find($('.product_price')).val()||0);
+
+                    sub_total = quantity * price;
+                    $total = $total + sub_total;
+                    $(this).find($('.sub-total')).html(sub_total);
+                });
+                $('.amount_field').val($total);
+                console.debug("Total=");
+                console.debug($total);
+            });})
+
 });

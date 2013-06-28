@@ -87,7 +87,7 @@ class Notification < ActiveRecord::Base
       puts 'vivekkkkkkkkkkkkkk'
       unless self.is_email || self.is_sms
       puts 'errorrrrrrrrrrrrrrrr'
-          errors.add(:base, "Please check atleast one checkbox.") 
+          errors.add(:base, "Please check atleast one checkbox.")
       end
   end
 end

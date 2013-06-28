@@ -15,4 +15,12 @@ class Product < ActiveRecord::Base
   validates :min_cost, :presence => true, :numericality => true
   validates :name, :presence => true, :uniqueness => {:scope => :company_id}
 
+  after_save :create_empty_inventory
+
+  def create_empty_inventory
+      if self.inventory.nil?
+          self.build_inventory(:company_id => self.company_id, :quantity => 0).save
+      end
+
+  end
 end

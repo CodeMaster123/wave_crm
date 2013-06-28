@@ -1,17 +1,7 @@
 class NotificationsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    layout :choose_layout
 
-    def choose_layout
-        if action_name == 'search'
-            false
-        else
-            'application'
-        end
-    end
-    # GET /notifications
-    # GET /notifications.json
     def index
         if current_user.account_type == 1
           if params[:type] == "old"
@@ -29,8 +19,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # GET /notifications/1
-    # GET /notifications/1.json
     def show
         @notification = Notification.find(params[:id])
 
@@ -40,8 +28,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # GET /notifications/new
-    # GET /notifications/new.json
     def new
         @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.new
@@ -53,15 +39,12 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # GET /notifications/1/edit
     def edit
         @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.find(params[:id])
         @contacts = @company.contacts.all
     end
 
-    # POST /notifications
-    # POST /notifications.json
     def create
         @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.new(params[:notification])
@@ -90,14 +73,12 @@ class NotificationsController < ApplicationController
                 format.html { redirect_to :controller=>"notifications", :action=>"index", :type=>"current"}
                 format.json { render json: @notification, status: :created, location: @notification }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @notification.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # PUT /notifications/1
-    # PUT /notifications/1.json
     def update
         @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.find(params[:id])
@@ -108,14 +89,12 @@ class NotificationsController < ApplicationController
                 format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @notification.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # DELETE /notifications/1
-    # DELETE /notifications/1.json
     def destroy
         @notification = Notification.find(params[:id])
         @notification.destroy

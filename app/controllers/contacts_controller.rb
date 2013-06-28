@@ -1,15 +1,6 @@
 class ContactsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    layout :choose_layout
-
-    def choose_layout
-        if action_name == 'search'
-            false
-        else
-            'application'
-        end
-    end
 
     def index
         if current_user.account_type ==1
@@ -83,16 +74,15 @@ class ContactsController < ApplicationController
     end
 
     def create
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @contact = @company.contacts.new(params[:contact])
-        @contact.company_id = @company.id
 
         respond_to do |format|
             if @contact.save
                 format.html { redirect_to :contacts, notice: 'Contact was successfully created.' }
                 format.json { render json: @contact, status: :created, location: @contact }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @contact.errors, status: :unprocessable_entity }
             end
         end
@@ -107,7 +97,7 @@ class ContactsController < ApplicationController
                 format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @contact.errors, status: :unprocessable_entity }
             end
         end
@@ -145,8 +135,7 @@ class ContactsController < ApplicationController
     end
 
     def create_contact
-        @contact = Contact.new(:first_name =>params[:first_name], :middle_name => params[:middle_name], :last_name => params[:last_name], :email_id => params[:email_id], :address => params[:address], :mobile_no=> params[:mobile_no], :landline_no => params[:landline_no], :company_id => current_user.id, :contact_relationship => "client", :account_id => params[:account_id])
-        @contact.company_id = current_user.company.id
+        @contact = current_user.company.contact.new(:first_name =>params[:first_name], :middle_name => params[:middle_name], :last_name => params[:last_name], :email_id => params[:email_id], :address => params[:address], :mobile_no=> params[:mobile_no], :landline_no => params[:landline_no], :company_id => current_user.id, :contact_relationship => "client", :account_id => params[:account_id])
         @contact.save
     end
 end

@@ -2,8 +2,9 @@ class Event < ActiveRecord::Base
     belongs_to :user
     belongs_to :company
     belongs_to :lead
+    belongs_to :contact
 
-    attr_accessible :title, :description, :starts_at, :recurring, :url, :user_id, :company_id, :lead_id
+    attr_accessible :title, :description, :starts_at, :recurring, :url, :user_id, :company_id, :lead_id, :contact_id
 
     #scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
     #scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
@@ -13,6 +14,14 @@ class Event < ActiveRecord::Base
     validates :starts_at, :presence => true
     #validates :ends_at, :presence => true
     validates :company_id, :presence => true
+
+    validate :date_validation
+
+    def date_validation
+        unless self.starts_at > Date.yesterday
+        errors.add(:date_error, "Cannot use past date")
+        end
+    end
 
     #validate :validate_ends_at_before_starts_at
 

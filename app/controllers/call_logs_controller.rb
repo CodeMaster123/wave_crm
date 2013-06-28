@@ -39,8 +39,6 @@ class CallLogsController < ApplicationController
         @call_log = CallLog.find(params[:id])
     end
 
-    # POST /call_logs
-    # POST /call_logs.json
     def create
         #aparams = Hash.new
         #aparams = {:utf8 => params[:utf8], :authenticity_token => params[:authenticity_token], :commit => "Create Call log", :call_duration_minutes => params[:call_duration_minutes], :call_dration_seconds => params[:call_duration_seconds], :call_log => {:subject => params[:subject], :call_start_time => params[:call_start_time], :call_duration => 30, :call_purpose => params[:call_purpose]}}
@@ -54,14 +52,12 @@ class CallLogsController < ApplicationController
                 format.html { redirect_to @call_log, notice: 'Call log was successfully created.' }
                 format.json { render json: @call_log, status: :created, location: @call_log }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @call_log.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # PUT /call_logs/1
-    # PUT /call_logs/1.json
     def update
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.find(params[:id])
@@ -71,14 +67,12 @@ class CallLogsController < ApplicationController
                 format.html { redirect_to @call_log, notice: 'Call log was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @call_log.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # DELETE /call_logs/1
-    # DELETE /call_logs/1.json
     def destroy
         @call_log = CallLog.find(params[:id])
         @call_log.destroy

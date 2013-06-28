@@ -1,8 +1,6 @@
 class EmployeesController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    # GET /employees
-    # GET /employees.json
     def index
         @employees = Employee.all
 
@@ -12,8 +10,6 @@ class EmployeesController < ApplicationController
         end
     end
 
-    # GET /employees/1
-    # GET /employees/1.json
     def show
         @employee = Employee.find(params[:id])
 
@@ -23,8 +19,6 @@ class EmployeesController < ApplicationController
         end
     end
 
-    # GET /employees/new
-    # GET /employees/new.json
     def new
         @employee = Employee.new
 
@@ -34,13 +28,10 @@ class EmployeesController < ApplicationController
         end
     end
 
-    # GET /employees/1/edit
     def edit
         @employee = Employee.find(params[:id])
     end
 
-    # POST /employees
-    # POST /employees.json
     def create
         @employee = Employee.new(params[:employee])
 
@@ -49,14 +40,12 @@ class EmployeesController < ApplicationController
                 format.html { redirect_to :employees, notice: 'Employee was successfully created.' }
                 format.json { render json: @employee, status: :created, location: @employee }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @employee.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # PUT /employees/1
-    # PUT /employees/1.json
     def update
         @employee = Employee.find(params[:id])
 
@@ -65,14 +54,12 @@ class EmployeesController < ApplicationController
                 format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @employee.errors, status: :unprocessable_entity }
             end
         end
     end
 
-    # DELETE /employees/1
-    # DELETE /employees/1.json
     def destroy
         @employee = Employee.find(params[:id])
         @employee.destroy
