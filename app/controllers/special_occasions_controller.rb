@@ -1,6 +1,4 @@
 class SpecialOccasionsController < ApplicationController
-  # GET /special_occasions
-  # GET /special_occasions.json
   def index
     @special_occasions = SpecialOccasion.all
 
@@ -10,8 +8,6 @@ class SpecialOccasionsController < ApplicationController
     end
   end
 
-  # GET /special_occasions/1
-  # GET /special_occasions/1.json
   def show
     @special_occasion = SpecialOccasion.find(params[:id])
 
@@ -21,8 +17,6 @@ class SpecialOccasionsController < ApplicationController
     end
   end
 
-  # GET /special_occasions/new
-  # GET /special_occasions/new.json
   def new
     @special_occasion = SpecialOccasion.new
 
@@ -32,13 +26,10 @@ class SpecialOccasionsController < ApplicationController
     end
   end
 
-  # GET /special_occasions/1/edit
   def edit
     @special_occasion = SpecialOccasion.find(params[:id])
   end
 
-  # POST /special_occasions
-  # POST /special_occasions.json
   def create
     @special_occasion = SpecialOccasion.new(params[:special_occasion])
 
@@ -53,8 +44,6 @@ class SpecialOccasionsController < ApplicationController
     end
   end
 
-  # PUT /special_occasions/1
-  # PUT /special_occasions/1.json
   def update
     @special_occasion = SpecialOccasion.find(params[:id])
 
@@ -69,8 +58,6 @@ class SpecialOccasionsController < ApplicationController
     end
   end
 
-  # DELETE /special_occasions/1
-  # DELETE /special_occasions/1.json
   def destroy
     @special_occasion = SpecialOccasion.find(params[:id])
     @special_occasion.destroy

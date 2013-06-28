@@ -13,8 +13,6 @@ class EventsController < ApplicationController
         end
     end
 
-    # GET /events/1
-    # GET /events/1.xml
     def show
         @event = Event.find(params[:id])
 
@@ -25,8 +23,6 @@ class EventsController < ApplicationController
         end
     end
 
-    # GET /events/new
-    # GET /events/new.xml
     def new
         @event = Event.new
 
@@ -36,13 +32,10 @@ class EventsController < ApplicationController
         end
     end
 
-    # GET /events/1/edit
     def edit
         @event = Event.find(params[:id])
     end
 
-    # POST /events
-    # POST /events.xml
     def create
         @company = Company.where(:id => current_user.company_id).first
         @event = @company.events.new(params[:event])
@@ -59,9 +52,6 @@ class EventsController < ApplicationController
         end
     end
 
-    # PUT /events/1
-    # PUT /events/1.xml
-    # PUT /events/1.js
     # when we drag an event on the calendar (from day to day on the month view, or stretching
     # it on the week or day view), this method will be called to update the values.
     # viv la REST!
@@ -82,8 +72,6 @@ class EventsController < ApplicationController
         end
     end
 
-    # DELETE /events/1
-    # DELETE /events/1.xml
     def destroy
         @event = Event.find(params[:id])
         @event.destroy

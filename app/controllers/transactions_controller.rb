@@ -2,8 +2,6 @@ class TransactionsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
 
-    # GET /transactions
-    # GET /transactions.json
     def index
         @company = Company.where(:id => current_user.company_id).first
         @transactions = Transaction.all
@@ -16,8 +14,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # GET /transactions/1
-    # GET /transactions/1.json
     def show
         @transaction = Transaction.find(params[:id])
         @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
@@ -29,8 +25,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # GET /transactions/new
-    # GET /transactions/new.json
     def new
         if params[:matured_by].nil?
             @transaction = Transaction.new
@@ -61,7 +55,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # GET /transactions/1/edit
     def edit
         @accounts = current_user.company.accounts
         @products = Company.find(current_user.company_id).products
@@ -71,8 +64,6 @@ class TransactionsController < ApplicationController
         @transaction_fields = current_user.transaction_fields
     end
 
-    # POST /transactions
-    # POST /transactions.json
     def create
         @accounts = current_user.company.accounts
         @company = current_user.company
@@ -105,8 +96,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # PUT /transactions/1
-    # PUT /transactions/1.json
     def update
         @products = Company.find(current_user.company_id).products
         @company = Company.where(:id => current_user.company_id).first
@@ -129,8 +118,6 @@ class TransactionsController < ApplicationController
         end
     end
 
-    # DELETE /transactions/1
-    # DELETE /transactions/1.json
     def destroy
         @transaction = Transaction.find(params[:id])
         @transaction.destroy

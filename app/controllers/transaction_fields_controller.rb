@@ -1,6 +1,4 @@
 class TransactionFieldsController < ApplicationController
-  # GET /transaction_fields
-  # GET /transaction_fields.json
   def index
     @transaction_fields = TransactionField.all
 
@@ -10,8 +8,6 @@ class TransactionFieldsController < ApplicationController
     end
   end
 
-  # GET /transaction_fields/1
-  # GET /transaction_fields/1.json
   def show
     @transaction_field = TransactionField.find(params[:id])
 
@@ -21,8 +17,6 @@ class TransactionFieldsController < ApplicationController
     end
   end
 
-  # GET /transaction_fields/new
-  # GET /transaction_fields/new.json
   def new
     @transaction_field = TransactionField.new
     @users = User.all
@@ -33,14 +27,11 @@ class TransactionFieldsController < ApplicationController
     end
   end
 
-  # GET /transaction_fields/1/edit
   def edit
     @transaction_field = TransactionField.find(params[:id])
     @users = User.all
   end
 
-  # POST /transaction_fields
-  # POST /transaction_fields.json
   def create
     @transaction_field = TransactionField.new(params[:transaction_field])
 
@@ -55,8 +46,6 @@ class TransactionFieldsController < ApplicationController
     end
   end
 
-  # PUT /transaction_fields/1
-  # PUT /transaction_fields/1.json
   def update
     @transaction_field = TransactionField.find(params[:id])
 
@@ -71,8 +60,6 @@ class TransactionFieldsController < ApplicationController
     end
   end
 
-  # DELETE /transaction_fields/1
-  # DELETE /transaction_fields/1.json
   def destroy
     @transaction_field = TransactionField.find(params[:id])
     @transaction_field.destroy

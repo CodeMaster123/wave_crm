@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-    # GET /users
-    # GET /users.json
     def index
         unless current_user.account_type == 4
             @company = Company.where(:id => current_user.company_id).first
@@ -15,8 +13,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # GET /users/1
-    # GET /users/1.json
     def show
         @user = User.find(params[:id])
 
@@ -26,8 +22,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # GET /users/new
-    # GET /users/new.json
     def new
         @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
@@ -40,7 +34,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # GET /users/1/edit
     def edit
         @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
@@ -48,8 +41,6 @@ class UsersController < ApplicationController
         @all_team_leaders = @company.team_leaders.all
     end
 
-    # POST /users
-    # POST /users.json
     def create
         @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
@@ -76,8 +67,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # PUT /users/1
-    # PUT /users/1.json
     def update
         @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
@@ -100,8 +89,6 @@ class UsersController < ApplicationController
         end
     end
 
-    # DELETE /users/1
-    # DELETE /users/1.json
     def destroy
         @user = User.find(params[:id])
         @user.destroy

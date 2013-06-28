@@ -1,6 +1,4 @@
 class InventoryAdditionsController < ApplicationController
-  # GET /inventory_additions
-  # GET /inventory_additions.json
   def index
     @inventory_additions = InventoryAddition.all
 
@@ -10,8 +8,6 @@ class InventoryAdditionsController < ApplicationController
     end
   end
 
-  # GET /inventory_additions/1
-  # GET /inventory_additions/1.json
   def show
     @inventory_addition = InventoryAddition.find(params[:id])
 
@@ -21,8 +17,6 @@ class InventoryAdditionsController < ApplicationController
     end
   end
 
-  # GET /inventory_additions/new
-  # GET /inventory_additions/new.json
   def new
     @inventory_addition = InventoryAddition.new
     @products = Company.find(current_user.company_id).products
@@ -33,14 +27,11 @@ class InventoryAdditionsController < ApplicationController
     end
   end
 
-  # GET /inventory_additions/1/edit
   def edit
     @inventory_addition = InventoryAddition.find(params[:id])
     @products = Company.find(current_user.company_id).products
   end
 
-  # POST /inventory_additions
-  # POST /inventory_additions.json
   def create
       @inventory = Inventory.where(:product_id => params[:inventory_addition][:product_id]).first
 
@@ -61,8 +52,6 @@ class InventoryAdditionsController < ApplicationController
       end
   end
 
-  # PUT /inventory_additions/1
-  # PUT /inventory_additions/1.json
   def update
       @inventory_addition = InventoryAddition.find(params[:id])
       @products = Company.find(current_user.company_id).products
@@ -81,8 +70,6 @@ class InventoryAdditionsController < ApplicationController
       end
   end
 
-  # DELETE /inventory_additions/1
-  # DELETE /inventory_additions/1.json
   def destroy
       @inventory_addition = InventoryAddition.find(params[:id])
       @inventory_addition.destroy

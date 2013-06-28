@@ -1,8 +1,6 @@
 class LeadsProductsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    # GET /leads_products
-    # GET /leads_products.json
     def index
         @leads_products = LeadsProduct.all
 
@@ -12,8 +10,6 @@ class LeadsProductsController < ApplicationController
         end
     end
 
-    # GET /leads_products/1
-    # GET /leads_products/1.json
     def show
         @leads_product = LeadsProduct.find(params[:id])
 
@@ -23,8 +19,6 @@ class LeadsProductsController < ApplicationController
         end
     end
 
-    # GET /leads_products/new
-    # GET /leads_products/new.json
     def new
         @leads_product = LeadsProduct.new
 
@@ -34,13 +28,10 @@ class LeadsProductsController < ApplicationController
         end
     end
 
-    # GET /leads_products/1/edit
     def edit
         @leads_product = LeadsProduct.find(params[:id])
     end
 
-    # POST /leads_products
-    # POST /leads_products.json
     def create
         @leads_product = LeadsProduct.new(params[:leads_product])
 
@@ -55,8 +46,6 @@ class LeadsProductsController < ApplicationController
         end
     end
 
-    # PUT /leads_products/1
-    # PUT /leads_products/1.json
     def update
         @leads_product = LeadsProduct.find(params[:id])
 
@@ -71,8 +60,6 @@ class LeadsProductsController < ApplicationController
         end
     end
 
-    # DELETE /leads_products/1
-    # DELETE /leads_products/1.json
     def destroy
         @leads_product = LeadsProduct.find(params[:id])
         @leads_product.destroy

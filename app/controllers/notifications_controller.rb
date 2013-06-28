@@ -45,8 +45,6 @@ class NotificationsController < ApplicationController
         @contacts = @company.contacts.all
     end
 
-    # POST /notifications
-    # POST /notifications.json
     def create
         @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.new(params[:notification])
@@ -81,8 +79,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # PUT /notifications/1
-    # PUT /notifications/1.json
     def update
         @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.find(params[:id])
@@ -99,8 +95,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # DELETE /notifications/1
-    # DELETE /notifications/1.json
     def destroy
         @notification = Notification.find(params[:id])
         @notification.destroy

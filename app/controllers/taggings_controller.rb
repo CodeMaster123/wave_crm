@@ -1,6 +1,4 @@
 class TaggingsController < ApplicationController
-  # GET /taggings
-  # GET /taggings.json
   def index
     @taggings = Tagging.all
 
@@ -10,8 +8,6 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # GET /taggings/1
-  # GET /taggings/1.json
   def show
     @tagging = Tagging.find(params[:id])
 
@@ -21,8 +17,6 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # GET /taggings/new
-  # GET /taggings/new.json
   def new
     @tagging = Tagging.new
 
@@ -32,13 +26,10 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # GET /taggings/1/edit
   def edit
     @tagging = Tagging.find(params[:id])
   end
 
-  # POST /taggings
-  # POST /taggings.json
   def create
     @tagging = Tagging.new(params[:tagging])
 
@@ -53,8 +44,6 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # PUT /taggings/1
-  # PUT /taggings/1.json
   def update
     @tagging = Tagging.find(params[:id])
 
@@ -69,8 +58,6 @@ class TaggingsController < ApplicationController
     end
   end
 
-  # DELETE /taggings/1
-  # DELETE /taggings/1.json
   def destroy
     @tagging = Tagging.find(params[:id])
     @tagging.destroy

@@ -1,8 +1,6 @@
 class TargetsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    # GET /targets
-    # GET /targets.json
     def index
 
         @targets = Target.all
@@ -35,8 +33,6 @@ class TargetsController < ApplicationController
         end
     end
 
-    # GET /targets/1
-    # GET /targets/1.json
     def show
         @target = Target.find(params[:id])
 
@@ -46,8 +42,6 @@ class TargetsController < ApplicationController
         end
     end
 
-    # GET /targets/new
-    # GET /targets/new.json
     def new
         @company = Company.where(:id => current_user.company_id).first
         @target = Target.new
@@ -60,7 +54,6 @@ class TargetsController < ApplicationController
         end
     end
 
-    # GET /targets/1/edit
     def edit
         @company = Company.where(:id => current_user.company_id).first
         @team_leaders = @company.team_leaders.all
@@ -68,8 +61,6 @@ class TargetsController < ApplicationController
         @target = Target.find(params[:id])
     end
 
-    # POST /targets
-    # POST /targets.json
     def create
         @company = Company.where(:id => current_user.company_id).first
         @target = @company.targets.new(params[:target])
@@ -87,8 +78,6 @@ class TargetsController < ApplicationController
         end
     end
 
-    # PUT /targets/1
-    # PUT /targets/1.json
     def update
         @company = Company.where(:id => current_user.company_id).first
         @target = @company.targets.find(params[:id])
@@ -104,8 +93,6 @@ class TargetsController < ApplicationController
         end
     end
 
-    # DELETE /targets/1
-    # DELETE /targets/1.json
     def destroy
         @target = Target.find(params[:id])
         @target.destroy

@@ -1,8 +1,6 @@
 class InventoriesController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
-  # GET /inventories
-  # GET /inventories.json
   def index
     @inventories = current_user.company.inventories.all
 
@@ -12,8 +10,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # GET /inventories/1
-  # GET /inventories/1.json
   def show
     @inventory = Inventory.find(params[:id])
     @inventory_additions = @inventory.inventory_additions
@@ -25,8 +21,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # GET /inventories/new
-  # GET /inventories/new.json
   def new
     @inventory = Inventory.new
     @products = Company.find(current_user.company_id).products
@@ -37,14 +31,11 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # GET /inventories/1/edit
   def edit
     @inventory = Inventory.find(params[:id])
     @products = Company.find(current_user.company_id).products
   end
 
-  # POST /inventories
-  # POST /inventories.json
   def create
     @inventory = Inventory.new(params[:inventory])
     @products = Company.find(current_user.company_id).products
@@ -60,8 +51,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # PUT /inventories/1
-  # PUT /inventories/1.json
   def update
     @inventory = Inventory.find(params[:id])
     @products = Company.find(current_user.company_id).products
@@ -77,8 +66,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # DELETE /inventories/1
-  # DELETE /inventories/1.json
   def destroy
     @inventory = Inventory.find(params[:id])
     @inventory.destroy

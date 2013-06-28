@@ -1,8 +1,6 @@
 class SalesExecutivesController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    # GET /sales_executives
-    # GET /sales_executives.json
     def index
         @company = Company.where(:id => current_user.company_id).first
         if current_user.account_type == 1
@@ -17,8 +15,6 @@ class SalesExecutivesController < ApplicationController
         end
     end
 
-    # GET /sales_executives/1
-    # GET /sales_executives/1.json
     def show
         @sales_executive = SalesExecutive.find(params[:id])
 
@@ -28,8 +24,6 @@ class SalesExecutivesController < ApplicationController
         end
     end
 
-    # GET /sales_executives/new
-    # GET /sales_executives/new.json
     def new
         @sales_executive = SalesExecutive.new
 
@@ -39,13 +33,10 @@ class SalesExecutivesController < ApplicationController
         end
     end
 
-    # GET /sales_executives/1/edit
     def edit
         @sales_executive = SalesExecutive.find(params[:id])
     end
 
-    # POST /sales_executives
-    # POST /sales_executives.json
     def create
         @company = Company.where(:id => current_user.company_id).first
         @sales_executive = @company.sales_executives.new(params[:sales_executive])
@@ -62,8 +53,6 @@ class SalesExecutivesController < ApplicationController
         end
     end
 
-    # PUT /sales_executives/1
-    # PUT /sales_executives/1.json
     def update
         @company = Company.where(:id => current_user.company_id).first
         @sales_executive = @company.sales_executives.find(params[:id])
@@ -79,8 +68,6 @@ class SalesExecutivesController < ApplicationController
         end
     end
 
-    # DELETE /sales_executives/1
-    # DELETE /sales_executives/1.json
     def destroy
         @sales_executive = SalesExecutive.find(params[:id])
         @sales_executive.destroy

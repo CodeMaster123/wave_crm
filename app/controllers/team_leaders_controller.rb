@@ -1,8 +1,6 @@
 class TeamLeadersController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    # GET /team_leaders
-    # GET /team_leaders.json
     def index
       @company = Company.where(:id => current_user.company_id).first
       @team_leaders = @company.team_leaders.all
@@ -14,8 +12,6 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # GET /team_leaders/1
-    # GET /team_leaders/1.json
     def show
         @team_leader = TeamLeader.find(params[:id])
 
@@ -25,8 +21,6 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # GET /team_leaders/new
-    # GET /team_leaders/new.json
     def new
         @team_leader = TeamLeader.new
 
@@ -36,13 +30,10 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # GET /team_leaders/1/edit
     def edit
         @team_leader = TeamLeader.find(params[:id])
     end
 
-    # POST /team_leaders
-    # POST /team_leaders.json
     def create
       @company = Company.where(:id => current_user.company_id).first
         @team_leader = @company.team_leaders.new(params[:team_leader])
@@ -59,8 +50,6 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # PUT /team_leaders/1
-    # PUT /team_leaders/1.json
     def update
       @company = Company.where(:id => current_user.company_id).first
         @team_leader = @company.team_leaders.find(params[:id])
@@ -76,8 +65,6 @@ class TeamLeadersController < ApplicationController
         end
     end
 
-    # DELETE /team_leaders/1
-    # DELETE /team_leaders/1.json
     def destroy
         @team_leader = TeamLeader.find(params[:id])
         @team_leader.destroy

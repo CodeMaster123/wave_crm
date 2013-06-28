@@ -94,7 +94,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  # GET /leads/1/edit
   def edit
       @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.find(params[:id])
@@ -132,8 +131,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  # PUT /leads/1
-  # PUT /leads/1.json
   def update
       @company = Company.where(:id => current_user.company_id).first
       @team_leaders = @company.team_leaders.all
@@ -151,8 +148,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  # DELETE /leads/1
-  # DELETE /leads/1.json
   def destroy
       @lead = Lead.find(params[:id])
       @lead.destroy

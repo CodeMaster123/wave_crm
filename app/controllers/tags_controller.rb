@@ -12,8 +12,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # GET /tags/1
-  # GET /tags/1.json
   def show
     @tag = Tag.find(params[:id])
 
@@ -23,8 +21,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # GET /tags/new
-  # GET /tags/new.json
   def new
     @tag = Tag.new
 
@@ -34,13 +30,10 @@ class TagsController < ApplicationController
     end
   end
 
-  # GET /tags/1/edit
   def edit
     @tag = Tag.find(params[:id])
   end
 
-  # POST /tags
-  # POST /tags.json
   def create
     @company = Company.where(:id => current_user.company_id).first
     @tag = @company.tags.new(params[:tag])
@@ -72,8 +65,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # DELETE /tags/1
-  # DELETE /tags/1.json
   def destroy
     @tag = Tag.find(params[:id])
     @tag.destroy
