@@ -9,6 +9,9 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
     end
+
+        add_index :events, :company_id
+        add_index :events, :user_id
   end
 
   def self.down

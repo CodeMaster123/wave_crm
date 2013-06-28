@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20130627083057) do
     t.integer  "lead_id"
   end
 
+  add_index "accounts", ["company_id"], :name => "index_accounts_on_company_id"
+
   create_table "call_logs", :force => true do |t|
     t.string   "call_result"
     t.string   "subject"
@@ -110,14 +112,8 @@ ActiveRecord::Schema.define(:version => 20130627083057) do
     t.integer  "contact_id"
   end
 
-  create_table "follow_ups", :force => true do |t|
-    t.integer  "lead_id"
-    t.string   "description"
-    t.datetime "follow_up_time"
-    t.integer  "company_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
+  add_index "events", ["company_id"], :name => "index_events_on_company_id"
+  add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
   create_table "inventories", :force => true do |t|
     t.integer  "product_id"
@@ -177,6 +173,9 @@ ActiveRecord::Schema.define(:version => 20130627083057) do
     t.boolean  "is_email",          :default => false
     t.string   "subject"
   end
+
+  add_index "notifications", ["company_id"], :name => "index_notifications_on_company_id"
+  add_index "notifications", ["contact_id"], :name => "index_notifications_on_contact_id"
 
   create_table "product_transactions", :force => true do |t|
     t.integer  "product_id"
@@ -295,6 +294,9 @@ ActiveRecord::Schema.define(:version => 20130627083057) do
     t.integer  "account_id"
   end
 
+  add_index "transactions", ["company_id"], :name => "index_transactions_on_company_id"
+  add_index "transactions", ["contact_id", "contact_type"], :name => "index_transactions_on_contact_id_and_contact_type"
+
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -320,6 +322,7 @@ ActiveRecord::Schema.define(:version => 20130627083057) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "users", ["company_id"], :name => "index_users_on_company_id"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

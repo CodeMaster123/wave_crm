@@ -13,5 +13,7 @@ class CreateAccounts < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :accounts, :company_id
   end
 end
