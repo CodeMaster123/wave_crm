@@ -104,10 +104,10 @@ ActiveRecord::Schema.define(:version => 20130627083057) do
     t.text     "description"
     t.integer  "user_id"
     t.integer  "company_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "lead_id"
-    t.integer  "meeting_with"
+    t.integer  "contact_id"
   end
 
   create_table "follow_ups", :force => true do |t|

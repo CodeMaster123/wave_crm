@@ -45,29 +45,7 @@ class Lead < ActiveRecord::Base
     end
 
     def get_lead_source
-        if self.lead_source == "cold_call"
-            "Cold call"
-        elsif self.lead_source == "direct_marketing"
-            "Direct marketing"
-        elsif self.lead_source == "advertisement"
-            "Advertisement"
-        elsif self.lead_source == "external_referral"
-            "External referral"
-        elsif self.lead_source == "partner"
-            "Partner"
-        elsif self.lead_source == "public_relations"
-            "Public relations"
-        elsif self.lead_source == "sales_mail"
-            "Sales mail"
-        elsif self.lead_source == "seminar"
-            "Seminar"
-        elsif self.lead_source == "trade_show"
-            "Trade show"
-        elsif self.lead_source == "whitepaper"
-            "Whitepaper"
-        elsif self.lead_source == "google_search"
-            "Google search"
-        end
+        self.lead_source.tr!("_"," ").camelcase
     end
 
     def post_processing
