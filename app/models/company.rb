@@ -7,7 +7,6 @@ class Company < ActiveRecord::Base
     has_many :products
     has_many :notifications
     has_many :leads
-    has_many :follow_ups
     has_many :events
     has_many :targets
     has_many :transactions

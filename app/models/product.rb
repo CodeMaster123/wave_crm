@@ -18,7 +18,9 @@ class Product < ActiveRecord::Base
   after_save :create_empty_inventory
 
   def create_empty_inventory
-      self.build_inventory(:company_id => self.company_id, :quantity => 0).save
+      if self.inventory.nil?
+          self.build_inventory(:company_id => self.company_id, :quantity => 0).save
+      end
 
   end
 end

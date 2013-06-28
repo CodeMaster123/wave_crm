@@ -12,10 +12,6 @@ class LeadsController < ApplicationController
   end
 
   def index
-      unless (Lead.first.nil? || Lead.first.follow_ups.empty?)
-          @follow_up_time = Lead.first.follow_ups.all(:order => 'follow_up_time').last.follow_up_time.strftime('%l:%M%p %d-%h')
-      end
-
       if current_user.account_type == 1
           @company = current_user.company
           if params[:type] == "current"
@@ -95,7 +91,6 @@ class LeadsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @lead = Lead.new
       @lead.contacts.build
-      @lead.follow_ups.build
       @lead.product_transactions.build
       @lead.build_account
       @team_leaders = @company.team_leaders.all
