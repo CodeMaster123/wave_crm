@@ -34,7 +34,7 @@
         <tbody id="search-data">
             <% render :partial => 'shared/i_calculation' %>
             <% @leads.each do |lead| %>
-                <% if lead.matured_at.nil? %>
+                <% if lead.matured_at? %>
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
 
