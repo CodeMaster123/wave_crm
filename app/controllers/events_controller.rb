@@ -1,15 +1,6 @@
 class EventsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    layout :choose_layout
-
-    def choose_layout
-        if action_name == 'search'
-            false
-        else
-            'application'
-        end
-    end
 
     def index
         @company = Company.where(:id => current_user.company_id).first

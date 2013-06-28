@@ -1,15 +1,6 @@
 class TagsController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
-  layout :choose_layout
-
-  def choose_layout
-      if action_name == 'search'
-          false
-      else
-          'application'
-      end
-  end
 
   def index
     @company = Company.where(:id => current_user.company_id).first
@@ -65,8 +56,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # PUT /tags/1
-  # PUT /tags/1.json
   def update
     @company = Company.where(:id => current_user.company_id).first
     @tag = @company.tags.find(params[:id])

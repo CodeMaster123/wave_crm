@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
-  # GET /accounts
-  # GET /accounts.json
+  before_filter :authenticate_user!
+  filter_access_to :all
+
   def index
 
     @accounts = current_user.company.accounts.where(:is_matured => true)
@@ -11,8 +12,6 @@ class AccountsController < ApplicationController
     end
   end
 
-  # GET /accounts/1
-  # GET /accounts/1.json
   def show
       @account = Account.find(params[:id])
       @contacts = @account.contacts
@@ -25,8 +24,6 @@ class AccountsController < ApplicationController
       end
   end
 
-  # GET /accounts/new
-  # GET /accounts/new.json
   def new
       @account = Account.new
       @account_owner = current_user.company.contacts
@@ -37,14 +34,11 @@ class AccountsController < ApplicationController
       end
   end
 
-  # GET /accounts/1/edit
   def edit
       @account = Account.find(params[:id])
       @account_owner = current_user.company.contacts
   end
 
-  # POST /accounts
-  # POST /accounts.json
   def create
       @account = Account.new(params[:account])
       @account_owner = current_user.company.contacts
@@ -60,8 +54,6 @@ class AccountsController < ApplicationController
       end
   end
 
-  # PUT /accounts/1
-  # PUT /accounts/1.json
   def update
       @account = Account.find(params[:id])
       @account_owner = current_user.company.contacts
@@ -77,8 +69,6 @@ class AccountsController < ApplicationController
       end
   end
 
-  # DELETE /accounts/1
-  # DELETE /accounts/1.json
   def destroy
       @account = Account.find(params[:id])
       @account.destroy

@@ -1,15 +1,6 @@
 class ContactsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    layout :choose_layout
-
-    def choose_layout
-        if action_name == 'search'
-            false
-        else
-            'application'
-        end
-    end
 
     def index
         if current_user.account_type ==1

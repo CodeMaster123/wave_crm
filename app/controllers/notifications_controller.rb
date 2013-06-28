@@ -1,17 +1,7 @@
 class NotificationsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    layout :choose_layout
 
-    def choose_layout
-        if action_name == 'search'
-            false
-        else
-            'application'
-        end
-    end
-    # GET /notifications
-    # GET /notifications.json
     def index
         if current_user.account_type == 1
           if params[:type] == "old"
@@ -29,8 +19,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # GET /notifications/1
-    # GET /notifications/1.json
     def show
         @notification = Notification.find(params[:id])
 
@@ -40,8 +28,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # GET /notifications/new
-    # GET /notifications/new.json
     def new
         @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.new
@@ -53,7 +39,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    # GET /notifications/1/edit
     def edit
         @company = Company.where(:id => current_user.company_id).first
         @notification = Notification.find(params[:id])
