@@ -52,7 +52,7 @@ class CallLogsController < ApplicationController
                 format.html { redirect_to @call_log, notice: 'Call log was successfully created.' }
                 format.json { render json: @call_log, status: :created, location: @call_log }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @call_log.errors, status: :unprocessable_entity }
             end
         end
@@ -67,7 +67,7 @@ class CallLogsController < ApplicationController
                 format.html { redirect_to @call_log, notice: 'Call log was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @call_log.errors, status: :unprocessable_entity }
             end
         end

@@ -71,7 +71,7 @@ class TargetsController < ApplicationController
                 format.html { redirect_to :targets, notice: 'Target was successfully created.' }
                 format.json { render json: @target, status: :created, location: @target }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @target.errors, status: :unprocessable_entity }
             end
         end
@@ -86,7 +86,7 @@ class TargetsController < ApplicationController
                 format.html { redirect_to @target, notice: 'Target was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @target.errors, status: :unprocessable_entity }
             end
         end

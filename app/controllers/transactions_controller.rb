@@ -90,7 +90,7 @@ class TransactionsController < ApplicationController
                     format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
                 end
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @transaction.errors, status: :unprocessable_entity }
             end
         end
@@ -112,7 +112,7 @@ class TransactionsController < ApplicationController
                     @transaction_field_value.update_attributes(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
                 end
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @transaction.errors, status: :unprocessable_entity }
             end
         end

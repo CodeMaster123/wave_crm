@@ -45,7 +45,7 @@ class InventoriesController < ApplicationController
         format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
         format.json { render json: @inventory, status: :created, location: @inventory }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @inventory.errors, status: :unprocessable_entity }
       end
     end
@@ -60,7 +60,7 @@ class InventoriesController < ApplicationController
         format.html { redirect_to @inventory, notice: 'Inventory was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @inventory.errors, status: :unprocessable_entity }
       end
     end

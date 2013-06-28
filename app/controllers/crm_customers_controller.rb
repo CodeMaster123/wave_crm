@@ -43,7 +43,7 @@ class CrmCustomersController < ApplicationController
         format.html { redirect_to @crm_customer, notice: 'Crm customer was successfully created.' }
         format.json { render json: @crm_customer, status: :created, location: @crm_customer }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @crm_customer.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +57,7 @@ class CrmCustomersController < ApplicationController
         format.html { redirect_to @crm_customer, notice: 'Crm customer was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @crm_customer.errors, status: :unprocessable_entity }
       end
     end

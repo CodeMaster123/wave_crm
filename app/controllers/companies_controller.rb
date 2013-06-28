@@ -38,7 +38,7 @@ class CompaniesController < ApplicationController
         format.html { redirect_to companies_path, notice: 'Company was successfully created.' }
         format.json { render json: @company, status: :created, location: @company }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
         format.html { redirect_to companies_path, notice: 'Company was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @company.errors, status: :unprocessable_entity }
       end
     end

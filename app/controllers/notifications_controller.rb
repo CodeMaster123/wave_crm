@@ -73,7 +73,7 @@ class NotificationsController < ApplicationController
                 format.html { redirect_to :controller=>"notifications", :action=>"index", :type=>"current"}
                 format.json { render json: @notification, status: :created, location: @notification }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @notification.errors, status: :unprocessable_entity }
             end
         end
@@ -89,7 +89,7 @@ class NotificationsController < ApplicationController
                 format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @notification.errors, status: :unprocessable_entity }
             end
         end

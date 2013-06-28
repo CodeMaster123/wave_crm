@@ -40,7 +40,7 @@ class TransactionFieldsController < ApplicationController
         format.html { redirect_to @transaction_field, notice: 'Transaction field was successfully created.' }
         format.json { render json: @transaction_field, status: :created, location: @transaction_field }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @transaction_field.errors, status: :unprocessable_entity }
       end
     end
@@ -54,7 +54,7 @@ class TransactionFieldsController < ApplicationController
         format.html { redirect_to @transaction_field, notice: 'Transaction field was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @transaction_field.errors, status: :unprocessable_entity }
       end
     end

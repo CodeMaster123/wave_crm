@@ -40,7 +40,7 @@ class EmployeesController < ApplicationController
                 format.html { redirect_to :employees, notice: 'Employee was successfully created.' }
                 format.json { render json: @employee, status: :created, location: @employee }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @employee.errors, status: :unprocessable_entity }
             end
         end
@@ -54,7 +54,7 @@ class EmployeesController < ApplicationController
                 format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @employee.errors, status: :unprocessable_entity }
             end
         end

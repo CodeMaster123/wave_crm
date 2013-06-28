@@ -44,7 +44,7 @@ class NotificationSettingsController < ApplicationController
               format.html { redirect_to @notification_setting, notice: 'Notification setting was successfully created.' }
               format.json { render json: @notification_setting, status: :created, location: @notification_setting }
           else
-              format.html { render action: "new" }
+              format.html { render "new" }
               format.json { render json: @notification_setting.errors, status: :unprocessable_entity }
           end
       end
@@ -58,7 +58,7 @@ class NotificationSettingsController < ApplicationController
               format.html { redirect_to @notification_setting, notice: 'Notification setting was successfully updated.' }
               format.json { head :no_content }
           else
-              format.html { render action: "edit" }
+              format.html { render "edit" }
               format.json { render json: @notification_setting.errors, status: :unprocessable_entity }
           end
       end

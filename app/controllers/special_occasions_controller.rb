@@ -38,7 +38,7 @@ class SpecialOccasionsController < ApplicationController
         format.html { redirect_to @special_occasion, notice: 'Special occasion was successfully created.' }
         format.json { render json: @special_occasion, status: :created, location: @special_occasion }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @special_occasion.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +52,7 @@ class SpecialOccasionsController < ApplicationController
         format.html { redirect_to @special_occasion, notice: 'Special occasion was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @special_occasion.errors, status: :unprocessable_entity }
       end
     end

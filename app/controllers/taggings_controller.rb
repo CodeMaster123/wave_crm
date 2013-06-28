@@ -38,7 +38,7 @@ class TaggingsController < ApplicationController
         format.html { redirect_to @tagging, notice: 'Tagging was successfully created.' }
         format.json { render json: @tagging, status: :created, location: @tagging }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @tagging.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +52,7 @@ class TaggingsController < ApplicationController
         format.html { redirect_to @tagging, notice: 'Tagging was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @tagging.errors, status: :unprocessable_entity }
       end
     end

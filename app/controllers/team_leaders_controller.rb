@@ -43,7 +43,7 @@ class TeamLeadersController < ApplicationController
                 format.html { redirect_to :team_leaders, notice: 'Team leader was successfully created.' }
                 format.json { render json: @team_leader, status: :created, location: @team_leader }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @team_leader.errors, status: :unprocessable_entity }
             end
         end
@@ -58,7 +58,7 @@ class TeamLeadersController < ApplicationController
                 format.html { redirect_to @team_leader, notice: 'Team leader was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @team_leader.errors, status: :unprocessable_entity }
             end
         end

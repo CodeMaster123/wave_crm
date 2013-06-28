@@ -47,7 +47,7 @@ class SalesExecutivesController < ApplicationController
                 format.html { redirect_to :sales_executives, notice: 'Sales executive was successfully created.' }
                 format.json { render json: @sales_executive, status: :created, location: @sales_executive }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @sales_executive.errors, status: :unprocessable_entity }
             end
         end
@@ -62,7 +62,7 @@ class SalesExecutivesController < ApplicationController
                 format.html { redirect_to @sales_executive, notice: 'Sales executive was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @sales_executive.errors, status: :unprocessable_entity }
             end
         end

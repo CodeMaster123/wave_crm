@@ -40,7 +40,7 @@ class LeadsProductsController < ApplicationController
                 format.html { redirect_to @leads_product, notice: 'Leads product was successfully created.' }
                 format.json { render json: @leads_product, status: :created, location: @leads_product }
             else
-                format.html { render action: "new" }
+                format.html { render "new" }
                 format.json { render json: @leads_product.errors, status: :unprocessable_entity }
             end
         end
@@ -54,7 +54,7 @@ class LeadsProductsController < ApplicationController
                 format.html { redirect_to @leads_product, notice: 'Leads product was successfully updated.' }
                 format.json { head :no_content }
             else
-                format.html { render action: "edit" }
+                format.html { render "edit" }
                 format.json { render json: @leads_product.errors, status: :unprocessable_entity }
             end
         end
