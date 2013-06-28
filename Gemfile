@@ -38,6 +38,7 @@ group :development do
     gem 'quiet_assets'
     gem 'irbtools'
     gem 'sextant'
+    gem 'rails_best_practices'
 end
 
 group :test do
