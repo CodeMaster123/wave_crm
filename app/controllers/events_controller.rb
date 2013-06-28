@@ -39,7 +39,6 @@ class EventsController < ApplicationController
     def create
         @company = Company.where(:id => current_user.company_id).first
         @event = @company.events.new(params[:event])
-        @event.company_id = @company.id
         @event.user_id = current_user.id
         respond_to do |format|
             if @event.save

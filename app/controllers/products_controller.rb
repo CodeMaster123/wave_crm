@@ -35,10 +35,8 @@ class ProductsController < ApplicationController
     end
 
     def create
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @product = @company.products.new(params[:product])
-        @product.company_id = @company.id
-        @product.max_cost = 123
 
         respond_to do |format|
             if @product.save
