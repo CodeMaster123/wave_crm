@@ -69,8 +69,10 @@ $(document).ready(function() {
     $('.product_price').focus(function(){attach_on_add()});
 
     $('.add').on("click",function(){
+        $('.quantity').focus(function(){setTimeout(attach_on_add,3000)});
+        $('.product_price').focus(function(){setTimeout(attach_on_add,3000)});
         console.log("executed");
-        $('.quantity').focus(function(){attach_on_add()});
-        $('.product_price').focus(function(){attach_on_add()});
     })
+
+  $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 });
