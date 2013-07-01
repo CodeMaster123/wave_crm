@@ -172,9 +172,6 @@ class LeadsController < ApplicationController
       end
   end
 
-  def mature
-  end
-
   def change_owner
       puts params[:lead_id]
 
