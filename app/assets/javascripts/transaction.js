@@ -10,6 +10,17 @@ function attach_on_add(){
                 });
                 $('.amount_field').val($total);
                 $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
+
+}
+
+function fetch_price(){
+        var current_select = $(this);
+        $.ajax({
+            url: '/products/'+current_select.val()+'.json',
+            success: function(data,textStatus,xhr){
+                current_select.parent().find('.product_price').val(data.min_cost);
+            }
+        })
 }
 
 $(document).ready(function() {
@@ -70,8 +81,11 @@ $(document).ready(function() {
     $('.product_price').focus(function(){attach_on_add()});
     $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 
+    $('select').change(fetch_price);
+
     $('.add').on("click",function(){
         setTimeout(function(){$('.quantity').focus(function(){attach_on_add()})},300);
         setTimeout(function(){$('.product_price').focus(function(){attach_on_add()})},300);
+        setTimeout(function(){$('select').change(fetch_price)},300);
     })
 });
