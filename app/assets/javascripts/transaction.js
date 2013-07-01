@@ -9,7 +9,8 @@ function attach_on_add(){
                     $(this).find($('.sub-total')).html(sub_total);
                 });
                 $('.amount_field').val($total);
-            }
+                $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
+}
 
 $(document).ready(function() {
     $('.datetime_select').datetimepicker({
@@ -67,12 +68,10 @@ $(document).ready(function() {
     $('.amount_field').focus(function(){attach_on_add()});
     $('.quantity').focus(function(){attach_on_add()});
     $('.product_price').focus(function(){attach_on_add()});
+    $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 
     $('.add').on("click",function(){
-        $('.quantity').focus(function(){setTimeout(attach_on_add,3000)});
-        $('.product_price').focus(function(){setTimeout(attach_on_add,3000)});
-        console.log("executed");
+        setTimeout(function(){$('.quantity').focus(function(){attach_on_add()})},300);
+        setTimeout(function(){$('.product_price').focus(function(){attach_on_add()})},300);
     })
-
-  $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 });
