@@ -105,21 +105,14 @@
         </div>
     </div>
 
-    <%= f.fields_for :partial_payment do |pt| %>
+    <%= f.fields_for :partial_payments do |pp| %>
         <div class="control-group product">
-            <%= pt.label :products, :class => 'control-label' %>
+        <%= pp.label :amount_paid, :class => 'control-label' %>
             <div class="controls">
-                <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),:class => 'contact_type', :selected => 3 %>
-                Quantity
-                <%= pt.text_field :quantity, :class=>'text_field quantity' %>
-                Price
-                <%= pt.text_field :price, :class=>'text_field product_price' %>
-                <b class="sub-total">0</b>
-                <%= pt.link_to_remove "Remove this product", :class => 'remove' %>
+                <%= pp.text_field :amount_paid, :class=>'text_field quantity' %>
             </div>
         </div>
     <% end %>
-    <%= f.link_to_add "Add a product", :product_transactions, :class => 'add transaction-product' %>
 
     <div class="control-group hide micr_code">
         <%= f.label :micr_code, :class => 'control-label' %>

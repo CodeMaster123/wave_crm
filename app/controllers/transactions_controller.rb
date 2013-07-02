@@ -31,6 +31,7 @@ class TransactionsController < ApplicationController
             @transaction_fields = current_user.transaction_fields
             @transaction.contacts.build
             @transaction.product_transactions.build
+            @transaction.partial_payments.build
         else
             @lead = Lead.find(params[:id1])
             @transaction = current_user.company.transactions.build
