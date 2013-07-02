@@ -65,7 +65,7 @@
             <%= f.label :accounts, :class => 'control-label' %>
             <div class="controls">
                 <% if params[:matured_by].nil? %>
-                    <%= f.select :contact_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}), :class => 'contacts_text_field' %>
+                    <%= f.select :account_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}), :class => 'contacts_text_field' %>
                 <% else %>
                     <% @account = Account.where(:lead_id => @lead.id).first %>
                     <%= @account.account_name %>

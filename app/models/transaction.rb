@@ -11,12 +11,12 @@ class Transaction < ActiveRecord::Base
 
     accepts_nested_attributes_for :contacts, :allow_destroy => true
     accepts_nested_attributes_for :product_transactions, :allow_destroy => true
-    #accepts_nested_attributes_for :partial_payments #, :allow_destroy => true
+    accepts_nested_attributes_for :partial_payments #, :allow_destroy => true
 
     attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type
     attr_accessible :product_transactions_attributes
     attr_accessible :contacts_attributes
-    #attr_accessible :partial_payments_attributes
+    attr_accessible :partial_payments_attributes
 
     validates :company_id, :presence => true
     validates :amount, :presence => true
