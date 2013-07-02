@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Amount paid:</b>
+  <%= @partial_payment.amount_paid %>
+</p>
+
+<p>
+  <b>Transaction:</b>
+  <%= @partial_payment.transaction_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_partial_payment_path(@partial_payment) %> |
+<%= link_to 'Back', partial_payments_path %>

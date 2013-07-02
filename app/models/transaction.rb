@@ -3,6 +3,7 @@ class Transaction < ActiveRecord::Base
     has_many :contacts, :as => :contactable, :dependent => :destroy
     has_many :product_transactions
     has_many :products, :through => :product_transactions
+    has_many :partial_payments
     belongs_to :company
     belongs_to :account
 

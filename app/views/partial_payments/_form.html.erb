@@ -1,0 +1,25 @@
+<%= form_for(@partial_payment) do |f| %>
+  <% if @partial_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@partial_payment.errors.count, "error") %> prohibited this partial_payment from being saved:</h2>
+
+      <ul>
+      <% @partial_payment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount_paid %><br />
+    <%= f.number_field :amount_paid %>
+  </div>
+  <div class="field">
+    <%= f.label :transaction_id %><br />
+    <%= f.number_field :transaction_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

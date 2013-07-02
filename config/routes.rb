@@ -1,4 +1,7 @@
 WaveCrm::Application.routes.draw do
+  resources :partial_payments
+
+
     devise_for :users
 
     resources :accounts
