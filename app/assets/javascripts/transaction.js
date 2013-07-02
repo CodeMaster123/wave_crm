@@ -80,7 +80,6 @@ $(document).ready(function() {
     $('.quantity').focus(function(){attach_on_add()});
     $('.product_price').focus(function(){attach_on_add()});
     $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
-
     $('select').change(fetch_price);
 
     $('.add').on("click",function(){
