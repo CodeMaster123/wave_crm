@@ -8,7 +8,7 @@ function attach_on_add(){
                     $total = $total + sub_total;
                     $(this).find($('.sub-total')).html(sub_total);
                 });
-                $('.amount_field').val($total);
+                $('.amount_field').html("<b>"+$total+"</b>");
                 $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 
 }
