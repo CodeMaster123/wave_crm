@@ -30,6 +30,7 @@ $(document).ready(function() {
     });
 
     $('#transaction_contact_id').chosen();
+    $('.account_select').chosen();
 
     $('.search-c').searchbox({
         url: '/lead_search.html',
@@ -37,6 +38,8 @@ $(document).ready(function() {
         dom_id: '#search-data',
         delay: 100,
     });
+
+    $('select.product_transaction_new').chosen();
 
     $('.contact_type').change(function() {
         if ($('.contact_type').val() == 1)
@@ -86,5 +89,6 @@ $(document).ready(function() {
         setTimeout(function(){$('.quantity').focus(function(){attach_on_add()})},300);
         setTimeout(function(){$('.product_price').focus(function(){attach_on_add()})},300);
         setTimeout(function(){$('select').change(fetch_price)},300);
+        setTimeout(function(){$('select.product_transaction_new').chosen()},10);
     })
 });

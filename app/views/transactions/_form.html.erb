@@ -65,7 +65,7 @@
             <%= f.label :accounts, :class => 'control-label' %>
             <div class="controls">
                 <% if params[:matured_by].nil? %>
-                    <%= f.select :account_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}), :class => 'contacts_text_field' %>
+                    <%= f.select :account_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}),{:include_blank => ""}, {:class => 'account_select', :"data-placeholder" => 'Select an account'} %>
                 <% else %>
                     <% @account = Account.where(:lead_id => @lead.id).first %>
                     <%= @account.account_name %>
@@ -79,7 +79,7 @@
         <div class="control-group product">
             <%= pt.label :products, :class => 'control-label' %>
             <div class="controls">
-                <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),:class => 'contact_type', :selected => 3 %>
+                <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),{:include_blank => ""},{:class => 'product_transaction_new', :"data-placeholder" => 'Select a product'} %>
                 Quantity
                 <%= pt.text_field :quantity, :class=>'text_field quantity' %>
                 Price
@@ -94,7 +94,7 @@
     <div class="control-group">
         <%= f.label :payment_type, :class => 'control-label' %>
         <div class="controls">
-            <%= f.select :transaction_type, options_for_select([["Select Payment Type", 0], ["Cash", "Cash"], ["Cheque", "Cheque"]],0),:class => 'contact_type' %>
+            <%= f.select :transaction_type, [["Select Payment Type", 0], ["Cash", "Cash"], ["Cheque", "Cheque"]], {:selected => 0, :disabled => 0},:class => 'contact_type' %>
         </div>
     </div>
 
