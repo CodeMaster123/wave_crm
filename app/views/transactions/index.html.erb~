@@ -38,7 +38,7 @@
                         <td></td>
                     <% end %>
                 <% else %>
-                        <td><%= transaction.account.contacts.first.first_name %> </td>
+                        <td><%= transaction.account.contacts.first.full_name %> </td>
                 <% end %>
                 <td><%= transaction.amount %></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
