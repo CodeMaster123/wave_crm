@@ -9,6 +9,7 @@ function attach_on_add(){
                     $(this).find($('.sub-total')).html(sub_total);
                 });
                 $('.amount_field').html("<b>"+$total+"</b>");
+                $('.amount_hidden').val($total);
                 $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 
 }
