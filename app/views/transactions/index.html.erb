@@ -46,7 +46,7 @@
                 <% transaction.partial_payments.each do |pt| %>
                     <% @paid_amount += pt.amount_paid %>
                 <% end %>
-                <td><%= @paid_amount %></td>
+                <td class="amount_paid"><%= @paid_amount %></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>
                 <% unless @transaction_field_values.empty? %>
@@ -63,7 +63,7 @@
                     <%= link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-mini' %>
                     <%= link_to 'Destroy', transaction_path(transaction), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
                     <%= link_to 'Invoice', {:controller => "transactions", :action => "invoice", :id => transaction.id, :format => 'pdf'}, :class => 'btn btn-mini btn-mature' %>
-                    <a transaction_id=<%= transaction.id %> href="#" data-target="#new-partial-payment" class="make-payment btn btn-mini btn-mature" data-toggle="modal" onclick="$('#partial-payment').modal(); $transaction_id = $(this).attr('transaction_id'); console.log($transaction_id); $('.hidden-transaction-id').val($transaction_id);">Make payment</a>
+                    <a transaction_id=<%= transaction.id %> href="#" data-target="#new-partial-payment" class="make-payment btn btn-mini btn-mature" data-toggle="modal" onclick="$('#partial-payment').modal(); $transaction_id = $(this).attr('transaction_id'); $transaction_id; $('.hidden-transaction-id').val($transaction_id); $(this).parent().parent().addClass('current'); ">Make payment</a>
                 </td>
             </tr>
         <% end %>

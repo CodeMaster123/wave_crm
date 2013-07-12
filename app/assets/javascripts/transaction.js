@@ -50,6 +50,12 @@ $(document).ready(function() {
             method: "POST"
         }).success(function(json){
             $('.modal').modal('hide');
+            $existing_amount = $('.current').find('.amount_paid').html();
+            $new_amount = ($('#amount').val()||0);
+            $total = parseInt($existing_amount) + parseInt($new_amount);
+            $('.current').find('.amount_paid').html($total);
+            $('.current').removeClass('current');
+
             if ($('tbody#call-log-data').children().length==0)
         {
             $('tbody#call-log-data').append("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
