@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "pagination.css" %>
 <%- model_class = Target -%>
 <div class="page-header">
-    <h1>Individual Targets</h1>
+    <h1>Targets - <%= Date::MONTHNAMES[Date.today.month] %></h1>
 </div>
 <table class="table table-striped">
     <thead>
@@ -27,31 +27,7 @@
                     <td><%= target.targetable_type %></td>
                     <td><%= target.amount %> Rs</td>
                     <td><%= target.achived %> Rs</td>
-                    <% if target.target_month == 1 %>
-                          <th>January</th>
-                      <% elsif target.target_month == 2 %>
-                          <th>February</th>
-                      <% elsif target.target_month == 3 %>
-                          <th>March</th>
-                      <% elsif target.target_month == 4 %>
-                          <th>April</th>
-                      <% elsif target.target_month == 5 %>
-                          <th>May</th>
-                      <% elsif target.target_month == 6 %>
-                          <th>June</th>
-                      <% elsif target.target_month == 7 %>
-                          <th>July</th>
-                      <% elsif target.target_month == 8 %>
-                          <th>August</th>
-                      <% elsif target.target_month == 9 %>
-                          <th>September</th>
-                      <% elsif target.target_month == 10 %>
-                          <th>October</th>
-                      <% elsif target.target_month == 11 %>
-                          <th>November</th>
-                      <% elsif target.target_month == 12 %>
-                          <th>December</th>
-                      <% end %>
+                    <th><%= Date::MONTHNAMES[target.target_month] %></th>
                       <td><%= target.target_year %></td>
                     <td>
                         <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_target_path(target), :class => 'btn btn-mini' %>
@@ -78,6 +54,6 @@
         </tbody>
     </table>
 
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-        new_target_path,
-        :class => 'btn btn-primary' %>
+    <%= link_to t('.new', :default => t("helpers.links.new")), new_target_path, :class => 'btn btn-primary' %>
+    <!--| Previous targets-->
+     <%#= select_tag('vivek', options_for_select(@previous_months.map{|pm|["#{Date::MONTHNAMES[pm.first]} - #{pm.last}",pm.first]}), :onchange => 'fetch_previous_targets()', :class => 'previous_target_select') %>

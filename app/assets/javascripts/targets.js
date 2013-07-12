@@ -29,4 +29,14 @@ $('.user_type').change(function() {
 
 
 
-
+//function fetch_previous_targets()
+//{
+//    $data = $('.previous_target_select').val();
+//    console.log($data);
+//    $.ajax({
+//        url: '/targets/index/'+$data, //'/notifications/4',sumbits it to the given url of the form
+//        data: $data,
+//        method: "GET"
+//    }).success(function(json){
+//    });
+//}
