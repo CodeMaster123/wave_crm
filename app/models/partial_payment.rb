@@ -4,6 +4,8 @@ class PartialPayment < ActiveRecord::Base
 
     before_save :check_if_exceeds
 
+    validates :amount_paid, :presence => true, :numericality => true
+
     private
     def check_if_exceeds
         total_payment = 0

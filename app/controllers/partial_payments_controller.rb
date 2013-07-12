@@ -80,4 +80,11 @@ class PartialPaymentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def create_partial_payment
+      @partial_payment = PartialPayment.create(:amount_paid => params[:amount], :transaction_id => params[:transaction_id])
+
+      respond_to do |format|
+          format.html{render :nothing => true}
+      end
+  end
 end

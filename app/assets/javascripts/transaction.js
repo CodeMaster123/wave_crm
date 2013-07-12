@@ -42,6 +42,26 @@ $(document).ready(function() {
 
     $('select.product_transaction_new').chosen();
 
+    $('.partial-payment-form').submit(function() {
+        var valuesToSubmit = $(this).serialize();
+        $.ajax({
+            url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
+            data: valuesToSubmit,
+            method: "POST"
+        }).success(function(json){
+            $('.modal').modal('hide');
+            if ($('tbody#call-log-data').children().length==0)
+        {
+            $('tbody#call-log-data').append("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
+        }
+            else
+        {
+            $('tbody#call-log-data tr').last().after("<tr><td>"+$('.call-log-form #subject').val()+"</td><td>"+$('.call-log-form #call_result').val()+"</td><td>"+$('.call-log-form #call_type').val()+"</td><td>"+$('.call-log-form #call_purpose').val()+"</td><td>"+$('.call-log-form #call_start_time').val()+"</td><td>"+$('.call-log-form #call_duration').val()+"</td><td>"+$('.call-log-form #call_owner_id').val()+"</td><td>Just Now</td></tr>");
+        }
+        });
+        return false; // prevents normal behaviour
+    });
+
     $('.contact_type').change(function() {
         if ($('.contact_type').val() == 1)
     {

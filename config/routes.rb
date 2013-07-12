@@ -62,6 +62,7 @@ WaveCrm::Application.routes.draw do
     match 'create_notification' => 'notifications#create_notification'
     match 'create_contact' => 'contacts#create_contact'
     match 'create_transaction' => 'transactions#create_transaction'
+    match 'create_partial_payment' => 'partial_payments#create_partial_payment'
 
     match 'leads/index/:type' => 'leads#index', :as => :lead_change
     match 'leads/index/:team_leader' => 'leads#index'
