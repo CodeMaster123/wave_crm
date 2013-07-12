@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     belongs_to :company
 
     #belongs_to :company
+    #after_create :update_executive
 
 
     has_attached_file :avatar,
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
     validates :company_id, :presence => true
 
 
-    after_create :create_notification_setting
+    after_save :create_notification_setting
 
     def role_symbols
         if self.account_type == 1
@@ -54,5 +55,20 @@ class User < ActiveRecord::Base
     def full_name
         "#{self.first_name} #{self.last_name}"
     end
+
+    #def update_executive
+    #    if self.account_type == 2 #team leader
+    #        puts "team_Leader"
+    #        TeamLeader.create(:user_id => self.id, :company_id => self.company_id)
+    #        puts "user_id => #{self.id}"
+    #        puts "team_leader' user_id => #{self.team_leader.user_id}"
+    #    elsif self.account_type == 3 #sales executive
+    #        puts "sales_executive"
+    #        self.sales_executive.update_attributes(:user_id => self.id)
+    #        puts "user_id => #{self.id}"
+    #        puts "sales_executive's user_id => #{self.sales_executive.user_id}"
+    #    end
+    #    puts 'vivekxxxxxxxxxxxxxx'
+    #end
 
 end
