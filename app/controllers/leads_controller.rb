@@ -41,8 +41,8 @@ class LeadsController < ApplicationController
           else
               @leads = current_user.sales_executive.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15)
           end
-          @team = current_user.team_leader.sales_executives.each do |executive|
-          end
+          #@team = current_user.team_leader.sales_executives.each do |executive|
+          #end
           @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
       elsif current_user.account_type ==4
           @leads = Lead.all.paginate(:page => params[:page], :per_page => 15)
