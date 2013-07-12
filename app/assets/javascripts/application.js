@@ -24,7 +24,6 @@
 //= require magicsuggest-1.2.7
 //= require jquery_nested_form
 //= require twitter/bootstrap
-//= require highcharts
 
 //= require fullcalendar.min
 //= require chosen.jquery.min
