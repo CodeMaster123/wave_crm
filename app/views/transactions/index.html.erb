@@ -18,6 +18,7 @@
             <th>Sr.No</th>
             <th>Contact</th>
             <th>Amount</th>
+            <th>Amount Paid</th>
             <th>Transaction time</th>
             <% @i = 0 %>
             <% @transaction_fields.each do |tf| %>
@@ -41,6 +42,11 @@
                         <td><%= transaction.account.contacts.first.full_name %> </td>
                 <% end %>
                 <td><%= transaction.amount %></td>
+                <% @paid_amount = 0 %>
+                <% transaction.partial_payments.each do |pt| %>
+                    <% @paid_amount += pt.amount_paid %>
+                <% end %>
+                <td><%= @paid_amount %></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>
                 <% unless @transaction_field_values.empty? %>
