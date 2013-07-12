@@ -128,6 +128,7 @@ class LeadsController < ApplicationController
 
       respond_to do |format|
           if @lead.save
+              @lead.contacts.first.account_id = @lead.account.id
               format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
               format.json { render json: @lead, status: :created, location: @lead }
           else
