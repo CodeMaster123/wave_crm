@@ -1,7 +1,4 @@
 WaveCrm::Application.routes.draw do
-  resources :partial_payments
-
-
     devise_for :users
 
     resources :accounts
@@ -28,6 +25,7 @@ WaveCrm::Application.routes.draw do
     resources :users
     resources :crm_customers
     resources :events
+    resources :partial_payments
 
     mount_sextant if Rails.env.development?
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -54,6 +52,7 @@ WaveCrm::Application.routes.draw do
     match 'transaction_invoice/:id' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
 
     match 'contacts/index/:type' => 'contacts#index'
+    match 'accounts/index/:type' => 'accounts#index'
 
     match 'notifications/index/:type' => 'notifications#index', :as => :n_change
 
