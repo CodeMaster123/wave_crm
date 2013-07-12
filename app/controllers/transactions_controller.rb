@@ -16,7 +16,8 @@ class TransactionsController < ApplicationController
 
     def show
         @transaction = Transaction.find(params[:id])
-        @product_transactions = Transaction.where(:id => params[:id]).first.product_transactions
+        @product_transactions = @transaction.product_transactions
+        @partial_payments = @transaction.partial_payments.all
 
         respond_to do |format|
             format.html # show.html.erb

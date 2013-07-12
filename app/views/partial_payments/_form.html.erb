@@ -1,25 +1,20 @@
-<%= form_for(@partial_payment) do |f| %>
-  <% if @partial_payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@partial_payment.errors.count, "error") %> prohibited this partial_payment from being saved:</h2>
-
-      <ul>
-      <% @partial_payment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @partial_payment, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :amount_paid, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :amount_paid, :class => 'number_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :transaction_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :transaction_id, :class => 'number_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :amount_paid %><br />
-    <%= f.number_field :amount_paid %>
-  </div>
-  <div class="field">
-    <%= f.label :transaction_id %><br />
-    <%= f.number_field :transaction_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                partial_payments_path, :class => 'btn' %>
   </div>
 <% end %>
