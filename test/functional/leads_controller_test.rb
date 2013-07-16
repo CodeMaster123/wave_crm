@@ -25,7 +25,7 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should create lead" do
         assert_difference('Lead.count') do
-            post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type}
+            post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type, lead_status: @lead.lead_status, lead_source: @lead.lead_source}
         end
 
         assert_redirected_to leads_path
