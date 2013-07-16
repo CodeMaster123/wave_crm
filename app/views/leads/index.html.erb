@@ -93,19 +93,24 @@
             <thead>
                 <tr>
                     <th>Sr.No</th>
-
                     <th>Description</th>
+                    <th>Lead owner</th>
+                    <th>Lead source</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="search-data">
                 <% render :partial => 'shared/i_calculation' %>
                 <% @team_leader.leads.each do |lead| %>
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-
                         <td><%= lead.description %></td>
-
+                        <% unless lead.leadable_id.nil? %>
+                            <td><%= raw lead.show_executive%></td>
+                        <% else %>
+                            <td></td>
+                        <% end %>
+                        <td><%= lead.get_lead_source%></td>
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
@@ -119,32 +124,43 @@
         <!-- sales_executives -->
         <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
             <h4>Executive- <%= "#{executive.user.first_name} #{executive.user.last_name}" %></h4>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Sr.No</th>
-
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% render :partial => 'shared/i_calculation' %>
-                    <% executive.leads.each do |lead| %>
+            <% if executive.leads.first.nil? %>
+                <b>No Leads</b>
+            <% else %>
+                <% puts "executives lead.id ============>#{executive.leads.first.id}" %>
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                            <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-
-                            <td><%= lead.description %></td>
-
-                            <td>
-                                <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
-                                <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                                <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
-                            </td>
+                            <th>Sr.No</th>
+                            <th>Description</th>
+                            <th>Lead owner</th>
+                            <th>Lead source</th>
+                            <th>Actions</th>
                         </tr>
-                    <% end %>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% render :partial => 'shared/i_calculation' %>
+                        <% executive.leads.each do |lead| %>
+                            <tr>
+                                <td><%= link_to @i = @i+1, lead_path(lead) %></td>
+
+                                <td><%= lead.description %></td>
+                                <% unless lead.leadable_id.nil? %>
+                                    <td><%= raw lead.show_executive%></td>
+                                <% else %>
+                                    <td></td>
+                                <% end %>
+                                <td><%= lead.get_lead_source%></td>
+                                <td>
+                                    <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                                    <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                                    <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                                </td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>
