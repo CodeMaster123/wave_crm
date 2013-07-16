@@ -28,6 +28,9 @@
                 <th>Description</th>
                 <th>Lead owner</th>
                 <th>Lead source</th>
+                <% if params[:type] == "future" %>
+                    <th>Reoping date</th>
+                <% end %>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -35,47 +38,87 @@
             <% render :partial => 'shared/i_calculation' %>
             <% @leads.each do |lead| %>
                 <%# if lead.matured_at? %>
+                <tr>
+                    <td><%= link_to @i = @i+1, lead_path(lead) %></td>
+
+                    <td><%= lead.description %></td>
+                    <% unless lead.leadable_id.nil? %>
+                        <td><%= raw lead.show_executive%></td>
+                    <% else %>
+                        <td></td>
+                    <% end %>
+                    <td><%= lead.get_lead_source%></td>
+                    <% if params[:type] == "future" %>
+                        <% unless lead.opening_date.nil? %>
+                            <td><%= lead.opening_date.strftime('%l:%M%P %d-%b') %></td>
+                        <% else %>
+                            <td></td>
+                        <% end %>
+                    <% end %>
+                    <td>
+                        <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
+                        <% unless lead.lead_status == "matured" %>
+                            <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                        <% end %>
+                        <% unless lead.leadable_id.nil? %>
+                            <% unless lead.lead_status == "matured" %>
+                                <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                            <% end %>
+                        <% end %>
+                        <% if params[:type] == "current" %>
+                            <a href="#" data-target="#new-meeting" class="btn-postpone btn btn-mature btn-mini" onclick="update_reopening_date($(this))" data-toggle="modal" lead_id="<%= lead.id %>" >Postpone</a>
+                        <% end %>
+                    </td>
+                </tr>
+                <%# end %>
+            <% end %>
+        </tbody>
+    </table>
+
+    <div class="flickr_pagination">
+        <div class="page_info">
+            <%= page_entries_info @leads %>
+        </div>
+        <%= will_paginate @leads, :container => false %>
+    </div>
+<% end %>
+
+<!-- for team leader -->
+
+<% unless params[:team_leader].nil? %>
+    <% unless params[:team_leader].empty? %>
+        <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
+        <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Sr.No</th>
+
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% render :partial => 'shared/i_calculation' %>
+                <% @team_leader.leads.each do |lead| %>
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
 
                         <td><%= lead.description %></td>
-                        <% unless lead.leadable_id.nil? %>
-                            <td><%= raw lead.show_executive%></td>
-                        <% else %>
-                            <td></td>
-                        <% end %>
-                        <td><%= lead.get_lead_source%></td>
+
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
-                            <% unless lead.lead_status == "matured" %>
-                                <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                            <% end %>
-                            <% unless lead.leadable_id.nil? %>
-                                <% unless lead.lead_status == "matured" %>
-                                    <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
-                                <% end %>
-                            <% end %>
+                            <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
+                            <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                         </td>
                     </tr>
-                    <%# end %>
                 <% end %>
             </tbody>
         </table>
 
-        <div class="flickr_pagination">
-            <div class="page_info">
-                <%= page_entries_info @leads %>
-            </div>
-            <%= will_paginate @leads, :container => false %>
-        </div>
-    <% end %>
-
-    <!-- for team leader -->
-
-    <% unless params[:team_leader].nil? %>
-        <% unless params[:team_leader].empty? %>
-            <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
-            <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
+        <!-- sales_executives -->
+        <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
+            <h4>Executive- <%= "#{executive.user.first_name} #{executive.user.last_name}" %></h4>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -87,7 +130,7 @@
                 </thead>
                 <tbody>
                     <% render :partial => 'shared/i_calculation' %>
-                    <% @team_leader.leads.each do |lead| %>
+                    <% executive.leads.each do |lead| %>
                         <tr>
                             <td><%= link_to @i = @i+1, lead_path(lead) %></td>
 
@@ -102,36 +145,8 @@
                     <% end %>
                 </tbody>
             </table>
-
-            <!-- sales_executives -->
-            <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>
-                <h4>Executive- <%= "#{executive.user.first_name} #{executive.user.last_name}" %></h4>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Sr.No</th>
-
-                            <th>Description</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% render :partial => 'shared/i_calculation' %>
-                        <% executive.leads.each do |lead| %>
-                            <tr>
-                                <td><%= link_to @i = @i+1, lead_path(lead) %></td>
-
-                                <td><%= lead.description %></td>
-
-                                <td>
-                                    <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
-                                    <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                                    <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
-                                </td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                </table>
-            <% end %>
         <% end %>
     <% end %>
+<% end %>
+
+<%= render :partial => "leads/postpone" %>

@@ -1,3 +1,10 @@
+function update_reopening_date(selected_link)
+{
+    $lead_id = parseInt(selected_link.attr('lead_id'));
+    selected_link.addClass("postponed_lead");
+    $('.postpone_lead_id').val($lead_id);
+}
+
 $(document).ready(function() {
     window.setTimeout(function(){$('.alert').fadeOut()}, 400);
     $('.datetime_select').datetimepicker({
@@ -12,7 +19,7 @@ $(document).ready(function() {
         delay: 100
     })
     $('.tTip').betterTooltip({speed: 150, delay: 300});
-        $('#contact_id').chosen();
+    $('#contact_id').chosen();
 });
 
 
@@ -114,10 +121,25 @@ $('.change-owner-form').submit(function() {
     {
         $('.lead-owner-show').html($('.team_leaders option:selected').text());
     }
-        if($('.change-owner-form .control-group option:selected').val()=="SalesExecutive")
+    if($('.change-owner-form .control-group option:selected').val()=="SalesExecutive")
     {
         $('.lead-owner-show').html($('.sales_executives option:selected').text());
     }
+    });
+    return false; // prevents normal behaviour
+});
+
+//postpone lead
+$('.postpone-lead').submit(function() {
+    var valuesToSubmit = $(this).serialize();
+    $.ajax({
+        url: $(this).attr('action'), //'/notifications/4',sumbits it to the given url of the form
+        data: valuesToSubmit,
+        method: "POST"
+    }).success(function(json){
+        $('.modal').modal('hide');
+        $('.postponed_lead').parent().parent().remove()
+
     });
     return false; // prevents normal behaviour
 });

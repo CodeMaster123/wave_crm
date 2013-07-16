@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716053213) do
+ActiveRecord::Schema.define(:version => 20130716065439) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -145,6 +145,7 @@ ActiveRecord::Schema.define(:version => 20130716053213) do
     t.datetime "updated_at",    :null => false
     t.string   "lead_source"
     t.string   "lead_status"
+    t.datetime "opening_date"
   end
 
   create_table "leads_products", :force => true do |t|

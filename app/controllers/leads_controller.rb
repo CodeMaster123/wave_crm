@@ -181,4 +181,13 @@ class LeadsController < ApplicationController
 
       Lead.find(params[:lead_id].to_i).update_attributes(:leadable_type => params[:leadable_type], :leadable_id => params[:leadable_id])
   end
+
+  def postpone_lead
+      unless params[:opening_date].to_time < Date.today
+          puts params[:lead_id]
+          @lead = Lead.find(params[:lead_id].to_i)
+          @lead.update_attributes(:opening_date => params[:opening_date].to_time, :lead_status => "future")
+
+      end
+  end
 end

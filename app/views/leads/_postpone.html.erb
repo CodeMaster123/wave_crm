@@ -1,0 +1,21 @@
+<div id="new-meeting" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">New Event</h3>
+    </div>
+    <div class="modal-body">
+        <%= form_tag '/postpone_lead', :class => 'postpone-lead form-horizontal' do |f| %>
+            <div class="control-group">
+                <label class="control-label"> Postpone to:</label>
+                <div class="controls">
+                    <%= text_field_tag :opening_date,'', :class => 'datetime_select' %>
+                    <%= hidden_field_tag :lead_id, '', :class => 'postpone_lead_id datetime_select' %>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('.postponed_lead').removeClass('postponed_lead')">Close</button>
+            <%= submit_tag 'submit', :class => 'btn btn-primary' %>
+        </div>
+    <% end %>
+</div>
