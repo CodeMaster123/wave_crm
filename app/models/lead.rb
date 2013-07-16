@@ -23,7 +23,7 @@ class Lead < ActiveRecord::Base
     attr_accessible :contacts_attributes, :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no
     attr_accessible :account, :account_attributes
 
-    validates :description, :presence => true
+    #validates :description, :presence => true
     validates :company_id, :presence => true
 
     after_create :post_processing
