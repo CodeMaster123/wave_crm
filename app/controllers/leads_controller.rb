@@ -10,7 +10,7 @@ class LeadsController < ApplicationController
           elsif params[:type] == "dead"
               @leads = @company.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15).all
           else
-              @leads = @company.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15).all
+              @leads = @company.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15).all
               @leads.each do |l|
                   puts l.lead_status
               end
@@ -22,7 +22,7 @@ class LeadsController < ApplicationController
           end
       elsif current_user.account_type  == 2 #Team leader
           if params[:type] == "current"
-              @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' != lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
+              @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
               @leads.each do |l|
                   puts l.lead_status
               end
@@ -41,8 +41,6 @@ class LeadsController < ApplicationController
           else
               @leads = current_user.sales_executive.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15)
           end
-          #@team = current_user.team_leader.sales_executives.each do |executive|
-          #end
           @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
       elsif current_user.account_type ==4
           @leads = Lead.all.paginate(:page => params[:page], :per_page => 15)

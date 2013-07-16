@@ -44,10 +44,9 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th><%= model_class.human_attribute_name(:id) %></th>
-            <th><%= model_class.human_attribute_name(:amount_paid) %></th>
-            <th><%= model_class.human_attribute_name(:transaction_id) %></th>
-            <th><%= model_class.human_attribute_name(:created_at) %></th>
+            <th> id </th>
+            <th> Amount paid </th>
+            <th> Paid at</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
     </thead>
@@ -56,8 +55,7 @@
             <tr>
                 <td><%= link_to partial_payment.id, partial_payment_path(partial_payment) %></td>
                 <td><%= partial_payment.amount_paid %></td>
-                <td><%= partial_payment.transaction_id %></td>
-                <td><%=l partial_payment.created_at %></td>
+                <td><%= partial_payment.created_at.strftime('%l:%M%P %d-%b') %></td>
                 <td>
                     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                         edit_partial_payment_path(partial_payment), :class => 'btn btn-mini' %>

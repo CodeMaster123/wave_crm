@@ -13,6 +13,8 @@
                     <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
                 </div>
             </div>
+            <%= f.hidden_field :matured_at, :value => params[:matured_by], :class => 'contacts_text_field' %>
+            wwwwwwwww<% puts "aaaaaaaaaaaaaaaa-------------------->#{params[:matured_by]}" %>
 
 
             <div class ="contact_fields">
@@ -79,6 +81,7 @@
         <div class="control-group product">
             <%= pt.label :products, :class => 'control-label' %>
             <div class="controls">
+                <%= pt.hidden_field :lead_id, :value => pt.object.lead_id%>
                 <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),{:include_blank => ""},{:class => 'product_transaction_new', :"data-placeholder" => 'Select a product'} %>
                 Quantity
                 <%= pt.text_field :quantity, :class=>'text_field quantity span1' %>

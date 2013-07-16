@@ -37,8 +37,7 @@ class TransactionsController < ApplicationController
             @lead = Lead.find(params[:id1])
             @transaction = current_user.company.transactions.build
             @lead.product_transactions.each do |pt|
-                puts "@tranasction ==============> #{@transaction}"
-                @transaction.product_transactions.new(:price => pt.price, :quantity => pt.quantity, :product_id => pt.product_id)
+                @transaction.product_transactions.new(:price => pt.price, :quantity => pt.quantity, :product_id => pt.product_id, :lead_id => pt.lead_id)
             end
             @transaction.account = @lead.account
             #.product_transaction

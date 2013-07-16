@@ -6,6 +6,7 @@ class Transaction < ActiveRecord::Base
     has_many :partial_payments
     belongs_to :company
     belongs_to :account
+    #belongs_to :lead
 
     attr_accessible :amount, :transaction_time, :company_id, :contact_id, :transaction_type, :micr_code, :matured_by, :executive_type, :account_id
 
@@ -23,6 +24,15 @@ class Transaction < ActiveRecord::Base
     validates :transaction_time, :presence => true
     validates :transaction_type, :presence => true
     validates :account_id, :presence => true
+
+    after_save :post_processing
+
+    def post_processing
+        unless self.product_transactions.first.lead.nil?
+        self.product_transactions.first.lead.update_attributes(:lead_status => "matured")
+        puts "increase target"
+        end
+    end
 
 
     def full_name
