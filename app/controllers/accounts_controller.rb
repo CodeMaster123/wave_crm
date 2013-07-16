@@ -4,7 +4,6 @@ class AccountsController < ApplicationController
 
     def index
         if params[:type] == "existing_accounts"
-        puts "type -----------> #{params[:type]}"
         @accounts = current_user.company.accounts.where(:is_matured => true)
         else
         @accounts = current_user.company.accounts.where(:is_matured => false)

@@ -30,7 +30,6 @@ class Transaction < ActiveRecord::Base
     def post_processing
         unless self.product_transactions.first.lead.nil?
         self.product_transactions.first.lead.update_attributes(:lead_status => "matured")
-        puts "increase target"
         end
     end
 

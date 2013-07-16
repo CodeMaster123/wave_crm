@@ -45,9 +45,6 @@ class UsersController < ApplicationController
         @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
         @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar], :company_id => params[:user][:company_id])
-        puts params[:user][:company_id]
-        puts 'aaaaaaaaaaaaa'
-        puts @user.company_id
         @all_team_leaders = @company.team_leaders.all
         #@user.company_id = @company.id
 

@@ -12,7 +12,6 @@ class LeadsController < ApplicationController
           else
               @leads = @company.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15).all
               @leads.each do |l|
-                  puts l.lead_status
               end
           end
           unless params[:id1].nil?
@@ -24,7 +23,6 @@ class LeadsController < ApplicationController
           if params[:type] == "current"
               @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'future\'').paginate(:page => params[:page], :per_page => 15)
               @leads.each do |l|
-                  puts l.lead_status
               end
           elsif params[:type] == "future"
               @leads = current_user.team_leader.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15)
@@ -178,7 +176,6 @@ class LeadsController < ApplicationController
   end
 
   def change_owner
-      puts params[:lead_id]
 
       Lead.find(params[:lead_id].to_i).update_attributes(:leadable_type => params[:leadable_type], :leadable_id => params[:leadable_id])
   end

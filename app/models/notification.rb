@@ -78,15 +78,7 @@ class Notification < ActiveRecord::Base
 
   private
   def custom_checkbox_validation
-      puts 'vivekkkkkkkkkkkkkk'
-      puts self.id
-      puts self.is_email
-      puts self.is_sms
-      puts 'vivekkkkkkkkkkkkkk'
-      puts "output = #{(self.is_sms || self.is_email)}"
-      puts 'vivekkkkkkkkkkkkkk'
       unless self.is_email || self.is_sms
-      puts 'errorrrrrrrrrrrrrrrr'
           errors.add(:base, "Please check atleast one checkbox.")
       end
   end
