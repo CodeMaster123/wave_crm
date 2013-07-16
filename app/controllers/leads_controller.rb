@@ -9,6 +9,8 @@ class LeadsController < ApplicationController
               @leads = @company.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15).all
           elsif params[:type] == "dead"
               @leads = @company.leads.where('lead_status = \'dead\'').paginate(:page => params[:page], :per_page => 15).all
+          elsif params[:type] == "matured"
+              @leads = @company.leads.where('lead_status = \'matured\'').paginate(:page => params[:page], :per_page => 15).all
           else
               @leads = @company.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15).all
               @leads.each do |l|
