@@ -34,11 +34,11 @@ class Lead < ActiveRecord::Base
         "#{@user.first_name}  #{@user.last_name}"
     end
 
-    def show_executive_type
+    def show_executive
         if self.leadable_type == "TeamLeader"
-            "Team Leader"
+            "<b>Team Leader</b> - #{self.leadable.user.full_name}"
         elsif self.leadable_type == "SalesExecutive"
-            "Sales Executive"
+            "<b>Sales Executive</b> - #{self.leadable.user.full_name}"
         end
     end
 

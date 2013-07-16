@@ -28,7 +28,6 @@
                 <th>Description</th>
                 <th>Lead owner</th>
                 <th>Lead source</th>
-                <th>Executive type</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,12 +40,11 @@
 
                         <td><%= lead.description %></td>
                         <% unless lead.leadable_id.nil? %>
-                            <td><%= lead.lead_by %></td>
+                            <td><%= raw lead.show_executive%></td>
                         <% else %>
                             <td></td>
                         <% end %>
                         <td><%= lead.get_lead_source%></td>
-                        <td><%= lead.show_executive_type%></td>
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <% unless lead.lead_status == "matured" %>
