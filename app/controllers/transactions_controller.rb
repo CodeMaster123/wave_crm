@@ -43,6 +43,7 @@ class TransactionsController < ApplicationController
             #.product_transaction
             @transaction_fields = current_user.transaction_fields
             @transaction.contacts.build
+            @transaction.partial_payments.build
             #@transaction.product_transactions.build
         end
 
