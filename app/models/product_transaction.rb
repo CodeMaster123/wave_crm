@@ -4,4 +4,7 @@ class ProductTransaction < ActiveRecord::Base
     belongs_to :lead
     belongs_to :product
     belongs_to :transaction
+
+    validates :price, :presence => true
+    validates :quantity, :presence => true
 end
