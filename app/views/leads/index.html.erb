@@ -65,7 +65,7 @@
                                 <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                             <% end %>
                         <% end %>
-                        <% if params[:type] == "current" %>
+                        <% if params[:type] == "current" || params[:type].nil? %>
                             <a href="#" data-target="#new-meeting" class="btn-postpone btn btn-mature btn-mini" onclick="update_reopening_date($(this))" data-toggle="modal" lead_id="<%= lead.id %>" >Postpone</a>
                         <% end %>
                     </td>
