@@ -81,9 +81,9 @@
             <div class="controls">
                 <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),{:include_blank => ""},{:class => 'product_transaction_new', :"data-placeholder" => 'Select a product'} %>
                 Quantity
-                <%= pt.text_field :quantity, :class=>'text_field quantity' %>
+                <%= pt.text_field :quantity, :class=>'text_field quantity span1' %>
                 Price
-                <%= pt.text_field :price, :class=>'text_field product_price' %>
+                <%= pt.text_field :price, :class=>'text_field product_price span1' %>
                 <b class="sub-total">0</b>
                 <%= pt.link_to_remove "Remove this product", :class => 'remove' %>
             </div>
