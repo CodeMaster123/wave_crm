@@ -1,3 +1,27 @@
+function select_partial_payment(table_cell)
+{
+    var valuesToSubmit = table_cell.parent().children().first().find('a').attr('href').slice(-1);
+    console.log(valuesToSubmit);
+    $.ajax({
+        url: '/get_partial_payments/'+valuesToSubmit, //'/notifications/4',sumbits it to the given url of the form
+        dataType: 'json',
+        method: "GET"
+    }).success(function(json){
+        console.log(json);
+        $.each(json, function(index,value)
+            {
+                $content = "<table><tbody><tr><td>"+value.amount_paid+"</td><td>"+value.created_at+"</td></tr></tbody></table>";
+                console.log(value.amount_paid);
+            });
+        $('.modal').modal('hide');
+    });
+    table_cell.children().first().popover({html: true, title: 'Payment details', content: $content});
+
+
+
+    console.log("within select_partial_payment");
+}
+
 function attach_on_add(){
     var $total = 0;
     $('.product').each(function(){
@@ -28,7 +52,7 @@ $(document).ready(function() {
     attach_on_add();
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',
-    timeFormat: 'hh:mm tt z'
+        timeFormat: 'hh:mm tt z'
     });
 
     $('#transaction_contact_id').chosen();

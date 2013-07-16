@@ -220,4 +220,13 @@ class TransactionsController < ApplicationController
             format.html
         end
     end
+
+    def get_partial_payments
+        @partial_transactions = Transaction.find(params[:transaction_id]).partial_payments
+
+
+        respond_to do |format|
+            format.json { render json: @partial_transactions}
+        end
+    end
 end

@@ -46,7 +46,7 @@
                 <% transaction.partial_payments.each do |pt| %>
                     <% @paid_amount += pt.amount_paid %>
                 <% end %>
-                <td class="amount_paid"><%= @paid_amount %></td>
+                <td class="amount_paid" onclick="select_partial_payment($(this))" ><div class="amount_paid_popover"><%= @paid_amount %></div></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
                 <% @transaction_field_values = transaction.transaction_field_values %>
                 <% unless @transaction_field_values.empty? %>
