@@ -1,30 +1,31 @@
 function attach_on_add(){
-                var $total = 0;
-                $('.product').each(function(){
-                    var quantity = parseInt($(this).find($('.quantity')).val()||0);
-                    var price = parseInt($(this).find($('.product_price')).val()||0);
+    var $total = 0;
+    $('.product').each(function(){
+        var quantity = parseInt($(this).find($('.quantity')).val()||0);
+        var price = parseInt($(this).find($('.product_price')).val()||0);
 
-                    sub_total = quantity * price;
-                    $total = $total + sub_total;
-                    $(this).find($('.sub-total')).html(sub_total);
-                });
-                $('.amount_field').html("<b>"+$total+"</b>");
-                $('.amount_hidden').val($total);
-                $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
+        sub_total = quantity * price;
+        $total = $total + sub_total;
+        $(this).find($('.sub-total')).html(sub_total);
+    });
+    $('.amount_field').html("<b>"+$total+"</b>");
+    $('.amount_hidden').val($total);
+    $('.remove_nested_fields').on("click",function(){$(this).parent().parent().parent().remove();attach_on_add()});
 
 }
 
 function fetch_price(){
-        var current_select = $(this);
-        $.ajax({
-            url: '/products/'+current_select.val()+'.json',
-            success: function(data,textStatus,xhr){
-                current_select.parent().find('.product_price').val(data.min_cost);
-            }
-        })
+    var current_select = $(this);
+    $.ajax({
+        url: '/products/'+current_select.val()+'.json',
+        success: function(data,textStatus,xhr){
+            current_select.parent().find('.product_price').val(data.min_cost);
+        }
+    })
 }
 
 $(document).ready(function() {
+    attach_on_add();
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',
     timeFormat: 'hh:mm tt z'
