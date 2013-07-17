@@ -28,19 +28,42 @@ class Transaction < ActiveRecord::Base
     after_save :post_processing
 
     def post_processing
-        unless self.product_transactions.first.lead.nil?
-        self.product_transactions.first.lead.update_attributes(:lead_status => "matured")
+        #Change lead's status to matured
+        @lead = self.product_transactions.first.lead
+        unless @lead.nil?
+            unless self.product_transactions.first.lead.nil?
+                @lead.update_attributes(:lead_status => "matured")
+            end
+
+            if @lead.leadable_type == "TeamLeader"
+                puts "team leader"
+                @current_target = TeamLeader.find(@lead.leadable_id).targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
+                if @current_target.nil?
+                    @current_target = Target.create(:targetable_id => @lead.leadable_id, :targetable_type =>@lead.leadable_type, :amount =>0, :achived => 0,:company_id => self.company_id, :target_month => Date.today.month, :target_year => Date.today.year)
+                end
+                @current_target.update_attributes(:achived => @current_target.achived+self.amount)
+
+            else
+                puts "sales executive"
+                @current_target = SalesExecutive.find(@lead.leadable_id).targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
+                if @current_target.nil?
+                    @current_target = Target.create(:targetable_id => @lead.leadable_id, :targetable_type =>@lead.leadable_type, :amount =>0, :achived => 0,:company_id => self.company_id, :target_month => Date.today.month, :target_year => Date.today.year)
+                end
+                @current_target.update_attributes(:achived => @current_target.achived+self.amount)
+            end
         end
+        #Increase executive's target
+
     end
 
 
     def full_name
         @contact = Contact.where(:id => self.contact_id).first.full_name
-    #    @contacts_list = String.new
-    #    self.contacts.each do |contact|
-    #        @contacts_list = @contacts_list + "#{contact.first_name.capitalize} #{contact.middle_name.capitalize} #{contact.last_name.capitalize}"
-    #    end
-    #        @contacts_list
+        #    @contacts_list = String.new
+        #    self.contacts.each do |contact|
+        #        @contacts_list = @contacts_list + "#{contact.first_name.capitalize} #{contact.middle_name.capitalize} #{contact.last_name.capitalize}"
+        #    end
+        #        @contacts_list
     end
 
 end
