@@ -16,7 +16,6 @@
     </head>
     <body>
         <%= render :partial =>"shared/top_menu" %>
-
         <div class="container-fluid" id="content">
             <div id="main">
                 <div class="container-fluid">
@@ -36,16 +35,16 @@
                 <%= javascript_include_tag :application %>
                 <script type ="text/javascript">
                     function notification_fade_out()
-                    {
-                        $('.lightred').fadeOut();
-                        $.ajax({
-                        url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
-                        context: document.body
-                        }).done(function() {
-                            $(this).addClass("done");
-                        });
-                    }
-                </script>
+{
+    $('.lightred').fadeOut();
+    $.ajax({
+url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
+context: document.body
+}).done(function() {
+    $(this).addClass("done");
+    });
+}
+</script>
             </div>
         </div>
     </div>
