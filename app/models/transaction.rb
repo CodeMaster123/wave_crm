@@ -25,11 +25,13 @@ class Transaction < ActiveRecord::Base
     validates :transaction_type, :presence => true
     validates :account_id, :presence => true
 
-    after_save :post_processing
+    after_create :post_processing
 
     def post_processing
         #Change lead's status to matured
-        @lead = self.product_transactions.first.lead
+        unless self.product_transactions.first.nil?
+            @lead = self.product_transactions.first.lead
+        end
         unless @lead.nil?
             unless self.product_transactions.first.lead.nil?
                 @lead.update_attributes(:lead_status => "matured")
