@@ -270,6 +270,25 @@ Transaction.create([
                    {:amount => 476574, :transaction_time => "2013-05-29 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 29, :matured_by => 7, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 8},
                    {:amount => 547657, :transaction_time => "2013-05-20 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 30, :matured_by => 8, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 8}
                    ])
+PartialPayment.create([
+                      {:amount_paid => 2000, :transaction_id => 1},
+                      {:amount_paid => 1000, :transaction_id => 1},
+                      {:amount_paid => 500, :transaction_id => 1},
+                      {:amount_paid => 100, :transaction_id => 2},
+                      {:amount_paid => 1500, :transaction_id => 2},
+                      {:amount_paid => 1700, :transaction_id => 2},
+                      {:amount_paid => 1000, :transaction_id => 3},
+                      {:amount_paid => 1000, :transaction_id => 3},
+                      {:amount_paid => 1000, :transaction_id => 4},
+                      {:amount_paid => 1000, :transaction_id => 5},
+                      {:amount_paid => 1000, :transaction_id => 6},
+                      {:amount_paid => 1000, :transaction_id => 7},
+                      {:amount_paid => 1000, :transaction_id => 8},
+                      {:amount_paid => 1000, :transaction_id => 9},
+                      {:amount_paid => 1000, :transaction_id => 10},
+                      {:amount_paid => 1500, :transaction_id => 11},
+                      {:amount_paid => 1200, :transaction_id => 12},
+])
 
 SpecialOccasion.create([
                        {:title => "divali", :body => "Divali is hindu occassion", :occasion_date => "2013-04-01 01:17:00 UTC"},
