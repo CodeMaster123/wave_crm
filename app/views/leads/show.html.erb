@@ -124,8 +124,8 @@
             <th>Call purpose</th>
             <th>Call start time</th>
             <th>Call duration</th>
-            <th>Owner name</th>
-            <th>Modified at</th>
+            <th>Call by</th>
+            <th>Call to</th>
         </tr>
     </thead>
     <tbody id="call-log-data">
@@ -137,8 +137,8 @@
                 <td><%= call_log.call_purpose %></td>
                 <td><%= call_log.call_start_time.strftime('%l:%M%P %d-%b')%></td>
                 <td><%= call_log.call_duration %></td>
-                <td><%= call_log.call_owner_id %></td>
-                <td><%=l call_log.updated_at %></td>
+                <td><%= call_log.call_by%></td>
+                <td><%= call_log.contact.full_name %></td>
             </tr>
         <% end %>
     </tbody>

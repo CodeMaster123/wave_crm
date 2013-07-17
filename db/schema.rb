@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716065439) do
+ActiveRecord::Schema.define(:version => 20130717075947) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -40,8 +40,11 @@ ActiveRecord::Schema.define(:version => 20130716065439) do
     t.integer  "call_duration"
     t.integer  "call_owner_id"
     t.integer  "lead_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "call_loggable_id"
+    t.string   "call_loggable_type"
+    t.integer  "contact_id"
   end
 
   create_table "companies", :force => true do |t|

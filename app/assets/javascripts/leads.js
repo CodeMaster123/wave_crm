@@ -26,25 +26,43 @@ $(document).ready(function() {
 $('.lead_owner').change(function() {
     if ($('.lead_owner').val() == "TeamLeader")
 {
+    if($('.team_leaders').length == 0)
+{
+    console.log("Team leaders- if");
+    $('.leads').append($fields);
     $('.team_leaders').fadeIn('hide').removeClass('hide');
     $('.sales_executives').fadeOut('hide').addClass('hide');
     $fields = $('.sales_executives').clone();
     $('.sales_executives').remove();
 }
 else
-if ($('.lead_owner').val() == "SalesExecutive")
+{
+    console.log("Team leaders- else");
+    $('.sales_executives').fadeOut('hide').addClass('hide');
+    $('.team_leaders').fadeIn('hide').removeClass('hide');
+    $fields = $('.sales_executives').clone();
+    $('.sales_executives').remove();
+}
+}
+else if ($('.lead_owner').val() == "SalesExecutive")
 {
     if($('.sales_executives').length == 0)
-{
-    $('.leads').append($fields);
-    $('.team_leaders').fadeOut('hide').addClass('hide');
-    $('.sales_executives').fadeIn('hide').removeClass('hide');
-}
-else
-{
-    $('.team_leaders').fadeOut('hide').addClass('hide');
-    $('.sales_executives').fadeIn('hide').removeClass('hide');
-}
+    {
+        console.log("Sales executives - if");
+        $('.leads').append($fields);
+        $('.team_leaders').fadeOut('hide').addClass('hide');
+        $('.sales_executives').fadeIn('hide').removeClass('hide');
+        $fields = $('.team_leaders').clone();
+        $('.team_leaders').remove();
+    }
+    else
+    {
+        console.log("Sales executives - else");
+        $('.team_leaders').fadeOut('hide').addClass('hide');
+        $('.sales_executives').fadeIn('hide').removeClass('hide');
+        $fields = $('.team_leaders').clone();
+        $('.team_leaders').remove();
+    }
 }
 });
 
@@ -138,6 +156,7 @@ $('.postpone-lead').submit(function() {
         method: "POST"
     }).success(function(json){
         $('.modal').modal('hide');
+        console.log('vv');
         $('.postponed_lead').parent().parent().remove()
 
     });

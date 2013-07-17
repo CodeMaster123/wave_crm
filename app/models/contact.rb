@@ -10,6 +10,8 @@ class Contact < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  has_many :call_logs
+
   belongs_to :company
 
   validates :first_name, :presence => true
