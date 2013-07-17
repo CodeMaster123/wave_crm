@@ -5321,3 +5321,10 @@ div.notification-btn{
 .amount_field{
     margin-top: 7px;
 }
+.popover-width-amount-paid{
+    width: 90px;
+}
+
+.popover-width-paid-at{
+    width: 100px;
+}

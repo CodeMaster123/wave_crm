@@ -1,25 +1,24 @@
 function select_partial_payment(table_cell)
 {
     var valuesToSubmit = table_cell.parent().children().first().find('a').attr('href').slice(-1);
-    console.log(valuesToSubmit);
     $.ajax({
         url: '/get_partial_payments/'+valuesToSubmit, //'/notifications/4',sumbits it to the given url of the form
         dataType: 'json',
         method: "GET"
     }).success(function(json){
         console.log(json);
+        $content = "<table><thead><tr><td><b>No.</b></td><td class='popover-width-amount-paid'><b>Amount paid</b></td><td class='popover-width-paid-at'><b>Paid at</b></td></tr></thead><tbody>";
+        id = 0
         $.each(json, function(index,value)
             {
-                $content = "<table><tbody><tr><td>"+value.amount_paid+"</td><td>"+value.created_at+"</td></tr></tbody></table>";
-                console.log(value.amount_paid);
+                id +=1;
+                date = new Date(value.created_at);
+                $content += "<tr><td>"+id+"</td><td>"+value.amount_paid+"</td><td>"+date.toDateString()+"</td></tr></tbody>";
             });
+    $content += "</table>"
         $('.modal').modal('hide');
-    });
     table_cell.children().first().popover({html: true, title: 'Payment details', content: $content});
-
-
-
-    console.log("within select_partial_payment");
+    });
 }
 
 function attach_on_add(){
