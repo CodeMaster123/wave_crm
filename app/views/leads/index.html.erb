@@ -11,12 +11,18 @@
             <div class="new-top">
                 <%= link_to "New", new_lead_path, :class => 'btn btn-primary custom-new-button' %>
             </div>
-            <div class="notification-btn">
-                <%= link_to "Current Leads", {:controller=>"leads", :action=>"index", :type=>"current"}, :class => 'btn btn-primary' %>
-                <%= link_to "Future leads", {:controller=>"leads", :action=>"index", :type=>"future"}, :class => 'btn btn-primary' %>
-                <%= link_to "Matured leads", {:controller=>"leads", :action=>"index", :type=>"matured"}, :class => 'btn btn-primary' %>
-                <%= link_to "Dead leads", {:controller=>"leads", :action=>"index", :type=>"dead"}, :class => 'btn btn-primary' %>
-            </div>
+            <% puts "view -session variable set to #{session[:sales_executive]}" %>
+            <% if session[:sales_executive] == true %>
+            <% else %>
+                <div class="notification-btn">
+                    <%= link_to "Current Leads", {:controller=>"leads", :action=>"index", :type=>"current"}, :class => 'btn btn-primary' %>
+                    <%= link_to "Future leads", {:controller=>"leads", :action=>"index", :type=>"future"}, :class => 'btn btn-primary' %>
+                    <%= link_to "Matured leads", {:controller=>"leads", :action=>"index", :type=>"matured"}, :class => 'btn btn-primary' %>
+                    <%= link_to "Dead leads", {:controller=>"leads", :action=>"index", :type=>"dead"}, :class => 'btn btn-primary' %>
+                </div>
+            <% end %>
+            <% session[:sales_executive] = false %>
+            <% puts "view -session variable set to #{session[:sales_executive]}" %>
         </div>
     </div>
 

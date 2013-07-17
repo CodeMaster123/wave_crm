@@ -9,7 +9,6 @@
       <th>Executive name</th>
       <th>Teamleader's name</th>
       <th>Mobile no</th>
-
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -18,17 +17,11 @@
     <% @sales_executives.each do |sales_executive| %>
       <tr>
         <td><%=  @i = @i+1 %></td>
-        <td><%= link_to "#{sales_executive.user.first_name} #{sales_executive.user.last_name}", {:controller => 'leads', :action => 'index', :id1 => sales_executive.id} %></td>
+        <td><%= link_to "#{sales_executive.user.first_name} #{sales_executive.user.last_name}", {:controller => 'leads', :action => 'index', :type => "0", :sales_executive => sales_executive.id} %></td>
         <td><%= "#{sales_executive.team_leader.user.first_name} #{sales_executive.team_leader.user.last_name}" %></td>
         <td><%= sales_executive.user.mobile_no %></td>
-
         <td>
-
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      sales_executive_path(sales_executive),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")), sales_executive_path(sales_executive), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>

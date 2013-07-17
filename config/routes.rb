@@ -63,6 +63,7 @@ WaveCrm::Application.routes.draw do
     match 'accounts/index/:type' => 'accounts#index'
     match 'leads/index/:type' => 'leads#index', :as => :lead_change
     match 'leads/index/:team_leader' => 'leads#index'
+    match 'leads/index/:type/:sales_executive' => 'leads#index'
     match 'notifications/index/:type' => 'notifications#index', :as => :n_change
     match 'sales_executive_leads/:id1' => 'sales_executives#index'
 

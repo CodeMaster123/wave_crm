@@ -29,7 +29,15 @@ class LeadsController < ApplicationController
             elsif params[:type] == "matured"
                 @leads = current_user.team_leader.leads.where('lead_status = \'matured\'').paginate(:page => params[:page], :per_page => 15).all
             else
-                @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15)
+                if params[:sales_executive].nil?
+                    puts "params[:sales_executive]-----------------------> #{params[:sales_executive]}-------"
+                    @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15)
+                else
+                    session[:sales_executive] = true
+                    puts "controller - session variable set to #{session[:sales_executive]}"
+                    @leads = SalesExecutive.find(params[:sales_executive]).leads.paginate(:page => params[:page], :per_page => 15)
+                    #.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15)
+                end
             end
             @team = current_user.team_leader.sales_executives.each do |executive|
             end
