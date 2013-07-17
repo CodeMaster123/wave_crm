@@ -36,9 +36,17 @@ class Lead < ActiveRecord::Base
 
     def show_executive
         if self.leadable_type == "TeamLeader"
-            "<b>Team Leader</b> - #{self.leadable.user.full_name}"
+            if self.leadable.nil?
+                "<b>None</b>"
+            else
+                "<b>Team Leader</b> - #{self.leadable.user.full_name}"
+            end
         elsif self.leadable_type == "SalesExecutive"
-            "<b>Sales Executive</b> - #{self.leadable.user.full_name}"
+            if self.leadable.nil?
+                "<b>None</b>"
+            else
+                "<b>Sales Executive</b> - #{self.leadable.user.full_name}"
+            end
         end
     end
 
