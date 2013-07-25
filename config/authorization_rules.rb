@@ -48,7 +48,7 @@ authorization do
     end
 
     role :sales_executive do
-        has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :postpone_lead]
+        has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :postpone_lead, :mature]
         has_permission_on :accounts, :to => [:index, :create, :read, :show, :search]
         has_permission_on :transactions, :to => [:mature, :new]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :show, :search, :edit]
