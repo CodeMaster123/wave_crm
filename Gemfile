@@ -14,6 +14,7 @@ gem 'wicked'
 gem 'thinking-sphinx'
 gem 'resque', :require => "resque/server"
 gem 'resque-scheduler', :require => 'resque_scheduler/server'
+gem 'public_activity'
 
 gem 'bootstrap_form'
 gem 'jquery-rails'
