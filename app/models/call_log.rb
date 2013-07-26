@@ -1,4 +1,7 @@
 class CallLog < ActiveRecord::Base
+    include PublicActivity::Model
+    tracked owner: ->(controller, model) {controller && controller.current_user}
+
     belongs_to :lead
     belongs_to :contact
     belongs_to :call_loggable ,:polymorphic => true

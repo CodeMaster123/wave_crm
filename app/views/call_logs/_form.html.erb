@@ -1,55 +1,69 @@
 <%= form_for @call_log, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :subject, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :subject, :class => 'text_field' %>
+    <div class="control-group">
+        <%= f.label :subject, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :subject, :class => 'text_field' %>
+        </div>
     </div>
-  </div>
 
-  <div class="control-group">
-    <%= f.label :call_result, :class => 'control-label' %>
-    <div class="controls">
-        <%= f.text_area :call_result, :class => 'text_field', :rows => 3 %>
+    <div class="control-group">
+        <%= f.label :call_result, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_area :call_result, :class => 'text_field', :rows => 3 %>
+        </div>
     </div>
-  </div>
 
-  <div class="control-group">
-    <%= f.label :call_type, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :call_type , options_for_select(["Outbound", "Inbound"]) ,:class => 'text_field' %>
+    <div class="control-group">
+        <%= f.label :call_type, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.select :call_type , options_for_select(["Outbound", "Inbound"]) ,:class => 'text_field' %>
+        </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :call_purpose, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :call_purpose, options_for_select(["Administrative", "Prospective", "Demo", "Negotiation", "Support"]) ,:class => 'text_field' %>
+    <div class="control-group">
+        <%= f.label :call_purpose, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.select :call_purpose, options_for_select(["Administrative", "Prospective", "Demo", "Negotiation", "Support"]) ,:class => 'text_field' %>
+        </div>
     </div>
-  </div>
-  <div class="control-group">
-      <%= f.label :call_owner_id, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.select :call_owner_id, options_for_select(@call_owner.map{|c|[c.user.full_name, c.id]}), :class => 'number_field' %>
-      </div>
-  </div>
 
-  <div class="control-group">
-      <%= f.label :call_start_time, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.text_field :call_start_time, :class => 'datetime_select' %>
-      </div>
-  </div>
+    <div class="control-group">
+        <%= f.label :call_start_time, :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :call_start_time, :class => 'datetime_select' %>
+        </div>
+    </div>
 
-  <div class="control-group">
-      <%= f.label :call_duration, :class => 'control-label' %>
-      <div class="controls">
-          <%= text_field_tag :call_duration_minutes,'', {:class => 'number_field', :size => 2} %> :Minutes
-          <%= text_field_tag :call_duration_seconds,'', {:class => 'number_field', :size => 2} %> :Seconds
-      </div>
-  </div>
+    <div class="control-group">
+        <%= f.label :call_duration, :class => 'control-label' %>
+        <div class="controls">
+            <%= text_field_tag :call_duration_minutes,'', {:class => 'number_field', :size => 2} %> :Minutes
+            <%= text_field_tag :call_duration_seconds,'', {:class => 'number_field', :size => 2} %> :Seconds
+        </div>
+    </div>
 
+    <div class="leads">
+        <div class="control-group">
+            <label class ='control-label'>Call owner type</label>
+            <div class="controls">
+                <%= f.select :call_loggable_type, options_for_select([["Select caller type", ""], ["Team Leader", "TeamLeader"],["Sales executive", "SalesExecutive"]]), :class => 'lead_owner' %>
+            </div>
+        </div>
+        <div class="control-group hide team_leaders">
+            <label class ='control-label'>Executive</label>
+            <div class="controls">
+                <%= f.select :call_loggable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]},4), :class => 'text_field' %>
+            </div>
+        </div>
+        <div class="control-group sales_executives">
+            <label class ='control-label'>Executive</label>
+            <div class="controls">
+                <%= f.select :call_loggable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
+            </div>
+        </div>
+    </div>
 
-  <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), call_logs_path, :class => 'btn' %>
-  </div>
+    <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to t('.cancel', :default => t("helpers.links.cancel")), call_logs_path, :class => 'btn' %>
+    </div>
 <% end %>

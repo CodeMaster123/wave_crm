@@ -1,6 +1,7 @@
 WaveCrm::Application.routes.draw do
     devise_for :users
 
+    resources :activities
     resources :accounts
     resources :call_logs
     resources :inventory_additions

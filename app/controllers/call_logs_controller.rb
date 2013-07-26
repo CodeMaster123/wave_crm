@@ -26,6 +26,9 @@ class CallLogsController < ApplicationController
     def new
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.new
+        @company = Company.where(:id => current_user.company_id).first
+        @team_leaders = @company.team_leaders.all
+        @sales_executives = @company.sales_executives.all
 
         respond_to do |format|
             format.html # new.html.erb
@@ -37,6 +40,9 @@ class CallLogsController < ApplicationController
     def edit
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.find(params[:id])
+        @company = Company.where(:id => current_user.company_id).first
+        @team_leaders = @company.team_leaders.all
+        @sales_executives = @company.sales_executives.all
     end
 
     def create
@@ -46,6 +52,9 @@ class CallLogsController < ApplicationController
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.new(params[:call_log])
         @call_log.call_duration = params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i
+        @company = Company.where(:id => current_user.company_id).first
+        @team_leaders = @company.team_leaders.all
+        @sales_executives = @company.sales_executives.all
 
         respond_to do |format|
             if @call_log.save

@@ -1,0 +1,9 @@
+added
+<% if activity.trackable.is_sms ==true && activity.trackable.is_email == true %>
+    an SMS and email notification
+<% elsif activity.trackable.is_sms ==false && activity.trackable.is_email == true %>
+    an email notification
+<% elsif activity.trackable.is_sms ==true && activity.trackable.is_email == false %>
+    an SMS notification
+<% end %>
+for <b><%= activity.trackable.contact.full_name %></b>
