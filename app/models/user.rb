@@ -36,13 +36,13 @@ class User < ActiveRecord::Base
 
     def role_symbols
         if self.account_type == 1
-            return ["admin".to_sym]
+            return [:admin]
         elsif self.account_type == 2
-            return ["team_leader".to_sym]
+            return [:team_leader]
         elsif self.account_type == 3
-            return ["sales_executive".to_sym]
+            return [:sales_executive]
         elsif self.account_type == 4
-            return ["superadmin".to_sym]
+            return [:superadmin]
         else
             [:none]
         end
