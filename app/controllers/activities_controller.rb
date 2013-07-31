@@ -1,26 +1,21 @@
 class ActivitiesController < ApplicationController
-    # GET /activities
-    # GET /activities.json
+    before_filter :authenticate_user!
+    filter_access_to :all
+
     def index
         @activity = PublicActivity::Activity.order("created_at desc")
     end
 
-    # GET /activities/1
-    # GET /activities/1.json
     def show
     end
 
-    # GET /activities/new
     def new
         @activity = Activity.new
     end
 
-    # GET /activities/1/edit
     def edit
     end
 
-    # POST /activities
-    # POST /activities.json
     def create
         @activity = Activity.new(activity_params)
 
@@ -35,8 +30,6 @@ class ActivitiesController < ApplicationController
         end
     end
 
-    # PATCH/PUT /activities/1
-    # PATCH/PUT /activities/1.json
     def update
         respond_to do |format|
             if @activity.update(activity_params)
@@ -49,8 +42,6 @@ class ActivitiesController < ApplicationController
         end
     end
 
-    # DELETE /activities/1
-    # DELETE /activities/1.json
     def destroy
         @activity.destroy
         respond_to do |format|

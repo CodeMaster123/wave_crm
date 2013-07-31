@@ -1,6 +1,7 @@
 class InventoriesController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
+
   def index
     @inventories = current_user.company.inventories.all
 

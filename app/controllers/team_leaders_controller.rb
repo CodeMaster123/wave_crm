@@ -1,9 +1,10 @@
 class TeamLeadersController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+
     def index
-      @company = Company.where(:id => current_user.company_id).first
-      @team_leaders = @company.team_leaders.all
+        @company = Company.where(:id => current_user.company_id).first
+        @team_leaders = @company.team_leaders.all
 
 
         respond_to do |format|

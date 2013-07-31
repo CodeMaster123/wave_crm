@@ -1,4 +1,3 @@
-#Pull this file
 class CrmCustomersController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
@@ -7,7 +6,7 @@ class CrmCustomersController < ApplicationController
     @crm_customers = CrmCustomer.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @crm_customers }
     end
   end

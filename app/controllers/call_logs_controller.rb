@@ -1,6 +1,7 @@
 class CallLogsController < ApplicationController
-    # GET /call_logs
-    # GET /call_logs.json
+    before_filter :authenticate_user!
+    filter_access_to :all
+
     def index
         @call_logs = CallLog.all
 
@@ -10,8 +11,6 @@ class CallLogsController < ApplicationController
         end
     end
 
-    # GET /call_logs/1
-    # GET /call_logs/1.json
     def show
         @call_log = CallLog.find(params[:id])
 
@@ -21,8 +20,6 @@ class CallLogsController < ApplicationController
         end
     end
 
-    # GET /call_logs/new
-    # GET /call_logs/new.json
     def new
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.new
@@ -36,7 +33,6 @@ class CallLogsController < ApplicationController
         end
     end
 
-    # GET /call_logs/1/edit
     def edit
         @call_owner = SalesExecutive.where(:company_id => current_user.company_id)
         @call_log = CallLog.find(params[:id])

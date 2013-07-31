@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+
     def index
-      @company = Company.where(:id => current_user.company_id).first
+        @company = Company.where(:id => current_user.company_id).first
         @products = Product.all
         @products = @company.products.paginate(:page => params[:page], :per_page => 15)
 

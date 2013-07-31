@@ -1,8 +1,8 @@
 class TargetsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-    def index
 
+    def index
         @targets = Target.all
         @team_leaders = TeamLeader.all
         @sales_executives = SalesExecutive.all

@@ -1,6 +1,7 @@
 class SalesExecutivesController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+
     def index
         @company = Company.where(:id => current_user.company_id).first
         if current_user.account_type == 1
