@@ -10,12 +10,16 @@ class NotificationsController < ApplicationController
               @notifications = Notification.current_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
           elsif params[:type] == "future"
             @notifications = Notification.future_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
+          else
+              #for calendar
+              @notifications = current_user.company.notifications
           end
         end
 
         respond_to do |format|
             format.html # index.html.erb
             format.json { render json: @notifications }
+            format.js  { render :json => @notifications }
         end
     end
 

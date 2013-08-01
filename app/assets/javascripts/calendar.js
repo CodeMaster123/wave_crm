@@ -1,7 +1,6 @@
 if(window.location.pathname.indexOf("calendar")>0)
 {
     $(document).ready(function() {
-        console.log('calendar');
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -81,15 +80,20 @@ if(window.location.pathname.indexOf("calendar")>0)
 
 
     function updateEvent(the_event) {
+        console.log(the_event);
         $.update(
                 "/events/" + the_event.id,
-                { event: { title: the_event.title,
-                             starts_at: "" + the_event.start,
-            ends_at: "" + the_event.end,
-            description: the_event.description
-                         }
+                { event:
+                    {
+                        title: the_event.title,
+                        starts_at: "" + the_event.start,
+                        ends_at: "" + the_event.end,
+                        description: the_event.description
+                    }
                 },
-                function (reponse) { alert('successfully updated task.'); }
+                function (reponse) { 
+                    alert('successfully updated task.');
+                }
                 );
     };
 

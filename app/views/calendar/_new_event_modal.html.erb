@@ -6,7 +6,7 @@
     <div class="modal-body">
         <%= form_tag '/create_events', :class => 'event-form form-horizontal' do |f| %>
             <div class="control-group">
-                <label class="control-label">Meeting with</label>
+                <label class="control-label"> Description</label>
                 <div class="controls">
                     <%= select_tag :contact_id, options_for_select(@contacts.map{|c|[c.full_name,c.id]}), :class => 'text_area' %>
                 </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <%= hidden_field_tag :lead_id, @lead.id %>
+                    <%#= hidden_field_tag :lead_id, @lead.id %>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
             <%= submit_tag 'submit', :class => 'btn btn-primary' %>
