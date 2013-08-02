@@ -7,32 +7,32 @@
     <div class="control-group">
       <%= f.label :executive_type, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :leadable_type, [["Select Lead Owner", ""], ["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'lead_owner' %>
+        <%= f.select :leadable_type, [["Select Lead Owner", ""], ["Team leader", "TeamLeader"], ["Sales executive", "SalesExecutive"]], {}, :class => 'lead_owner contact_type' %>
       </div>
     </div>
     <div class="control-group hide team_leaders">
        <%= f.label :leadable_id, :class => 'control-label' %>
        <div class="controls">
-           <%= f.select :leadable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Team Leader" }, :class => 'text_field' %>
+           <%= f.select :leadable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Team Leader" }, :class => 'text_field contact_type' %>
        </div>
     </div>
     <div class="control-group hide sales_executives">
         <%= f.label :leadable_id, :class => 'control-label' %>
         <div class="controls">
-            <%= f.select :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Sales Executive" }, :class => 'text_field' %>
+            <%= f.select :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :include_blank => "Select Sales Executive" }, :class => 'text_field contact_type' %>
         </div>
     </div>
   </div>
         <div class="control-group">
           <%= f.label :lead_source, :class => 'control-label' %>
           <div class="controls">
-            <%= f.select :lead_source, [["Select Lead Source", ""], ["Direct Marketing", "direct_marketing"], ["Advertisement", "advertisement"], ["Cold call","cold_call"], ["External referral","external_referral"], ["Partner","partner"], ["Public Relations","public_relations"], ["Sales Mail","sales_mail"], ["Seminar","seminar"], ["Trade show","trade_show"], ["Whitepaper","whitepaper"], ["Web research", "web_research"], ["Google search","google_search"]], {}, :class => 'lead_owner' %>
+            <%= f.select :lead_source, [["Select Lead Source", ""], ["Direct Marketing", "direct_marketing"], ["Advertisement", "advertisement"], ["Cold call","cold_call"], ["External referral","external_referral"], ["Partner","partner"], ["Public Relations","public_relations"], ["Sales Mail","sales_mail"], ["Seminar","seminar"], ["Trade show","trade_show"], ["Whitepaper","whitepaper"], ["Web research", "web_research"], ["Google search","google_search"]], {}, :class => 'lead_owner contact_type' %>
           </div>
         </div>
         <div class="control-group-lead_status">
           <%= f.label :lead_status, :class => 'control-label' %>
           <div class="controls">
-            <%= f.select :lead_status, [["Select Lead status", ""], ["In queue", "queue"], ["Prospecting", "prospecting"], ["Lead", "lead"], ["Qualified", "qualified"], ["Dead", "dead"], ["Won", "won"], ["Future", "future"]], {}, :class => 'lead_owner' %>
+            <%= f.select :lead_status, [["Select Lead status", ""], ["In queue", "queue"], ["Prospecting", "prospecting"], ["Lead", "lead"], ["Qualified", "qualified"], ["Dead", "dead"], ["Won", "won"], ["Future", "future"]], {}, :class => 'lead_owner contact_type' %>
           </div>
         </div>
 
@@ -99,7 +99,7 @@
         <div class="control-group-account">
             <label class ='control-label'>Ownership type</label>
             <div class="controls">
-                <%= account.select :ownership_type, options_for_select([["Proprietership","proprietership"],["Private", "Private"], ["Public", "Public"]]), :class => 'text_field' %>
+                <%= account.select :ownership_type, options_for_select([["Proprietership","proprietership"],["Private", "Private"], ["Public", "Public"]]), :class => 'text_field contact_type' %>
             </div>
         </div>
         <div class="control-group">
@@ -142,7 +142,7 @@
     <div class="control-group">
         <%= product_transaction.label :product_name, :class => 'control-label' %>
         <div class="controls">
-            <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'contact_type lead-product_id' %>
+            <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}), { :include_blank => "Select Product" }, :class => 'contact_type lead-product_id' %>
         </div>
     </div>
     <div class="control-group-price">

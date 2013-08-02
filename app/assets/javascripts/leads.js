@@ -21,7 +21,7 @@ $(document).ready(function() {
     $('.tTip').betterTooltip({speed: 150, delay: 300});
     $('#contact_id').chosen();
 
-
+    $('.contact_type').chosen();
     $('.lead-product_id').chosen();
 
     $('.add-product').click(function(){
