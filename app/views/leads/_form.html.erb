@@ -142,7 +142,7 @@
     <div class="control-group">
         <%= product_transaction.label :product_name, :class => 'control-label' %>
         <div class="controls">
-            <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+            <%= product_transaction.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'contact_type lead-product_id' %>
         </div>
     </div>
     <div class="control-group-price">
@@ -159,7 +159,7 @@
         </div>
     </div>
 <% end %>
-<%= f.link_to_add "Add a product", :product_transactions, :class => 'add'%>
+<%= f.link_to_add "Add a product", :product_transactions, :class => 'add add-product'%>
 
 <h4 class="description_header show-header">Description</h4>
 <hr class="line">
