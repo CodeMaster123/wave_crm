@@ -7,6 +7,7 @@ one:
   call_purpose: MyString
   call_start_time: 2013-05-21 17:45:42
   call_duration: 1
+  contact_id: 1
   call_owner_id: 1
 
 two:
@@ -16,4 +17,5 @@ two:
   call_purpose: MyString
   call_start_time: 2013-05-21 17:45:42
   call_duration: 1
+  contact_id: 2
   call_owner_id: 1

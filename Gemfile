@@ -46,6 +46,7 @@ group :test do
     #gem 'turn'
     gem 'guard-test'
     gem 'ruby-prof'
+    gem 'simplecov', :require => false, :group => :test
     gem 'rb-inotify'
 end
 
@@ -56,3 +57,4 @@ gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
 #gem 'newrelic_rpm'
+#gem 'metrical'
