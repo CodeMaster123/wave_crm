@@ -7,6 +7,7 @@ class SpecialOccasionsControllerTest < ActionController::TestCase
 
     setup do
         @special_occasion = special_occasions(:one)
+
         @user = users(:one)
         sign_in @user
     end
