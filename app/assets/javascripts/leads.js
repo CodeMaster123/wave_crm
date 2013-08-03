@@ -9,7 +9,7 @@ $(document).ready(function() {
     window.setTimeout(function(){$('.alert').fadeOut()}, 400);
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',
-        timeFormat: 'hh:mm tt z'
+        timeFormat: 'hh:mm tt'
     });
 
     $('.search-c').searchbox({

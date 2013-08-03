@@ -51,7 +51,7 @@ $(document).ready(function() {
     attach_on_add();
     $('.datetime_select').datetimepicker({
         dateFormat: 'yy-mm-dd',
-        timeFormat: 'hh:mm tt z'
+        timeFormat: 'hh:mm tt'
     });
 
     $('#transaction_contact_id').chosen();
