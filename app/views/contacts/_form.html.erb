@@ -8,15 +8,6 @@
    <%= f.text_field :mobile_no, :class => 'number_field' %>
    <%= f.text_field :landline_no, :class => 'number_field' %>
 
-
-
-  <div class="control-group">
-      <label class="control-label">Select tags</label>
-      <div class="controls">
-          <%= text_field_tag "viek","", :id => "ms1", :name => "ms1", :class => "text_field" %>
-      </div>
-  </div>
-
   <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
