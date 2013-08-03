@@ -1,7 +1,21 @@
+<% if controller_name == "activities" %>
+    <li class='active'>
+    <%= link_to(:activities) do %>
+        <span>Activities</span>
+    <% end %>
+    </li>
+<% else%>
+    <li>
+    <%= link_to(:activities) do %>
+        <span>Activities</span>
+    <% end %>
+    </li>
+<% end %>
+
 <% if controller_name == "leads" %>
     <li class='active'>
     <% if current_user.account_type == 2 %>
-            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+        <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
             <span>Leads</span>
         <% end %>
     <% else %>
@@ -10,10 +24,10 @@
         <% end %>
     <% end %>
     </li>
-<% elsif %>
+<% else%>
     <li>
     <% if current_user.account_type == 2 %>
-            <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+        <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
             <span>Leads</span>
         <% end %>
     <% else %>
@@ -32,7 +46,7 @@
         <% end %>
         </li>
     <% end %>
-<% elsif %>
+<% else %>
     <% permitted_to? :index, :employees do %>
         <li>
         <%= link_to(:employees) do %>
@@ -53,7 +67,7 @@
         <li><%= link_to "Potential Customers", {:controller => "contacts", :action => "index", :type => "potential_customer"} %></li>
     </ul>
     </li>
-<% elsif %>
+<% else %>
     <li>
     <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
         <span>Contacts</span>
