@@ -1,2 +1,3 @@
 == Welcome to Wave CRM
 
+{<img src="https://codeclimate.com/github/CodeMaster123/wave_crm.png" />}[https://codeclimate.com/github/CodeMaster123/wave_crm]
