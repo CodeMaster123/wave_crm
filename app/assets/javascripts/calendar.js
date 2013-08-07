@@ -68,7 +68,7 @@ if(window.location.pathname.indexOf("calendar")>0)
             // http://arshaw.com/fullcalendar/docs/mouse/eventClick/
             eventClick: function(event, jsEvent, view){
                 // would like a lightbox here.
-            },
+            }
         });
         $(".fc-button-effect").remove();
         $(".fc-button-next .fc-button-content").html("<i class='icon-chevron-right'></i>");

@@ -16,6 +16,7 @@ authorization do
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
         has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :old_target]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :map_index]
+        has_permission_on :accounts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :calendar, :to => [:index]
     end
 
@@ -23,6 +24,7 @@ authorization do
         has_permission_on :leads, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :change_owner, :postpone_lead]
         has_permission_on :accounts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
+        has_permission_on :inventory_additions, :to => [:new, :create, :show]
         has_permission_on :transactions, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :mature, :graph, :invoice, :create_transaction, :new, :get_partial_payments]
         has_permission_on :products, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :activities, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
