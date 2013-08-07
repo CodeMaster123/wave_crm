@@ -42,32 +42,18 @@ class Transaction < ActiveRecord::Base
 
             if @lead.leadable_type == "TeamLeader"
                 @current_target = TeamLeader.find(@lead.leadable_id).targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-                if @current_target.nil?
-                    @current_target = Target.create(:targetable_id => @lead.leadable_id, :targetable_type =>@lead.leadable_type, :amount =>0, :achived => 0,:company_id => self.company_id, :target_month => Date.today.month, :target_year => Date.today.year)
-                end
-                @current_target.update_attributes(:achived => @current_target.achived+self.amount)
-
             else
                 @current_target = SalesExecutive.find(@lead.leadable_id).targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-                if @current_target.nil?
-                    @current_target = Target.create(:targetable_id => @lead.leadable_id, :targetable_type =>@lead.leadable_type, :amount =>0, :achived => 0,:company_id => self.company_id, :target_month => Date.today.month, :target_year => Date.today.year)
-                end
-                @current_target.update_attributes(:achived => @current_target.achived+self.amount)
             end
+            if @current_target.nil?
+                @current_target = Target.create(:targetable_id => @lead.leadable_id, :targetable_type =>@lead.leadable_type, :amount =>0, :achived => 0,:company_id => self.company_id, :target_month => Date.today.month, :target_year => Date.today.year)
+            end
+            @current_target.update_attributes(:achived => @current_target.achived+self.amount)
         end
         #Increase executive's target
     end
 
     def full_name
         @contact = Contact.where(:id => self.contact_id).first.full_name
-    end
-
-    private
-    def target_for_executive(executive_type)
-        @current_target = SalesExecutive.find(@lead.leadable_id).targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-        if @current_target.nil?
-            @current_target = Target.create(:targetable_id => @lead.leadable_id, :targetable_type =>@lead.leadable_type, :amount =>0, :achived => 0,:company_id => self.company_id, :target_month => Date.today.month, :target_year => Date.today.year)
-        end
-        @current_target.update_attributes(:achived => @current_target.achived+self.amount)
     end
 end
