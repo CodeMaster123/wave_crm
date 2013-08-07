@@ -8,7 +8,7 @@ class CompaniesControllerTest < ActionController::TestCase
     setup do
         @company = companies(:one)
 
-        @user = users(:one)
+        @user = users(:superadmin)
         sign_in @user
     end
 

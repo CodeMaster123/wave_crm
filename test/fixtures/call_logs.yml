@@ -1,16 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   call_result: MyString
   subject: MyString
   call_type: MyString
   call_purpose: MyString
   call_start_time: 2013-05-21 17:45:42
-  call_duration: 1
-  contact_id: 1
-  call_owner_id: 1
+  call_duration: 50
+  contact_id: 4
+  call_owner_id: 4
 
 two:
+  id: 2
   call_result: MyString
   subject: MyString
   call_type: MyString

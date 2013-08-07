@@ -43,7 +43,7 @@ class CrmCustomersControllerTest < ActionController::TestCase
 
     test "should update crm_customer" do
         put :update, id: @crm_customer, crm_customer: { address: @crm_customer.address, amount_paid: @crm_customer.amount_paid, first_name: @crm_customer.first_name, last_name: @crm_customer.last_name, middle_name: @crm_customer.middle_name, subscription_ends: @crm_customer.subscription_ends, subscription_start: @crm_customer.subscription_start }
-        assert_redirected_to crm_customers_path(assigns(:crm_customer))
+        assert_redirected_to crm_customer_path(assigns(:crm_customer))
     end
 
     test "should destroy crm_customer" do

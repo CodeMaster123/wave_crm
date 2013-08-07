@@ -12,7 +12,7 @@ class NotificationsController < ApplicationController
             @notifications = Notification.future_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
           else
               #for calendar
-              @notifications = current_user.company.notifications
+              @notifications = current_user.company.notifications.paginate(:page => params[:page], :per_page => 15)
           end
         end
 

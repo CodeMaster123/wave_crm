@@ -3,7 +3,9 @@ class LeadsController < ApplicationController
     filter_access_to :all
 
     def index
+        puts "params===========>#{params[:type]}"
         if current_user.account_type == 1 #Admin
+            puts "within admin block ====================>"
             @company = current_user.company
             if params[:type] == "future"
                 @leads = @company.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15).all
@@ -136,6 +138,9 @@ class LeadsController < ApplicationController
 
         respond_to do |format|
             if @lead.save
+                puts "@lead.id===========> #{@lead.id}"
+                puts "@lead.contacts===========> #{@lead.contacts}"
+                puts "@lead.accounts===========> #{@lead.account}"
                 @lead.contacts.first.account_id = @lead.account.id
                 format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
                 format.json { render json: @lead, status: :created, location: @lead }

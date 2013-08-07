@@ -199,12 +199,6 @@ LeadsProduct.create([
                     {:lead_id => 18, :product_id => 16}
 ])
 
-Tag.create([
-           {:name => "Cloud", :company_id => 1},
-           {:name => "website", :company_id => 1},
-           {:name => "offline", :company_id => 1}
-])
-
 Notification.create([
                     {:sms_sent => false, :contact_id => 1, :subject =>"", :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
                     {:sms_sent => false, :contact_id => 1, :subject =>"", :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 1},
@@ -603,15 +597,6 @@ LeadsProduct.create([
                     {:lead_id => 30, :product_id => 38},
                     {:lead_id => 32, :product_id => 39},
                     {:lead_id => 31, :product_id => 40}
-])
-
-Tag.create([
-           {:name => "teeth operation", :company_id => 2},
-           {:name => "only cleanup", :company_id => 2},
-           {:name => "root canal", :company_id => 2},
-           {:name => "teeth operation", :company_id => 2},
-           {:name => "only cleanup", :company_id => 2},
-           {:name => "root canal", :company_id => 2}
 ])
 
 Notification.create([

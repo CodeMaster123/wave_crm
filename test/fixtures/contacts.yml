@@ -15,6 +15,7 @@ one:
   contactable_id: 1
   company_id: 1
   contact_relationship: client
+  account_id: 1
 
 two:
   id: 2
@@ -31,3 +32,36 @@ two:
   contactable_id: 2
   company_id: 1
   contact_relationship: potential_customer
+  account_id: 1
+
+three:
+  id: 3
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  longitude: 1.5
+  latitude: 1.5
+  address: MyString
+  mobile_no: 1
+  landline_no: 1
+  contactable_type: Lead
+  contactable_id: 3
+  company_id: 1
+  contact_relationship: potential_customer
+  account_id: 1
+
+four:
+  id: 4
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  longitude: 1.5
+  latitude: 1.5
+  address: MyString
+  mobile_no: 1
+  landline_no: 1
+  contactable_type: Lead
+  contactable_id: 4
+  company_id: 1
+  contact_relationship: potential_customer
+  account_id: 1

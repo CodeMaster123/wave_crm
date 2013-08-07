@@ -13,7 +13,7 @@ class LeadsControllerTest < ActionController::TestCase
     end
 
     test "should get index" do
-        get :index
+        get :index, type: "future"
         assert_response :success
         assert_not_nil assigns(:leads)
     end
@@ -25,7 +25,8 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should create lead" do
         assert_difference('Lead.count') do
-            post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type, lead_status: @lead.lead_status, lead_source: @lead.lead_source}
+            puts "title => #{@lead.title}, id => #{@lead.id}, :description => #{@lead.description}"
+            post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type, lead_status: @lead.lead_status, lead_source: @lead.lead_source, company_id: @lead.lead_source}
         end
 
         assert_redirected_to leads_path
@@ -35,11 +36,6 @@ class LeadsControllerTest < ActionController::TestCase
         get :show, id: @lead
         assert_response :success
     end
-
- #   test "should get edit" do
- #       get :edit, id: @lead
- #       assert_response :success
- #   end
 
     test "should update lead" do
         put :update, id: @lead, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type}
