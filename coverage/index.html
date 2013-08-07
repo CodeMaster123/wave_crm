@@ -14,14 +14,14 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-08-07T17:42:01+05:30">2013-08-07T17:42:01+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-08-07T18:08:55+05:30">2013-08-07T18:08:55+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">31.62%</span></span>
+    (<span class="covered_percent"><span class="red">31.66%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>60</b> files in total.
-    <b>1771</b> relevant lines. 
-    <span class="green"><b>560</b> lines covered</span> and
-    <span class="red"><b>1211</b> lines missed </span>
+    <b>1775</b> relevant lines. 
+    <span class="green"><b>562</b> lines covered</span> and
+    <span class="red"><b>1213</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -582,11 +582,11 @@
       
       <tr>
         <td class="strong"><a href="#6ed7d7a24047e3a7e69dc3104d4a71667c2dcbd7" class="src_link" title="app/models/transaction.rb">app/models/transaction.rb</a></td>
-        <td class="red strong">60.47 %</td>
-        <td>74</td>
-        <td>43</td>
-        <td>26</td>
-        <td>17</td>
+        <td class="red strong">59.57 %</td>
+        <td>73</td>
+        <td>47</td>
+        <td>28</td>
+        <td>19</td>
         <td>0.6</td>
       </tr>
       
@@ -936,7 +936,7 @@
           <div class="file_list_container" id="Models">
   <h2>
     <span class="group_name">Models</span>
-    (<span class="covered_percent"><span class="red">76.49%</span></span>
+    (<span class="covered_percent"><span class="red">76.21%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -947,9 +947,9 @@
   <a name="Models"></a>
   <div>
     <b>25</b> files in total.
-    <b>387</b> relevant lines. 
-    <span class="green"><b>296</b> lines covered</span> and
-    <span class="red"><b>91</b> lines missed </span>
+    <b>391</b> relevant lines. 
+    <span class="green"><b>298</b> lines covered</span> and
+    <span class="red"><b>93</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -1177,11 +1177,11 @@
       
       <tr>
         <td class="strong"><a href="#6ed7d7a24047e3a7e69dc3104d4a71667c2dcbd7" class="src_link" title="app/models/transaction.rb">app/models/transaction.rb</a></td>
-        <td class="red strong">60.47 %</td>
-        <td>74</td>
-        <td>43</td>
-        <td>26</td>
-        <td>17</td>
+        <td class="red strong">59.57 %</td>
+        <td>73</td>
+        <td>47</td>
+        <td>28</td>
+        <td>19</td>
         <td>0.6</td>
       </tr>
       
@@ -19354,11 +19354,11 @@
         <div class="source_table" id="6ed7d7a24047e3a7e69dc3104d4a71667c2dcbd7">
   <div class="header">
     <h3>app/models/transaction.rb</h3>
-    <h4><span class="red">60.47 %</span> covered</h4>
+    <h4><span class="red">59.57 %</span> covered</h4>
     <div>
-      <b>43</b> relevant lines. 
-      <span class="green"><b>26</b> lines covered</span> and
-      <span class="red"><b>17</b> lines missed.</span>
+      <b>47</b> relevant lines. 
+      <span class="green"><b>28</b> lines covered</span> and
+      <span class="red"><b>19</b> lines missed.</span>
     </div>
   </div>
   
@@ -19626,121 +19626,121 @@
         <li class="missed" data-hits="0" data-linenumber="44">
           
           
-          <code class="ruby">                puts &quot;team leader&quot;</code>
+          <code class="ruby">                @current_target = TeamLeader.find(@lead.leadable_id).targets.where(:target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year).first</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="45">
           
           
-          <code class="ruby">                @current_target = TeamLeader.find(@lead.leadable_id).targets.where(:target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year).first</code>
+          <code class="ruby">                if @current_target.nil?</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="46">
           
           
-          <code class="ruby">                if @current_target.nil?</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
-          
           <code class="ruby">                    @current_target = Target.create(:targetable_id =&gt; @lead.leadable_id, :targetable_type =&gt;@lead.leadable_type, :amount =&gt;0, :achived =&gt; 0,:company_id =&gt; self.company_id, :target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">                end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
+        <li class="missed" data-hits="0" data-linenumber="48">
           
           
           <code class="ruby">                @current_target.update_attributes(:achived =&gt; @current_target.achived+self.amount)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="49">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
           <code class="ruby">            else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
-          
-          
-          <code class="ruby">                puts &quot;sales executive&quot;</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="missed" data-hits="0" data-linenumber="51">
           
           
           <code class="ruby">                @current_target = SalesExecutive.find(@lead.leadable_id).targets.where(:target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year).first</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="54">
+        <li class="missed" data-hits="0" data-linenumber="52">
           
           
           <code class="ruby">                if @current_target.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="55">
+        <li class="missed" data-hits="0" data-linenumber="53">
           
           
           <code class="ruby">                    @current_target = Target.create(:targetable_id =&gt; @lead.leadable_id, :targetable_type =&gt;@lead.leadable_type, :amount =&gt;0, :achived =&gt; 0,:company_id =&gt; self.company_id, :target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">                end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="55">
           
           
           <code class="ruby">                @current_target.update_attributes(:achived =&gt; @current_target.achived+self.amount)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby">            end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="58">
           
           
           <code class="ruby">        #Increase executive's target</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def full_name</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="62">
+          
+          
+          <code class="ruby">        @contact = Contact.where(:id =&gt; self.contact_id).first.full_name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
@@ -19752,43 +19752,43 @@
         <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
-          <code class="ruby">    def full_name</code>
+          <code class="ruby">    private</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="66">
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        @contact = Contact.where(:id =&gt; self.contact_id).first.full_name</code>
+          <code class="ruby">    def target_for_executive(executive_type)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="missed" data-hits="0" data-linenumber="67">
           
           
-          <code class="ruby">        #    @contacts_list = String.new</code>
+          <code class="ruby">        @current_target = SalesExecutive.find(@lead.leadable_id).targets.where(:target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year).first</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="missed" data-hits="0" data-linenumber="68">
           
           
-          <code class="ruby">        #    self.contacts.each do |contact|</code>
+          <code class="ruby">        if @current_target.nil?</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="missed" data-hits="0" data-linenumber="69">
           
           
-          <code class="ruby">        #        @contacts_list = @contacts_list + &quot;#{contact.first_name.capitalize} #{contact.middle_name.capitalize} #{contact.last_name.capitalize}&quot;</code>
+          <code class="ruby">            @current_target = Target.create(:targetable_id =&gt; @lead.leadable_id, :targetable_type =&gt;@lead.leadable_type, :amount =&gt;0, :achived =&gt; 0,:company_id =&gt; self.company_id, :target_month =&gt; Date.today.month, :target_year =&gt; Date.today.year)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="70">
           
           
-          <code class="ruby">        #    end</code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="missed" data-hits="0" data-linenumber="71">
           
           
-          <code class="ruby">        #        @contacts_list</code>
+          <code class="ruby">        @current_target.update_attributes(:achived =&gt; @current_target.achived+self.amount)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="72">
@@ -19798,12 +19798,6 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">end</code>
