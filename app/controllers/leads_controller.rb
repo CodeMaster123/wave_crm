@@ -3,9 +3,7 @@ class LeadsController < ApplicationController
     filter_access_to :all
 
     def index
-        puts "params===========>#{params[:type]}"
         if current_user.account_type == 1 #Admin
-            puts "within admin block ====================>"
             @company = current_user.company
             if params[:type] == "future"
                 @leads = @company.leads.where('lead_status = \'future\'').paginate(:page => params[:page], :per_page => 15).all
@@ -32,11 +30,9 @@ class LeadsController < ApplicationController
                 @leads = current_user.team_leader.leads.where('lead_status = \'matured\'').paginate(:page => params[:page], :per_page => 15).all
             else
                 if params[:sales_executive].nil?
-                    puts "params[:sales_executive]-----------------------> #{params[:sales_executive]}-------"
                     @leads = current_user.team_leader.leads.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15)
                 else
                     session[:sales_executive] = true
-                    puts "controller - session variable set to #{session[:sales_executive]}"
                     @leads = SalesExecutive.find(params[:sales_executive]).leads.paginate(:page => params[:page], :per_page => 15)
                     #.where('lead_status != \'dead\' and lead_status != \'won\' and lead_status != \'future\' and lead_status != \'matured\'').paginate(:page => params[:page], :per_page => 15)
                 end
@@ -138,9 +134,6 @@ class LeadsController < ApplicationController
 
         respond_to do |format|
             if @lead.save
-                puts "@lead.id===========> #{@lead.id}"
-                puts "@lead.contacts===========> #{@lead.contacts}"
-                puts "@lead.accounts===========> #{@lead.account}"
                 @lead.contacts.first.account_id = @lead.account.id
                 format.html { redirect_to :leads, notice: 'Lead was successfully created.' }
                 format.json { render json: @lead, status: :created, location: @lead }
@@ -199,7 +192,6 @@ class LeadsController < ApplicationController
 
     def postpone_lead
         unless params[:opening_date].to_time < Date.today
-            puts params[:lead_id]
             @lead = Lead.find(params[:lead_id].to_i)
             @lead.update_attributes(:opening_date => params[:opening_date].to_time, :lead_status => "future")
 

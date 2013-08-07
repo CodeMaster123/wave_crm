@@ -43,11 +43,11 @@ group :development do
 end
 
 group :test do
-    #gem 'turn'
     gem 'guard-test'
     gem 'ruby-prof'
     gem 'simplecov', :require => false, :group => :test
     gem 'rb-inotify'
+    gem 'database_cleaner'
 end
 
 #gem 'rack-mini-profiler'

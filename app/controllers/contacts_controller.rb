@@ -89,7 +89,7 @@ class ContactsController < ApplicationController
     end
 
     def update
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @contact = @company.contacts.find(params[:id])
 
         respond_to do |format|

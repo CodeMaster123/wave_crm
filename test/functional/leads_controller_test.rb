@@ -14,6 +14,7 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should get index" do
         get :index, type: "future"
+
         assert_response :success
         assert_not_nil assigns(:leads)
     end
