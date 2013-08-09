@@ -32,6 +32,12 @@ class CompaniesControllerTest < ActionController::TestCase
         assert_redirected_to companies_path
     end
 
+    test "should render edit form after unsuccessful edit" do
+        put :create, id: @company, company: { company_address: nil }
+
+        assert_response :success
+    end
+
     test "should show company" do
         get :show, id: @company
         assert_response :success
@@ -42,9 +48,16 @@ class CompaniesControllerTest < ActionController::TestCase
         assert_response :success
     end
 
+
     test "should update company" do
         put :update, id: @company, company: { company_address: @company.company_address, company_name: @company.company_name, contact_number1: @company.contact_number1, contact_number2: @company.contact_number2 }
         assert_redirected_to companies_path
+    end
+
+    test "should render edit form after unsuccessful update" do
+        put :update, id: @company, company: { company_address: nil }
+
+        assert_response :success
     end
 
     test "should destroy company" do

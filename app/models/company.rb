@@ -21,12 +21,4 @@ class Company < ActiveRecord::Base
     validates :company_name, :presence => true
     validates :company_address, :presence => true
     validates :crm_customer_id, :uniqueness => true
-
-    #def all_executives
-    #    company = Company.find(self.id)
-    #    sales_executives = company.sales_executives.map{|se|[se.user_id,se.id]}
-    #    team_leaders = company.team_leaders.map{|tl|[tl.user_id, tl.id]}
-    #    all= sales_executives.concat(team_leaders)
-    #end
-
 end
