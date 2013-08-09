@@ -48,6 +48,7 @@ group :test do
     gem 'simplecov', :require => false, :group => :test
     gem 'rb-inotify'
     gem 'database_cleaner'
+    gem 'coveralls'
 end
 
 #gem 'rack-mini-profiler'
