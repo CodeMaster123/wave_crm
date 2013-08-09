@@ -60,11 +60,12 @@ class Notification < ActiveRecord::Base
 
     def self.notifications_by_type(company_id, notification_type)
         if notification_type == "old"
-            @old_notification = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
+            puts 'old =================>'
+            @notifications = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
         elsif notification_type == "current"
-            @current_notification = Notification.where(:notification_time => Date.today..Date.today+30.days, :company_id => company_id)
+            @notifications = Notification.where(:notification_time => Date.today..Date.today+30.days, :company_id => company_id)
         elsif notification_type == "future"
-            @future_notification = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
+            @notifications = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
         end
     end
 

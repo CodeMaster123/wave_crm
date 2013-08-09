@@ -7,7 +7,7 @@ class NotificationsController < ApplicationController
             if params[:type].empty?
                 @notifications = current_user.company.notifications.paginate(:page => params[:page], :per_page => 15)
             else
-                Notification.notifications_by_type(current_user.company_id, params[:type])
+                @notifications = Notification.notifications_by_type(current_user.company_id, params[:type])
             end
         end
 
