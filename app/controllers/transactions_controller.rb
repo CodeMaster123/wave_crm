@@ -5,7 +5,6 @@ class TransactionsController < ApplicationController
     def index
         @company = current_user.company
         @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
-        @transaction_fields = current_user.transaction_fields
 
         respond_to do |format|
             format.html # index.html.erb
@@ -40,7 +39,6 @@ class TransactionsController < ApplicationController
         end
         @transaction.partial_payments.build
         @transaction.contacts.build
-        @transaction_fields = current_user.transaction_fields
 
         @products = current_user.company.products
         @contacts = current_user.company.contacts.all
@@ -59,7 +57,6 @@ class TransactionsController < ApplicationController
       @accounts = @company.accounts
       @products = @company.products
       @contacts = @company.contacts.all
-      @transaction_fields = current_user.transaction_fields
     end
 
     def create
@@ -67,16 +64,11 @@ class TransactionsController < ApplicationController
       @accounts = @company.accounts
       @products = @company.products
       @transaction = @company.transactions.new(params[:transaction])
-      @transaction_fields = current_user.transaction_fields
-      @transaction.company_id = @company.id
       @contacts = @company.contacts.all
 
       respond_to do |format|
 
         if @transaction.save
-          @transaction_fields.each do |tf|
-            TransactionFieldValue.create(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
-          end
           @transaction.account.lead.update_attributes(:matured => true, :matured_at => Date.today)
           @transaction.account.update_attributes(:is_matured => true)
 
@@ -96,17 +88,11 @@ class TransactionsController < ApplicationController
       @company = current_user.company
       @products = @company.products
       @transaction = @company.transactions.find(params[:id])
-      @transaction_fields = current_user.transaction_fields
 
       respond_to do |format|
         if @transaction.update_attributes(params[:transaction])
           format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
           format.json { head :no_content }
-
-          @transaction_fields.each do |tf|
-            @transaction_field_value = TransactionFieldValue.where(:transaction_field_id => tf.id, :transaction_id => @transaction.id).first
-            @transaction_field_value.update_attributes(:transaction_id => @transaction.id,:transaction_field_value => params[tf.field_name], :transaction_field_id => tf.id)
-          end
         else
           format.html { render "edit" }
           format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -140,7 +126,6 @@ class TransactionsController < ApplicationController
           redirect_to leads_path, notice: "Lead successfully matured"
         end
       end
-      @transaction_fields = current_user.transaction_fields
     end
 
     def invoice
