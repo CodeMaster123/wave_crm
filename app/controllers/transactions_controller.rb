@@ -149,68 +149,6 @@ class TransactionsController < ApplicationController
         @transaction_fields = current_user.transaction_fields
     end
 
-    def graph
-        @amounts = Array.new
-        @i = 0
-        @last_amount = 0
-
-
-        @transactions = Company.find(current_user.company_id).transactions.where("transaction_time>= \'#{Date.today.at_beginning_of_month.to_time}\' and transaction_time<= \'#{Date.today.at_end_of_month.to_time}\'").order("transaction_time")
-
-        @transactions.each do |transaction|
-            @last_amount = @last_amount + transaction.amount
-            @amounts[@i] = [transaction.transaction_time.day, @last_amount]
-            @i = @i+1
-        end
-
-        @team_leaders = Company.find(current_user.company_id).team_leaders
-        @sales_executives = Company.find(current_user.company_id).sales_executives
-
-        @chart = LazyHighCharts::HighChart.new('graph') do |f|
-            f.title({ :text=>"Sale Growth"})
-            f.height(800)
-
-            @days = Array.new
-            @day = 0
-            (1..30).each do
-                @day = @day+1
-            end
-
-            @vivek = ['vivek','varade']
-            f.options[:xAxis][:categories] = @days
-            f.options[:xAxis][:max] = 30
-            f.labels(:items=>[:html=>"Amount/Day", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
-
-            f.series(:type=> 'spline',:name=> 'All', :data=> @amounts)
-
-            #f.series(:type=> 'spline',:name=> 'Without executive', :data=> [[4, 10],[30, 20]])
-
-            @team_leaders.each do |tl|
-                @team_leader_amounts = Array.new
-                @i = 0
-                @team_leader_last_amount = 0
-                Transaction.where(:matured_by => tl.id, :executive_type => "TeamLeader").order(:transaction_time).each do |transaction|
-                    @team_leader_last_amount = @team_leader_last_amount + transaction.amount
-                    @team_leader_amounts[@i] = [transaction.transaction_time.day, @team_leader_last_amount]
-                    @i = @i+1
-                end
-                f.series(:type=> 'spline',:name=> "TL - #{tl.user.full_name}", :data=> @team_leader_amounts)
-            end
-
-            @sales_executives.each do |se|
-                @sales_executive_amounts = Array.new
-                @i = 0
-                @sales_executive_last_amount = 0
-                Transaction.where(:matured_by => se.id, :executive_type => "SalesExecutive").order(:transaction_time).each do |transaction|
-                    @sales_executive_last_amount = @sales_executive_last_amount + transaction.amount
-                    @sales_executive_amounts[@i] = [transaction.transaction_time.day, @sales_executive_last_amount]
-                    @i = @i+1
-                end
-                f.series(:type=> 'spline',:name=> "SE - #{se.user.full_name}", :data=> @sales_executive_amounts)
-            end
-        end
-    end
-
     def invoice
         @company = current_user.company
         @transaction = Transaction.find(params[:id])
