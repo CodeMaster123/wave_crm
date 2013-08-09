@@ -19,6 +19,7 @@ authorization do
         has_permission_on :accounts, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :inventory_additions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :partial_payments, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :call_logs, :to => [:create_log, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :notification_settings, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :inventories, :to => [:index, :read, :destroy, :show]
         has_permission_on :calendar, :to => [:index]
@@ -42,6 +43,7 @@ authorization do
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :map_index, :create_contact]
         has_permission_on :inventory_additions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :partial_payments, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :call_logs, :to => [:create_log, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :notification_settings, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :calendar, :to => [:index]
         #has_permission_on :employees, :to => [:index, :create, :read, :update, :destroy, :new, :show]
@@ -56,6 +58,7 @@ authorization do
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
         has_permission_on :notification_settings, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
+        has_permission_on :call_logs, :to => [:create_log, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :calendar, :to => [:index]
         has_permission_on :targets, :to => [:index]
     end
@@ -69,6 +72,7 @@ authorization do
         has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed]
         has_permission_on :calendar, :to => [:index]
         has_permission_on :targets, :to => [:index]
+        has_permission_on :call_logs, :to => [:create_log, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :new, :show, :search, :edit]
         has_permission_on :notification_settings, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
     end

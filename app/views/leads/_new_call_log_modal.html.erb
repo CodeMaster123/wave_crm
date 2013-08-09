@@ -6,6 +6,13 @@
     <div class="modal-body">
         <%= form_tag '/create_call_logs', :class => 'call-log-form form-horizontal' do |f| %>
             <div class="control-group">
+                <label class="control-label">Call to</label>
+                <div class="controls">
+                    <%= select_tag :contact_id, options_for_select(@contacts.map{|c|[c.full_name,c.id]}) %>
+                </div>
+            </div>
+
+            <div class="control-group">
                 <label class = 'control-label'>Subject</label>
                 <div class="controls">
                     <%= text_field_tag :subject,'', :class => 'text_field' %>
@@ -66,8 +73,8 @@
             <div class="control-group">
                 <label class ='control-label'>Call duration</label>
                 <div class="controls">
-                    <%= text_field_tag :call_duration,'', :class => 'number_field-minute' %> :Minutes
-                    <%= text_field_tag :call_duration,'', :class => 'number_field-second' %> :Seconds
+                    <%= text_field_tag :call_duration_minutes,'', :class => 'number_field-minute' %> :Minutes
+                    <%= text_field_tag :call_duration_seconds,'', :class => 'number_field-second' %> :Seconds
                 </div>
             </div>
         </div>

@@ -10,10 +10,9 @@ class CallLog < ActiveRecord::Base
 
     validates :call_purpose, :presence => true
     validates :call_type, :presence => true
-    validates :call_owner_id, :presence => true
     validates :call_start_time, :presence => true
     validates :contact_id, :presence => true
-    #validates :call_duration, :presence => true
+    validates :call_duration, :presence => true
 
     def call_by
         self.call_loggable.user.full_name

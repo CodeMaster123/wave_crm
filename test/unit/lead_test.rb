@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class LeadTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+    test "if show_executive method working" do
+    end
 end
