@@ -115,8 +115,7 @@ class TransactionsController < ApplicationController
     end
 
     def destroy
-      @transaction = Transaction.find(params[:id])
-      @transaction.destroy
+      @transaction = Transaction.find(params[:id]).destroy
 
       respond_to do |format|
         format.html { redirect_to transactions_url }
