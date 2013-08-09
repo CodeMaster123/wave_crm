@@ -3,11 +3,10 @@ class EventsController < ApplicationController
     filter_access_to :all
 
     def index
-        @company = Company.where(:id => current_user.company_id).first
-        @events = Event.scoped
+        @company = current_user.company
         @events = Event.where(:user_id => current_user.id, :company_id => current_user.company_id).paginate(:page => params[:page], :per_page => 15)
         respond_to do |format|
-            format.html # index.html.erb
+            format.html
             format.xml  { render :xml => @events }
             format.js  { render :json => @events }
         end
@@ -51,11 +50,8 @@ class EventsController < ApplicationController
         end
     end
 
-    # when we drag an event on the calendar (from day to day on the month view, or stretching
-    # it on the week or day view), this method will be called to update the values.
-    # viv la REST!
     def update
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @event = @company.events.find(params[:id])
 
         respond_to do |format|
@@ -82,7 +78,6 @@ class EventsController < ApplicationController
     end
 
     def search
-        #if current_user.account_type == 1
         unless params[:q].empty?
             @events = Event.search params[:q], :with => {:company_id => current_user.company_id}
         else
@@ -96,9 +91,7 @@ class EventsController < ApplicationController
     end
 
     def create_event
-        @event =Event.new(:starts_at =>params[:starts_at], :title => params[:title], :description => params[:description], :user_id => current_user.id, :company_id => current_user.company.id, :lead_id => params[:lead_id], :contact_id => params[:contact_id])
-        @event.save
-        #render false
+        @event = Event.create(:starts_at =>params[:starts_at], :title => params[:title], :description => params[:description], :user_id => current_user.id, :company_id => current_user.company.id, :lead_id => params[:lead_id], :contact_id => params[:contact_id])
 
         respond_to do |format|
             format.html{render :nothing => true}
