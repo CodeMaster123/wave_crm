@@ -68,6 +68,15 @@ class Notification < ActiveRecord::Base
         end
     end
 
+    #def self.send_notification(notification,user_id)
+    #    if notification.is_sms
+    #        notification.sms_send
+    #    end
+    #    if notification.is_email
+    #        notification.email_send(user_id)
+    #    end
+    #end
+
     private
     def custom_checkbox_validation
         unless self.is_email || self.is_sms

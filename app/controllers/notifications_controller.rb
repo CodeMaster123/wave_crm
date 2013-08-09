@@ -28,7 +28,7 @@ class NotificationsController < ApplicationController
     end
 
     def new
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @notification = Notification.new
         @contacts = @company.contacts.all
 
@@ -39,21 +39,19 @@ class NotificationsController < ApplicationController
     end
 
     def edit
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @notification = Notification.find(params[:id])
         @contacts = @company.contacts.all
     end
 
     def create
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @notification = @company.notifications.new(params[:notification])
         @contacts = @company.contacts.all
 
         unless params[:Next_Notification].empty?
             @notification2 = @company.notifications.new(params[:notification])
             @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
-            @notification.company_id = @company.id
-            @notification2.company_id = @company.id
         end
 
         respond_to do |format|
@@ -64,11 +62,11 @@ class NotificationsController < ApplicationController
                 if @notification.is_email
                     @notification.email_send(current_user.id)
                 end
-                if params[:Next_Notification].empty? == true
-                else
+                unless params[:Next_Notification].empty? == true
                     @notification2.save
                     @notification2.sms_send
                 end
+
                 format.html { redirect_to :controller=>"notifications", :action=>"index", :type=>"current"}
                 format.json { render json: @notification, status: :created, location: @notification }
             else
@@ -104,13 +102,6 @@ class NotificationsController < ApplicationController
         end
     end
 
-    def noticed
-        respond_to do |format|
-            format.html
-            format.json { render json: @notification }
-        end
-    end
-
     def search
         if current_user.account_type == 1
             unless params[:q].empty?
@@ -121,7 +112,6 @@ class NotificationsController < ApplicationController
         end
         respond_to do |format|
             format.html
-            format.json { head :no_content }
         end
     end
 
@@ -129,8 +119,7 @@ class NotificationsController < ApplicationController
         if request.get?
             @notification = Notification.new
         elsif request.post?
-            @contacts = Company.find(current_user.company_id).contacts
-            @contacts.each do |contact|
+            @contacts = current_user.company.contacts.each do |contact|
                 Notification.create(:contact_id => contact.id, :body => params[:body], :notification_time => params[:notification_time], :company_id => current_user.company_id)
             end
             redirect_to :notifications, notice: 'Notifications created for all contacts.'
@@ -138,9 +127,6 @@ class NotificationsController < ApplicationController
     end
 
     def create_notification
-        @notification = Notification.new(:is_email => 0, :is_sms => 0)
-        @notification = Notification.new(:contact_id =>params[:contact_id], :subject => params[:subject], :body => params[:body], :notification_time => params[:notification_time], :is_email => params[:is_email], :is_sms => params[:is_sms])
-        @notification.company_id = current_user.company.id
-        @notification.save
+        @notification = current_user.company.notifications.create(:is_email => 0, :is_sms => 0, :contact_id =>params[:contact_id], :subject => params[:subject], :body => params[:body], :notification_time => params[:notification_time], :is_email => params[:is_email], :is_sms => params[:is_sms])
     end
 end

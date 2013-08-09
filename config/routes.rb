@@ -49,7 +49,6 @@ WaveCrm::Application.routes.draw do
 
     #Notifications and events
     match 'calendar' => "calendar#index"
-    match 'noticed' => 'notifications#noticed'
     match 'notifications_to_all' => 'notifications#notifications_to_all'
 
     #Used in transactions controller
