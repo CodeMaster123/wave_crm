@@ -10,25 +10,16 @@ class Notification < ActiveRecord::Base
     validates :contact_id, :presence => true
     validates :company_id, :presence => true
     validates :subject, :presence => true
-    #validate :custom_checkbox_validation
-
-
 
     def sms_send
         @sms_gateway_username = "wave"
         @sms_gateway_password = "1492407050"
         @sms_sender_name = "wave"
-        @sms_receiver_number = self.contact.mobile_no #contact_number #8888884083
+        @sms_receiver_number = self.contact.mobile_no
         @sms_message = URI::encode(self.body)
         @sms_api_url = "http://bulksms.mysmsmantra.com:8080/WebSMS/SMSAPI.jsp?username=#{@sms_gateway_username}&password=#{@sms_gateway_password}&sendername=#{@sms_sender_name}&mobileno=#{@sms_receiver_number}&message=#{@sms_message}"
 
-        #if cur_request.length > 1000
         Resque.enqueue_at(self.notification_time, SmsScheduler, @sms_api_url)
-        #end
-
-        #if request.length < cur_request.length
-        #  response = Net::HTTP.get_response(URI.parse(cur_request))
-        #end
     end
 
     def email_send(user_id)
@@ -67,16 +58,14 @@ class Notification < ActiveRecord::Base
         }
     end
 
-    def self.old_notifications(company_id)
-        @old_notification = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
-    end
-
-    def self.current_notifications(company_id)
-        @current_notification = Notification.where(:notification_time => Date.today..Date.today+30.days, :company_id => company_id)
-    end
-
-    def self.future_notifications(company_id)
-        @future_notification = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
+    def self.notifications_by_type(company_id, notification_type)
+        if notification_type == "old"
+            @old_notification = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
+        elsif notification_type == "current"
+            @current_notification = Notification.where(:notification_time => Date.today..Date.today+30.days, :company_id => company_id)
+        elsif notification_type == "future"
+            @future_notification = Notification.where(:notification_time => Date.today+31.days..Date.today+3650.days, :company_id => company_id)
+        end
     end
 
     private

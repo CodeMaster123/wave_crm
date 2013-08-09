@@ -4,16 +4,11 @@ class NotificationsController < ApplicationController
 
     def index
         if current_user.account_type == 1
-          if params[:type] == "old"
-            @notifications = Notification.old_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
-          elsif params[:type] == "current"
-              @notifications = Notification.current_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
-          elsif params[:type] == "future"
-            @notifications = Notification.future_notifications(current_user.company_id).paginate(:page => params[:page], :per_page => 15)
-          else
-              #for calendar
-              @notifications = current_user.company.notifications.paginate(:page => params[:page], :per_page => 15)
-          end
+            if params[:type].empty?
+                @notifications = current_user.company.notifications.paginate(:page => params[:page], :per_page => 15)
+            else
+                Notification.notifications_by_type(current_user.company_id, params[:type])
+            end
         end
 
         respond_to do |format|
@@ -55,10 +50,10 @@ class NotificationsController < ApplicationController
         @contacts = @company.contacts.all
 
         unless params[:Next_Notification].empty?
-        @notification2 = @company.notifications.new(params[:notification])
-        @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
-        @notification.company_id = @company.id
-        @notification2.company_id = @company.id
+            @notification2 = @company.notifications.new(params[:notification])
+            @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
+            @notification.company_id = @company.id
+            @notification2.company_id = @company.id
         end
 
         respond_to do |format|
