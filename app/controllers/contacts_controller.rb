@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    respond_to :html, :json
 
     def index
         if current_user.account_type ==1
@@ -43,74 +44,46 @@ class ContactsController < ApplicationController
             end
         end
 
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @contacts }
-        end
+        respond_with @contacts
     end
 
     def show
         @contact = Contact.find(params[:id])
         @transactions = Transaction.where(:contact_id => params[:id])
-        @transaction_fields = current_user.transaction_fields
 
-        respond_to do |format|
-            format.html # show.html.erb
-            format.json { render json: @contact }
-        end
+        respond_with @contact
     end
 
     def new
         @contact = Contact.new
 
-        respond_to do |format|
-            format.html # new.html.erb
-            format.json { render json: @contact }
-        end
+        respond_with @contact
     end
 
     def edit
         @contact = Contact.find(params[:id])
+
+        respond_with @contact
     end
 
     def create
-        @company = current_user.company
-        @contact = @company.contacts.new(params[:contact])
+        @contact = current_user.company.contacts.new(params[:contact])
 
-        respond_to do |format|
-            if @contact.save
-                format.html { redirect_to :contacts, notice: 'Contact was successfully created.' }
-                format.json { render json: @contact, status: :created, location: @contact }
-            else
-                format.html { render "new" }
-                format.json { render json: @contact.errors, status: :unprocessable_entity }
-            end
-        end
+        @contact.save
+        respond_with @contact
     end
 
     def update
-        @company = current_user.company
-        @contact = @company.contacts.find(params[:id])
+        @contact = current_user.company.contacts.find(params[:id])
 
-        respond_to do |format|
-            if @contact.update_attributes(params[:contact])
-                format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
-                format.json { head :no_content }
-            else
-                format.html { render "edit" }
-                format.json { render json: @contact.errors, status: :unprocessable_entity }
-            end
-        end
+        @contact.update_attributes(params[:contact])
+        respond_with @contact, :location => {:controller => "contacts", :action => "index", :type => "client"}
     end
 
     def destroy
-        @contact = Contact.find(params[:id])
-        @contact.destroy
+        @contact = Contact.find(params[:id]).destroy
 
-        respond_to do |format|
-            format.html { redirect_to contacts_url }
-            format.json { head :no_content }
-        end
+        respond_with @contact, :location => {:controller => "contacts", :action => "index", :type => "client"}
     end
 
     def search
@@ -118,24 +91,18 @@ class ContactsController < ApplicationController
             @contacts = Contact.search params[:q], :with => {:company_id => current_user.company_id}
         end
 
-        respond_to do |format|
-            format.html
-            format.json { head :no_content }
-        end
+        respond_with @contacts
     end
 
     def map_index
-        @company = Company.where(:id => current_user.company_id).first
+        @company = current_user.company
         @contacts = @company.contacts.all
-        @json       = @company.contacts.all.to_gmaps4rails
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @contacts }
-        end
+        @json = @company.contacts.all.to_gmaps4rails
+
+        respond_with @contacts
     end
 
     def create_contact
-        @contact = current_user.company.contact.new(:first_name =>params[:first_name], :middle_name => params[:middle_name], :last_name => params[:last_name], :email_id => params[:email_id], :address => params[:address], :mobile_no=> params[:mobile_no], :landline_no => params[:landline_no], :company_id => current_user.id, :contact_relationship => "client", :account_id => params[:account_id])
-        @contact.save
+        @contact = current_user.company.contact.create(:first_name =>params[:first_name], :middle_name => params[:middle_name], :last_name => params[:last_name], :email_id => params[:email_id], :address => params[:address], :mobile_no=> params[:mobile_no], :landline_no => params[:landline_no], :company_id => current_user.id, :contact_relationship => "client", :account_id => params[:account_id])
     end
 end
