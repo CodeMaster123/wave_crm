@@ -1,50 +1,36 @@
 class PartialPaymentsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    respond_to :html, :json
 
     def index
         @partial_payments = PartialPayment.all
 
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @partial_payments }
-        end
+        respond_with @partial_payments
     end
 
     def show
         @partial_payment = PartialPayment.find(params[:id])
 
-        respond_to do |format|
-            format.html # show.html.erb
-            format.json { render json: @partial_payment }
-        end
+        respond_with @partial_payment
     end
 
     def new
         @partial_payment = PartialPayment.new
 
-        respond_to do |format|
-            format.html # new.html.erb
-            format.json { render json: @partial_payment }
-        end
+        respond_with @partial_payment
     end
 
     def edit
         @partial_payment = PartialPayment.find(params[:id])
+        respond_with @partial_payment
     end
 
     def create
         @partial_payment = PartialPayment.new(params[:partial_payment])
 
-        respond_to do |format|
-            if @partial_payment.save
-                format.html { redirect_to @partial_payment, notice: 'Partial payment was successfully created.' }
-                format.json { render json: @partial_payment, status: :created, location: @partial_payment }
-            else
-                format.html { render action: "new" }
-                format.json { render json: @partial_payment.errors, status: :unprocessable_entity }
-            end
-        end
+        @partial_payment.save
+        respond_with @partial_payment
     end
 
     def update
