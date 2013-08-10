@@ -5,11 +5,14 @@ class Notification < ActiveRecord::Base
     belongs_to :contact
     belongs_to :company
 
-    attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id, :is_sms, :is_email, :subject
+    attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id, :is_sms, :is_email, :subject,  :user_id, :next_notification
+    attr_accessor :user_id, :next_notification
 
     validates :contact_id, :presence => true
     validates :company_id, :presence => true
     validates :subject, :presence => true
+
+    after_create :send_notification
 
     def sms_send
         @sms_gateway_username = "wave"
@@ -60,7 +63,6 @@ class Notification < ActiveRecord::Base
 
     def self.notifications_by_type(company_id, notification_type)
         if notification_type == "old"
-            puts 'old =================>'
             @notifications = Notification.where(:notification_time => Date.today-3650.days..Date.today-1.days, :company_id => company_id)
         elsif notification_type == "current"
             @notifications = Notification.where(:notification_time => Date.today..Date.today+30.days, :company_id => company_id)
@@ -69,14 +71,17 @@ class Notification < ActiveRecord::Base
         end
     end
 
-    #def self.send_notification(notification,user_id)
-    #    if notification.is_sms
-    #        notification.sms_send
-    #    end
-    #    if notification.is_email
-    #        notification.email_send(user_id)
-    #    end
-    #end
+    def send_notification
+        if self.is_sms
+            self.sms_send
+        end
+        if self.is_email
+            self.email_send(self.user_id)
+        end
+       # if self.next_notification == true
+       #     Notification.c
+       # end
+    end
 
     private
     def custom_checkbox_validation

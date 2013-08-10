@@ -1,6 +1,7 @@
 class NotificationsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    respond_to :html, :json
 
     def index
         if current_user.account_type == 1
@@ -11,20 +12,13 @@ class NotificationsController < ApplicationController
             end
         end
 
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @notifications }
-            format.js  { render :json => @notifications }
-        end
+        respond_with @notifications
     end
 
     def show
         @notification = Notification.find(params[:id])
 
-        respond_to do |format|
-            format.html # show.html.erb
-            format.json { render json: @notification }
-        end
+        respond_with @notification
     end
 
     def new
@@ -32,10 +26,7 @@ class NotificationsController < ApplicationController
         @notification = Notification.new
         @contacts = @company.contacts.all
 
-        respond_to do |format|
-            format.html # new.html.erb
-            format.json { render json: @notification }
-        end
+        respond_with @notification
     end
 
     def edit
@@ -49,31 +40,22 @@ class NotificationsController < ApplicationController
         @notification = @company.notifications.new(params[:notification])
         @contacts = @company.contacts.all
 
-        unless params[:Next_Notification].empty?
+        unless params[:next_notification].empty?
             @notification2 = @company.notifications.new(params[:notification])
-            @notification2.notification_time = @notification2.notification_time + params[:Next_Notification].to_i.month
+            @notification2.notification_time = @notification2.notification_time + params[:next_notification].to_i.month
         end
 
-        respond_to do |format|
-            if @notification.save
-                if @notification.is_sms
-                    @notification.sms_send
-                end
-                if @notification.is_email
-                    @notification.email_send(current_user.id)
-                end
-                unless params[:Next_Notification].empty? == true
-                    @notification2.save
-                    @notification2.sms_send
-                end
+        @notification.user_id = current_user.id
+        @notification.next_notification = params[:next_notification]
+        @notification.save
 
-                format.html { redirect_to :controller=>"notifications", :action=>"index", :type=>"current"}
-                format.json { render json: @notification, status: :created, location: @notification }
-            else
-                format.html { render "new" }
-                format.json { render json: @notification.errors, status: :unprocessable_entity }
-            end
+        unless params[:next_notification].empty? == true
+            @notification2.user_id = current_user.id
+            @notification2.next_notification = params[:next_notification]
+            @notification2.save
         end
+
+        respond_with @notification
     end
 
     def update
@@ -81,25 +63,15 @@ class NotificationsController < ApplicationController
         @notification = @company.notifications.find(params[:id])
         @contacts = @company.contacts.all
 
-        respond_to do |format|
-            if @notification.update_attributes(params[:notification])
-                format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
-                format.json { head :no_content }
-            else
-                format.html { render "edit" }
-                format.json { render json: @notification.errors, status: :unprocessable_entity }
-            end
-        end
+        @notification.update_attributes(params[:notification])
+        respond_with @notification
     end
 
     def destroy
         @notification = Notification.find(params[:id])
         @notification.destroy
 
-        respond_to do |format|
-            format.html { redirect_to notifications_url }
-            format.json { head :no_content }
-        end
+        respond_with @notification
     end
 
     def search
@@ -110,9 +82,8 @@ class NotificationsController < ApplicationController
                 @notifications = Notification.all
             end
         end
-        respond_to do |format|
-            format.html
-        end
+
+        respond_with @notification
     end
 
     def notifications_to_all
