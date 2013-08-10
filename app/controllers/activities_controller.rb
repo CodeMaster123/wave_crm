@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    respond_to :html, :json
 
     def index
         @activity = PublicActivity::Activity.order("created_at desc")
@@ -19,35 +20,19 @@ class ActivitiesController < ApplicationController
     def create
         @activity = Activity.new(activity_params)
 
-        respond_to do |format|
-            if @activity.save
-                format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
-                format.json { render action: 'show', status: :created, location: @activity }
-            else
-                format.html { render action: 'new' }
-                format.json { render json: @activity.errors, status: :unprocessable_entity }
-            end
-        end
+        @activity.save
+        respond_with @activity
     end
 
     def update
-        respond_to do |format|
-            if @activity.update(activity_params)
-                format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
-                format.json { head :no_content }
-            else
-                format.html { render action: 'edit' }
-                format.json { render json: @activity.errors, status: :unprocessable_entity }
-            end
-        end
+        @activity.update(activity_params)
+        respond_with @activity
     end
 
     def destroy
         @activity.destroy
-        respond_to do |format|
-            format.html { redirect_to activities_url }
-            format.json { head :no_content }
-        end
+
+        respond_with @activity
     end
 
     private
