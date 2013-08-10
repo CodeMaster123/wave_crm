@@ -1,32 +1,24 @@
 class CompaniesController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    respond_to :html, :json
 
     def index
         @companies = Company.all
 
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @companies }
-        end
+        respond_with @companies
     end
 
     def show
         @company = Company.find(params[:id])
 
-        respond_to do |format|
-            format.html # show.html.erb
-            format.json { render json: @company }
-        end
+        respond_with @company
     end
 
     def new
         @company = Company.new
 
-        respond_to do |format|
-            format.html # new.html.erb
-            format.json { render json: @company }
-        end
+        respond_with @company
     end
 
     def edit
@@ -36,38 +28,21 @@ class CompaniesController < ApplicationController
     def create
         @company = Company.new(params[:company])
 
-        respond_to do |format|
-            if @company.save
-                format.html { redirect_to companies_path, notice: 'Company was successfully created.' }
-                format.json { render json: @company, status: :created, location: @company }
-            else
-                format.html { render "new" }
-                format.json { render json: @company.errors, status: :unprocessable_entity }
-            end
-        end
+        @company.save
+        respond_with @company
     end
 
     def update
         @company = Company.find(params[:id])
 
-        respond_to do |format|
-            if @company.update_attributes(params[:company])
-                format.html { redirect_to companies_path, notice: 'Company was successfully updated.' }
-                format.json { head :no_content }
-            else
-                format.html { render "edit" }
-                format.json { render json: @company.errors, status: :unprocessable_entity }
-            end
-        end
+        @company.update_attributes(params[:company])
+        respond_with @company
     end
 
     def destroy
         @company = Company.find(params[:id])
         @company.destroy
 
-        respond_to do |format|
-            format.html { redirect_to companies_url }
-            format.json { head :no_content }
-        end
+        respond_with @company
     end
 end
