@@ -21,9 +21,6 @@
             <th>Amount Paid</th>
             <th>Transaction time</th>
             <% @i = 0 %>
-            <% @transaction_fields.each do |tf| %>
-                <th><%= tf.field_name %></th>
-            <% end %>
             <th>Actions</th>
         </tr>
     </thead>
@@ -48,17 +45,6 @@
                 <% end %>
                 <td class="amount_paid" onclick="select_partial_payment($(this))" ><div class="amount_paid_popover"><%= @paid_amount %></div></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
-                <% @transaction_field_values = transaction.transaction_field_values %>
-                <% unless @transaction_field_values.empty? %>
-                    <% @transaction_field_values.each do |tf_value| %>
-                        <td><%= tf_value.transaction_field_value %></td>
-                    <% end %>
-                <% else %>
-                    <% @transaction_fields.each do |tf| %>
-                        <td>-</td>
-                    <% end %>
-                <% end %>
-
                 <td>
                     <%= link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-mini' %>
                     <%= link_to 'Destroy', transaction_path(transaction), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
