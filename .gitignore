@@ -34,3 +34,6 @@
 
 #Ignore simplecov generated files
 /coverage/*
+
+#Ignore all log files
+*.log
