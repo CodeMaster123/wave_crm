@@ -4,12 +4,12 @@ class ContactsController < ApplicationController
     respond_to :html, :json
 
     def index
+        @company = Company.where(:id => current_user.company_id).first
+
         if current_user.account_type ==1
             if params[:type] == "client"
-                @company = Company.where(:id => current_user.company_id).first
                 @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).where(:contact_relationship => "client")
             elsif params[:type] == "potential_customer"
-                @company = Company.where(:id => current_user.company_id).first
                 @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).where(:contact_relationship => "potential_customer")
             end
         elsif current_user.account_type == 2
@@ -17,13 +17,11 @@ class ContactsController < ApplicationController
                 @contacts = Array.new
                 User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
                     @contacts += lead.contacts
-                    @contacts.paginate(:page => params[:page], :per_page => 15)
                 end
             elsif params[:type] == "potential_customer"
                 @contacts = Array.new
                 User.where(:id => current_user.id).first.team_leader.leads.each do |lead|
                     @contacts += lead.contacts
-                    @contacts.paginate(:page => params[:page], :per_page => 15)
                 end
             end
         elsif current_user.account_type == 3
@@ -31,18 +29,15 @@ class ContactsController < ApplicationController
                 @contacts = Array.new
                 User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
                     @contacts += lead.contacts
-                    @contacts.paginate(:page => params[:page], :per_page => 15)
                 end
-                @contacts.paginate(:page => params[:page], :per_page => 15)
             elsif params[:type] == "potential_customer"
                 @contacts = Array.new
                 User.where(:id => current_user.id).first.sales_executive.leads.each do |lead|
                     @contacts += lead.contacts
-                    @contacts.paginate(:page => params[:page], :per_page => 15)
                 end
-                @contacts.paginate(:page => params[:page], :per_page => 15)
             end
         end
+                @contacts.paginate(:page => params[:page], :per_page => 15)
 
         respond_with @contacts
     end
