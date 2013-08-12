@@ -18,34 +18,6 @@ class InventoriesController < ApplicationController
       respond_with @inventory
   end
 
-  def new
-      @inventory = Inventory.new
-      @products = current_user.company.products
-
-      respond_with @inventory
-  end
-
-  def edit
-      @inventory = Inventory.find(params[:id])
-      @products = current_user.company.products
-  end
-
-  def create
-      @inventory = Inventory.new(params[:inventory])
-      @products = current_user.company.products
-
-      @inventory.save
-      respond_with @inventory
-  end
-
-  def update
-      @inventory = Inventory.find(params[:id])
-      @products = current_user.company.products
-
-      @inventory.update_attributes(params[:inventory])
-      respond_with @inventory
-  end
-
   def destroy
       @inventory = Inventory.find(params[:id])
       @inventory.destroy
