@@ -16,7 +16,6 @@ WaveCrm::Application.routes.draw do
     resources :products
     resources :leads_products
     resources :notifications
-    resources :notification_settings
     resources :targets
     resources :employees
     resources :team_leaders
