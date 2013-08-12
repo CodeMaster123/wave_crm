@@ -5,8 +5,6 @@ class Lead < ActiveRecord::Base
     has_many :contacts, :dependent=>:destroy
     has_many :contacts, :as => :contactable
 
-    has_many :leads_products, :dependent => :destroy
-    has_many :products, :through => :leads_products
     has_many :product_transactions
 
     has_many :events, :dependent => :destroy
@@ -17,13 +15,11 @@ class Lead < ActiveRecord::Base
     belongs_to :company
 
     accepts_nested_attributes_for :products, :allow_destroy => true
-    accepts_nested_attributes_for :leads_products, :allow_destroy => true
     accepts_nested_attributes_for :product_transactions, :allow_destroy => true
     accepts_nested_attributes_for :contacts, :allow_destroy => true
     accepts_nested_attributes_for :account
 
     attr_accessible :description, :executive_id, :lead_by, :title, :leadable_id, :leadable_type, :company_id, :lead_source, :lead_status, :matured, :matured_at, :opening_date
-    attr_accessible :leads_products_attributes, :product_id, :matured_at
     attr_accessible :product_transactions_attributes, :product_id, :matured_at
     attr_accessible :contacts_attributes, :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no
     attr_accessible :account, :account_attributes
