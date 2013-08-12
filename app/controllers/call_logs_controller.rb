@@ -23,8 +23,6 @@ class CallLogsController < ApplicationController
     end
 
     def create_log
-        puts "call_duration_minutes ======> #{params[:call_duration_minutes]}"
-        puts "call_duration_seconds ======> #{params[:call_duration_seconds]}"
         @call_duration = (params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i)
         @call_log = CallLog.create(:call_result =>params[:call_result], :call_type => params[:call_type], :call_purpose => params[:call_purpose], :call_owner_id => params[:call_owner_id].to_i, :call_start_time => params[:call_start_time].to_date, :subject => params[:subject], :lead_id => params[:lead_id], :call_duration => @call_duration)
     end

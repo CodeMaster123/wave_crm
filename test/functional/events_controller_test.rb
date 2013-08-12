@@ -62,8 +62,4 @@ class EventsControllerTest < ActionController::TestCase
 
     assert_redirected_to events_path
   end
-
-  test "should check if search function is working" do
-    #get :search
-  end
 end

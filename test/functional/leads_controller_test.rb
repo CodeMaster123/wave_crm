@@ -26,7 +26,6 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should create lead" do
         assert_difference('Lead.count') do
-            puts "title => #{@lead.title}, id => #{@lead.id}, :description => #{@lead.description}"
             post :create, lead: { title: @lead.title, description: @lead.description, leadable_id: @lead.leadable_id, leadable_type: @lead.leadable_type, lead_status: @lead.lead_status, lead_source: @lead.lead_source, company_id: @lead.lead_source}
         end
 

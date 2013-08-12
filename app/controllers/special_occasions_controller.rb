@@ -29,14 +29,14 @@ class SpecialOccasionsController < ApplicationController
         @special_occasion = SpecialOccasion.new(params[:special_occasion])
         @special_occasion.save
 
-        respond_with @special_occasion
+        respond_with @special_occasion, :location => special_occasions_path
     end
 
     def update
         @special_occasion = SpecialOccasion.find(params[:id])
         @special_occasion.update_attributes(params[:special_occasion])
 
-        respond_with @special_occasion
+        respond_with @special_occasion, :location => special_occasions_path
     end
 
     def destroy

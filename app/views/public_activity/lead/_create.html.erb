@@ -1,5 +1,9 @@
 <% if current_user.company.crm_customer.customer_type == "B2B" %>
+<% unless activity.trackable.account.nil? %>
 Created a lead for account <b><%= link_to activity.trackable.account.account_name, account_path(activity.trackable.account) %></b>
+<% end %>
 <% else %>
+<% unless activity.trackable.account.nil? %>
 Created a lead for customer <b><%= link_to activity.trackable.account.account_name, account_path(activity.trackable.account) %></b>
+<% end %>
 <% end %>

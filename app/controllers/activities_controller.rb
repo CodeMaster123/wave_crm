@@ -7,34 +7,6 @@ class ActivitiesController < ApplicationController
         @activity = PublicActivity::Activity.order("created_at desc")
     end
 
-    def show
-    end
-
-    def new
-        @activity = Activity.new
-    end
-
-    def edit
-    end
-
-    def create
-        @activity = Activity.new(activity_params)
-
-        @activity.save
-        respond_with @activity
-    end
-
-    def update
-        @activity.update(activity_params)
-        respond_with @activity
-    end
-
-    def destroy
-        @activity.destroy
-
-        respond_with @activity
-    end
-
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity

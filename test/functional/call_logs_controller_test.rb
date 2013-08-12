@@ -15,8 +15,6 @@ class CallLogsControllerTest < ActionController::TestCase
     #test "should create call_log" do
     #    assert_difference('CallLog.count') do
     #        post :create, call_log: { call_duration: @call_log.call_duration, call_owner_id: @call_log.call_owner_id, call_purpose: @call_log.call_purpose, call_result: @call_log.call_result, call_start_time: @call_log.call_start_time, call_type: @call_log.call_type, subject: @call_log.subject, contact_id: @call_log.contact_id }
-    #        puts "duration =========> #{@call_log.call_duration}"
-    #        puts "Last call log =======>#{CallLog.last.id}"
     #    end
     #    assert_redirected_to call_log_path(assigns(:call_log))
     #end
