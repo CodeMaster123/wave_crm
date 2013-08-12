@@ -109,25 +109,6 @@ class TransactionsController < ApplicationController
       end
     end
 
-#    def mature
-#      if request.post?
-#        if params[:executive_type] == "TeamLeader"
-#          @company_id = TeamLeader.find(params[:matured_by].to_i).company_id
-#        else
-#          @company_id = SalesExecutive.find(params[:matured_by].to_i).company_id
-#        end
-#
-#        @created = Transaction.last.id
-#        Transaction.create(:amount => params[:amount],:contact_id => params[:contact_id], :micr_code => params[:micr_code], :transaction_time => params[:transaction_time].to_time, :transaction_type => params[:transaction_type], :company_id => @company_id, :matured_by => params[:matured_by], :executive_type => params[:executive_type].to_s)
-#        if Transaction.last.id == @created
-#          session[:errors] = 'Fill the form carefully'
-#        else
-#          Lead.find(params[:id1]).update_attributes(:matured_at => params[:transaction_time])
-#          redirect_to leads_path, notice: "Lead successfully matured"
-#        end
-#      end
-#    end
-
     def invoice
       @company = current_user.company
       @transaction = Transaction.find(params[:id])

@@ -7,6 +7,7 @@ class TransactionsControllerTest < ActionController::TestCase
 
     setup do
         @transaction = transactions(:one)
+        @product_transactions = product_transactions(:one)
         @user = users(:one)
         sign_in @user
     end
@@ -22,13 +23,16 @@ class TransactionsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    # test "should create transaction" do
-    #     @product_transactions = product_transactions(:one)
-    #     assert_difference('Transaction.count') do
-    #         post :create, transaction: { amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time, matured_by: @transaction.matured_by, contact_type: 1 , product_transactions_attributes: @product_transactions}
-    #     end
-    #     assert_redirected_to transactions_path
-    # end
+    test "should check if executive can mature a lead" do
+        get :new, id1: 1, matured_by: 1, executive_type: 'TeamLeader'
+    end
+
+    test "should create transaction" do
+        assert_difference('Transaction.count') do
+            post :create, transaction: { amount: @transaction.amount, company_id: @transaction.company_id, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time, contact_type: @transaction.contact_type, matured_by: @transaction.matured_by, contact_type: @transaction.contact_type, micr_code: @transaction.micr_code, transaction_type: @transaction.transaction_type, account_id: @transaction.account_id, executive_type: @transaction.executive_type}
+        end
+        assert_redirected_to transactions_path
+    end
 
     test "should show transaction" do
         get :show, id: @transaction
@@ -40,10 +44,10 @@ class TransactionsControllerTest < ActionController::TestCase
         assert_response :success
     end
 
-    #   test "should update transaction" do
-    #       put :update, id: @transaction, transaction: { amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time }
-    #       assert_redirected_to transaction_path(assigns(:transaction))
-    #   end
+    test "should update transaction" do
+        put :update, id: @transaction, transaction: {amount: @transaction.amount, contact_id: @transaction.contact_id, transaction_time: @transaction.transaction_time, contact_type: @transaction.contact_type, matured_by: @transaction.matured_by, contact_type: @transaction.contact_type, micr_code: @transaction.micr_code, transaction_type: @transaction.transaction_type, account_id: @transaction.account_id, executive_type: @transaction.executive_type}
+        assert_redirected_to transaction_path(assigns(:transaction))
+    end
 
     test "should destroy transaction" do
         assert_difference('Transaction.count', -1) do
@@ -51,5 +55,10 @@ class TransactionsControllerTest < ActionController::TestCase
         end
 
         assert_redirected_to transactions_path
+    end
+
+    test "should get invoice method" do
+        get :invoice, id: 1
+        assert_response :success
     end
 end

@@ -10,7 +10,7 @@ one:
   ownership_type: MyString
   billing_address: MyString
   shipping_address: MyString
-  lead_id: 3
+  lead_id: 1
 
 two:
   id: 2
@@ -22,4 +22,4 @@ two:
   ownership_type: MyString
   billing_address: MyString
   shipping_address: MyString
-  lead_id: 4
+  lead_id: 2

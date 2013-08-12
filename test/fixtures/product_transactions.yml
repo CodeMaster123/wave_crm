@@ -7,7 +7,7 @@ one:
   quantity: 10
 
 two:
-  product_id: 1
+  product_id: 2
   transaction_id: 2
   price: 11
   quantity: 10

@@ -1,23 +1,25 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 one:
   id: 1
   amount: 12312
   transaction_time: 2013-04-16 10:43:35
   contact_id: 1
-  executive_type: "TeamLeader"
+  executive_type: 1
   transaction_type: "Cash"
   micr_code: "123123"
   matured_by: 12
   account_id: 1
+  lead_id: 1
+  company_id: 1
 
 two:
   id: 2
   amount: 123312
   transaction_time: 2013-04-16 10:43:35
   contact_id: 1
-  executive_type: "TeamLeader"
+  executive_type: 1
   transaction_type: "Cash"
   micr_code: "123123"
   matured_by: 12
   account_id: 1
+  lead_id: 2
+  company_id: 1
