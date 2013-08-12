@@ -9,11 +9,4 @@ class NotificationSettingsController < ApplicationController
 
         respond_with @notification_setting
     end
-
-    def update
-        @notification_setting = NotificationSetting.find(params[:id])
-
-        @notification_setting.update_attributes(params[:notification_setting])
-        respond_with @notification_setting
-    end
 end
