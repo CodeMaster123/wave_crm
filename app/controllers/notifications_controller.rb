@@ -40,16 +40,14 @@ class NotificationsController < ApplicationController
         @notification = @company.notifications.new(params[:notification])
         @contacts = @company.contacts.all
 
-        unless params[:next_notification].empty?
-            @notification2 = @company.notifications.new(params[:notification])
-            @notification2.notification_time = @notification2.notification_time + params[:next_notification].to_i.month
-        end
 
         @notification.user_id = current_user.id
         @notification.next_notification = params[:next_notification]
         @notification.save
 
-        unless params[:next_notification].empty? == true
+        unless params[:next_notification].empty?
+            @notification2 = @company.notifications.new(params[:notification])
+            @notification2.notification_time = @notification2.notification_time + params[:next_notification].to_i.month
             @notification2.user_id = current_user.id
             @notification2.next_notification = params[:next_notification]
             @notification2.save

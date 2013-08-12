@@ -52,4 +52,12 @@ class NotificationsControllerTest < ActionController::TestCase
 
         assert_redirected_to notifications_path
     end
+
+    test "should display notifications to all view" do
+        get :notifications_to_all
+    end
+
+    test "should send notifications to everyone" do
+        post :notifications_to_all
+    end
 end
