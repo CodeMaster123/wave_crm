@@ -11,7 +11,6 @@
             <div class="new-top">
                 <%= link_to "New", new_lead_path, :class => 'btn btn-primary custom-new-button' %>
             </div>
-            <% puts "view -session variable set to #{session[:sales_executive]}" %>
             <% if session[:sales_executive] == true %>
             <% else %>
                 <div class="notification-btn">
@@ -22,7 +21,6 @@
                 </div>
             <% end %>
             <% session[:sales_executive] = false %>
-            <% puts "view -session variable set to #{session[:sales_executive]}" %>
         </div>
     </div>
 
@@ -133,7 +131,6 @@
             <% if executive.leads.first.nil? %>
                 <b>No Leads</b>
             <% else %>
-                <% puts "executives lead.id ============>#{executive.leads.first.id}" %>
                 <table class="table table-striped">
                     <thead>
                         <tr>
