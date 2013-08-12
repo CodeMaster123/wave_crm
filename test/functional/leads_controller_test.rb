@@ -8,7 +8,7 @@ class LeadsControllerTest < ActionController::TestCase
     setup do
         @lead = leads(:one)
 
-        @user = users(:one)
+        @user = users(:two)
         sign_in @user
     end
 
@@ -21,6 +21,11 @@ class LeadsControllerTest < ActionController::TestCase
 
     test "should get new" do
         get :new
+        assert_response :success
+    end
+
+    test "should get edit" do
+        get :edit, id: @lead
         assert_response :success
     end
 
@@ -48,5 +53,15 @@ class LeadsControllerTest < ActionController::TestCase
         end
 
         assert_redirected_to leads_path
+    end
+
+    test "change lead owner" do
+        post :change_owner, leadable_type: "TeamLeader", leadable_id: 1, lead_id: 1
+        assert_response :success
+    end
+
+    test "postpone lead" do
+        post :postpone_lead, opening_date: Date.tomorrow, lead_id: 1
+        assert_response :success
     end
 end

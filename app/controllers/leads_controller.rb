@@ -140,7 +140,6 @@ class LeadsController < ApplicationController
     end
 
     def change_owner
-
         Lead.find(params[:lead_id].to_i).update_attributes(:leadable_type => params[:leadable_type], :leadable_id => params[:leadable_id])
     end
 

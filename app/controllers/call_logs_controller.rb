@@ -1,26 +1,7 @@
 class CallLogsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
-
-    def create
-        @call_log = CallLog.new(params[:call_log])
-        @call_log.call_duration = (params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i)
-
-        @company = current_user.company
-        @call_owner = company.sales_executives
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives
-
-        respond_to do |format|
-            if @call_log.save
-                format.html { redirect_to @call_log, notice: 'Call log was successfully created.' }
-                format.json { render json: @call_log, status: :created, location: @call_log }
-            else
-                format.html { render "new" }
-                format.json { render json: @call_log.errors, status: :unprocessable_entity }
-            end
-        end
-    end
+    respond_to :html, :json
 
     def create_log
         @call_duration = (params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i)
