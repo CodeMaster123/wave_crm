@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
     validates :first_name, :presence => true
     validates :last_name, :presence => true
     validates :address, :presence => true
-    validates :mobile_no, :numericality => true
+    validates :mobile_no, :numericality => true, :uniqueness => true
     validates :email, :uniqueness => true
     validates :password, :presence => true
     validates :password_confirmation, :presence => true
