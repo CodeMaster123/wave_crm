@@ -43,7 +43,7 @@ class TargetsControllerTest < ActionController::TestCase
 
     test "should update target" do
       put :update, id: @target, target: { achived: @target.achived, amount: @target.amount, target_month: @target.target_month, target_year: @target.target_year, targetable_id: @target.targetable_id, targetable_type: @target.targetable_type, company_id: @target.company_id }
-        assert_redirected_to target_path(assigns(:target))
+        assert_redirected_to targets_path
     end
 
     test "should destroy target" do

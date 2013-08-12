@@ -55,7 +55,7 @@ class NotificationsController < ApplicationController
             @notification2.save
         end
 
-        respond_with @notification
+        respond_with @notification, :location => {:controller => "notifications", :action => "index", :type => "current"}
     end
 
     def update

@@ -106,7 +106,8 @@ class LeadsController < ApplicationController
         end
 
         @lead.save
-        respond_with @lead
+
+        respond_with @lead, :location => leads_path
     end
 
     def update
@@ -116,7 +117,7 @@ class LeadsController < ApplicationController
         @lead = @company.leads.find(params[:id])
 
         @lead.update_attributes(params[:lead])
-        respond_with @lead
+        respond_with @lead, :location => leads_path
     end
 
     def destroy

@@ -24,7 +24,7 @@ class NotificationsControllerTest < ActionController::TestCase
 
     test "should create notification" do
         assert_difference('Notification.count') do
-            post :create, Next_Notification: "", notification: { body: @notification.body, subject: @notification.subject, is_sms: @notification.is_sms, is_email: @notification.is_sms, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent}
+            post :create, next_notification: "", notification: { body: @notification.body, subject: @notification.subject, is_sms: @notification.is_sms, is_email: @notification.is_sms, contact_id: @notification.contact_id, sms_sent: @notification.sms_sent}
         end
 
         assert_redirected_to :controller => 'notifications', :action => 'index', :type => 'current'

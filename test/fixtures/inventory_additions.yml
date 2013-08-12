@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   product_id: 1
   addition_date: 2013-05-10 15:12:32
   quantity: 1
 
 two:
+  id: 2
   product_id: 1
   addition_date: 2013-05-10 15:12:32
   quantity: 1

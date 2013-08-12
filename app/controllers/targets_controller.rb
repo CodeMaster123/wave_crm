@@ -69,7 +69,7 @@ class TargetsController < ApplicationController
         @sales_executives = @company.sales_executives
 
         @target.save
-        respond_with @target
+        respond_with @target, :location => targets_path
     end
 
     def update
@@ -79,7 +79,7 @@ class TargetsController < ApplicationController
         @sales_executives = @company.sales_executives
 
         @target.update_attributes(params[:target])
-        respond_with @target
+        respond_with @target, :location => targets_path
     end
 
     def destroy

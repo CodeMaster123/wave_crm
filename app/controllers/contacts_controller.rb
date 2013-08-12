@@ -65,7 +65,7 @@ class ContactsController < ApplicationController
         @contact = current_user.company.contacts.new(params[:contact])
 
         @contact.save
-        respond_with @contact
+        respond_with @contact, :location => contacts_path
     end
 
     def update

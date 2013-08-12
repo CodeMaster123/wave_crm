@@ -37,7 +37,7 @@ class SalesExecutivesController < ApplicationController
         @sales_executive = @company.sales_executives.new(params[:sales_executive])
 
         @sales_executive.save
-        respond_with @sales_executive
+        respond_with @sales_executive, :location => sales_executives_path
     end
 
     def update

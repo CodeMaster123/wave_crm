@@ -39,7 +39,7 @@ class ContactsControllerTest < ActionController::TestCase
     test "should update contact" do
         @company = companies(:one)
         put :update, format: 'html', id: @contact, contact: { address: @contact.address, first_name: @contact.first_name, landline_no: @contact.landline_no, last_name: @contact.last_name, latitude: @contact.latitude, longitude: @contact.longitude, middle_name: @contact.middle_name, mobile_no: @contact.mobile_no,contact_relationship: @contact.contact_relationship}
-        assert_redirected_to contact_path(assigns(:contact))
+        assert_redirected_to :controller => "contacts", :action => "index", :type => "client"
     end
 
     test "should destroy contact" do
@@ -47,6 +47,6 @@ class ContactsControllerTest < ActionController::TestCase
             delete :destroy, id: @contact
         end
 
-        assert_redirected_to contacts_path
+        assert_redirected_to :controller => "contacts", :action => "index", :type => "client"
     end
 end

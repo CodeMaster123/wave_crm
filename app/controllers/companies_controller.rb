@@ -29,14 +29,14 @@ class CompaniesController < ApplicationController
         @company = Company.new(params[:company])
 
         @company.save
-        respond_with @company
+        respond_with @company, :location => companies_path
     end
 
     def update
         @company = Company.find(params[:id])
 
         @company.update_attributes(params[:company])
-        respond_with @company
+        respond_with @company, :location => companies_path
     end
 
     def destroy
