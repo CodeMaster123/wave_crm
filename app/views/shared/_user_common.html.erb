@@ -45,24 +45,6 @@
     </li>
 <% end %>
 
-<% if controller_name == "employees" %>
-    <% permitted_to? :index, :employees do %>
-        <li class="active" >
-        <%= link_to(:employees) do %>
-            <span>Employees</span>
-        <% end %>
-        </li>
-    <% end %>
-<% elsif %>
-    <% permitted_to? :index, :employees do %>
-        <li>
-        <%= link_to(:employees) do %>
-            <span>Employees</span>
-        <% end %>
-        </li>
-    <% end %>
-<% end %>
-
 <% if controller_name == "contacts" && action_name!= "map_index" %>
     <li class="active">
     <%= link_to(:contacts) do %>

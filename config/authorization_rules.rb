@@ -44,7 +44,7 @@ authorization do
         has_permission_on :partial_payments, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
         has_permission_on :call_logs, :to => [:create_log, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :calendar, :to => [:index]
-        #has_permission_on :employees, :to => [:index, :create, :read, :update, :destroy, :new, :show]
+        has_permission_on :employees, :to => [:index, :create, :read, :edit, :update, :destroy, :new, :show]
     end
 
     role :team_leader do
