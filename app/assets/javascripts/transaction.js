@@ -24,8 +24,8 @@ function select_partial_payment(table_cell)
 function attach_on_add(){
     var $total = 0;
     $('.product').each(function(){
-        var quantity = parseInt($(this).find($('.quantity')).val()||0);
-        var price = parseInt($(this).find($('.product_price')).val()||0);
+        var quantity = parseFloat($(this).find($('.quantity')).val()||0);
+        var price = parseFloat($(this).find($('.product_price')).val()||0);
 
         sub_total = quantity * price;
         $total = $total + sub_total;
@@ -76,7 +76,7 @@ $(document).ready(function() {
             $('.modal').modal('hide');
             $existing_amount = $('.current').find('.amount_paid').html();
             $new_amount = ($('#amount').val()||0);
-            $total = parseInt($existing_amount) + parseInt($new_amount);
+            $total = parseFloat($existing_amount) + parseFloat($new_amount);
             $('.current').find('.amount_paid').html($total);
             $('.current').removeClass('current');
 
