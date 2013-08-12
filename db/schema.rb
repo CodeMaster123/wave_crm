@@ -168,13 +168,6 @@ ActiveRecord::Schema.define(:version => 20130726085231) do
     t.datetime "opening_date"
   end
 
-  create_table "leads_products", :force => true do |t|
-    t.integer  "lead_id"
-    t.integer  "product_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "notification_settings", :force => true do |t|
     t.boolean  "notification_flag"
     t.integer  "user_id"

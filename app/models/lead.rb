@@ -5,6 +5,7 @@ class Lead < ActiveRecord::Base
     has_many :contacts, :dependent=>:destroy
     has_many :contacts, :as => :contactable
 
+    has_many :products, :through => :product_transactions
     has_many :product_transactions
 
     has_many :events, :dependent => :destroy
