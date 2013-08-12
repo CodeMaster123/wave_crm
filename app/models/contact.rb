@@ -7,10 +7,7 @@ class Contact < ActiveRecord::Base
   belongs_to :account
   has_many :notifications, :dependent => :destroy
 
-  has_many :taggings
-  has_many :tags, through: :taggings
-
-  has_many :call_logs
+  has_many :call_logs, :dependent => :destroy
 
   belongs_to :company
 

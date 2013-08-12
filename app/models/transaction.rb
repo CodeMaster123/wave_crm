@@ -2,11 +2,10 @@ class Transaction < ActiveRecord::Base
     include PublicActivity::Model
     tracked owner: ->(controller, model) {controller && controller.current_user}
 
-    has_many :transaction_field_values
     has_many :contacts, :as => :contactable, :dependent => :destroy
-    has_many :product_transactions
+    has_many :product_transactions, :dependent => :destroy
     has_many :products, :through => :product_transactions
-    has_many :partial_payments
+    has_many :partial_payments, :dependent => :destroy
     belongs_to :company
     belongs_to :account
     #belongs_to :lead

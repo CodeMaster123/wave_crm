@@ -1,11 +1,11 @@
 class Product < ActiveRecord::Base
   attr_accessible :description, :max_cost, :min_cost, :name, :company_id
 
-  has_many :leads_products
+  has_many :leads_products, :dependent => :destroy
   has_many :leads, :through => :leads_products
-  has_one :inventory
-  has_many :inventory_additions
-  has_many :product_transactions
+  has_one :inventory, :dependent => :destroy
+  has_many :inventory_additions, :dependent => :destroy
+  has_many :product_transactions, :dependent => :destroy
   has_many :transactions, :through => :product_transactions
   belongs_to :company
 

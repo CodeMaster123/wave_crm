@@ -4,11 +4,13 @@ class Lead < ActiveRecord::Base
 
     has_many :contacts, :dependent=>:destroy
     has_many :contacts, :as => :contactable
-    has_many :leads_products
-    has_many :events
+
+    has_many :leads_products, :dependent => :destroy
     has_many :products, :through => :leads_products
-    has_many :call_logs
     has_many :product_transactions
+
+    has_many :events, :dependent => :destroy
+    has_many :call_logs, :dependent => :destroy
     has_one :account
 
     belongs_to :leadable, :polymorphic => true

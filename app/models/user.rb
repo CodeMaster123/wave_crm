@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
     devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-    has_one :team_leader
-    has_one :sales_executive
-    has_many :events
-    has_one :notification_setting
-    has_many :transaction_fields
+    has_one :team_leader, :dependent => :destroy
+    has_one :sales_executive, :dependent => :destroy
+    has_many :events, :dependent => :destroy
+    has_one :notification_setting, :dependent => :destroy
     belongs_to :company
 
     #belongs_to :company
@@ -58,17 +57,9 @@ class User < ActiveRecord::Base
 
     #def update_executive
     #    if self.account_type == 2 #team leader
-    #        puts "team_Leader"
     #        TeamLeader.create(:user_id => self.id, :company_id => self.company_id)
-    #        puts "user_id => #{self.id}"
-    #        puts "team_leader' user_id => #{self.team_leader.user_id}"
     #    elsif self.account_type == 3 #sales executive
-    #        puts "sales_executive"
     #        self.sales_executive.update_attributes(:user_id => self.id)
-    #        puts "user_id => #{self.id}"
-    #        puts "sales_executive's user_id => #{self.sales_executive.user_id}"
     #    end
-    #    puts 'vivekxxxxxxxxxxxxxx'
     #end
-
 end
