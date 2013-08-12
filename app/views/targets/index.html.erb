@@ -19,7 +19,7 @@
     <tbody>
         <% if current_user.account_type != 3 %>
             <% render :partial => 'shared/i_calculation' %>
-            <% @targets_by_months.each do |target| %>
+            <% @targets.each do |target| %>
                 <tr>
 
                     <td><%= link_to @i = @i+1, target_path(target) %></td>
@@ -38,16 +38,16 @@
         <% else %>
             <tr>
 
-                <td><%= link_to '1', target_path(@targets_by_months) %></td>
-                <td><%= @targets_by_months.full_name %></td>
-                <td><%= @targets_by_months.targetable_type %></td>
-                <td><%= @targets_by_months.amount %> Rs</td>
-                <td><%= @targets_by_months.achived %> Rs</td>
-                <td><%= @targets_by_months.target_month %></td>
-                <td><%= @targets_by_months.target_year %></td>
+                <td><%= link_to '1', target_path(@targets) %></td>
+                <td><%= @targets.full_name %></td>
+                <td><%= @targets.targetable_type %></td>
+                <td><%= @targets.amount %> Rs</td>
+                <td><%= @targets.achived %> Rs</td>
+                <td><%= @targets.target_month %></td>
+                <td><%= @targets.target_year %></td>
                 <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_target_path(@targets_by_months), :class => 'btn btn-mini' %>
-                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), target_path(@targets_by_months), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_target_path(@targets), :class => 'btn btn-mini' %>
+                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), target_path(@targets), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
                 </td>
             <% end %>
 
