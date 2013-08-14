@@ -2,5 +2,5 @@
 
 {<img src="https://codeclimate.com/github/CodeMaster123/wave_crm.png" />}[https://codeclimate.com/github/CodeMaster123/wave_crm]
 
-{<img src="https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png" />}[https://travis-ci.org/CodeMaster123/wave_crm]
+{<img src="https://travis-ci.org/CodeMaster123/wave_crm.png" />}[https://travis-ci.org/CodeMaster123/wave_crm]
 
