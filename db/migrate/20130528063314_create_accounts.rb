@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.integer :account_owner
       t.string :account_name
       t.integer :number_of_employees
-      t.integer :phone_number
+      t.integer :phone_number, :limit => 8
       t.string :website
       t.string :ownership_type
       t.string :billing_address

@@ -4,7 +4,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.string :first_name
       t.string :middle_name
       t.string :last_name
-      t.integer :mobile_no
+      t.integer :mobile_no, :limit => 8
       t.string :address
       t.integer :age
       t.integer :team_leader_id
