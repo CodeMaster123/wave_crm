@@ -7,8 +7,8 @@ class CreateContacts < ActiveRecord::Migration
       t.float :longitude
       t.float :latitude
       t.string :address
-      t.integer :mobile_no
-      t.integer :landline_no
+      t.integer :mobile_no, :limit => 8
+      t.integer :landline_no, :limit => 8
       t.string :contactable_type
       t.integer :contactable_id
       t.integer :company_id
