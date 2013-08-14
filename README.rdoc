@@ -1,6 +1,23 @@
 == Welcome to Wave CRM
 
 {<img src="https://codeclimate.com/github/CodeMaster123/wave_crm.png" />}[https://codeclimate.com/github/CodeMaster123/wave_crm]
-
 {<img src="https://travis-ci.org/CodeMaster123/wave_crm.png" />}[https://travis-ci.org/CodeMaster123/wave_crm]
+{<img src="https://coveralls.io/repos/CodeMaster123/wave_crm/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/CodeMaster123/wave_crm]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
