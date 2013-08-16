@@ -1,5 +1,6 @@
-<% if controller_name == "activities" %>
-    <li class='active'>
+<% permitted_to? :index, :activities do %>
+    <% if controller_name == "activities" %>
+        <li class='active'>
         <%= link_to(:leads) do %>
             <span>Wall</span>
         <% end %>
@@ -17,6 +18,7 @@
         <% end %>
     <% end %>
     </li>
+<% end %>
 <% end %>
 
 <% if controller_name == "leads" %>
