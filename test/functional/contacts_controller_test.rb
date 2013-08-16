@@ -7,16 +7,61 @@ class ContactsControllerTest < ActionController::TestCase
     setup do
         @contact = contacts(:one)
 
-        @user = users(:one)
-        sign_in @user
+        @admin = users(:one)
+        sign_in @admin
     end
 
-    test "should get index" do
+    test "should get index of clients for admin account" do
         get :index, :type => "client"
         assert_response :success
         assert_not_nil assigns(:contacts)
     end
 
+    test "should get index of potential customers for admin account" do
+        get :index, :type => "potential_customer"
+        assert_response :success
+        assert_not_nil assigns(:contacts)
+    end
+
+    test "should get index of clients for team leader account" do
+        @team_leader = users(:team_leader)
+        sign_out @admin
+        sign_in @team_leader
+
+        get :index, :type => "client"
+        assert_response :success
+        assert_not_nil assigns(:contacts)
+    end
+
+    test "should get index of potential customers for team leader account" do
+        @team_leader = users(:team_leader)
+        sign_out @admin
+        sign_in @team_leader
+
+        get :index, :type => "potential_customer"
+        assert_response :success
+        assert_not_nil assigns(:contacts)
+    end
+
+    test "should get index of clients for sales executive account" do
+        @sales_executive = users(:sales_executive1)
+        sign_out @admin
+        sign_in @sales_executive
+
+        get :index, :type => "client"
+        assert_response :success
+        assert_not_nil assigns(:contacts)
+    end
+
+    test "should get index of potential customers for sales executive account" do
+        @sales_executive = users(:sales_executive1)
+        sign_out @admin
+        sign_in @sales_executive
+
+        get :index, :type => "potential_customer"
+        assert_response :success
+        assert_not_nil assigns(:contacts)
+    end
 
     test "should create contact" do
         assert_difference('Contact.count') do

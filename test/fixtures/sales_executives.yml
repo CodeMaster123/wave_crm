@@ -4,12 +4,19 @@ one:
   id: 1
   employee_id: 1
   team_leader_id: 1
-  user_id: 1
+  user_id: 4
   company_id: 1
 
 two:
   id: 2
   employee_id: 2
   team_leader_id: 1
-  user_id: 2
+  user_id: 5
+  company_id: 1
+
+three:
+  id: 3
+  employee_id: 3
+  team_leader_id: 1
+  user_id: 6
   company_id: 1

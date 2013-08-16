@@ -1,31 +1,33 @@
-<% if((controller_name == "transactions" && action_name == "graph")||(controller_name == "contacts" && action_name == "map_index")) %>
-    <li class="active">
-    <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
-        <span>Reports</span>
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li>
-        <%= link_to "Transaction graph", :transaction_graph %>
+<% permitted_to? :index, :activities do %>
+    <% if((controller_name == "transactions" && action_name == "graph")||(controller_name == "contacts" && action_name == "map_index")) %>
+        <li class="active">
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle active'>
+            <span>Reports</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <%= link_to "Transaction graph", :transaction_graph %>
+            </li>
+            <li>
+            <%= link_to "Customer map", :map_index %>
+            </li>
+        </ul>
         </li>
+    <% else%>
         <li>
-        <%= link_to "Customer map", :map_index %>
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+            <span>Reports</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+            <%= link_to "Transaction graph", :transaction_graph %>
+            </li>
+            <li>
+            <%= link_to "Customer map", :map_index %>
+            </li>
+        </ul>
         </li>
-    </ul>
-    </li>
-<% else%>
-    <li>
-    <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-        <span>Reports</span>
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li>
-        <%= link_to "Transaction graph", :transaction_graph %>
-        </li>
-        <li>
-        <%= link_to "Customer map", :map_index %>
-        </li>
-    </ul>
-    </li>
+    <% end %>
 <% end %>

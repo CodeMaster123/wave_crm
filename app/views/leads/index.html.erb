@@ -3,7 +3,6 @@
         <h1>Leads</h1>
     </div>
 </div>
-
 <% if params[:team_leader].nil? %>
     <div class="control-group">
         <div class="controls">
@@ -23,12 +22,10 @@
             <% session[:sales_executive] = false %>
         </div>
     </div>
-
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Sr.No</th>
-
                 <th>Description</th>
                 <th>Lead owner</th>
                 <th>Lead source</th>

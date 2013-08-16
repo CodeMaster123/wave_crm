@@ -20,8 +20,48 @@ two:
   account_type: 1
   company_id: 1
 
-superadmin:
+team_leader:
   id: 3
+  first_name: "Vijay"
+  last_name: "Gaikwad"
+  address: "Lavahit"
+  mobile_no: 9999999992
+  email: vijay2@gmail.com
+  account_type: 2
+  company_id: 1
+
+sales_executive1:
+  id: 4
+  first_name: "Vijay"
+  last_name: "Gaikwad"
+  address: "Lavahit"
+  mobile_no: 9999999993
+  email: sales_executive1@gmail.com
+  account_type: 3
+  company_id: 1
+
+sales_executive2:
+  id: 5
+  first_name: "Vijay"
+  last_name: "Gaikwad"
+  address: "Lavahit"
+  mobile_no: 9999999993
+  email: sales_executive2@gmail.com
+  account_type: 3
+  company_id: 1
+
+sales_executive3:
+  id: 6
+  first_name: "Vijay"
+  last_name: "Gaikwad"
+  address: "Lavahit"
+  mobile_no: 9999999993
+  email: sales_executive3@gmail.com
+  account_type: 3
+  company_id: 1
+
+superadmin:
+  id: 7
   first_name: "vivek"
   last_name: "varade"
   address: "vrindavan nagar"

@@ -52,7 +52,9 @@ class Lead < ActiveRecord::Base
     end
 
     def get_lead_source
-        self.lead_source.tr("_"," ").camelcase
+        unless self.lead_source.nil?
+            self.lead_source.tr("_"," ").camelcase
+        end
     end
 
     def post_processing

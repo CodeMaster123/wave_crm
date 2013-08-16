@@ -1,7 +1,6 @@
 if(window.location.pathname.indexOf("accounts")>0)
 {
     $(document).ready(function() {
-        console.log('accounts');
         $('#account_account_owner').chosen();
     });
 

@@ -1,15 +1,17 @@
-<% if controller_name == "activities" %>
-    <li class='active'>
-    <%= link_to(:activities) do %>
-        <span>Activities</span>
+<% permitted_to? :index, :activities do %>
+    <% if controller_name == "activities" %>
+        <li class='active'>
+        <%= link_to(:activities) do %>
+            <span>Activities</span>
+        <% end %>
+        </li>
+    <% else%>
+        <li>
+        <%= link_to(:activities) do %>
+            <span>Activities</span>
+        <% end %>
+        </li>
     <% end %>
-    </li>
-<% else%>
-    <li>
-    <%= link_to(:activities) do %>
-        <span>Activities</span>
-    <% end %>
-    </li>
 <% end %>
 
 <% if controller_name == "leads" %>
