@@ -175,30 +175,6 @@ Product.create([
                {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1}
 ])
 
-LeadsProduct.create([
-                    {:lead_id => 1, :product_id => 1},
-                    {:lead_id => 2, :product_id => 2},
-                    {:lead_id => 3, :product_id => 2},
-                    {:lead_id => 4, :product_id => 3},
-                    {:lead_id => 5, :product_id => 4},
-                    {:lead_id => 6, :product_id => 5},
-                    {:lead_id => 7, :product_id => 6},
-                    {:lead_id => 8, :product_id => 6},
-                    {:lead_id => 9, :product_id => 7},
-                    {:lead_id => 10, :product_id => 17},
-                    {:lead_id => 10, :product_id => 18},
-                    {:lead_id => 12, :product_id => 19},
-                    {:lead_id => 11, :product_id => 20},
-                    {:lead_id => 11, :product_id => 11},
-                    {:lead_id => 12, :product_id => 12},
-                    {:lead_id => 13, :product_id => 12},
-                    {:lead_id => 14, :product_id => 13},
-                    {:lead_id => 15, :product_id => 14},
-                    {:lead_id => 16, :product_id => 15},
-                    {:lead_id => 17, :product_id => 16},
-                    {:lead_id => 18, :product_id => 16}
-])
-
 Notification.create([
                     {:sms_sent => false, :contact_id => 1, :subject =>"", :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
                     {:sms_sent => false, :contact_id => 1, :subject =>"", :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 1},
@@ -568,35 +544,6 @@ Product.create([
                {:name => "root canal", :min_cost => 40000, :max_cost => 60000, :description => " teeth treatment", :company_id => 2},
                {:name => "root canalc", :min_cost => 40000, :max_cost => 60000, :description => "teeth treatment", :company_id => 2},
                {:name => "root canal", :min_cost => 40000, :max_cost => 60000, :description => "teeth treatment", :company_id => 2}
-])
-
-LeadsProduct.create([
-                    {:lead_id => 21, :product_id => 21},
-                    {:lead_id => 22, :product_id => 22},
-                    {:lead_id => 23, :product_id => 22},
-                    {:lead_id => 24, :product_id => 23},
-                    {:lead_id => 25, :product_id => 24},
-                    {:lead_id => 26, :product_id => 25},
-                    {:lead_id => 27, :product_id => 26},
-                    {:lead_id => 28, :product_id => 26},
-                    {:lead_id => 29, :product_id => 27},
-                    {:lead_id => 30, :product_id => 27},
-                    {:lead_id => 30, :product_id => 28},
-                    {:lead_id => 22, :product_id => 29},
-                    {:lead_id => 21, :product_id => 30},
-                    {:lead_id => 21, :product_id => 31},
-                    {:lead_id => 22, :product_id => 32},
-                    {:lead_id => 33, :product_id => 32},
-                    {:lead_id => 34, :product_id => 33},
-                    {:lead_id => 35, :product_id => 34},
-                    {:lead_id => 36, :product_id => 35},
-                    {:lead_id => 37, :product_id => 36},
-                    {:lead_id => 38, :product_id => 36},
-                    {:lead_id => 39, :product_id => 37},
-                    {:lead_id => 30, :product_id => 37},
-                    {:lead_id => 30, :product_id => 38},
-                    {:lead_id => 32, :product_id => 39},
-                    {:lead_id => 31, :product_id => 40}
 ])
 
 Notification.create([
