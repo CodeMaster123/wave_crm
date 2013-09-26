@@ -1,0 +1,24 @@
+development:
+  host: localhost
+  adapter: mysql2 
+  database: wave_crm_development
+  port: 3306
+  username: root
+  password: "09732546"
+
+test:
+  host: localhost
+  adapter: mysql2 
+  database: wave_crm_test
+  port: 3306
+  username: root
+  password: "09732546"
+
+production:
+  host: localhost
+  adapter: mysql2 
+  database: wave_crm_production
+  port: 3306
+  username: root
+  password: "09732546"
+
