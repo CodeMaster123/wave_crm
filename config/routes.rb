@@ -30,7 +30,6 @@ WaveCrm::Application.routes.draw do
     #Sinatra apps
     mount_sextant if Rails.env.development?
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-    mount Resque::Server, :at => '/resque_panel'
 
     #Search functionality
     match 'contact_search' => 'contacts#search'

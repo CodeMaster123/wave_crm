@@ -35,6 +35,7 @@ class LeadsController < ApplicationController
             end
             @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
         end
+        @leads = Lead.where("id < 30")
 
         respond_with @leads
     end
