@@ -164,7 +164,6 @@ GEM
     mime-types (1.23)
     mini_portile (0.5.1)
     multi_json (1.7.8)
-    mysql2 (0.3.12b4)
     nested_form (0.3.2)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
@@ -177,6 +176,7 @@ GEM
       cocaine (~> 0.5.0)
       mime-types
     pdfkit (0.5.4)
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -199,6 +199,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.2.0)
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -333,12 +334,13 @@ DEPENDENCIES
   lazy_high_charts
   less
   less-rails
-  mysql2 (= 0.3.12b4)
   nested_form (= 0.3.2)
   paperclip
   pdfkit
+  pg
   public_activity
   quiet_assets
+  railroady
   rails (= 3.2.13)
   rails3-jquery-autocomplete
   rails_admin

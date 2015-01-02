@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(:version => 20130726085231) do
     t.integer  "account_owner"
     t.string   "account_name"
     t.integer  "number_of_employees"
-    t.integer  "phone_number"
+    t.integer  "phone_number",        :limit => 8
     t.string   "website"
     t.string   "ownership_type"
     t.string   "billing_address"
     t.string   "shipping_address"
     t.integer  "company_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.boolean  "is_matured"
     t.integer  "lead_id"
   end
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(:version => 20130726085231) do
   create_table "companies", :force => true do |t|
     t.string   "company_name"
     t.string   "company_address"
-    t.integer  "contact_number1"
-    t.integer  "contact_number2"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "contact_number1", :limit => 8
+    t.integer  "contact_number2", :limit => 8
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "crm_customer_id"
   end
 
@@ -81,14 +81,14 @@ ActiveRecord::Schema.define(:version => 20130726085231) do
     t.float    "longitude"
     t.float    "latitude"
     t.string   "address"
-    t.integer  "mobile_no"
-    t.integer  "landline_no"
+    t.integer  "mobile_no",            :limit => 8
+    t.integer  "landline_no",          :limit => 8
     t.string   "contactable_type"
     t.integer  "contactable_id"
     t.integer  "company_id"
     t.boolean  "gmaps"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "email_id"
     t.string   "contact_relationship"
     t.integer  "account_id"
@@ -111,13 +111,13 @@ ActiveRecord::Schema.define(:version => 20130726085231) do
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
-    t.integer  "mobile_no"
+    t.integer  "mobile_no",         :limit => 8
     t.string   "address"
     t.integer  "age"
     t.integer  "team_leader_id"
     t.integer  "sales_executve_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "events", :force => true do |t|

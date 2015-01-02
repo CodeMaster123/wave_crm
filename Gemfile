@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'railroady'
 #gem 'turbolinks'
-gem 'mysql2', '0.3.12b4'
+#gem 'mysql2', '0.3.12b4'
+gem 'pg'
 gem 'rails_admin'
 gem 'devise'
 gem 'declarative_authorization', '~> 0.5.7'
