@@ -1,9 +1,8 @@
+ruby '2.1.0'
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'railroady'
-#gem 'turbolinks'
-#gem 'mysql2', '0.3.12b4'
 gem 'pg'
 gem 'rails_admin'
 gem 'devise'
@@ -13,6 +12,7 @@ gem 'thin', '~> 1.5.1'
 gem 'will_paginate'
 gem 'paperclip'
 gem 'wicked'
+
 #gem 'thinking-sphinx'
 #gem 'resque', :require => "resque/server"
 #gem 'resque-scheduler', :require => 'resque_scheduler/server'
@@ -45,12 +45,16 @@ group :development do
 end
 
 group :test do
-    gem 'guard-test'
-    gem 'ruby-prof'
     gem 'simplecov', :require => false, :group => :test
-    gem 'rb-inotify'
-    gem 'database_cleaner'
-    gem 'coveralls', :require => false
+    gem 'rspec-rails'
+    gem 'guard-rspec'
+    gem 'factory_girl'
+    gem 'factory_girl_rails'
+
+    #gem 'rb-inotify'
+    #gem 'ruby-prof'
+    #gem 'database_cleaner'
+    #gem 'coveralls', :require => false
 end
 
 #gem 'rack-mini-profiler'
@@ -59,5 +63,3 @@ gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
-#gem 'newrelic_rpm'
-#gem 'metrical'
