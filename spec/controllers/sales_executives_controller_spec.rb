@@ -20,16 +20,4 @@ RSpec.describe SalesExecutivesController, :type => :controller do
     get :show, id: 1
     expect(response).to have_http_status(:success)
   end
-
-  it 'should GET new with http success' do
-    sign_in :user, @user
-    get :new
-    expect(response).to have_http_status(:success)
-  end
-
-  it 'should GET edit with http success' do
-    sign_in :user, @user
-    get :edit, id: 1
-    expect(response).to have_http_status(:success)
-  end
 end
