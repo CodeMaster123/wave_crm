@@ -37,3 +37,5 @@
 
 #Ignore all log files
 *.log
+
+.coveralls.yml
