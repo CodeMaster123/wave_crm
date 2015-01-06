@@ -77,7 +77,7 @@ class Notification < ActiveRecord::Base
             self.sms_send
         end
         if self.is_email
-            self.email_send(self.user_id)
+            self.email_send(self.user_id) unless self.user_id == nil
         end
        # if self.next_notification == true
        #     Notification.c

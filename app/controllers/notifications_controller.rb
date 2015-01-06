@@ -15,12 +15,6 @@ class NotificationsController < ApplicationController
         respond_with @notifications
     end
 
-    def show
-        @notification = Notification.find(params[:id])
-
-        respond_with @notification
-    end
-
     def new
         @company = current_user.company
         @notification = Notification.new
@@ -62,7 +56,7 @@ class NotificationsController < ApplicationController
         @contacts = @company.contacts.all
 
         @notification.update_attributes(params[:notification])
-        respond_with @notification
+        respond_with @notification, :location => {:controller => "notifications", :action => "index", :type => "current"}
     end
 
     def destroy
@@ -91,7 +85,7 @@ class NotificationsController < ApplicationController
             @contacts = current_user.company.contacts.each do |contact|
                 Notification.create(:contact_id => contact.id, :body => params[:body], :notification_time => params[:notification_time], :company_id => current_user.company_id)
             end
-            redirect_to :notifications, notice: 'Notifications created for all contacts.'
+            redirect_to n_change_path("current"), notice: 'Notifications created for all contacts.'
         end
     end
 
