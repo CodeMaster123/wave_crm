@@ -1,7 +1,7 @@
 class InventoriesController < ApplicationController
   before_filter :authenticate_user!
   filter_access_to :all
-  respond_to :html, :json, :xml
+  respond_to :html, :json
 
 
   def index
