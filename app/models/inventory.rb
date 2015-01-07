@@ -7,10 +7,4 @@ class Inventory < ActiveRecord::Base
 
     validates :product_id, :presence => true
     validates :quantity, :presence => true
-
-    before_save :default_quantity
-
-    def default_quantity
-        self.quantity = 0 if self.quantity.nil?
-    end
 end

@@ -1,1 +1,3 @@
-created a call log about <b><%= activity.trackable.call_by %></b> calling <b><%= activity.trackable.contact.full_name %></b>
+<% if activity.trackable %>
+  created a call log about <b><%= activity.trackable.call_by %></b> calling <b><%= activity.trackable.contact.full_name %></b>
+<% end %>
