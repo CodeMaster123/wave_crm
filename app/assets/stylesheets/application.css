@@ -18,5 +18,6 @@
  *= require gmaps4rails
  *= better_tooltip_style
  *= require chosen
+ *= require font-awesome.min
  *= require_tree .
  */
