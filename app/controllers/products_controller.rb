@@ -3,32 +3,16 @@ class ProductsController < ApplicationController
     filter_access_to :all
 
     def index
-        @company = Company.where(:id => current_user.company_id).first
-        @products = Product.all
+        @company = Company.find(current_user.company_id)
         @products = @company.products.paginate(:page => params[:page], :per_page => 15)
-
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @products }
-        end
     end
 
     def show
         @product = Product.find(params[:id])
-
-        respond_to do |format|
-            format.html # show.html.erb
-            format.json { render json: @product }
-        end
     end
 
     def new
         @product = Product.new
-
-        respond_to do |format|
-            format.html # new.html.erb
-            format.json { render json: @product }
-        end
     end
 
     def edit
@@ -42,10 +26,8 @@ class ProductsController < ApplicationController
         respond_to do |format|
             if @product.save
                 format.html { redirect_to :products, notice: 'Product was successfully created.' }
-                format.json { render json: @product, status: :created, location: @product }
             else
                 format.html { render "new" }
-                format.json { render json: @product.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -56,11 +38,9 @@ class ProductsController < ApplicationController
 
         respond_to do |format|
             if @product.update_attributes(params[:product])
-                format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-                format.json { head :no_content }
+                format.html { redirect_to :products, notice: 'Product was successfully updated.' }
             else
                 format.html { render "edit" }
-                format.json { render json: @product.errors, status: :unprocessable_entity }
             end
         end
     end
@@ -68,10 +48,6 @@ class ProductsController < ApplicationController
     def destroy
         @product = Product.find(params[:id])
         @product.destroy
-
-        respond_to do |format|
-            format.html { redirect_to products_url }
-            format.json { head :no_content }
-        end
+        redirect_to products_url
     end
 end

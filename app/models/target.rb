@@ -17,4 +17,12 @@ class Target < ActiveRecord::Base
       @user = self.targetable.user
       "#{@user.first_name} #{@user.last_name}"
   end
+
+  def self.admin_target_list(company)
+    targets = Array.new
+    company.sales_users.each_with_index do |user, i|
+      targets[i] = user.get_target
+    end
+    targets
+  end
 end

@@ -10,7 +10,7 @@
             <div class="control-group hide existing_contact">
                 <%= f.label :contact_id, :class => 'control-label' %>
                 <div class="controls">
-                    <%= f.select :contact_id, options_for_select(@contacts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
+                    <%= f.select :contact_id, options_for_select(@company.contacts.map{|c|[c.full_name, c.id]}), :class => 'contacts_text_field' %>
                 </div>
             </div>
             <%= f.hidden_field :matured_at, :value => params[:matured_by], :class => 'contacts_text_field' %>
@@ -65,7 +65,7 @@
             <%= f.label :accounts, :class => 'control-label' %>
             <div class="controls">
                 <% if params[:matured_by].nil? %>
-                    <%= f.select :account_id, options_for_select(@accounts.map{|c|[c.account_name, c.id]}),{:include_blank => ""}, {:class => 'account_select', :"data-placeholder" => 'Select an account'} %>
+                    <%= f.select :account_id, options_for_select(@company.accounts.map{|c|[c.account_name, c.id]}),{:include_blank => ""}, {:class => 'account_select', :"data-placeholder" => 'Select an account'} %>
                 <% else %>
                     <% @account = Account.where(:lead_id => @lead.id).first %>
                     <%= @account.account_name %>
@@ -80,7 +80,7 @@
             <%= pt.label :products, :class => 'control-label' %>
             <div class="controls">
                 <%= pt.hidden_field :lead_id, :value => pt.object.lead_id%>
-                <%= pt.select :product_id, options_for_select(@products.map{|p|[p.name, p.id]},pt.object.product_id),{:include_blank => ""},{:class => 'product_transaction_new', :"data-placeholder" => 'Select a product'} %>
+                <%= pt.select :product_id, options_for_select(@company.products.map{|p|[p.name, p.id]},pt.object.product_id),{:include_blank => ""},{:class => 'product_transaction_new', :"data-placeholder" => 'Select a product'} %>
                 Quantity
                 <%= pt.text_field :quantity, :class=>'text_field quantity span1' %>
                 Price

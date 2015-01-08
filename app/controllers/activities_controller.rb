@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
     respond_to :html, :json
 
     def index
-        @activity = PublicActivity::Activity.order("created_at desc")
+        @activity = PublicActivity::Activity.where("created_at > '#{Date.today-7.days}' AND (key ilike '%create%' OR key ilike '%update%')").order("created_at desc")
     end
 
     private

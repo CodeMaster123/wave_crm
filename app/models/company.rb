@@ -21,4 +21,8 @@ class Company < ActiveRecord::Base
     validates :company_name, :presence => true
     validates :company_address, :presence => true
     validates :crm_customer_id, :uniqueness => true
+
+    def sales_users
+      self.users.where("account_type = 2 OR account_type = 3")
+    end
 end

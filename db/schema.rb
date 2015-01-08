@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150106120336) do
+ActiveRecord::Schema.define(:version => 20150107091217) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -268,13 +268,13 @@ ActiveRecord::Schema.define(:version => 20150106120336) do
   create_table "targets", :force => true do |t|
     t.integer  "targetable_id"
     t.string   "targetable_type"
-    t.integer  "amount"
-    t.integer  "achived"
+    t.integer  "amount",          :default => 0
+    t.integer  "achived",         :default => 0
     t.integer  "company_id"
     t.integer  "target_month"
     t.integer  "target_year"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "team_leaders", :force => true do |t|

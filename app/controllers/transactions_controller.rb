@@ -5,26 +5,19 @@ class TransactionsController < ApplicationController
     def index
         @company = current_user.company
         @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
-
-        respond_to do |format|
-            format.html # index.html.erb
-            format.json { render json: @transactions }
-        end
     end
 
     def show
         @transaction = Transaction.find(params[:id])
-        @product_transactions = @transaction.product_transactions
-        @partial_payments = @transaction.partial_payments.all
 
         respond_to do |format|
             format.html # show.html.erb
             format.pdf {render false } # show.html.erb
-            format.json { render json: @transaction }
         end
     end
 
     def new
+      @company = current_user.company
         if params[:matured_by].nil?
             @transaction = Transaction.new
             @transaction.product_transactions.build
@@ -37,26 +30,18 @@ class TransactionsController < ApplicationController
           @transaction.account = @lead.account
           #@transaction.product_transactions.build
         end
+
         @transaction.partial_payments.build
         @transaction.contacts.build
 
         @products = current_user.company.products
         @contacts = current_user.company.contacts.all
         @accounts = current_user.company.accounts
-
-        respond_to do |format|
-          format.html # new.html.erb
-          format.json { render json: @transaction }
-        end
     end
 
     def edit
       @transaction = Transaction.find(params[:id])
-
       @company = current_user.company
-      @accounts = @company.accounts
-      @products = @company.products
-      @contacts = @company.contacts.all
     end
 
     def create
@@ -66,21 +51,17 @@ class TransactionsController < ApplicationController
       @transaction = @company.transactions.new(params[:transaction])
       @contacts = @company.contacts.all
 
-      respond_to do |format|
+      if @transaction.save
+        @transaction.account.lead.update_attributes(:matured => true, :matured_at => Date.today)
+        @transaction.account.update_attributes(:is_matured => true)
 
-        if @transaction.save
-          @transaction.account.lead.update_attributes(:matured => true, :matured_at => Date.today)
-          @transaction.account.update_attributes(:is_matured => true)
-
-          if current_user.account_type == 1
-            format.html { redirect_to  transactions_path , notice: 'Transaction was successfully created.' }
-          else 
-            format.html { redirect_to  leads_path , notice: 'Transaction was successfully created.' }
-          end
-        else
-          format.html { render "new" }
-          format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        if current_user.account_type == 1
+          redirect_to  transactions_path , notice: 'Transaction was successfully created.'
+        else 
+          redirect_to  leads_path , notice: 'Transaction was successfully created.'
         end
+      else
+        render "new"
       end
     end
 
@@ -91,11 +72,9 @@ class TransactionsController < ApplicationController
 
       respond_to do |format|
         if @transaction.update_attributes(params[:transaction])
-          format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
-          format.json { head :no_content }
+          redirect_to transactions_path, notice: 'Transaction was successfully updated.'
         else
-          format.html { render "edit" }
-          format.json { render json: @transaction.errors, status: :unprocessable_entity }
+          render "edit"
         end
       end
     end
@@ -103,19 +82,13 @@ class TransactionsController < ApplicationController
     def destroy
       @transaction = Transaction.find(params[:id]).destroy
 
-      respond_to do |format|
-        format.html { redirect_to transactions_url }
-        format.json { head :no_content }
-      end
+        redirect_to transactions_url
     end
 
     def invoice
       @company = current_user.company
       @transaction = Transaction.find(params[:id])
       @product_transactions = @transaction.product_transactions
-      respond_to do |format|
-        format.html
-      end
     end
 
     def get_partial_payments

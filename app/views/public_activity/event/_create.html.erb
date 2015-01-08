@@ -1,1 +1,1 @@
-has a meeting with <b><%= activity.trackable.contact.full_name unless activity.trackable.contact.nil? %></b> at <b><%= activity.trackable.starts_at %></b>
+has a meeting with <b><%= activity.trackable.contact.full_name unless activity.trackable.contact.nil? %></b> <%= time_ago_in_words activity.trackable.starts_at%> ago

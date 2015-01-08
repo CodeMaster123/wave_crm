@@ -11,8 +11,6 @@
             <th>Executive type</th>
             <th>Target Amount</th>
             <th>Target Achived</th>
-            <th>Target Month </th>
-            <th>Target Year </th>
             <th>Actions </th>
         </tr>
     </thead>
@@ -21,17 +19,16 @@
             <% render :partial => 'shared/i_calculation' %>
             <% @targets.each do |target| %>
                 <tr>
-
-                    <td><%= link_to @i = @i+1, target_path(target) %></td>
+                    <td><%#= link_to @i = @i+1, target_path(target) %></td>
                     <td><%= target.full_name %></td>
                     <td><%= target.targetable_type %></td>
                     <td><%= target.amount %> Rs</td>
                     <td><%= target.achived %> Rs</td>
-                    <th><%= Date::MONTHNAMES[target.target_month] %></th>
-                      <td><%= target.target_year %></td>
                     <td>
-                        <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_target_path(target), :class => 'btn btn-mini' %>
-                        <%= link_to t('.destroy', :default => t("helpers.links.destroy")), target_path(target), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                    <% unless target.target_month.nil? %>
+                        <%= link_to 'Edit', edit_target_path(target), :class => 'btn btn-mini' %>
+                        <%= link_to 'Destroy', target_path(target), :method => :delete, :class => 'btn btn-mini btn-danger' %>
+                    <% end %>
                     </td>
                 <% end %>
             </tr>
@@ -55,5 +52,3 @@
     </table>
 
     <%= link_to t('.new', :default => t("helpers.links.new")), new_target_path, :class => 'btn btn-primary' %>
-    <!--| Previous targets-->
-     <%#= select_tag('vivek', options_for_select(@previous_months.map{|pm|["#{Date::MONTHNAMES[pm.first]} - #{pm.last}",pm.first]}), :onchange => 'fetch_previous_targets()', :class => 'previous_target_select') %>

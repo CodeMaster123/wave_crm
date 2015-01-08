@@ -1,5 +1,4 @@
-added
 <% if activity.trackable %>
-    an Email notification
-for <b><%= activity.trackable.contact.full_name %></b>
+  added an Email notification for
+  <b><%= activity.trackable.contact.full_name %></b> <%= time_ago_in_words activity.trackable.created_at %> ago.
 <% end %>

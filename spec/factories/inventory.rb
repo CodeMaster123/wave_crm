@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :product do
     id 1
-    name :television
+    name 'television'
     min_cost 5000
     max_cost 10000
     description 'It is an LCD tv'

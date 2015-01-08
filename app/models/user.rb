@@ -55,6 +55,20 @@ class User < ActiveRecord::Base
         "#{self.first_name} #{self.last_name}"
     end
 
+    def get_target
+      if self.team_leader
+        targets = self.team_leader.targets
+        target = targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
+        target = self.team_leader.targets.new if target.nil?
+      end
+      if self.sales_executive
+        targets = self.sales_executive.targets
+        target = targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
+        target = self.sales_executive.targets.new if target.nil?
+      end
+      target
+    end
+
     #def update_executive
     #    if self.account_type == 2 #team leader
     #        TeamLeader.create(:user_id => self.id, :company_id => self.company_id)
