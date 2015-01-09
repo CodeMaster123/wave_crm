@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130726085231) do
+ActiveRecord::Schema.define(:version => 20150109103221) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -176,15 +176,12 @@ ActiveRecord::Schema.define(:version => 20130726085231) do
   end
 
   create_table "notifications", :force => true do |t|
-    t.boolean  "sms_sent"
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "notification_time"
     t.integer  "company_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.boolean  "is_sms",            :default => false
-    t.boolean  "is_email",          :default => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "subject"
   end
 

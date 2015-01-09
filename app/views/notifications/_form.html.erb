@@ -32,20 +32,6 @@
       </div>
   </div>
 
-
-  <div class="control-group">
-      <%= f.label :email, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.check_box :is_email %>
-      </div>
-  </div>
-  <div class="control-group">
-      <%= f.label :sms, :class => 'control-label' %>
-      <div class="controls">
-          <%= f.check_box :is_sms %>
-      </div>
-  </div>
-
   <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

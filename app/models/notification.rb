@@ -5,7 +5,7 @@ class Notification < ActiveRecord::Base
     belongs_to :contact
     belongs_to :company
 
-    attr_accessible :body, :contact_id, :sms_sent, :notification_time, :company_id, :is_sms, :is_email, :subject,  :user_id, :next_notification
+    attr_accessible :body, :contact_id, :notification_time, :company_id, :subject,  :user_id, :next_notification
     attr_accessor :user_id, :next_notification
 
     validates :contact_id, :presence => true
@@ -14,38 +14,11 @@ class Notification < ActiveRecord::Base
 
     after_create :send_notification
 
-    def sms_send
-        @sms_gateway_username = "wave"
-        @sms_gateway_password = "1492407050"
-        @sms_sender_name = "wave"
-        @sms_receiver_number = self.contact.mobile_no
-        @sms_message = URI::encode(self.body)
-        @sms_api_url = "http://bulksms.mysmsmantra.com:8080/WebSMS/SMSAPI.jsp?username=#{@sms_gateway_username}&password=#{@sms_gateway_password}&sendername=#{@sms_sender_name}&mobileno=#{@sms_receiver_number}&message=#{@sms_message}"
-
-        Resque.enqueue_at(self.notification_time, SmsScheduler, @sms_api_url)
-    end
-
     def email_send(user_id)
         @user_email_id = User.find(user_id).email
         @contact_id = self.id
 
         Resque.enqueue_at(self.notification_time, EmailScheduler, @user_email_id, @contact_id)
-    end
-
-    def check_if_sms
-        if self.is_sms == true
-            "Yes"
-        else
-            "No"
-        end
-    end
-
-    def check_if_email
-        if self.is_email == true
-            "Yes"
-        else
-            "No"
-        end
     end
 
     def as_json(options = {})
@@ -73,21 +46,7 @@ class Notification < ActiveRecord::Base
     end
 
     def send_notification
-        if self.is_sms
-            self.sms_send
-        end
-        if self.is_email
-            self.email_send(self.user_id) unless self.user_id == nil
-        end
-       # if self.next_notification == true
-       #     Notification.c
-       # end
+        self.email_send(self.user_id) unless self.user_id == nil
     end
 
-    private
-    def custom_checkbox_validation
-        unless self.is_email || self.is_sms
-            errors.add(:base, "Please check atleast one checkbox.")
-        end
-    end
 end
