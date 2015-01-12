@@ -17,7 +17,6 @@ class TransactionsController < ApplicationController
     end
 
     def new
-      @company = current_user.company
         if params[:matured_by].nil?
             @transaction = Transaction.new
             @transaction.product_transactions.build

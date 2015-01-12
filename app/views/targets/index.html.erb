@@ -6,7 +6,6 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Sr.No</th>
             <th>Executive name</th>
             <th>Executive type</th>
             <th>Target Amount</th>
@@ -16,10 +15,8 @@
     </thead>
     <tbody>
         <% if current_user.account_type != 3 %>
-            <% render :partial => 'shared/i_calculation' %>
             <% @targets.each do |target| %>
                 <tr>
-                    <td><%#= link_to @i = @i+1, target_path(target) %></td>
                     <td><%= target.full_name %></td>
                     <td><%= target.targetable_type %></td>
                     <td><%= target.amount %> Rs</td>
@@ -30,11 +27,10 @@
                         <%= link_to 'Destroy', target_path(target), :method => :delete, :class => 'btn btn-mini btn-danger' %>
                     <% end %>
                     </td>
-                <% end %>
-            </tr>
+                </tr>
+            <% end %>
         <% else %>
             <tr>
-
                 <td><%= link_to '1', target_path(@targets) %></td>
                 <td><%= @targets.full_name %></td>
                 <td><%= @targets.targetable_type %></td>
@@ -43,12 +39,12 @@
                 <td><%= @targets.target_month %></td>
                 <td><%= @targets.target_year %></td>
                 <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_target_path(@targets), :class => 'btn btn-mini' %>
-                    <%= link_to t('.destroy', :default => t("helpers.links.destroy")), target_path(@targets), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                    <%= link_to 'Edit', edit_target_path(@targets), :class => 'btn btn-mini' %>
+                    <%= link_to 'Destroy', target_path(@targets), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
                 </td>
-            <% end %>
+                </tr>
+        <% end %>
+    </tbody>
+</table>
 
-        </tbody>
-    </table>
-
-    <%= link_to t('.new', :default => t("helpers.links.new")), new_target_path, :class => 'btn btn-primary' %>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_target_path, :class => 'btn btn-primary' %>

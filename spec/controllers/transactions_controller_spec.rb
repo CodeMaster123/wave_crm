@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe TransactionsController, :type => :controller do
+  #render_views
+
   before(:each) do
     user = create(:user, account_type: 1)
     sign_in :user, user
@@ -20,7 +22,7 @@ RSpec.describe TransactionsController, :type => :controller do
 
   it 'should GET new where matured_by is nil' do
     get :new
-    expect(response).to have_http_status(:success)
+    expect(response).to render_template('new')
   end
 
   it 'should GET edit' do
