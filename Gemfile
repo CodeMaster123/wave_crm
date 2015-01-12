@@ -13,7 +13,9 @@ gem 'will_paginate'
 gem 'paperclip'
 gem 'wicked'
 
-#gem 'thinking-sphinx'
+gem 'thinking-sphinx'
+gem 'mysql2'
+
 gem 'resque'
 gem 'resque-scheduler'
 gem 'public_activity'

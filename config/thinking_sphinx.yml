@@ -1,9 +1,0 @@
-development:
-  mysql41: 9906
-  #morphology: stem_en
-
-test:
-  mysql41: 9906
-
-production:
-  mysql41: 9906
