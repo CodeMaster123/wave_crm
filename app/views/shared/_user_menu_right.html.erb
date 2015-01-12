@@ -1,13 +1,11 @@
 <div class="user">
     <ul class="icon-nav">
         <li class="dropdown sett">
-        <% unless current_user.notification_setting.nil? == true %>
             <% unless current_user.notification_setting.notification_flag == false %>
                 <% @todays_notifications = Notification.where("notification_time > \'#{Date.today.to_time.to_s(:db)}\' and notification_time < \'#{(Date.today + 1.day).to_time.to_s(:db)}\'") %>
                 <% @todays_events = Event.where("(starts_at > \'#{Date.today.to_time.to_s(:db)}\' and starts_at < \'#{(Date.today + 1.day).to_time.to_s(:db)}\') and (ends_at > \'#{Date.today.to_time.to_s(:db)}\' and ends_at < \'#{(Date.today+1.day).to_time.to_s(:db)}\')") %>
                 <% @lightred_counter = @todays_notifications.count + @todays_events.count %>
             <% end %>
-        <% end %>
         <a href="#" class='dropdown-toggle' data-toggle="dropdown" onclick="notification_fade_out()">
             <i class="icon-cog"></i>
             <span class="label lightred"><%= @lightred_counter %></span>

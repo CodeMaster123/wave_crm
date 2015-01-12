@@ -64,33 +64,31 @@
     </li>
 <% end %>
 
-<% if current_user.company.crm_customer.customer_type == "B2B" %>
-    <% if controller_name == "accounts" %>
-        <% permitted_to? :index, :transactions do %>
-            <li class="active">
-            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-                <span>Accounts</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><%= link_to "Existing accounts", {:controller => "accounts", :action => "index", :type => "existing_accounts"} %></li>
-                <li><%= link_to "Potential accounts", {:controller => "accounts", :action => "index", :type => "potential_accounts"} %></li>
-            </ul>
-            </li>
-        <% end %>
-    <% else %>
-        <% permitted_to? :index, :transactions do %>
-            <li>
-            <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-                <span>Accounts</span>
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><%= link_to "Existing accounts", {:controller => "accounts", :action => "index", :type => "existing_accounts"} %></li>
-                <li><%= link_to "Potential accounts", {:controller => "accounts", :action => "index", :type => "potential_account"} %></li>
-            </ul>
-            </li>
-        <% end %>
+<% if controller_name == "accounts" %>
+    <% permitted_to? :index, :transactions do %>
+        <li class="active">
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+            <span>Accounts</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><%= link_to "Existing accounts", {:controller => "accounts", :action => "index", :type => "existing_accounts"} %></li>
+            <li><%= link_to "Potential accounts", {:controller => "accounts", :action => "index", :type => "potential_accounts"} %></li>
+        </ul>
+        </li>
+    <% end %>
+<% else %>
+    <% permitted_to? :index, :transactions do %>
+        <li>
+        <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
+            <span>Accounts</span>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><%= link_to "Existing accounts", {:controller => "accounts", :action => "index", :type => "existing_accounts"} %></li>
+            <li><%= link_to "Potential accounts", {:controller => "accounts", :action => "index", :type => "potential_account"} %></li>
+        </ul>
+        </li>
     <% end %>
 <% end %>
 

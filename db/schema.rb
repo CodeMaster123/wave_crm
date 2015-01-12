@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150107091217) do
+ActiveRecord::Schema.define(:version => 20150112080832) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -169,10 +169,10 @@ ActiveRecord::Schema.define(:version => 20150107091217) do
   end
 
   create_table "notification_settings", :force => true do |t|
-    t.boolean  "notification_flag"
+    t.boolean  "notification_flag", :default => false
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "notifications", :force => true do |t|
@@ -342,6 +342,7 @@ ActiveRecord::Schema.define(:version => 20150107091217) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "team_leader_id"
   end
 
   add_index "users", ["company_id"], :name => "index_users_on_company_id"
