@@ -1,5 +1,5 @@
 class UsersController < BaseController
-  before_filter :fetch_company, except: [:show, :destroy]
+  before_filter :fetch_company
 
     def index
         unless current_user.account_type == 4
@@ -9,7 +9,7 @@ class UsersController < BaseController
         end
 
         respond_to do |format|
-            format.html # index.html.erb
+            format.html
         end
     end
 
@@ -17,30 +17,30 @@ class UsersController < BaseController
         @user = User.find(params[:id])
 
         respond_to do |format|
-            format.html # show.html.erb
+            format.html
         end
     end
 
     def new
         @companies = Company.all
         @user = User.new
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
 
         respond_to do |format|
-            format.html # new.html.erb
+            format.html
         end
     end
 
     def edit
         @companies = Company.all
         @user = User.find(params[:id])
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
     end
 
     def create
         @companies = Company.all
         @user = User.new(params[:user])
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
         @user.company_id = @company.id if @user.company_id.nil?
 
         if @user.save
@@ -53,14 +53,12 @@ class UsersController < BaseController
     def update
         @companies = Company.all
         @user = User.find(params[:id])
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
 
-        respond_to do |format|
-            if @user.update_attributes(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar], :company_id => params[:user][:company_id])
-                format.html { redirect_to @user, notice: 'User was successfully updated.' }
-            else
-                format.html { render "edit" }
-            end
+        if @user.update_attributes(params[:user])
+            redirect_to users_path, notice: 'User was successfully updated.'
+        else
+            render "edit"
         end
     end
 

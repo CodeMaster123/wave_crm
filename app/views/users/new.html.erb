@@ -19,7 +19,7 @@
     <% end %>
 
     <div class="hide">
-        <%= f.select :team_leader_id, options_for_select(@all_team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
+        <%= f.select :team_leader_id, options_for_select(@team_leaders.map{|team_leader| ["#{team_leader.first_name} #{team_leader.last_name}", team_leader.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
     </div>
 
     <div class="form-actions">

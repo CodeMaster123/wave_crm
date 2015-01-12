@@ -1,15 +1,9 @@
 class User < ActiveRecord::Base
     devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-    has_one :team_leader, :dependent => :destroy
-    has_one :sales_executive, :dependent => :destroy
     has_many :events, :dependent => :destroy
     has_one :notification_setting, :dependent => :destroy
     belongs_to :company
-
-    #belongs_to :company
-    #after_create :update_executive
-
 
     has_attached_file :avatar,
         :styles => {:thumb => "27x27#" }, :whiny => false,
@@ -23,10 +17,8 @@ class User < ActiveRecord::Base
     validates :first_name, :presence => true
     validates :last_name, :presence => true
     validates :address, :presence => true
-    validates :mobile_no, :numericality => true, :uniqueness => true
-    validates :email, :uniqueness => true
-    validates :password, :presence => true
-    validates :password_confirmation, :presence => true
+    validates :mobile_no, :numericality => true, :uniqueness => true, length: {minimum: 6, maximum: 10}
+    validates :email, :uniqueness => true, format: {with: /\@/, message: 'Not a valid email ID'}
     validates :account_type, :presence => true
     validates :company_id, :presence => true
 
