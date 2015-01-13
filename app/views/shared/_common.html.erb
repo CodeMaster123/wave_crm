@@ -17,7 +17,7 @@
 <% if controller_name == "leads" %>
     <li class='active'>
     <% if current_user.account_type == 2 %>
-        <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+        <%= link_to("/leads/index/#{current_user.team_leader_id}") do %>
             <span>Leads</span>
         <% end %>
     <% else %>
@@ -29,7 +29,7 @@
 <% else%>
     <li>
     <% if current_user.account_type == 2 %>
-        <%= link_to("/leads/index/#{current_user.team_leader.id}") do %>
+        <%= link_to("/leads/index/#{current_user.team_leader_id}") do %>
             <span>Leads</span>
         <% end %>
     <% else %>

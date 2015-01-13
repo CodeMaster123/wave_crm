@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag "pagination.css" %>
-<%- model_class = Target -%>
 <div class="page-header">
     <h1>Targets - <%= Date::MONTHNAMES[Date.today.month] %></h1>
 </div>
@@ -18,7 +17,7 @@
             <% @targets.each do |target| %>
                 <tr>
                     <td><%= target.full_name %></td>
-                    <td><%= target.targetable_type %></td>
+                    <td><%= target.user.account_type %></td>
                     <td><%= target.amount %> Rs</td>
                     <td><%= target.achived %> Rs</td>
                     <td>

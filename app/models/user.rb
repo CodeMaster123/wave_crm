@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
     devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
     has_many :events, :dependent => :destroy
+    has_many :targets, :dependent => :destroy
     has_one :notification_setting, :dependent => :destroy
     belongs_to :company
 
@@ -47,25 +48,39 @@ class User < ActiveRecord::Base
         "#{self.first_name} #{self.last_name}"
     end
 
-    def get_target
-      if self.team_leader
-        targets = self.team_leader.targets
-        target = targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-        target = self.team_leader.targets.new if target.nil?
-      end
-      if self.sales_executive
-        targets = self.sales_executive.targets
-        target = targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-        target = self.sales_executive.targets.new if target.nil?
+    def targets_by_account
+      if self.account_type == 1
+        target = self.admin_target_list
+      elsif self.account_type == 2
+        target = self.team_leader_target_list
+      elsif self.account_type == 3
+        target = self.targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
+        target = self.targets.new if target.nil?
       end
       target
     end
 
-    #def update_executive
-    #    if self.account_type == 2 #team leader
-    #        TeamLeader.create(:user_id => self.id, :company_id => self.company_id)
-    #    elsif self.account_type == 3 #sales executive
-    #        self.sales_executive.update_attributes(:user_id => self.id)
-    #    end
-    #end
+    def admin_target_list
+      users = User.includes(:targets).where(account_type: [2,3], company_id: self.company_id)
+      User.iterate_over_targets(users)
+
+    end
+
+    def self.iterate_over_targets(users)
+      targets = Array.new
+      users.each_with_index do |user, i|
+        targets[i] = user.targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
+        targets[i] = user.targets.new if targets[i].nil?
+      end
+      targets
+    end
+
+    def team_leader_target_list
+      users = [self, self.sales_executives].flatten
+      User.iterate_over_targets(users)
+    end
+
+    def sales_executives
+      User.where(team_leader_id: self.id)
+    end
 end

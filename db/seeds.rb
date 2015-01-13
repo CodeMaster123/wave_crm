@@ -18,22 +18,10 @@ User.create([
             {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 8055508545, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1, :company_id => 1},
             {:first_name => "jeevan", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9049402749, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 1},
             {:first_name => "Yogesh", :last_name => "Khandage", :address => "Jatra hotel, nashik", :mobile_no => 8390902797, :email => "team_leader1@gmail.com", :password => "team_leader1123", :password_confirmation => "team_leader1123", :account_type => 2, :company_id => 1},
-            {:first_name => "Kishor", :last_name => "Patil", :address => "Unt Wadi, Nashik", :mobile_no => 8888884083, :email => "sales_executive1@gmail.com", :password => "sales_executive1", :password_confirmation => "sales_executive1", :account_type => 3, :company_id => 1},
-            {:first_name => "Ketan", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 7385599676, :email => "sales_executive2@gmail.com", :password => "sales_executive2", :password_confirmation => "sales_executive2", :account_type => 3, :company_id => 1},
-            {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9822882096, :email => "sales_executive3@gmail.com", :password => "sales_executive3", :password_confirmation => "sales_executive3", :account_type => 3, :company_id => 1},
-            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive4", :password_confirmation => "sales_executive4", :account_type => 3, :company_id => 1}
-])
-
-TeamLeader.create([
-                  {:user_id => 3, :company_id => 1},
-                  {:user_id => 4, :company_id => 1}
-])
-
-SalesExecutive.create([
-                      {:team_leader_id =>1, :user_id =>5, :company_id => 1},
-                      {:team_leader_id =>1, :user_id =>6, :company_id => 1},
-                      {:team_leader_id =>2, :user_id =>7, :company_id => 1},
-                      {:team_leader_id =>2, :user_id =>8, :company_id => 1}
+            {:first_name => "Kishor", :last_name => "Patil", :address => "Unt Wadi, Nashik", :mobile_no => 8888884083, :email => "sales_executive1@gmail.com", :password => "sales_executive1", :password_confirmation => "sales_executive1", :account_type => 3, :company_id => 1, :team_leader_id => 3},
+            {:first_name => "Ketan", :last_name => "Patil", :address => "Panchavati, Nashik", :mobile_no => 7385599676, :email => "sales_executive2@gmail.com", :password => "sales_executive2", :password_confirmation => "sales_executive2", :account_type => 3, :company_id => 1, :team_leader_id => 3},
+            {:first_name => "Rahul", :last_name => "Borade", :address => "Upnagar, Nashik road", :mobile_no => 9822882096, :email => "sales_executive3@gmail.com", :password => "sales_executive3", :password_confirmation => "sales_executive3", :account_type => 3, :company_id => 1, :team_leader_id => 4},
+            {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive4", :password_confirmation => "sales_executive4", :account_type => 3, :company_id => 1, :team_leader_id => 4}
 ])
 
 Event.create([
@@ -126,29 +114,28 @@ Contact.create([
 ])
 
 Target.create([
-              {:targetable_id => 1, :targetable_type => "TeamLeader", :amount => 100000, :achived => 70000, :target_month => 4, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "TeamLeader", :amount => 50000, :achived => 36500, :target_month => 4, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => "TeamLeader", :amount => 80000, :achived => 75000, :target_month => 5, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "TeamLeader", :amount => 100000, :achived => 80000, :target_month => 5, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => "TeamLeader", :amount => 60000, :achived => 40000, :target_month => 6, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "TeamLeader", :amount => 60000, :achived => 50000, :target_month => 6, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 60000, :target_month => 4, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "SalesExecutive", :amount => 39000, :achived => 6000, :target_month => 4, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => "SalesExecutive", :amount => 58000, :achived => 35000, :target_month => 4, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => "SalesExecutive", :amount => 56000, :achived => 25000, :target_month => 4, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => "SalesExecutive", :amount => 62000, :achived => 61350, :target_month => 5, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "SalesExecutive", :amount => 61520, :achived => 44582, :target_month => 5, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => "SalesExecutive", :amount => 100000, :achived => 70000, :target_month => 5, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => "SalesExecutive", :amount => 50000, :achived => 36500, :target_month => 5, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => "SalesExecutive", :amount => 80000, :achived => 75000, :target_month => 6, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "SalesExecutive", :amount => 100000, :achived => 80000, :target_month => 6, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 40000, :target_month => 6, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 50000, :target_month => 6, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 1, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 60000, :target_month => 7, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 2, :targetable_type => "SalesExecutive", :amount => 39000, :achived => 6000, :target_month => 7, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 3, :targetable_type => "SalesExecutive", :amount => 58000, :achived => 35000, :target_month => 7, :target_year => 2013, :company_id => 1},
-              {:targetable_id => 4, :targetable_type => "SalesExecutive", :amount => 56000, :achived => 25000, :target_month => 7, :target_year => 2013, :company_id => 1}
-
+              {:amount => 100000, :achived => 70000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 1},
+              {:amount => 50000, :achived => 36500, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 2},
+              {:amount => 80000, :achived => 75000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 3},
+              {:amount => 100000, :achived => 80000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 4},
+              {:amount => 60000, :achived => 40000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 5},
+              {:amount => 60000, :achived => 50000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 6},
+              {:amount => 60000, :achived => 60000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 7},
+              {:amount => 39000, :achived => 6000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 8},
+              {:amount => 58000, :achived => 35000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 9},
+              {:amount => 56000, :achived => 25000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 10},
+              {:amount => 62000, :achived => 61350, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 11},
+              {:amount => 61520, :achived => 44582, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 12},
+              {:amount => 100000, :achived => 70000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 13},
+              {:amount => 50000, :achived => 36500, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 14},
+              {:amount => 80000, :achived => 75000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 15},
+              {:amount => 100000, :achived => 80000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 16},
+              {:amount => 60000, :achived => 40000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 17},
+              {:amount => 60000, :achived => 50000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 18},
+              {:amount => 60000, :achived => 60000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 19},
+              {:amount => 39000, :achived => 6000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 20},
+              {:amount => 58000, :achived => 35000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 21},
+              {:amount => 56000, :achived => 25000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 22}
 ])
 
 
@@ -416,18 +403,6 @@ User.create([
             {:first_name => "Ronald", :last_name => "Edison", :address => "New Mexico", :mobile_no => 9912413213, :email => "sales_executive1233@gmail.com", :password => "sales_executive1233", :password_confirmation => "sales_executive1233", :account_type => 3, :company_id => 2}
 ])
 
-TeamLeader.create([
-                  {:user_id => 11, :company_id => 2},
-                  {:user_id => 10, :company_id => 2}
-])
-
-SalesExecutive.create([
-                      {:team_leader_id =>3, :user_id =>15, :company_id => 2},
-                      {:team_leader_id =>3, :user_id =>12, :company_id => 2},
-                      {:team_leader_id =>4, :user_id =>13, :company_id => 2},
-                      {:team_leader_id =>4, :user_id =>14, :company_id => 2}
-])
-
 Lead.create([
             {:title => "James Jack", :description => "Root canal patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
             {:title => "Patient", :description => "Bleaching patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
@@ -495,30 +470,30 @@ Contact.create([
 ])
 
 Target.create([
-              {:targetable_id => 3, :targetable_type => "TeamLeader", :amount => 100000, :achived => 70000, :target_month => 4, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 3, :targetable_type => "TeamLeader", :amount => 50000, :achived => 36500, :target_month => 4, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 4, :targetable_type => "TeamLeader", :amount => 80000, :achived => 75000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 4, :targetable_type => "TeamLeader", :amount => 100000, :achived => 80000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 3, :targetable_type => "TeamLeader", :amount => 60000, :achived => 40000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 5, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 50000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 6, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 60000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 7, :targetable_type => "SalesExecutive", :amount => 39000, :achived => 6000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 8, :targetable_type => "SalesExecutive", :amount => 58000, :achived => 35000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 5, :targetable_type => "SalesExecutive", :amount => 56000, :achived => 25000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 7, :targetable_type => "SalesExecutive", :amount => 62000, :achived => 61350, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 8, :targetable_type => "SalesExecutive", :amount => 61520, :achived => 44582, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 3, :targetable_type => "TeamLeader", :amount => 100000, :achived => 70000, :target_month => 5, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 3, :targetable_type => "TeamLeader", :amount => 50000, :achived => 36500, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 4, :targetable_type => "TeamLeader", :amount => 80000, :achived => 75000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 4, :targetable_type => "TeamLeader", :amount => 100000, :achived => 80000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 5, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 40000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 6, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 50000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 7, :targetable_type => "SalesExecutive", :amount => 60000, :achived => 60000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 8, :targetable_type => "SalesExecutive", :amount => 39000, :achived => 6000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 5, :targetable_type => "SalesExecutive", :amount => 58000, :achived => 35000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 6, :targetable_type => "SalesExecutive", :amount => 56000, :achived => 25000, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 7, :targetable_type => "SalesExecutive", :amount => 62000, :achived => 61350, :target_month => 6, :target_year => 2013, :company_id => 2},
-              {:targetable_id => 8, :targetable_type => "SalesExecutive", :amount => 61520, :achived => 44582, :target_month => 6, :target_year => 2013, :company_id => 2}
+              {:amount => 100000, :achived => 70000, :target_month => 4, :target_year => 2013, :company_id => 2},
+              {:amount => 50000, :achived => 36500, :target_month => 4, :target_year => 2013, :company_id => 2},
+              {:amount => 80000, :achived => 75000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 100000, :achived => 80000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 60000, :achived => 40000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 60000, :achived => 50000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 60000, :achived => 60000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 39000, :achived => 6000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 58000, :achived => 35000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 56000, :achived => 25000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 62000, :achived => 61350, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 61520, :achived => 44582, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 100000, :achived => 70000, :target_month => 5, :target_year => 2013, :company_id => 2},
+              {:amount => 50000, :achived => 36500, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 80000, :achived => 75000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 100000, :achived => 80000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 60000, :achived => 40000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 60000, :achived => 50000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 60000, :achived => 60000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 39000, :achived => 6000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 58000, :achived => 35000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 56000, :achived => 25000, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 62000, :achived => 61350, :target_month => 6, :target_year => 2013, :company_id => 2},
+              {:amount => 61520, :achived => 44582, :target_month => 6, :target_year => 2013, :company_id => 2}
 ])
 
 
