@@ -1,5 +1,5 @@
-class AccountsController < ApplicationController
-    before_filter :authenticate_user!
+class AccountsController < BaseController
+    before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
     respond_to :html, :json
 

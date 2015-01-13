@@ -1,11 +1,9 @@
-class ContactsController < ApplicationController
-    before_filter :authenticate_user!
+class ContactsController < BaseController
+    before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
     respond_to :html, :json
 
     def index
-      @company = current_user.company
-
       @contacts = Array.new
       if current_user.account_type ==1
         @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).where(:contact_relationship => params[:type])
@@ -65,7 +63,6 @@ class ContactsController < ApplicationController
     end
 
     def map_index
-      @company = current_user.company
       @contacts = @company.contacts.all
       @json = @company.contacts.all.to_gmaps4rails
 

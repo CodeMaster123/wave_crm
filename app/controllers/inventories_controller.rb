@@ -1,5 +1,5 @@
-class InventoriesController < ApplicationController
-  before_filter :authenticate_user!
+class InventoriesController < BaseController
+  before_filter :authenticate_user!, :fetch_company
   filter_access_to :all
   respond_to :html, :json
 
