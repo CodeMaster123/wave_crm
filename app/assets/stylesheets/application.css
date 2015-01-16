@@ -11,6 +11,7 @@
  *
  *= require_self
  *= require pagination
+ *= require bootstrap
  *= require fullcalendar.css
  *= require jquery-ui-1.10.2.custom.min
  *= require jquery-ui-timepicker-addon

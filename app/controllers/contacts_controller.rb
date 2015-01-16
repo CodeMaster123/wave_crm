@@ -4,26 +4,13 @@ class ContactsController < BaseController
     respond_to :html, :json
 
     def index
-      @contacts = Array.new
-      if current_user.account_type ==1
-        @contacts = @company.contacts.paginate(:page => params[:page], :per_page => 15).where(:contact_relationship => params[:type])
-      elsif current_user.account_type == 2
-        current_user.team_leader.leads.each do |lead|
-          @contacts += lead.contacts.where(:contact_relationship => params[:type])
-        end
-      elsif current_user.account_type == 3
-        current_user.sales_executive.leads.each do |lead|
-          @contacts += lead.contacts.where(:contact_relationship => params[:type])
-        end
-      end
-      @contacts.paginate(:page => params[:page], :per_page => 15)
+      @contacts = Account.find(params[:account_id]).contacts
 
       respond_with @contacts
     end
 
     def show
       @contact = Contact.find(params[:id])
-      @transactions = Transaction.where(:contact_id => params[:id])
 
       respond_with @contact
     end

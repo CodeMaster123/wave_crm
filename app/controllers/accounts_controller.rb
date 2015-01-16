@@ -34,7 +34,7 @@ class AccountsController < BaseController
     end
 
     def create
-        @account = Account.new(params[:account])
+        @account = Account.new(JSON.parse(params[:account]))
         @account_owner = current_user.company.contacts
 
         @account.save
@@ -45,7 +45,7 @@ class AccountsController < BaseController
         @account = Account.find(params[:id])
         @account_owner = current_user.company.contacts
 
-        @account.update_attributes(params[:account])
+        @account.update_attributes(JSON.parse(params[:account]))
         respond_with @account
     end
 

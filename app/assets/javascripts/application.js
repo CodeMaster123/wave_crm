@@ -24,10 +24,21 @@
 //= require magicsuggest-1.2.7
 //= require jquery_nested_form
 //= require twitter/bootstrap
+//
+//= require underscore
+//= require angular
+//= require ng-rails-csrf
+//= require angular-route
+//= require restangular
+//
+//= require ui-bootstrap-tpls-0.12.0
+//
+//= require_directory ./accounts/services
+//= require_directory ./accounts/controllers
 
 //= require fullcalendar.min
 //= require chosen.jquery.min
-//= require_tree .
+
 
 
 

@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h3 class="modal-title">Contact Details</h3>
+</div>
+<div class="modal-body">
+  <form name='new_contact' class= 'contact-form form-horizontal' ng-controller='ContactsController'>
+    <div class="control-group">
+      <label class = 'control-label'>First name:</label>
+      <div class="controls">
+        <input type='text' name='first_name' class ='text_field' ng-model='current_contact.first_name'>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class = 'control-label'>Middle name:</label>
+      <div class="controls">
+        <input type='text' name='middle_name' class ='text_field' ng-model='current_contact.middle_name'>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class = 'control-label'>Last name:</label>
+      <div class="controls">
+        <input type='text' name='last_name' class ='text_field' ng-model='current_contact.last_name'>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class = 'control-label'>Email id:</label>
+      <div class="controls">
+        <input type='email' name='email' class='text_field' ng-model='current_contact.email_id'><span ng-show='new_contact.email.$error.email'>Not a valid email ID</span>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class = 'control-label'>Address:</label>
+      <div class="controls">
+        <input type='text' name='address' class ='text_field' ng-model='current_contact.address'>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class = 'control-label'>Mobile number:</label>
+      <div class="controls">
+        <input type='number' name='mobile_no' class ='number_field' ng-model='current_contact.mobile_no'>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class = 'control-label'>Landline number:</label>
+      <div class="controls">
+        <input type='number' name='landline_no' class ='number_field' ng-model='current_contact.landline_no'>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type='submit' class ='btn btn-primary'>
+        <button class ='btn btn-primary' ng-controller='ContactsController' ng-click='cancel()'>Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

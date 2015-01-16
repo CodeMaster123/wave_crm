@@ -20,7 +20,8 @@ gem 'resque'
 gem 'resque-scheduler'
 gem 'public_activity'
 
-gem 'bootstrap_form'
+gem 'ng-rails-csrf'
+#gem 'bootstrap_form'
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby

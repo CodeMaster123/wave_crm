@@ -47,8 +47,8 @@
         <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-        <li><%= link_to "Clients", {:controller => "contacts", :action => "index", :type => "client"} %></li>
-        <li><%= link_to "Potential Customers", {:controller => "contacts", :action => "index", :type => "potential_customer"} %></li>
+        <li><%= link_to "Clients", account_contacts_path('client') %></li>
+        <li><%= link_to "Potential Customers", account_contacts_path('potential_customer') %></li>
     </ul>
     </li>
 <% else %>
@@ -58,8 +58,8 @@
         <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-        <li><%= link_to "Clients", {:controller => "contacts", :action => "index", :type => "client"} %></li>
-        <li><%= link_to "Potential Customers", {:controller => "contacts", :action => "index", :type => "potential_customer"} %></li>
+        <li><%= link_to "Clients", account_contacts_path('client') %></li>
+        <li><%= link_to "Potential Customers", account_contacts_path('potential_customer') %></li>
     </ul>
     </li>
 <% end %>
@@ -91,20 +91,4 @@
         </li>
     <% end %>
 <% end %>
-
-<% permitted_to? :index, :transactions do %>
-    <% if controller_name == "transactions" && action_name != "graph" %>
-        <li class="active">
-        <%= link_to(:transactions) do %>
-            <span>Transactions</span>
-        <% end %>
-        </li>
-    <% else %>
-        <li>
-        <%= link_to(:transactions) do %>
-            <span>Transactions</span>
-        <% end %>
-        </li>
-    <% end %>
-<% end%>
 

@@ -1,19 +1,17 @@
 class TransactionsController < ApplicationController
     before_filter :authenticate_user!
     filter_access_to :all
+    respond_to :html, :json
 
     def index
-        @company = current_user.company
-        @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
+        @transactions = Account.find(params[:account_id]).transactions
+        respond_with @transactions
     end
 
     def show
         @transaction = Transaction.find(params[:id])
 
-        respond_to do |format|
-            format.html # show.html.erb
-            format.pdf {render false } # show.html.erb
-        end
+        respond_with @transaction
     end
 
     def new
@@ -86,7 +84,7 @@ class TransactionsController < ApplicationController
 
     def invoice
       @company = current_user.company
-      @transaction = Transaction.find(params[:id])
+      @transaction = Transaction.find(params[:transaction_id])
       @product_transactions = @transaction.product_transactions
     end
 

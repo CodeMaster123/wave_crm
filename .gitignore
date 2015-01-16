@@ -37,6 +37,7 @@
 
 #Ignore all log files
 *.log
+*.*~
 
 /config/development.sphinx.conf
 /config/thinking_sphinx.yml
