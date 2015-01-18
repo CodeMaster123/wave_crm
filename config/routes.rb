@@ -4,7 +4,6 @@ WaveCrm::Application.routes.draw do
 
     resources :companies
     resources :users
-    resources :special_occasions
 
     resources :activities
     resources :accounts do

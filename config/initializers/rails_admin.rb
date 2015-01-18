@@ -27,10 +27,10 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  # config.excluded_models = ['Account', 'CallLog', 'Company', 'Contact', 'Employee', 'Event', 'Inventory', 'InventoryAddition', 'Lead', 'LeadsProduct', 'Notification', 'NotificationSetting', 'Product', 'ProductTransaction', 'SalesExecutive', 'SpecialOccasion', 'Tag', 'Tagging', 'Target', 'TeamLeader', 'Transaction', 'TransactionField', 'TransactionFieldValue', 'User']
+  # config.excluded_models = ['Account', 'CallLog', 'Company', 'Contact', 'Employee', 'Event', 'Inventory', 'InventoryAddition', 'Lead', 'LeadsProduct', 'Notification', 'NotificationSetting', 'Product', 'ProductTransaction', 'SalesExecutive', 'Tag', 'Tagging', 'Target', 'TeamLeader', 'Transaction', 'TransactionField', 'TransactionFieldValue', 'User']
 
   # Include specific models (exclude the others):
-  # config.included_models = ['Account', 'CallLog', 'Company', 'Contact', 'Employee', 'Event', 'Inventory', 'InventoryAddition', 'Lead', 'LeadsProduct', 'Notification', 'NotificationSetting', 'Product', 'ProductTransaction', 'SalesExecutive', 'SpecialOccasion', 'Tag', 'Tagging', 'Target', 'TeamLeader', 'Transaction', 'TransactionField', 'TransactionFieldValue', 'User']
+  # config.included_models = ['Account', 'CallLog', 'Company', 'Contact', 'Employee', 'Event', 'Inventory', 'InventoryAddition', 'Lead', 'LeadsProduct', 'Notification', 'NotificationSetting', 'Product', 'ProductTransaction', 'SalesExecutive', 'Tag', 'Tagging', 'Target', 'TeamLeader', 'Transaction', 'TransactionField', 'TransactionFieldValue', 'User']
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
