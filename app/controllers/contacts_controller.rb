@@ -4,7 +4,11 @@ class ContactsController < BaseController
     respond_to :html, :json
 
     def index
-      @contacts = Account.find(params[:account_id]).contacts
+      if params[:account_id].nil?
+        @contacts = @company.contacts.all
+      else
+        @contacts = Account.find(params[:account_id]).contacts
+      end
 
       respond_with @contacts
     end
@@ -22,16 +26,17 @@ class ContactsController < BaseController
     end
 
     def create
-      @contact = current_user.company.contacts.new(params[:contact])
+      @contact = current_user.company.contacts.new(JSON.parse(params[:contact]))
+      @contact.account_id = params[:account_id]
 
       @contact.save
-      respond_with @contact, :location => contacts_path
+      respond_with @contact, :location => account_contacts_path
     end
 
     def update
       @contact = current_user.company.contacts.find(params[:id])
 
-      @contact.update_attributes(params[:contact])
+      @contact.update_attributes(JSON.parse(params[:contact]))
       respond_with @contact, :location => {:controller => "contacts", :action => "index", :type => "client"}
     end
 
@@ -47,16 +52,5 @@ class ContactsController < BaseController
       end
 
       respond_with @contacts
-    end
-
-    def map_index
-      @contacts = @company.contacts.all
-      @json = @company.contacts.all.to_gmaps4rails
-
-      respond_with @contacts
-    end
-
-    def create_contact
-      @contact = current_user.company.contacts.create(:first_name =>params[:first_name], :middle_name => params[:middle_name], :last_name => params[:last_name], :email_id => params[:email_id], :address => params[:address], :mobile_no=> params[:mobile_no], :landline_no => params[:landline_no], :company_id => current_user.id, :contact_relationship => "client", :account_id => params[:account_id])
     end
 end

@@ -1,6 +1,6 @@
 class Contact < ActiveRecord::Base
 
-  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id, :gmaps, :email_id, :contact_relationship, :account_id
+  attr_accessible :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no, :contact_type, :contactable_type, :contactable_id, :company_id, :email_id, :contact_relationship, :account_id
 
   belongs_to :lead
   belongs_to :contactable, :polymorphic => true
@@ -17,14 +17,12 @@ class Contact < ActiveRecord::Base
   validates :mobile_no, :presence => true, :numericality => true
   validates :landline_no, :presence => true, :numericality => true
   validates :company_id, :presence => true
-  validates :contact_relationship, :presence => true
+  #validates :contact_relationship, :presence => true
 
   before_save :set_defaults
 
   geocoded_by :geocoding_address
   #after_save :delayed_geocoding
-
-  acts_as_gmappable :process_geocoding => false
 
  # def delayed_geocoding
  #     Resque.enqueue(GeocodeContact, self.id)
@@ -32,15 +30,6 @@ class Contact < ActiveRecord::Base
 
   def geocoding_address
     self.address
-  end
-
-
-  def gmaps4rails_address
-    self.address
-  end
-
-  def gmaps4rails_infowindow
-    "<h1>#{self.first_name}</h1>"
   end
 
   def full_name

@@ -12,7 +12,6 @@ accounts_app.controller('CreateController',function($scope, $routeParams, $http,
         account: $scope.account
       }
     }).success(function(){
-      console.log('vivek');
       $location.path('/index');
     });
   }

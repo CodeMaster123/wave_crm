@@ -1,5 +1,6 @@
 WaveCrm::Application.routes.draw do
     devise_for :users
+      resources :contacts
 
     resources :activities
     resources :accounts do

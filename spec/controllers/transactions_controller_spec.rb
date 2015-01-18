@@ -34,7 +34,6 @@ RSpec.describe TransactionsController, :type => :controller do
   describe 'POST create' do
     it 'should create a record for transaction' do
       create(:account)
-      create(:team_leader)
       create(:contact)
       create(:lead)
       transaction = FactoryGirl.attributes_for(:transaction)

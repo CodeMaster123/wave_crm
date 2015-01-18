@@ -5,7 +5,6 @@ RSpec.describe LeadsController, :type => :controller do
     @user = create(:user)
     sign_in :user, @user
 
-    create(:team_leader)
     @lead = create(:lead)
     create(:company)
   end

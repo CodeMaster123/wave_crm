@@ -20,18 +20,12 @@ gem 'resque'
 gem 'resque-scheduler'
 gem 'public_activity'
 
-gem 'ng-rails-csrf'
-#gem 'bootstrap_form'
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
-gem "twitter-bootstrap-rails"
-gem 'lazy_high_charts'
-gem 'rails3-jquery-autocomplete'
 gem 'geocoder'
-gem 'gmaps4rails'
 
 group :assets do
     gem 'sass-rails',   '~> 3.2.3'
@@ -67,3 +61,11 @@ gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
+
+#Hairballs
+#gem "twitter-bootstrap-rails"
+#gem 'lazy_high_charts'
+#gem 'rails3-jquery-autocomplete'
+#gem 'bootstrap_form'
+#gem 'gmaps4rails'
+gem 'ng-rails-csrf'
