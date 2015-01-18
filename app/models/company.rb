@@ -13,14 +13,12 @@ class Company < ActiveRecord::Base
     has_many :accounts
     has_many :inventories
 
-    belongs_to :crm_customer
-    attr_accessible :company_address, :company_name, :contact_number1, :contact_number2, :crm_customer_id
+    attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
 
     validates :contact_number1, :numericality => true
     validates :contact_number2, :numericality => true
     validates :company_name, :presence => true
     validates :company_address, :presence => true
-    validates :crm_customer_id, :uniqueness => true
 
     def sales_users
       self.users.where("account_type = 2 OR account_type = 3")

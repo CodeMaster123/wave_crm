@@ -1,6 +1,10 @@
 WaveCrm::Application.routes.draw do
     devise_for :users
-      resources :contacts
+    resources :contacts
+
+    resources :companies
+    resources :users
+    resources :special_occasions
 
     resources :activities
     resources :accounts do
@@ -11,11 +15,10 @@ WaveCrm::Application.routes.draw do
       match 'contact_search' => 'contacts#search'
       match 'contacts/index/:type' => 'contacts#index'
     end
+
     resources :call_logs
     resources :inventory_additions
     resources :inventories
-    resources :companies
-    resources :special_occasions
     resources :transaction_field_values
     resources :transaction_fields
     resources :taggings
@@ -25,11 +28,7 @@ WaveCrm::Application.routes.draw do
     resources :notifications
     resources :targets
     resources :employees
-    resources :team_leaders
-    resources :sales_executives
     resources :leads
-    resources :users
-    resources :crm_customers
     resources :events
     resources :partial_payments
 

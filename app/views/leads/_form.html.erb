@@ -85,7 +85,6 @@
         <%= contact.hidden_field :contact_relationship, :value => "potential_customer" %>
     <% end %>
 
-    <% if current_user.company.crm_customer.customer_type == "B2B" %>
     <h4 class="product_header show-header">Account Details</h4>
     <hr class="line">
     <%= f.fields_for :account do |account| %>
@@ -134,7 +133,6 @@
         </div>
     <% end %>
 
-<% end %>
 
 <h4 class="product_header show-header">Product Details</h4>
 <hr class="line">
@@ -230,7 +228,6 @@
             <%= contact.hidden_field :contact_relationship, :value => "potential_customer" %>
         <% end %>
 
-        <% if current_user.company.crm_customer.customer_type == "B2B" %>
             <h4 class="product_header show-header">Account Details</h4>
             <hr class="line">
             <%= f.fields_for :account do |account| %>
@@ -279,7 +276,6 @@
                 </div>
             <% end %>
 
-        <% end %>
 
         <h4 class="product_header show-header">Product Details</h4>
         <hr class="line">

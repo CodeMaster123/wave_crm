@@ -29,15 +29,7 @@
         <% @transactions.each do |transaction| %>
             <tr>
                 <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
-                <% if current_user.company.crm_customer.customer_type == 'B2C' %>
-                    <% unless Contact.where(:id => transaction.contact_id).empty? %>
-                        <td><%= transaction.full_name %> </td>
-                    <% else %>
-                        <td></td>
-                    <% end %>
-                <% else %>
-                        <td><%= transaction.account.contacts.first.full_name %> </td>
-                <% end %>
+                <td><%= transaction.account.contacts.first.full_name %> </td>
                 <td><%= transaction.amount %></td>
                 <% @paid_amount = 0 %>
                 <% transaction.partial_payments.each do |pt| %>
