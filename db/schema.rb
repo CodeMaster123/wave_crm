@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150117071446) do
+ActiveRecord::Schema.define(:version => 20150118170043) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(:version => 20150117071446) do
     t.integer  "contact_number2", :limit => 8
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.integer  "crm_customer_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -155,16 +154,15 @@ ActiveRecord::Schema.define(:version => 20150117071446) do
   create_table "leads", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "leadable_id"
-    t.string   "leadable_type"
     t.boolean  "matured"
     t.datetime "matured_at"
     t.integer  "company_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "lead_source"
     t.string   "lead_status"
     t.datetime "opening_date"
+    t.integer  "user_id"
   end
 
   create_table "notification_settings", :force => true do |t|

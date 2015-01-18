@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe TransactionsController, :type => :controller do
-  #render_views
 
   before(:each) do
     user = create(:user, account_type: 1)

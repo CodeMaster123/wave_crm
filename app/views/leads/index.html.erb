@@ -43,11 +43,6 @@
                     <td><%= link_to @i = @i+1, lead_path(lead) %></td>
 
                     <td><%= lead.description %></td>
-                    <% unless lead.leadable_id.nil? %>
-                        <td><%= raw lead.show_executive%></td>
-                    <% else %>
-                        <td></td>
-                    <% end %>
                     <td><%= lead.get_lead_source%></td>
                     <% if params[:type] == "future" %>
                         <% unless lead.opening_date.nil? %>
@@ -60,11 +55,6 @@
                         <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                         <% unless lead.lead_status == "matured" %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                        <% end %>
-                        <% unless lead.leadable_id.nil? %>
-                            <% unless lead.lead_status == "matured" %>
-                                <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
-                            <% end %>
                         <% end %>
                         <% if params[:type] == "current" || params[:type].nil? %>
                             <a href="#" data-target="#new-meeting" class="btn-postpone btn btn-mature btn-mini" onclick="update_reopening_date($(this))" data-toggle="modal" lead_id="<%= lead.id %>" >Postpone</a>
@@ -104,16 +94,11 @@
                     <tr>
                         <td><%= link_to @i = @i+1, lead_path(lead) %></td>
                         <td><%= lead.description %></td>
-                        <% unless lead.leadable_id.nil? %>
-                            <td><%= raw lead.show_executive%></td>
-                        <% else %>
-                            <td></td>
-                        <% end %>
                         <td><%= lead.get_lead_source%></td>
                         <td>
                             <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                             <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                            <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                            <#%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                         </td>
                     </tr>
                 <% end %>
@@ -143,16 +128,11 @@
                                 <td><%= link_to @i = @i+1, lead_path(lead) %></td>
 
                                 <td><%= lead.description %></td>
-                                <% unless lead.leadable_id.nil? %>
-                                    <td><%= raw lead.show_executive%></td>
-                                <% else %>
-                                    <td></td>
-                                <% end %>
                                 <td><%= lead.get_lead_source%></td>
                                 <td>
                                     <%= link_to "Edit", edit_lead_path(lead), :class => 'btn btn-mini' %>
                                     <%= link_to "Destroy", lead_path(lead), :method => :delete, :data => { :confirm => "are you sure?"}, :class => 'btn btn-mini btn-danger' %>
-                                    <%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
+                                    <#%= link_to 'Mature lead', {:controller => 'transactions', :action => 'new', :id1 => lead.id, :matured_by => lead.leadable_id, :executive_type => lead.leadable_type}, :class => 'btn btn-mini btn-mature' %>
                                 </td>
                             </tr>
                         <% end %>

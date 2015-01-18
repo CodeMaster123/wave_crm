@@ -1,11 +1,10 @@
 class LeadsController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
     respond_to :html, :json
 
     def index
         if current_user.account_type == 1 #Admin
-            @company = current_user.company
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
                 @leads = @company.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15).all
             else
@@ -35,14 +34,12 @@ class LeadsController < ApplicationController
             end
             @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
         end
-        @leads = Lead.where("id < 30")
 
         respond_with @leads
     end
 
     def show
         @lead = Lead.find(params[:id])
-        @company = current_user.company
         @lead_events = @lead.events.all
         @call_logs = @lead.call_logs
         @team_leaders = current_user.company.team_leaders
@@ -68,7 +65,6 @@ class LeadsController < ApplicationController
     end
 
     def new
-        @company = current_user.company
         @lead = Lead.new
         @lead.contacts.build
         @lead.product_transactions.build
@@ -81,7 +77,6 @@ class LeadsController < ApplicationController
     end
 
     def edit
-        @company = current_user.company
         @lead = Lead.find(params[:id])
         if @lead.contacts.empty?
             @lead.contacts.build
@@ -92,7 +87,6 @@ class LeadsController < ApplicationController
     end
 
     def create
-        @company = current_user.company
         @products = @company.products.all
         @team_leaders = @company.team_leaders.all
         @sales_executives = @company.sales_executives.all
@@ -112,7 +106,6 @@ class LeadsController < ApplicationController
     end
 
     def update
-        @company = current_user.company
         @team_leaders = @company.team_leaders.all
         @sales_executives = @company.sales_executives.all
         @lead = @company.leads.find(params[:id])
