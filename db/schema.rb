@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150118170043) do
+ActiveRecord::Schema.define(:version => 20150119065046) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20150118170043) do
     t.integer  "call_loggable_id"
     t.string   "call_loggable_type"
     t.integer  "contact_id"
+    t.integer  "user_id"
   end
 
   create_table "companies", :force => true do |t|
