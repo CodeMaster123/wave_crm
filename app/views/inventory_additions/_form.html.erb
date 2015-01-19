@@ -1,7 +1,7 @@
-<%= bootstrap_form_for @inventory_addition, :html => { :class => 'form-horizontal' } do |f| %>
-    <%= f.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
-    <%= f.text_field :addition_date, :class => 'datetime_select' %>
-    <%= f.text_field :quantity, :class => 'number_field' %>
+<%= form_for @inventory_addition, :html => { :class => 'form-horizontal' } do |f| %>
+    Product <%= f.select :product_id, options_for_select(@products.map{|d| [d.name, d.id]}),{ :selected => "Select Product" }, :class => 'text_field' %>
+    Addition Date <%= f.text_field :addition_date, :class => 'datetime_select' %>
+    Quantity <%= f.text_field :quantity, :class => 'number_field' %>
 
     <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
