@@ -54,14 +54,10 @@ WaveCrm::Application.configure do
   # Enable threaded mode
   # config.threadsafe!
   #
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :address => "email-smtp.us-east-1.amazonaws.com",
-      :user_name => "AKIAILLNH5QMTTWK2YDQ",
-      :password => "ApowpJ834BaTPEXe6nmIlqWjhXkiJRD+ZCYIFOK/rokm",
-      :authentication => :login,
-      :enable_starttls_auto => true
-  }
+  config.action_mailer.perform_deliveries = true
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
