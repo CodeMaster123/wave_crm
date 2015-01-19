@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150119065046) do
+ActiveRecord::Schema.define(:version => 20150119092747) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -134,14 +134,6 @@ ActiveRecord::Schema.define(:version => 20150119065046) do
   add_index "events", ["company_id"], :name => "index_events_on_company_id"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
 
-  create_table "inventories", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "quantity",   :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "company_id"
-  end
-
   create_table "inventory_additions", :force => true do |t|
     t.integer  "product_id"
     t.datetime "addition_date"
@@ -214,6 +206,7 @@ ActiveRecord::Schema.define(:version => 20150119065046) do
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "quantity"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

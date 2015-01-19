@@ -1,11 +1,11 @@
 WaveCrm::Application.routes.draw do
     devise_for :users
-    resources :contacts
 
     resources :companies
+    resources :activities
     resources :users
 
-    resources :activities
+
     resources :accounts do
       resources :transactions do
         match 'invoice' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
@@ -15,21 +15,27 @@ WaveCrm::Application.routes.draw do
       match 'contacts/index/:type' => 'contacts#index'
     end
 
-    resources :call_logs
-    resources :inventory_additions
-    resources :inventories
     resources :transaction_field_values
     resources :transaction_fields
+    resources :partial_payments
+
     resources :taggings
     resources :tags
-    resources :products
+
+    resources :products do
+      resources :inventories
+      resources :inventory_additions
+    end
+
+    resources :leads
+    resources :contacts
     resources :leads_products
-    resources :notifications
+    resources :call_logs
     resources :targets
     resources :employees
-    resources :leads
+
     resources :events
-    resources :partial_payments
+    resources :notifications
 
     #Sinatra apps
     mount_sextant if Rails.env.development?

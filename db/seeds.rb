@@ -137,26 +137,26 @@ Target.create([
 
 
 Product.create([
-               {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application", :company_id => 1},
-               {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application", :company_id => 1},
-               {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1},
-               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1}
+               {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "CRM", :min_cost => 50000, :max_cost => 80000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "ERP", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "CRM + ERP", :min_cost => 80000, :max_cost => 100000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Static", :min_cost => 30000, :max_cost => 40000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40},
+               {:name => "Web Site Dynamic", :min_cost => 40000, :max_cost => 60000, :description => "Web application", :company_id => 1, :quantity => 40}
 ])
 
 Notification.create([
@@ -265,14 +265,6 @@ Account.create([
 {:is_matured => true, :account_owner => 33, :account_name => "Zodac pvt ltd", :number_of_employees => 69, :phone_number => 2758491, :website => "www.zodac.com", :ownership_type => "Private", :billing_address => "Satputr, Nasik", :shipping_address => "Sinnar, Nasik", :company_id => 1, :lead_id => 18},
 {:is_matured => true, :account_owner => 35, :account_name => "SoftTech pvt ltd", :number_of_employees => 72, :phone_number => 2758496, :website => "www.tofttech.com", :ownership_type => "proprietership", :billing_address => "Cidco, Nasik", :shipping_address => "Ambad, Nasik", :company_id => 1, :lead_id => 19},
 {:is_matured => true, :account_owner => 37, :account_name => "MediaTech pvt ltd", :number_of_employees => 900, :phone_number => 2458745, :website => "www.mediaTech.com", :ownership_type => "Public", :billing_address => "CBS, Nasik", :shipping_address => "Sinnar, Nasik", :company_id => 1, :lead_id => 20}
-])
-
-Inventory.create([
-                  { :product_id => 1, :quantity => 10, :company_id => 1},
-                  { :product_id => 2, :quantity => 25, :company_id => 1},
-                  { :product_id => 3, :quantity => 65, :company_id => 1},
-                  { :product_id => 4, :quantity => 35, :company_id => 1},
-                  { :product_id => 5, :quantity => 67, :company_id => 1},
 ])
 
 InventoryAddition.create([

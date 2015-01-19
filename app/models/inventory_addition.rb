@@ -15,12 +15,12 @@ class InventoryAddition < ActiveRecord::Base
     after_create :create_inventory
 
     def update_inventory
-        @inventory = Inventory.find(self.product_id)
-        @inventory.update_attributes(:quantity => @inventory.quantity + self.update_difference)
+        @product = Product.find(self.product_id)
+        @product.update_attributes(:quantity => @product.quantity + self.update_difference)
     end
 
     def create_inventory
-        @inventory = Inventory.find(self.product_id)
-        @inventory.update_attributes(:quantity => @inventory.quantity + self.quantity)
+        @product = Product.find(self.product_id)
+        @product.update_attributes(:quantity => @product.quantity + self.quantity)
     end
 end

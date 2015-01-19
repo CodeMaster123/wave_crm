@@ -1,8 +1,6 @@
 class Company < ActiveRecord::Base
     has_many :users
     has_many :contacts
-    has_many :team_leaders
-    has_many :sales_executives
     has_many :tags
     has_many :products
     has_many :notifications
@@ -11,7 +9,6 @@ class Company < ActiveRecord::Base
     has_many :targets
     has_many :transactions
     has_many :accounts
-    has_many :inventories
 
     attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
 
