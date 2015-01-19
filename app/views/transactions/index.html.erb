@@ -7,7 +7,7 @@
     <div class="controls">
         Search: <%= text_field_tag :title,"", :class => 'search-c' %>
         <div class="new-top">
-            <%= link_to "New", new_transaction_path, :class => 'btn btn-primary custom-new-button' %>
+            <%= link_to "New", new_account_transaction_path(params[:account_id]), :class => 'btn btn-primary custom-new-button' %>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@
         <% render :partial => 'shared/i_calculation' %>
         <% @transactions.each do |transaction| %>
             <tr>
-                <td><%= link_to @i = @i+1, transaction_path(transaction) %></td>
+                <td><%= link_to @i = @i+1, account_transaction_path(params[:account_id], transaction) %></td>
                 <td><%= transaction.account.contacts.first.full_name %> </td>
                 <td><%= transaction.amount %></td>
                 <% @paid_amount = 0 %>
@@ -38,19 +38,13 @@
                 <td class="amount_paid" onclick="select_partial_payment($(this))" ><div class="amount_paid_popover"><%= @paid_amount %></div></td>
                 <td><%= transaction.transaction_time.strftime('%l:%M%P  %d-%b-%Y') %></td>
                 <td>
-                    <%= link_to 'Edit', edit_transaction_path(transaction), :class => 'btn btn-mini' %>
-                    <%= link_to 'Destroy', transaction_path(transaction), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
-                    <%= link_to 'Invoice', {:controller => "transactions", :action => "invoice", :id => transaction.id, :format => 'pdf'}, :class => 'btn btn-mini btn-mature' %>
+                    <%= link_to 'Edit', edit_account_transaction_path(params[:account_id], transaction), :class => 'btn btn-mini' %>
+                    <%= link_to 'Destroy', account_transaction_path(params[:account_id], transaction), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger' %>
+                    <%= link_to 'Invoice', {:controller => "transactions", :action => "invoice", :account_id => params[:account_id], :transaction_id => transaction.id, :format => 'pdf'}, :class => 'btn btn-mini btn-mature' %>
                     <a transaction_id=<%= transaction.id %> href="#" data-target="#new-partial-payment" class="make-payment btn btn-mini btn-mature" data-toggle="modal" onclick="$('#partial-payment').modal(); $transaction_id = $(this).attr('transaction_id'); $transaction_id; $('.hidden-transaction-id').val($transaction_id); $(this).parent().parent().addClass('current'); ">Make payment</a>
                 </td>
             </tr>
         <% end %>
     </tbody>
 </table>
-<div class="flickr_pagination">
-    <div class="page_info">
-        <%= page_entries_info @transactions %>
-    </div>
-    <%= will_paginate @transactions, :container => false %>
-</div>
 <%= render :partial => "transactions/new_partial_payment" %>

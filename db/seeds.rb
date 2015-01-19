@@ -8,12 +8,9 @@ User.create([
 #################################################################
 
 Company.create([
-                   {:company_name => "wave tech line", :company_address => "Arrisrocrapt appt, Behind SBI bank, CBS, Nasik", :contact_number1 => 2805656, :contact_number2 => 2493131, :crm_customer_id => 1}
+                   {:company_name => "wave tech line", :company_address => "Arrisrocrapt appt, Behind SBI bank, CBS, Nasik", :contact_number1 => 2805656, :contact_number2 => 2493131}
 ])
 
-CrmCustomer.create([
-                   {:first_name => "Ramesh", :middle_name => "Suresh", :last_name => "Kidchudkar", :address => "Near city center mall, Nashik", :amount_paid => 50000, :subscription_start => (Date.today - 1.year + 4.months), :subscription_ends => (Date.today + 4.months), :customer_type => 'B2B'}
-])
 User.create([
             {:first_name => "Vijay", :last_name => "gaikwad", :address => "Near Vinchurkar diagnostics, CBS, Nashik", :mobile_no => 8055508545, :email => "admin@gmail.com", :password => "admin123", :password_confirmation => "admin123", :account_type => 1, :company_id => 1},
             {:first_name => "jeevan", :last_name => "Pawar", :address => "Pawan nagar, nashik", :mobile_no => 9049402749, :email => "team_leader@gmail.com", :password => "team_leader123", :password_confirmation => "team_leader123", :account_type => 2, :company_id => 1},
@@ -48,26 +45,26 @@ Event.create([
 ])
 
 Lead.create([
-            {:lead_status => "Lead", :lead_source => "cold_call", :title => "mahindra", :description => "automobile company", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "cold_call", :title => "Prakash wines", :description => "wine shoppee", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "cold_call", :title => "Gurvindar garage", :description => "Garage", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "advertisement", :title => "Pravin garage", :description => "Garage", :leadable_id => 2, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "advertisement", :title => "Ramesh garage", :description => "Garage", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Dead", :lead_source => "advertisement", :title => "Suresh restaurant", :description => "restaurant", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Dead", :lead_source => "direct_marketing", :title => "Rahul bar", :description => "bar", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Dead", :lead_source => "direct_marketing", :title => "Harish ca", :description => "ca", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Future", :lead_source => "direct_marketing", :title => "Pravesh ca", :description => "ca", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 1},
-            {:lead_status => "Future", :lead_source => "partner", :title => "Ramesh garage", :description => "Garage", :leadable_id => 4, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Future", :lead_source => "partner", :title => "mahindra", :description => "automobile company", :leadable_id => 4, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Future", :lead_source => "partner", :title => "Prakash wines", :description => "wine shoppee", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Prospecting", :lead_source => "public_relations", :title => "Gurvindar garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Prospecting", :lead_source => "public_relations", :title => "Pravin garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "public_relations", :title => "Ramesh garage", :description => "Garage", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "seminar", :title => "Suresh restaurant", :description => "restaurant", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "seminar", :title => "Rahul bar", :description => "bar", :leadable_id => 1, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Harish ca", :description => "ca", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Pravesh ca", :description => "ca", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 1},
-            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Ramesh garage", :description => "Garage", :leadable_id => 7, :leadable_type => "SalesExecutive", :company_id => 1}
+            {:lead_status => "Lead", :lead_source => "cold_call", :title => "mahindra", :description => "automobile company", :company_id => 1, :user_id => 3},
+            {:lead_status => "Lead", :lead_source => "cold_call", :title => "Prakash wines", :description => "wine shoppee", :company_id => 1, :user_id => 3},
+            {:lead_status => "Lead", :lead_source => "cold_call", :title => "Gurvindar garage", :description => "Garage", :company_id => 1, :user_id => 3},
+            {:lead_status => "Lead", :lead_source => "advertisement", :title => "Pravin garage", :description => "Garage", :company_id => 1, :user_id => 3},
+            {:lead_status => "Lead", :lead_source => "advertisement", :title => "Ramesh garage", :description => "Garage", :company_id => 1, :user_id => 4},
+            {:lead_status => "Dead", :lead_source => "advertisement", :title => "Suresh restaurant", :description => "restaurant", :company_id => 1, :user_id => 4},
+            {:lead_status => "Dead", :lead_source => "direct_marketing", :title => "Rahul bar", :description => "bar", :company_id => 1, :user_id => 4},
+            {:lead_status => "Dead", :lead_source => "direct_marketing", :title => "Harish ca", :description => "ca", :company_id => 1, :user_id => 4},
+            {:lead_status => "Future", :lead_source => "direct_marketing", :title => "Pravesh ca", :description => "ca", :company_id => 1, :user_id => 5},
+            {:lead_status => "Future", :lead_source => "partner", :title => "Ramesh garage", :description => "Garage", :company_id => 1, :user_id => 5},
+            {:lead_status => "Future", :lead_source => "partner", :title => "mahindra", :description => "automobile company", :company_id => 1, :user_id => 5},
+            {:lead_status => "Future", :lead_source => "partner", :title => "Prakash wines", :description => "wine shoppee", :company_id => 1, :user_id => 6},
+            {:lead_status => "Prospecting", :lead_source => "public_relations", :title => "Gurvindar garage", :description => "Garage", :company_id => 1, :user_id => 6},
+            {:lead_status => "Prospecting", :lead_source => "public_relations", :title => "Pravin garage", :description => "Garage", :company_id => 1, :user_id => 6},
+            {:lead_status => "Lead", :lead_source => "public_relations", :title => "Ramesh garage", :description => "Garage", :company_id => 1, :user_id => 3},
+            {:lead_status => "Lead", :lead_source => "seminar", :title => "Suresh restaurant", :description => "restaurant", :company_id => 1, :user_id => 4},
+            {:lead_status => "Lead", :lead_source => "seminar", :title => "Rahul bar", :description => "bar", :company_id => 1, :user_id => 4},
+            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Harish ca", :description => "ca", :company_id => 1, :user_id => 5},
+            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Pravesh ca", :description => "ca", :company_id => 1, :user_id => 5},
+            {:lead_status => "Lead", :lead_source => "trade_show", :title => "Ramesh garage", :description => "Garage", :company_id => 1, :user_id => 6}
 ])
 
 Contact.create([
@@ -247,29 +244,6 @@ PartialPayment.create([
                       {:amount_paid => 1200, :transaction_id => 12},
 ])
 
-SpecialOccasion.create([
-                       {:title => "divali", :body => "Divali is hindu occassion", :occasion_date => "2013-04-01 01:17:00 UTC"},
-                       {:title => "gudi padva", :body => "Divali is hindu occassion", :occasion_date => "2013-04-03 01:17:00 UTC"},
-                       {:title => "shiv jayanti", :body => "Divali is hindu occassion", :occasion_date => "2013-04-05 01:17:00 UTC"},
-                       {:title => "dasra", :body => "Divali is hindu occassion", :occasion_date => "2013-04-06 01:17:00 UTC"},
-                       {:title => "ram navami", :body => "Divali is hindu occassion", :occasion_date => "2013-04-08 01:17:00 UTC"},
-                       {:title => "swami jayanti", :body => "Divali is hindu occassion", :occasion_date => "2013-04-05 01:17:00 UTC"},
-                       {:title => "frnd ship day", :body => "Divali is hindu occassion", :occasion_date => "2013-04-10 01:17:00 UTC"},
-                       {:title => "valen tine day", :body => "Divali is hindu occassion", :occasion_date => "2013-04-11 01:17:00 UTC"},
-                       {:title => "rose day", :body => "Divali is hindu occassion", :occasion_date => "2013-04-15 01:17:00 UTC"},
-                       {:title => "Thai Amavasai", :body => "Divali is hindu occassion", :occasion_date => "2013-04-17 01:17:00 UTC"},
-                       {:title => "Maha Shivaratri", :body => "Divali is hindu occassion", :occasion_date => "2013-04-18 01:17:00 UTC"},
-                       {:title => "Sri Ramanavami", :body => "Divali is hindu occassion", :occasion_date => "2013-04-19 01:17:00 UTC"},
-                       {:title => "Mahavir Jayanti", :body => "Divali is hindu occassion", :occasion_date => "2013-04-20 01:17:00 UTC"},
-                       {:title => "Madurai Meenakshi Thiru Kalyanam", :body => "Divali is hindu occassion", :occasion_date => "2013-04-25 01:17:00 UTC"},
-                       {:title => "Sri Sankara Jayanthi", :body => "Divali is hindu occassion", :occasion_date => "2013-04-26 01:17:00 UTC"},
-                       {:title => "Naga Chadurthi", :body => "Divali is hindu occassion", :occasion_date => "2013-04-27 01:17:00 UTC"},
-                       {:title => "Gayatri Japam", :body => "Divali is hindu occassion", :occasion_date => "2013-04-28 01:17:00 UTC"},
-                       {:title => "Sri Jayanthi", :body => "Divali is hindu occassion", :occasion_date => "2013-04-29 01:17:00 UTC"},
-                       {:title => "Munithirya Jayanthi", :body => "Divali is hindu occassion", :occasion_date => "2013-04-30 01:17:00 UTC"}
-
-])
-
 Account.create([
 {:is_matured => true, :account_owner => 1, :account_name => "Wave soft pvt ltd", :number_of_employees => 50, :phone_number => 2435684, :website => "www.wavesoft.com", :ownership_type => "proprietership", :billing_address => "CBS, Nasik", :shipping_address => "Ambad, Nasik", :company_id => 1, :lead_id => 1},
 {:is_matured => true, :account_owner => 3, :account_name => "Chakradhar pvt ltd", :number_of_employees => 96, :phone_number => 2458956, :website => "www.chakradhar.com", :ownership_type => "Private", :billing_address => "Ambad, Nasik", :shipping_address => "Ambad, Nasik", :company_id => 1, :lead_id => 2},
@@ -386,11 +360,7 @@ ProductTransaction.create([
 #################################################################
 
 Company.create([
-               {:company_name => "Dental Hospital", :company_address => "USA", :contact_number1 => 15465665556, :contact_number2 => 416515654165, :crm_customer_id => 2}
-])
-
-CrmCustomer.create([
-                   {:first_name => "Pratik", :middle_name => "Piyush", :last_name => "Pagare", :address => "Indranil appt., Pathardi phata, Nashik", :amount_paid => 50000, :subscription_start => (Date.today - 1.year + 4.months), :subscription_ends => (Date.today + 4.months), :customer_type => 'B2C'}
+               {:company_name => "Dental Hospital", :company_address => "USA", :contact_number1 => 15465665556, :contact_number2 => 416515654165}
 ])
 
 User.create([
@@ -404,26 +374,26 @@ User.create([
 ])
 
 Lead.create([
-            {:title => "James Jack", :description => "Root canal patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "Bleaching patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 3, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 4, :leadable_type => "TeamLeader", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "hospital", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 5, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 6, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 7, :leadable_type => "SalesExecutive", :company_id => 2},
-            {:title => "Patient", :description => "patient", :leadable_id => 8, :leadable_type => "SalesExecutive", :company_id => 2}
+            {:title => "James Jack", :description => "Root canal patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "Bleaching patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 10},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 11},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 11},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 11},
+            {:title => "Patient", :description => "hospital", :company_id => 2, :user_id => 11},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 12},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 12},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 12},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 12},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 12},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 13},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 13},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 13},
+            {:title => "Patient", :description => "patient", :company_id => 2, :user_id => 13}
 ])
 
 Contact.create([

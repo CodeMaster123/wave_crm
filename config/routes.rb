@@ -74,7 +74,6 @@ WaveCrm::Application.routes.draw do
     match 'create_events' => 'events#create_event'
     match 'create_notification' => 'notifications#create_notification'
     match 'create_contact' => 'contacts#create_contact'
-    match 'create_transaction' => 'transactions#create_transaction'
     match 'change_owner' => 'leads#change_owner'
 
     root :to => 'leads#index'

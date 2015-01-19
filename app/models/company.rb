@@ -23,4 +23,12 @@ class Company < ActiveRecord::Base
     def sales_users
       self.users.where("account_type = 2 OR account_type = 3")
     end
+
+    def team_leaders
+      self.users.where('account_type = 2')
+    end
+
+    def sales_executives
+      self.users.where('account_type = 3')
+    end
 end

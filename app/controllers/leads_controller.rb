@@ -1,38 +1,38 @@
 class LeadsController < ApplicationController
     before_filter :authenticate_user!, :fetch_company
+    before_filter :fetch_sales_employee_records, except: [:index, :destroy, :search, :postpone_lead, :change_owner]
     filter_access_to :all
     respond_to :html, :json
 
     def index
         if current_user.account_type == 1 #Admin
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = @company.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15).all
+                @leads = @company.leads.where("lead_status = '#{params[:type]}'")
             else
-                @leads = @company.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'").paginate(:page => params[:page], :per_page => 15).all
+                @leads = @company.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'")
             end
             unless params[:id1].nil?
-                @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
+                @leads = Lead.where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
                 executive_name = SalesExecutive.find(params[:id1]).user
                 @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
             end
         elsif current_user.account_type  == 2 #Team leader
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = current_user.team_leader.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15)
+                @leads = current_user.leads.where("lead_status = '#{params[:type]}'")
             else
                 if params[:sales_executive].nil?
-                    @leads = current_user.team_leader.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'").paginate(:page => params[:page], :per_page => 15)
+                    @leads = current_user.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'")
                 else
                     session[:sales_executive] = true
-                    @leads = SalesExecutive.find(params[:sales_executive]).leads.paginate(:page => params[:page], :per_page => 15)
+                    @leads = SalesExecutive.find(params[:sales_executive]).leads
                 end
             end
         elsif current_user.account_type ==3 #Executive
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = current_user.sales_executive.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15)
+                @leads = current_user.leads.where("lead_status = '#{params[:type]}'")
             else
-                @leads = current_user.sales_executive.leads.where("lead_status != 'dead' and lead_status != 'won' != lead_status != 'future'").paginate(:page => params[:page], :per_page => 15)
+                @leads = current_user.leads.where("lead_status != 'dead' and lead_status != 'won' != lead_status != 'future'")
             end
-            @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
         end
 
         respond_with @leads
@@ -42,8 +42,6 @@ class LeadsController < ApplicationController
         @lead = Lead.find(params[:id])
         @lead_events = @lead.events.all
         @call_logs = @lead.call_logs
-        @team_leaders = current_user.company.team_leaders
-        @sales_executives = current_user.company.sales_executives
 
         unless @lead.contacts.empty?
             @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
@@ -69,9 +67,7 @@ class LeadsController < ApplicationController
         @lead.contacts.build
         @lead.product_transactions.build
         @lead.build_account
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
-        @products = @company.products.all
+        @products = @company.products
 
         respond_with @lead
     end
@@ -81,24 +77,14 @@ class LeadsController < ApplicationController
         if @lead.contacts.empty?
             @lead.contacts.build
         end
-        @products = @company.products.all
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
+        @products = @company.products
     end
 
     def create
-        @products = @company.products.all
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
+        @products = @company.products
 
         @lead = @company.leads.new(params[:lead])
-        if current_user.account_type == 2
-            @lead.leadable_id = current_user.team_leader.id
-            @lead.leadable_type = "TeamLeader"
-        elsif current_user.account_type == 3
-            @lead.leadable_id = current_user.sales_executive.id
-            @lead.leadable_type = "SalesExecutive"
-        end
+         @lead.user_id = current_user.id
 
         @lead.save
 
@@ -106,8 +92,6 @@ class LeadsController < ApplicationController
     end
 
     def update
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
         @lead = @company.leads.find(params[:id])
 
         @lead.update_attributes(params[:lead])
@@ -142,5 +126,10 @@ class LeadsController < ApplicationController
             @lead = Lead.find(params[:lead_id])
             @lead.update_attributes(:opening_date => params[:opening_date].to_time, :lead_status => "future")
         end
+    end
+
+    def fetch_sales_employee_records
+        @team_leaders = @company.team_leaders
+        @sales_executives = @company.sales_executives
     end
 end

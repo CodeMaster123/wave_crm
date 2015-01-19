@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :target do
-    targetable_id 1
-    targetable_type 'TeamLeader'
+    user_id 2
     target_month 1
     target_year 2015
     amount 100000
