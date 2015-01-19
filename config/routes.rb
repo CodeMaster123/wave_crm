@@ -23,29 +23,37 @@ WaveCrm::Application.routes.draw do
     resources :tags
 
     resources :products do
-      resources :inventories
       resources :inventory_additions
     end
 
-    resources :leads
+    resources :leads do
+      collection do
+        get 'search'
+      end
+    end
     resources :contacts
     resources :leads_products
     resources :call_logs
     resources :targets
     resources :employees
 
-    resources :events
-    resources :notifications
+    resources :events do
+      collection do
+        get 'search'
+      end
+    end
+    resources :notifications do
+      collection do
+        get 'search'
+        match 'notifications_to_all'
+      end
+    end
 
-    #Sinatra apps
     mount_sextant if Rails.env.development?
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
     #Search functionality
-    match 'lead_search' => 'leads#search'
     match 'tag_search' => 'tags#search'
-    match 'notification_search' => 'notifications#search'
-    match 'event_search' => 'events#search'
 
     #Reporting and intelligence
     match 'transaction_graph' => 'transactions#graph'
@@ -56,7 +64,6 @@ WaveCrm::Application.routes.draw do
 
     #Notifications and events
     match 'calendar' => "calendar#index"
-    match 'notifications_to_all' => 'notifications#notifications_to_all'
 
     #Used in transactions controller
     match 'transactions/new/:id1/:matured_by/:executive_type' => 'transactions#new'
