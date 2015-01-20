@@ -1,45 +1,29 @@
-# Simple Role Syntax
-# ==================
-# Supports bulk-adding hosts to roles, the primary server in each group
-# is considered to be the first unless any hosts have the primary
-# property set.  Don't declare `role :all`, it's a meta role.
+set :stage, :production
+set :application, 'c4c'
+set :scm, :git
+set :repo_url, 'git@github.com:CodeMaster123/wave_crm.git'
+set :branch, "master"
+set :deploy_via, :remote_cache
 
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+server '54.173.83.222', user: 'ubuntu', roles: %w{web app db resque_worker}
+set :ssh_options, { :forward_agent => true }
+set :use_sudo, false
+set :rails_env,"production"
+set :deploy_to, '/home/ubuntu/apps/wave_crm'
 
+set :pty, true
+set :ssh_options, { :forward_agent => true }
 
-# Extended Server Syntax
-# ======================
-# This can be used to drop a more detailed server definition into the
-# server list. The second argument is a, or duck-types, Hash and is
-# used to set extended properties on the server.
+set :rvm_type, :user
+set :rvm_ruby_version, '2.1.0'
+set :deploy_via, :remote_cache
+#set :linked_files, %w{config/database.yml}
+#set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
-
-
-# Custom SSH Options
-# ==================
-# You may pass any option but keep in mind that net/ssh understands a
-# limited set of options, consult[net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start).
-#
-# Global options
-# --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
-#
-# And/or per server (overrides global)
-# ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+set :bundle_gemfile, -> { release_path.join('Gemfile') }
+set :bundle_dir, -> { shared_path.join('vendor/bundle') }
+set :bundle_flags, '--deployment'
+set :bundle_without, %w{development test}.join(' ')
+set :bundle_binstubs, -> { shared_path.join('bin') }
+set :bundle_roles, :all
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
