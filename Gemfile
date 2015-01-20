@@ -66,3 +66,4 @@ gem 'pdfkit'
 
 gem 'capistrano'
 gem 'capistrano-bundler'
+gem 'capistrano-rails'
