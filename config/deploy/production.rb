@@ -14,11 +14,11 @@ set :deploy_to, '/home/ubuntu/apps/wave_crm'
 set :pty, true
 set :ssh_options, { :forward_agent => true }
 
-set :rvm_type, :user
+set :rvm_type, :auto
 set :rvm_ruby_version, '2.1.0'
 set :deploy_via, :remote_cache
 #set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 set :bundle_gemfile, -> { release_path.join('Gemfile') }
 set :bundle_dir, -> { shared_path.join('vendor/bundle') }
