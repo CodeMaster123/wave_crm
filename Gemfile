@@ -65,3 +65,4 @@ gem 'ruby_parser'
 gem 'pdfkit'
 
 gem 'capistrano'
+gem 'capistrano-bundler'
