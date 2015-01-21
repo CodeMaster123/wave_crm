@@ -13,7 +13,6 @@ gem 'thin', '~> 1.5.1'
 gem 'nested_form', '0.3.2'
 gem 'rails_admin'
 gem 'will_paginate'
-gem 'wicked'
 
 gem 'thinking-sphinx'
 gem 'mysql2'
@@ -24,13 +23,12 @@ gem 'public_activity'
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails"
 
 
 
 group :assets do
     gem 'sass-rails',   '~> 3.2.3'
-    gem 'coffee-rails', '~> 3.2.1'
     gem 'uglifier', '>= 1.0.3'
     gem 'less'
 end
@@ -40,7 +38,6 @@ group :development do
     gem 'irbtools'
     gem 'pry'
     gem 'sextant'
-    gem 'rails_best_practices'
 end
 
 group :test do
@@ -49,11 +46,7 @@ group :test do
     gem 'guard-rspec'
     gem 'factory_girl'
     gem 'factory_girl_rails'
-
-    #gem 'rb-inotify'
     #gem 'ruby-prof'
-    #gem 'database_cleaner'
-    #gem 'coveralls', :require => false
 end
 
 #gem 'rack-mini-profiler'
@@ -62,11 +55,4 @@ gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
 
-#Hairballs
-gem "twitter-bootstrap-rails"
-gem 'jquery-rails'
-#gem 'bootstrap_form'
-#gem 'lazy_high_charts'
-#gem 'rails3-jquery-autocomplete'
-#gem 'gmaps4rails'
 gem 'ng-rails-csrf'

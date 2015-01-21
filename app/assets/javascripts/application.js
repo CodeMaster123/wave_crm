@@ -24,11 +24,13 @@
 //= require magicsuggest-1.2.7
 //= require jquery_nested_form
 //
+//= require bootstrap.min
 //= require underscore
-//= require angular
+//
+//= require angular/angular
+//= require angular/angular-route
+//= require angular/restangular
 //= require ng-rails-csrf
-//= require angular-route
-//= require restangular
 //
 //= require ui-bootstrap-tpls-0.12.0
 //
