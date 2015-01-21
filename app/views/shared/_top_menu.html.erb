@@ -8,6 +8,23 @@
                     <%= render :partial => "shared/inventory" %>
                     <%= render :partial => "shared/reports" %>
                     <%= render :partial => "shared/appointments" %>
+                    <% if controller_name == "users" %>
+                        <% permitted_to? :index, :users do %>
+                        <li class='active'>
+                            <%= link_to(:users) do %>
+                                <span>Users</span>
+                            <% end %>
+                        </li>
+                        <% end %>
+                    <% else %>
+                        <% permitted_to? :index, :users do %>
+                            <li>
+                            <%= link_to(:users) do %>
+                                <span>Users</span>
+                            <% end %>
+                            </li>
+                        <% end %>
+                    <% end %>
                     <%= render :partial => "shared/superuser_menu" %>
                 <% end %>
             <% end %>

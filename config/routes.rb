@@ -19,9 +19,6 @@ WaveCrm::Application.routes.draw do
     resources :transaction_fields
     resources :partial_payments
 
-    resources :taggings
-    resources :tags
-
     resources :products do
       resources :inventory_additions
     end
@@ -51,9 +48,6 @@ WaveCrm::Application.routes.draw do
 
     mount_sextant if Rails.env.development?
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-    #Search functionality
-    match 'tag_search' => 'tags#search'
 
     #Reporting and intelligence
     match 'transaction_graph' => 'transactions#graph'
