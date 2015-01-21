@@ -22,12 +22,17 @@
     <dd>{{account.shipping_address}}</dd>
   </dl>
   <div class="form-actions">
-    <a class='btn' >Edit</a>
+    <a class='btn' ng-href='accounts#/new'>Edit</a>
   </div>
 </tab>
 
 
 <tab heading="Contacts" ng-controller='ContactsController' select='contacts()'>
+<div class="control-group">
+    <div class="controls">
+        Search: <input type='text' class='search-c' ng-model='search_field' ng-change='search()'>
+    </div>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>

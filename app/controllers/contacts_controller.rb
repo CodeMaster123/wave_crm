@@ -48,7 +48,7 @@ class ContactsController < BaseController
 
     def search
       if current_user.account_type == 1
-        @contacts = Contact.search params[:q], :with => {:company_id => current_user.company_id}
+        @contacts = Contact.search params[:query], :with => {:company_id => current_user.company_id}
       end
 
       respond_with @contacts

@@ -40,30 +40,6 @@
     </li>
 <% end %>
 
-<% if controller_name == "contacts" && action_name!= "map_index" %>
-    <li class="active">
-    <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-        <span>Contacts</span>
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li><%= link_to "Clients", account_contacts_path('client') %></li>
-        <li><%= link_to "Potential Customers", account_contacts_path('potential_customer') %></li>
-    </ul>
-    </li>
-<% else %>
-    <li>
-    <a href="#" data-toggle="dropdown" class='dropdown-toggle'>
-        <span>Contacts</span>
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <li><%= link_to "Clients", account_contacts_path('client') %></li>
-        <li><%= link_to "Potential Customers", account_contacts_path('potential_customer') %></li>
-    </ul>
-    </li>
-<% end %>
-
 <% if controller_name == "accounts" %>
     <% permitted_to? :index, :transactions do %>
         <li class="active">
@@ -72,8 +48,8 @@
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            <li><%= link_to "Existing accounts", {:controller => "accounts", :action => "index", :type => "existing_accounts"} %></li>
-            <li><%= link_to "Potential accounts", {:controller => "accounts", :action => "index", :type => "potential_accounts"} %></li>
+          <li><a href='accounts#/index?type=existing_accounts'>Existing accounts</a></li>
+          <li><a href='accounts#/index?type=potential_accounts'>Potential Accounts</a></li>
         </ul>
         </li>
     <% end %>
@@ -85,8 +61,8 @@
             <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-            <li><%= link_to "Existing accounts", {:controller => "accounts", :action => "index", :type => "existing_accounts"} %></li>
-            <li><%= link_to "Potential accounts", {:controller => "accounts", :action => "index", :type => "potential_account"} %></li>
+          <li><a href='accounts#/index?type=existing_accounts'>Existing accounts</a></li>
+          <li><a href='accounts#/index?type=potential_accounts'>Potential Accounts</a></li>
         </ul>
         </li>
     <% end %>

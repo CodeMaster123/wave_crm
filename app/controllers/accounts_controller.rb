@@ -4,10 +4,10 @@ class AccountsController < BaseController
     respond_to :html, :json
 
     def index
-        if params[:type] == "existing_accounts"
-            @accounts = current_user.company.accounts.where(:is_matured => true)
-        else
-            @accounts = current_user.company.accounts.where(:is_matured => false)
+        if params[:type] == 'existing_accounts'
+            @accounts = @company.accounts.where(:is_matured => true)
+        elsif params[:type] == 'potential_accounts'
+            @accounts = @company.accounts.where(:is_matured => false)
         end
 
         respond_with @accounts
@@ -54,5 +54,11 @@ class AccountsController < BaseController
         @account.destroy
 
         respond_with @account
+    end
+
+    def search
+      @account = Account.search params[:query]
+
+      respond_with @account
     end
 end

@@ -11,8 +11,10 @@ WaveCrm::Application.routes.draw do
         match 'invoice' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
       end
       resources :contacts
-      match 'contact_search' => 'contacts#search'
-      match 'contacts/index/:type' => 'contacts#index'
+
+      collection do
+        get 'search'
+      end
     end
 
     resources :transaction_field_values
@@ -28,7 +30,13 @@ WaveCrm::Application.routes.draw do
         get 'search'
       end
     end
-    resources :contacts
+
+    resources :contacts do
+      collection do
+        get 'search'
+      end
+    end
+
     resources :leads_products
     resources :call_logs
     resources :targets
@@ -39,6 +47,7 @@ WaveCrm::Application.routes.draw do
         get 'search'
       end
     end
+
     resources :notifications do
       collection do
         get 'search'
@@ -51,7 +60,6 @@ WaveCrm::Application.routes.draw do
 
     #Reporting and intelligence
     match 'transaction_graph' => 'transactions#graph'
-    match 'map_index' => 'contacts#map_index'
     match 'target_forecast' => 'team_leaders#target_forecast'
     match 'targets/index/:type' => 'targets#index'
     match 'old_target' => 'targets#old_target'
@@ -80,7 +88,6 @@ WaveCrm::Application.routes.draw do
     match 'create_call_logs' => 'call_logs#create_log'
     match 'create_events' => 'events#create_event'
     match 'create_notification' => 'notifications#create_notification'
-    match 'create_contact' => 'contacts#create_contact'
     match 'change_owner' => 'leads#change_owner'
 
     root :to => 'leads#index'

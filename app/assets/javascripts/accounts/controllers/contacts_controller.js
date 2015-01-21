@@ -1,4 +1,4 @@
-accounts_app.controller('ContactsController',function($scope,$modal, $routeParams, Restangular){
+accounts_app.controller('ContactsController',function($scope,$modal, $routeParams, $http, Restangular){
   $scope.contacts = function(){
     Restangular.one('accounts', $routeParams.id).all('contacts').getList().then(function(result){
       $scope.contacts = result;
@@ -14,6 +14,18 @@ accounts_app.controller('ContactsController',function($scope,$modal, $routeParam
           return contact;
         }
       }
+    })
+  }
+
+  $scope.search = function(){
+    $http({
+      method: 'GET',
+      url: 'contacts/search.json',
+      params: {
+        query: $scope.search_field
+      }
+    }).success(function(result){
+      $scope.contacts = result;
     })
   }
 })
