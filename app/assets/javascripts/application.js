@@ -18,7 +18,6 @@
 //= require jquery-ui-1.10.2.custom.min
 //= require jquery-ui-timepicker-addon
 //= require jquery-ui-sliderAccess
-//= require searchbox
 //= require chosen.jquery.min
 //= require jquery.betterTooltip
 //= require magicsuggest-1.2.7
@@ -30,15 +29,22 @@
 //= require angular/angular
 //= require angular/angular-route
 //= require angular/restangular
+//= require angular/ui-bootstrap-tpls-0.12.0
 //= require ng-rails-csrf
 //
-//= require ui-bootstrap-tpls-0.12.0
 //
 //= require_directory ./accounts/services
 //= require_directory ./accounts/controllers
 
-//= require fullcalendar.min
+//= require calendar/fullcalendar.min
+//= require calendar/gcal
+//= require calendar/moment.min
+//= require calendar/calendar
 //= require chosen.jquery.min
+
+//= require_directory ./calendar/services
+//= require_directory ./calendar/controllers
+
 
 
 

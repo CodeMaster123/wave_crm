@@ -16,7 +16,9 @@
  *= require font-awesome.min
 
  *= require pagination
- *= require fullcalendar.css
+
+ *= require calendar/fullcalendar.min.css
+
  *= require jquery-ui-1.10.2.custom.min
  *= require jquery-ui-timepicker-addon
  *= require magicsuggest-1.2.7
