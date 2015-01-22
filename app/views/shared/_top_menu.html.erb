@@ -6,7 +6,6 @@
                 <% permitted_to? :index, :leads do %>
                     <%= render :partial => "shared/common" %>
                     <%= render :partial => "shared/inventory" %>
-                    <%= render :partial => "shared/reports" %>
                     <%= render :partial => "shared/appointments" %>
                     <% if controller_name == "users" %>
                         <% permitted_to? :index, :users do %>

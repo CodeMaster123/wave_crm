@@ -36,11 +36,10 @@
             </tr>
         </thead>
         <tbody id="search-data">
-            <% render :partial => 'shared/i_calculation' %>
-            <% @leads.each do |lead| %>
+            <% @leads.each_with_index do |lead, i| %>
                 <%# if lead.matured_at? %>
                 <tr>
-                    <td><%= link_to @i = @i+1, lead_path(lead) %></td>
+                    <td><%= link_to i, lead_path(lead) %></td>
 
                     <td><%= lead.description %></td>
                     <td><%= lead.get_lead_source%></td>
