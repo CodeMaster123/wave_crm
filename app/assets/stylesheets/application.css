@@ -15,8 +15,6 @@
  *= require bootstrap-responsive.min
  *= require font-awesome.min
 
- *= require pagination
-
  *= require calendar/fullcalendar.min.css
 
  *= require jquery-ui-1.10.2.custom.min
