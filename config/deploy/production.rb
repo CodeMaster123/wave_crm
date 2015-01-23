@@ -14,7 +14,7 @@ set :deploy_to, '/home/ubuntu/apps/wave_crm'
 set :pty, true
 set :ssh_options, { :forward_agent => true }
 
-set :rvm_type, :auto
+set :rvm_type, :user
 set :rvm_ruby_version, '2.1.0'
 set :deploy_via, :remote_cache
 #set :linked_files, %w{config/database.yml}
