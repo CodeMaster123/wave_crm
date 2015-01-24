@@ -8,7 +8,6 @@ class Lead < ActiveRecord::Base
     has_many :products, :through => :product_transactions
     has_many :product_transactions
 
-    has_many :events, :dependent => :destroy
     has_many :call_logs, :dependent => :destroy
     has_one :account
 

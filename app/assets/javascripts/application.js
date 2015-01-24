@@ -45,7 +45,6 @@
 //= require_directory ./calendar/services
 //= require_directory ./calendar/controllers
 
-
-
-
+//= require_directory ./leads/services
+//= require_directory ./leads/controllers
 

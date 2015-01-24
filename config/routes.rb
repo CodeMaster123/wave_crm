@@ -28,6 +28,7 @@ WaveCrm::Application.routes.draw do
     resources :leads do
       collection do
         get 'search'
+        get 'home'
       end
     end
 

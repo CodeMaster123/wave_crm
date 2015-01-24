@@ -75,7 +75,7 @@
     <tbody>
     <tr ng-repeat='transaction in transactions'>
       <td>{{transaction.amount}}</td>
-      <td>{{transaction.transaction_time | date:'hh:m a dd MMM, yyyy'}}</td>
+      <td>{{transaction.transaction_time | date:'hh:mm a dd MMM, yyyy'}}</td>
       <td>
         <a target='_blank' class='btn btn-mini btn-mature' ng-href='accounts/{{transaction.account_id}}/transactions/{{transaction.id}}/invoice.pdf'>Invoice</a>
         <a href="#"  rel="popover" class="reply"

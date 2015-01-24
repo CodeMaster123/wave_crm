@@ -1,0 +1,48 @@
+<div class="page-header">
+  <div class="pull-left">
+    <h1>Leads</h1>
+  </div>
+</div>
+
+<div class="control-group">
+  <div class="controls">
+    Search: <input type='text' name='title' class='search-c'></input>
+    <div class="new-top">
+      <a class='btn btn-primary customer-new-button'>New</a>
+    </div>
+    <div class="notification-btn">
+      <a class='btn btn-primary'>Current Leads</a>
+      <a class='btn btn-primary'>Future Leads</a>
+      <a class='btn btn-primary'>Matured Leads</a>
+      <a class='btn btn-primary'>Dead Leads</a>
+    </div>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sr.No</th>
+      <th>Description</th>
+      <th>Lead owner</th>
+      <th>Lead source</th>
+      <th>Reoping date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="search-data">
+  <tr ng-repeat='lead in leads'>
+    <td>{{$index}}</td>
+
+    <td>{{lead.description}}</td>
+    <td>{{lead.get_lead_source}}</td>
+    <td>{{lead.opening_date}}</td>
+    <td></td>
+    <td>
+      <a class='btn btn-mini' ng-href="#/{{lead.id}}">Details</a>
+      <a class='btn btn-mini'>Edit</a>
+      <a class='btn btn-mini btn-danger'>Destroy</a>
+      <a href="#" data-target="#new-meeting" class="btn-postpone btn btn-mature btn-mini" onclick="update_reopening_date($(this))" data-toggle="modal" lead_id="<%= lead.id %>" >Postpone</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

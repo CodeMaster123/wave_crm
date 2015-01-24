@@ -15,13 +15,13 @@
                 <div class="control-group hide team_leaders">
                     Team leader
                     <div class="controls">
-                        <%= select_tag :leadable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
+                        <%#= select_tag :leadable_id, options_for_select(@team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
                     </div>
                 </div>
                 <div class="control-group hide sales_executives">
                     Sales executives
                     <div class="controls">
-                        <%= select_tag :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
+                        <%#= select_tag :leadable_id, options_for_select(@sales_executives.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), :class => 'text_field' %>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,10 @@ class LeadsController < ApplicationController
     filter_access_to :all
     respond_to :html, :json
 
+    def home
+
+    end
+
     def index
         if current_user.account_type == 1 #Admin
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
@@ -39,27 +43,15 @@ class LeadsController < ApplicationController
     end
 
     def show
-        @lead = Lead.find(params[:id])
-        @lead_events = @lead.events.all
-        @call_logs = @lead.call_logs
+        @lead = Lead.includes(:call_logs =>[:contact, :user], :product_transactions => [:product]).find(params[:id])
 
-        unless @lead.contacts.empty?
-            @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
-        end
+        contact_ids = @lead.contacts.map{|contact|contact.id}
+        @meetings = Event.where(contact_id: contact_ids).includes(:user, :contact)
+        @future_meetings = @meetings.where("starts_at > '#{Time.now}'")
+        @previous_meetings = @meetings.where("starts_at < '#{Time.now}'")
 
-        #--- Modal variables for call logs ---
-        @call_log = CallLog.new
-        @call_owner = @company.sales_executives
+        @notifications = Notification.where(contact_id: contact_ids)
 
-        #--- Modal variables for notifications ---
-        @notification = Notification.new
-        @contacts = @company.contacts.all
-        @notifications_contact = @lead.contacts.all
-
-        #--- Modal variables for events ---
-        @event = Event.new
-
-        respond_with @lead
     end
 
     def new

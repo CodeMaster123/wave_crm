@@ -8,11 +8,7 @@
         <h4><%= @lead.contacts.first.full_name %> - Company_name</h4>
     <% end %>
     <dt><strong>Lead owner :</strong></dt>
-    <% unless @lead.leadable.nil? %>
-        <dd><b class="lead-owner-show"><%= @lead.leadable.user.full_name %></b><a href="#" data-target="#change-owner" class="" data-toggle="modal"> Change</a></dd>
-<% else %>
-        <dd><b class="lead-owner-show">No executive assigned</b><a href="#" data-target="#change-owner" class="" data-toggle="modal"> Change</a></dd>
-<% end %>
+    <dd><b class="lead-owner-show"><%= @lead.user.full_name %></b><a href="#" data-target="#change-owner" class="" data-toggle="modal"> Change</a></dd>
     <dt><strong> Description :</strong></dt>
     <dd><%= @lead.description %></dd>
     <dt><strong> Phone number :</strong></dt>
