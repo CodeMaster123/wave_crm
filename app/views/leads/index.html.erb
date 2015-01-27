@@ -88,6 +88,9 @@
     <% unless params[:team_leader].empty? %>
         <% @team_leader = TeamLeader.where(:id => params[:team_leader].to_i).first %>
         <h4>Team Leader- <%= "#{@team_leader.user.first_name} #{@team_leader.user.last_name}" %></h4>
+        <% if @team_leader.leads.first.nil? %>
+            <b>No Leads</b>
+        <% else %>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -119,6 +122,7 @@
                 <% end %>
             </tbody>
         </table>
+        <% end %>
 
         <!-- sales_executives -->
         <% @team = TeamLeader.where(:id => params[:team_leader].to_i).first.sales_executives.each do |executive| %>

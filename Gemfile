@@ -65,3 +65,11 @@ gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
 gem 'pdfkit'
+
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano-rvm'
+gem "capistrano-resque", "~> 0.2.1", require: false
+
+gem 'mailgun_rails'
