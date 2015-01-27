@@ -1,8 +1,8 @@
 class NotificationMailer < ActionMailer::Base
-  default from: "varade.vivek.123@gmail.com"
+  default from: "contact@prozapp.com"
 
   def vivek
-      mail(:to=> "varade.vivek.123@gmail.com", :subject => 'test mail', :from => "varade.vivek.123@gmail.com")
+      mail(:to=> "varade.vivek.123@gmail.com", :subject => 'test mail', :from => "contact@prozapp.com")
   end
 
   def new_notification(sender_id, receiver_id, body, subject)
