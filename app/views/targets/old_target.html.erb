@@ -16,11 +16,10 @@
   </tr>
   </thead>
   <tbody>
-  <% render :partial => 'shared/i_calculation' %>
-  <% @targets.each do |target| %>
+  <% @targets.each_with_index do |target, i| %>
       <tr>
 
-        <td><%= link_to @i = @i+1, target_path(target) %></td>
+        <td><%= link_to i, target_path(target) %></td>
         <td><%= target.full_name %></td>
         <td><%= target.targetable_type %></td>
         <td><%= target.amount %> Rs</td>
@@ -55,11 +54,3 @@
   <% end %>
 </tbody>
 </table>
-
-<div class="flickr_pagination">
-  <div class="page_info">
-    <%= page_entries_info @targets %>
-  </div>
-  <%= will_paginate @targets, :container => false %>
-</div>
-

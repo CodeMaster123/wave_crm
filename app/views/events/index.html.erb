@@ -23,10 +23,9 @@
         </tr>
     </thead>
     <tbody id="search-data">
-        <% render :partial => 'shared/i_calculation' %>
-        <% @events.each do |event| %>
+        <% @events.each_with_index do |event, i| %>
             <tr>
-                <td><%= link_to @i = @i+1, event_path(event) %></td>
+                <td><%= link_to i, event_path(event) %></td>
                 <td><%= event.title %></td>
                 <td><%= event.starts_at.strftime("%I:%M%P  %d-%b-%Y") %></td>
                 <td><%= event.description %></td>
