@@ -2,6 +2,7 @@ ruby '2.1.0'
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'jbuilder'
 gem 'pg'
 gem 'devise'
 gem 'declarative_authorization', '~> 0.5.7'
