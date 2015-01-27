@@ -39,7 +39,7 @@ WaveCrm::Application.configure do
 
   Paperclip.options[:command_path] = '/usr/local/bin/'
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailgun
 
   config.action_mailer.perform_deliveries = true
 

@@ -54,8 +54,8 @@ WaveCrm::Application.configure do
   # Enable threaded mode
   # config.threadsafe!
   #
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'prozapp.com' }
+  config.action_mailer.delivery_method = :mailgun
   config.action_mailer.perform_deliveries = true
 
 
