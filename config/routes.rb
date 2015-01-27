@@ -87,5 +87,5 @@ WaveCrm::Application.routes.draw do
     match 'create_notification' => 'notifications#create_notification'
     match 'change_owner' => 'leads#change_owner'
 
-    root :to => 'leads#index'
+    root :to => 'leads#home'
 end
