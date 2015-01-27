@@ -165,15 +165,12 @@ ActiveRecord::Schema.define(:version => 20150123095654) do
   end
 
   create_table "notifications", :force => true do |t|
-    t.boolean  "sms_sent"
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "notification_time"
     t.integer  "company_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.boolean  "is_sms",            :default => false
-    t.boolean  "is_email",          :default => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "subject"
   end
 
