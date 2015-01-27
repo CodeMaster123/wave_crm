@@ -160,26 +160,26 @@ Product.create([
 ])
 
 Notification.create([
-                    {:sms_sent => false, :contact_id => 1, :subject =>"Mail 1", :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 1, :subject =>"Mail 2", :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 2, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-07 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 3, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-08 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 10, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-09 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 8, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-10 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 7, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-11 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 5, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 9, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-13 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 14,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-14 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 11,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-15 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 1,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-16 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 2,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-17 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 13,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-18 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 10,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-19 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 18,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-20 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 17,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-21 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 15,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-22 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 19,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-23 01:17:00 UTC", :company_id => 1},
-                    {:sms_sent => false, :contact_id => 14,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 1}
+                    {:contact_id => 1, :subject =>"Mail 1", :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 1, :subject =>"Mail 2", :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 2, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-07 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 3, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-08 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 10, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-09 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 8, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-10 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 7, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-11 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 5, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 9, :subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-13 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 14,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-14 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 11,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-15 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 1,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-16 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 2,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-17 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 13,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-18 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 10,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-19 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 18,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-20 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 17,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-21 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 15,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-22 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 19,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-23 01:17:00 UTC", :company_id => 1},
+                    {:contact_id => 14,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 1}
 ])
 
 Transaction.create([
@@ -484,26 +484,26 @@ Product.create([
 ])
 
 Notification.create([
-                    {:sms_sent => false, :contact_id => 21, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 21, :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 22, :body => "msg body", :notification_time => "2013-04-07 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 23, :body => "msg body", :notification_time => "2013-04-08 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 20, :body => "msg body", :notification_time => "2013-04-09 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 28, :body => "msg body", :notification_time => "2013-04-10 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 27, :body => "msg body", :notification_time => "2013-04-11 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 25, :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 29, :body => "msg body", :notification_time => "2013-04-13 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 24, :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 21, :body => "msg body", :notification_time => "2013-04-15 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 21, :body => "msg body", :notification_time => "2013-04-16 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 32, :body => "msg body", :notification_time => "2013-04-17 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 33, :body => "msg body", :notification_time => "2013-04-18 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 30, :body => "msg body", :notification_time => "2013-04-19 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 38, :body => "msg body", :notification_time => "2013-04-20 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 37, :body => "msg body", :notification_time => "2013-04-21 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 35, :body => "msg body", :notification_time => "2013-04-22 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 39, :body => "msg body", :notification_time => "2013-04-23 01:17:00 UTC", :company_id => 2},
-                    {:sms_sent => false, :contact_id => 34, :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 2}
+                    {:contact_id => 21, :body => "msg body", :notification_time => "2013-04-05 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 21, :body => "msg body", :notification_time => "2013-04-06 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 22, :body => "msg body", :notification_time => "2013-04-07 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 23, :body => "msg body", :notification_time => "2013-04-08 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 20, :body => "msg body", :notification_time => "2013-04-09 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 28, :body => "msg body", :notification_time => "2013-04-10 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 27, :body => "msg body", :notification_time => "2013-04-11 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 25, :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 29, :body => "msg body", :notification_time => "2013-04-13 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 24, :body => "msg body", :notification_time => "2013-04-12 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 21, :body => "msg body", :notification_time => "2013-04-15 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 21, :body => "msg body", :notification_time => "2013-04-16 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 32, :body => "msg body", :notification_time => "2013-04-17 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 33, :body => "msg body", :notification_time => "2013-04-18 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 30, :body => "msg body", :notification_time => "2013-04-19 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 38, :body => "msg body", :notification_time => "2013-04-20 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 37, :body => "msg body", :notification_time => "2013-04-21 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 35, :body => "msg body", :notification_time => "2013-04-22 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 39, :body => "msg body", :notification_time => "2013-04-23 01:17:00 UTC", :company_id => 2},
+                    {:contact_id => 34, :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 2}
 ])
 
 Transaction.create([
