@@ -1,7 +1,4 @@
 class Notification < ActiveRecord::Base
-    include PublicActivity::Model
-    tracked owner: ->(controller, model) {controller && controller.current_user}
-
     belongs_to :contact
     belongs_to :company
 

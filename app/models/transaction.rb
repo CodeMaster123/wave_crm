@@ -1,7 +1,4 @@
 class Transaction < ActiveRecord::Base
-    include PublicActivity::Model
-    tracked owner: ->(controller, model) {controller && controller.current_user}
-
     has_many :contacts, :as => :contactable, :dependent => :destroy
     has_many :product_transactions, :dependent => :destroy
     has_many :products, :through => :product_transactions
