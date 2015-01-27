@@ -1,10 +1,15 @@
 WaveCrm::Application.routes.draw do
     devise_for :users
 
-    resources :companies
-    resources :activities
     resources :users
 
+    resources :companies do
+      resources :contacts do
+        collection do
+          get 'search'
+        end
+      end
+    end
 
     resources :accounts do
       resources :transactions do
@@ -17,8 +22,6 @@ WaveCrm::Application.routes.draw do
       end
     end
 
-    resources :transaction_field_values
-    resources :transaction_fields
     resources :partial_payments
 
     resources :products do
@@ -30,16 +33,11 @@ WaveCrm::Application.routes.draw do
         get 'search'
         get 'home'
       end
+      resources :call_logs
     end
 
-    resources :contacts do
-      collection do
-        get 'search'
-      end
-    end
 
     resources :leads_products
-    resources :call_logs
     resources :targets
     resources :employees
 
@@ -80,13 +78,11 @@ WaveCrm::Application.routes.draw do
     match 'leads/index/:team_leader' => 'leads#index'
     match 'leads/index/:type/:sales_executive' => 'leads#index'
     match 'notifications/index/:type' => 'notifications#index', :as => :n_change
-    match 'sales_executive_leads/:id1' => 'sales_executives#index'
 
     #Used in Leads controller
     match 'postpone_lead' => 'leads#postpone_lead'
 
     #Used in Leads#show
-    match 'create_call_logs' => 'call_logs#create_log'
     match 'create_events' => 'events#create_event'
     match 'create_notification' => 'notifications#create_notification'
     match 'change_owner' => 'leads#change_owner'

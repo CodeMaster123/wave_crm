@@ -57,7 +57,7 @@
                           </li>
                       <% end %>
                   <% end %>
-                  
+
 
 
 
@@ -154,9 +154,6 @@
 
                     <%= render :partial => "shared/superuser_menu" %>
                 <% end %>
-            <% end %>
-            <% permitted_to? :index, :transaction_fields do %>
-                <%= render :partial => "shared/superuser_top" %>
             <% end %>
         </ul>
         <%= render :partial => "shared/user_menu_right" %>
