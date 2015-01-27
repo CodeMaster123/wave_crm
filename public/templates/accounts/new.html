@@ -1,0 +1,65 @@
+<div ng-controller='CreateController'>
+<div class="page-header">
+  <h1>New Account</h1>
+</div>
+
+
+<form class="form-horizontal" >
+  <div class="control-group">
+    <label class="control-label">Account owner</label>
+    <div class="controls">
+      <select ng-model='account.account_owner'>
+        <option ng-repeat="contact in contacts" value="contact[1]">{{contact[0]}}</option>
+        <option value="" disabled>-- Select a Contact --</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="ownership_type">Ownership type</label>
+    <div class="controls">
+      <select ng-model='account.ownership_type' ng-init='option[1]'>
+        <option disabled value="">-- Selct Ownership type --</option>
+        <option value="proprietership">Proprietership</option>
+        <option value="Private">Private</option>
+        <option value="Public">Public</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" >Account name</label>
+    <div class="controls">
+      <input class="text_field" size="30" type="text" ng-model='account.account_name'>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" >Number of employees</label>
+    <div class="controls"><input class="number_field" size="30" type="text" ng-model='account.number_of_employees'></div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="account_phone_number">Phone number</label>
+    <div class="controls"><input class="number_field" type="number" ng-minlength='5' ng-maxlength='10' ng-model='account.phone_number' required></div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="account_website">Website</label>
+    <div class="controls"><input class="text_field" size="30" type="text" ng-model='account.website'></div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="account_billing_address">Billing address</label>
+    <div class="controls"><textarea class="text_field" cols="40" rows="3" ng-model='account.billing_address' required></textarea></div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="account_shipping_address">Shipping address</label>
+    <div class="controls"><textarea class="text_field" cols="40" rows="3" ng-model='account.shipping_address'></textarea></div>
+  </div>
+
+  <input class="btn btn-primary" name="commit" type="submit" value="Create Account" ng-click='create(account)'>
+  <a ng-href="/accounts#/index" class="btn"><span class="translation_missing">Cancel</span></a>
+</form>
+</div>

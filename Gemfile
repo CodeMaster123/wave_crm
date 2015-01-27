@@ -2,16 +2,18 @@ ruby '2.1.0'
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'railroady'
+gem 'jbuilder'
 gem 'pg'
-gem 'rails_admin'
 gem 'devise'
 gem 'declarative_authorization', '~> 0.5.7'
-gem 'nested_form', '0.3.2'
-gem 'thin', '~> 1.5.1'
-gem 'will_paginate'
+gem 'pdfkit'
 gem 'paperclip'
-gem 'wicked'
+gem 'geocoder'
+gem 'thin', '~> 1.5.1'
+
+gem 'nested_form', '0.3.2'
+gem 'rails_admin'
+gem 'will_paginate'
 
 gem 'thinking-sphinx'
 gem 'mysql2'
@@ -20,21 +22,14 @@ gem 'resque'
 gem 'resque-scheduler'
 gem 'public_activity'
 
-gem 'bootstrap_form'
-gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails"
 
-gem "twitter-bootstrap-rails"
-gem 'lazy_high_charts'
-gem 'rails3-jquery-autocomplete'
-gem 'geocoder'
-gem 'gmaps4rails'
+
 
 group :assets do
     gem 'sass-rails',   '~> 3.2.3'
-    gem 'coffee-rails', '~> 3.2.1'
     gem 'uglifier', '>= 1.0.3'
     gem 'less'
 end
@@ -42,8 +37,8 @@ end
 group :development do
     gem 'quiet_assets'
     gem 'irbtools'
+    gem 'pry'
     gem 'sextant'
-    gem 'rails_best_practices'
 end
 
 group :test do
@@ -52,11 +47,7 @@ group :test do
     gem 'guard-rspec'
     gem 'factory_girl'
     gem 'factory_girl_rails'
-
-    #gem 'rb-inotify'
     #gem 'ruby-prof'
-    #gem 'database_cleaner'
-    #gem 'coveralls', :require => false
 end
 
 #gem 'rack-mini-profiler'
@@ -64,7 +55,6 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'exceptional'
 gem 'ruby_parser'
-gem 'pdfkit'
 
 gem 'capistrano'
 gem 'capistrano-bundler'
@@ -73,3 +63,5 @@ gem 'capistrano-rvm'
 gem "capistrano-resque", "~> 0.2.1", require: false
 
 gem 'mailgun_rails'
+
+gem 'ng-rails-csrf'

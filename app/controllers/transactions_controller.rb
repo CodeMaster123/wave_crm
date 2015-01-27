@@ -1,19 +1,17 @@
 class TransactionsController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
+    respond_to :html, :json
 
     def index
-        @company = current_user.company
-        @transactions = @company.transactions.paginate(:page => params[:page], :per_page => 15)
+        @transactions = Account.find(params[:account_id]).transactions
+        respond_with @transactions
     end
 
     def show
         @transaction = Transaction.find(params[:id])
 
-        respond_to do |format|
-            format.html # show.html.erb
-            format.pdf {render false } # show.html.erb
-        end
+        respond_with @transaction
     end
 
     def new
@@ -55,7 +53,7 @@ class TransactionsController < ApplicationController
         @transaction.account.update_attributes(:is_matured => true)
 
         if current_user.account_type == 1
-          redirect_to  transactions_path , notice: 'Transaction was successfully created.'
+          redirect_to  account_transactions_path(params[:account_id]) , notice: 'Transaction was successfully created.'
         else 
           redirect_to  leads_path , notice: 'Transaction was successfully created.'
         end
@@ -71,7 +69,7 @@ class TransactionsController < ApplicationController
 
       respond_to do |format|
         if @transaction.update_attributes(params[:transaction])
-          redirect_to transactions_path, notice: 'Transaction was successfully updated.'
+          redirect_to account_transactions_path(params[:account_id]), notice: 'Transaction was successfully updated.'
         else
           render "edit"
         end
@@ -81,12 +79,12 @@ class TransactionsController < ApplicationController
     def destroy
       @transaction = Transaction.find(params[:id]).destroy
 
-        redirect_to transactions_url
+        redirect_to account_transactions_path(params[:account_id])
     end
 
     def invoice
       @company = current_user.company
-      @transaction = Transaction.find(params[:id])
+      @transaction = Transaction.find(params[:transaction_id])
       @product_transactions = @transaction.product_transactions
     end
 

@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
     respond_to :html, :json
 
@@ -16,7 +16,6 @@ class NotificationsController < ApplicationController
     end
 
     def new
-        @company = current_user.company
         @notification = Notification.new
         @contacts = @company.contacts.all
 
@@ -24,13 +23,11 @@ class NotificationsController < ApplicationController
     end
 
     def edit
-        @company = current_user.company
         @notification = Notification.find(params[:id])
         @contacts = @company.contacts.all
     end
 
     def create
-        @company = current_user.company
         @notification = @company.notifications.new(params[:notification])
         @contacts = @company.contacts.all
 
@@ -51,7 +48,6 @@ class NotificationsController < ApplicationController
     end
 
     def update
-        @company = Company.where(:id => current_user.company_id).first
         @notification = @company.notifications.find(params[:id])
         @contacts = @company.contacts.all
 
@@ -81,9 +77,9 @@ class NotificationsController < ApplicationController
     def notifications_to_all
         if request.get?
             @notification = Notification.new
-        elsif request.post?
-            @contacts = current_user.company.contacts.each do |contact|
-                Notification.create(:contact_id => contact.id, :body => params[:body], :notification_time => params[:notification_time], :company_id => current_user.company_id)
+        else
+            @contacts = @company.contacts.each do |contact|
+                @company.notifications.create(:contact_id => contact.id, :subject => params[:subject], :body => params[:body], :notification_time => params[:notification_time])
             end
             redirect_to n_change_path("current"), notice: 'Notifications created for all contacts.'
         end

@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Accounts</h1>
+</div>
+
+<div class="control-group">
+    <div class="controls">
+        Search: <input type='text' class='search-c' ng-model='search_field' ng-change='search()'>
+    </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Account Owner</th>
+      <th>Account name</th>
+      <th>Phone number</th>
+      <th>Website</th>
+      <th>Ownership Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="account in accounts">
+    <td>{{account.account_owner}} </td>
+    <td>{{account.account_name}} </td>
+    <td>{{account.phone_number}} </td>
+    <td>{{account.website}} </td>
+    <td>{{account.ownership_type}} </td>
+    <td>
+      <a class='btn btn-mini' ng-href='#/{{account.id}}'>Details</a>
+      <a class='btn btn-mini btn-danger' ng-click='destroy_account(account.id,$index)' ng-confirm-click='Are you sure?'>Destroy</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a class='btn btn-primary' ng-href='#/new'>New</a>

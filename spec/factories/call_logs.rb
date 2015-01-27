@@ -8,8 +8,7 @@ FactoryGirl.define do
     call_duration 50
     call_owner_id 1
     lead_id 1
-    call_loggable_type 'TeamLeader'
-    call_loggable_id 1
+    user_id 1
     contact_id 1
   end
 end

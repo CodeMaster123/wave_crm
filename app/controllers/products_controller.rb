@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
 
     def index

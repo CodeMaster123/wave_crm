@@ -37,19 +37,6 @@
     </div>
 
     <div class="control-group">
-        <%= f.label :password, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.password_field :password, :class => 'text_field' %>
-        </div>
-    </div>
-
-    <div class="control-group">
-        <%= f.label :password_confirmation, :class => 'control-label' %>
-        <div class="controls">
-            <%= f.password_field :password_confirmation, :class => 'text_field' %>
-        </div>
-    </div>
-    <div class="control-group">
       <%= f.label :avatar, :class => 'control-label' %>
       <div class="controls">
         <%= f.file_field :avatar, :class => 'text_field' %>
@@ -75,7 +62,7 @@
         <div class="control-group hide">
             <%= f.label :team_leader, :class => 'control-label' %>
             <div class="controls">
-                <%= f.select :team_leader, options_for_select(@all_team_leaders.map{|d| ["#{d.user.first_name} #{d.user.last_name}", d.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
+                <%= f.select :team_leader_id, options_for_select(@team_leaders.map{|team_leader| ["#{team_leader.first_name} #{team_leader.last_name}", team_leader.id]}), { :selected => "Select Team Leader" }, :class => 'text_field' %>
             </div>
         </div>
 

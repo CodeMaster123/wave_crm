@@ -39,7 +39,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
-    bootstrap_form (1.0.0)
     boson (1.2.4)
     boson-more (0.2.2)
       boson (>= 1.2.0)
@@ -70,8 +69,6 @@ GEM
     clipboard (1.0.5)
     cocaine (0.5.1)
       climate_control (>= 0.0.3, < 1.0)
-    code_analyzer (0.3.2)
-      sexp_processor
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -80,8 +77,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+<<<<<<< HEAD
     colored (1.2)
     colorize (0.7.5)
+=======
+>>>>>>> leads_angularization
     commonjs (0.2.6)
     daemons (1.1.9)
     debug_inspector (0.0.2)
@@ -113,7 +113,6 @@ GEM
     formatador (0.2.5)
     g (1.7.2)
     geocoder (1.1.8)
-    gmaps4rails (1.5.6)
     guard (2.8.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -125,7 +124,6 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.3)
       tilt
-    hash-deep-merge (0.1.1)
     hike (1.2.3)
     hirb (0.7.1)
     hitimes (1.2.2)
@@ -151,6 +149,14 @@ GEM
       paint (>= 0.8.6)
       wirb (>= 1.0.1)
       zucker (>= 13.1)
+<<<<<<< HEAD
+=======
+    jbuilder (2.2.5)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
+    joiner (0.2.0)
+      activerecord (>= 3.1.0, < 4.1.0)
+>>>>>>> leads_angularization
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -162,9 +168,6 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    lazy_high_charts (1.4.3)
-      bundler (>= 1.0)
-      hash-deep-merge
     less (2.3.2)
       commonjs (~> 0.2.6)
     less-rails (2.3.3)
@@ -190,10 +193,14 @@ GEM
     mono_logger (1.1.0)
     multi_json (1.7.8)
     nested_form (0.3.2)
+<<<<<<< HEAD
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
     netrc (0.10.2)
+=======
+    ng-rails-csrf (0.1.0)
+>>>>>>> leads_angularization
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     ori (0.1.0)
@@ -230,7 +237,6 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
-    railroady (1.2.0)
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -239,8 +245,6 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
-    rails3-jquery-autocomplete (1.0.11)
-      rails (~> 3.0)
     rails_admin (0.4.9)
       bootstrap-sass (~> 2.2)
       builder (~> 3.0)
@@ -256,15 +260,6 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 0.6)
       sass-rails (~> 3.1)
-    rails_best_practices (1.14.0)
-      activesupport
-      awesome_print
-      code_analyzer
-      colored
-      erubis
-      i18n
-      require_all
-      ruby-progressbar
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -283,7 +278,6 @@ GEM
       redis (~> 3.0, >= 3.0.4)
     ref (1.0.5)
     remotipart (1.2.1)
-    require_all (1.2.1)
     resque (1.25.2)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
@@ -318,7 +312,6 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
-    ruby-progressbar (1.1.1)
     ruby_parser (3.2.2)
       sexp_processor (~> 4.1)
     rufus-scheduler (3.0.9)
@@ -366,11 +359,6 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.2.7)
-      actionpack (>= 3.1)
-      execjs
-      rails (>= 3.1)
-      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.1.2)
       execjs (>= 0.3.0)
@@ -380,9 +368,6 @@ GEM
       rack (>= 1.0.0)
     warden (1.2.3)
       rack (>= 1.0)
-    wicked (0.6.1)
-      activesupport (>= 3.0.7)
-      rails (>= 3.0.7)
     will_paginate (3.0.4)
     wirb (1.0.1)
       paint
@@ -394,6 +379,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+<<<<<<< HEAD
   bootstrap_form
   capistrano
   capistrano-bundler
@@ -401,6 +387,8 @@ DEPENDENCIES
   capistrano-resque (~> 0.2.1)
   capistrano-rvm
   coffee-rails (~> 3.2.1)
+=======
+>>>>>>> leads_angularization
   declarative_authorization (~> 0.5.7)
   devise
   exceptional
@@ -408,25 +396,22 @@ DEPENDENCIES
   factory_girl
   factory_girl_rails
   geocoder
-  gmaps4rails
   guard-rspec
   irbtools
-  jquery-rails
-  lazy_high_charts
+  jbuilder
   less
   less-rails
   mailgun_rails
   nested_form (= 0.3.2)
+  ng-rails-csrf
   paperclip
   pdfkit
   pg
+  pry
   public_activity
   quiet_assets
-  railroady
   rails (= 3.2.13)
-  rails3-jquery-autocomplete
   rails_admin
-  rails_best_practices
   resque
   resque-scheduler
   rspec-rails
@@ -436,7 +421,10 @@ DEPENDENCIES
   simplecov
   therubyracer
   thin (~> 1.5.1)
+<<<<<<< HEAD
   twitter-bootstrap-rails
+=======
+  thinking-sphinx
+>>>>>>> leads_angularization
   uglifier (>= 1.0.3)
-  wicked
   will_paginate

@@ -1,5 +1,0 @@
-<% if current_user.company.crm_customer.customer_type == "B2B" %>
-Updated a lead for account <b><%= link_to activity.trackable.account.account_name, account_path(activity.trackable.account) %></b>
-<% else %>
-Updated a lead for customer <b><%= link_to activity.trackable.account.account_name, account_path(activity.trackable.account) %></b>
-<% end %>

@@ -42,7 +42,7 @@ RSpec.describe NotificationsController, :type => :controller do
 
     it 'should send notifications to all' do
       sign_in :user, @user
-      post :notifications_to_all, contact_id: 1, body: 'vivek', notification_time: Time.now+2.hours, company_id:1
+      post :notifications_to_all, body: 'vivek', notification_time: Time.now+2.hours, company_id:1
       expect(response).to have_http_status(:found)
     end
   end

@@ -1,110 +1,82 @@
 class LeadsController < ApplicationController
-    before_filter :authenticate_user!
+    before_filter :authenticate_user!, :fetch_company
+    before_filter :fetch_sales_employee_records, except: [:index, :destroy, :search, :postpone_lead, :change_owner]
     filter_access_to :all
     respond_to :html, :json
 
+    def home
+
+    end
+
     def index
         if current_user.account_type == 1 #Admin
-            @company = current_user.company
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = @company.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15).all
+                @leads = @company.leads.where("lead_status = '#{params[:type]}'")
             else
-                @leads = @company.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'").paginate(:page => params[:page], :per_page => 15).all
+                @leads = @company.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'")
             end
             unless params[:id1].nil?
-                @leads = Lead.paginate(:page => params[:page], :per_page => 15).where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
+                @leads = Lead.where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
                 executive_name = SalesExecutive.find(params[:id1]).user
                 @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
             end
         elsif current_user.account_type  == 2 #Team leader
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = current_user.team_leader.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15)
+                @leads = current_user.leads.where("lead_status = '#{params[:type]}'")
             else
                 if params[:sales_executive].nil?
-                    @leads = current_user.team_leader.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'").paginate(:page => params[:page], :per_page => 15)
+                    @leads = current_user.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'")
                 else
                     session[:sales_executive] = true
-                    @leads = SalesExecutive.find(params[:sales_executive]).leads.paginate(:page => params[:page], :per_page => 15)
+                    @leads = SalesExecutive.find(params[:sales_executive]).leads
                 end
             end
         elsif current_user.account_type ==3 #Executive
             if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = current_user.sales_executive.leads.where("lead_status = '#{params[:type]}'").paginate(:page => params[:page], :per_page => 15)
+                @leads = current_user.leads.where("lead_status = '#{params[:type]}'")
             else
-                @leads = current_user.sales_executive.leads.where("lead_status != 'dead' and lead_status != 'won' != lead_status != 'future'").paginate(:page => params[:page], :per_page => 15)
+                @leads = current_user.leads.where("lead_status != 'dead' and lead_status != 'won' != lead_status != 'future'")
             end
-            @leads = current_user.sales_executive.leads.paginate(:page => params[:page], :per_page => 15)
         end
-        @leads = Lead.where("id < 30")
 
         respond_with @leads
     end
 
     def show
-        @lead = Lead.find(params[:id])
-        @company = current_user.company
-        @lead_events = @lead.events.all
-        @call_logs = @lead.call_logs
-        @team_leaders = current_user.company.team_leaders
-        @sales_executives = current_user.company.sales_executives
+        @lead = Lead.includes(:call_logs =>[:contact, :user], :product_transactions => [:product]).find(params[:id])
 
-        unless @lead.contacts.empty?
-            @lead_notifications = @lead.contacts.first.notifications.order(:updated_at)
-        end
+        contact_ids = @lead.contacts.map{|contact|contact.id}
+        @meetings = Event.where(contact_id: contact_ids).includes(:user, :contact)
+        @future_meetings = @meetings.where("starts_at > '#{Time.now}'")
+        @previous_meetings = @meetings.where("starts_at < '#{Time.now}'")
 
-        #--- Modal variables for call logs ---
-        @call_log = CallLog.new
-        @call_owner = @company.sales_executives
+        @notifications = Notification.where(contact_id: contact_ids)
 
-        #--- Modal variables for notifications ---
-        @notification = Notification.new
-        @contacts = @company.contacts.all
-        @notifications_contact = @lead.contacts.all
-
-        #--- Modal variables for events ---
-        @event = Event.new
-
-        respond_with @lead
     end
 
     def new
-        @company = current_user.company
         @lead = Lead.new
         @lead.contacts.build
         @lead.product_transactions.build
         @lead.build_account
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
-        @products = @company.products.all
+        @products = @company.products
 
         respond_with @lead
     end
 
     def edit
-        @company = current_user.company
         @lead = Lead.find(params[:id])
         if @lead.contacts.empty?
             @lead.contacts.build
         end
-        @products = @company.products.all
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
+        @products = @company.products
     end
 
     def create
-        @company = current_user.company
-        @products = @company.products.all
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
+        @products = @company.products
 
         @lead = @company.leads.new(params[:lead])
-        if current_user.account_type == 2
-            @lead.leadable_id = current_user.team_leader.id
-            @lead.leadable_type = "TeamLeader"
-        elsif current_user.account_type == 3
-            @lead.leadable_id = current_user.sales_executive.id
-            @lead.leadable_type = "SalesExecutive"
-        end
+         @lead.user_id = current_user.id
 
         @lead.save
 
@@ -112,9 +84,6 @@ class LeadsController < ApplicationController
     end
 
     def update
-        @company = current_user.company
-        @team_leaders = @company.team_leaders.all
-        @sales_executives = @company.sales_executives.all
         @lead = @company.leads.find(params[:id])
 
         @lead.update_attributes(params[:lead])
@@ -149,5 +118,10 @@ class LeadsController < ApplicationController
             @lead = Lead.find(params[:lead_id])
             @lead.update_attributes(:opening_date => params[:opening_date].to_time, :lead_status => "future")
         end
+    end
+
+    def fetch_sales_employee_records
+        @team_leaders = @company.team_leaders
+        @sales_executives = @company.sales_executives
     end
 end

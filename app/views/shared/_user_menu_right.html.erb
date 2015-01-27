@@ -1,13 +1,11 @@
 <div class="user">
     <ul class="icon-nav">
         <li class="dropdown sett">
-        <% unless current_user.notification_setting.nil? == true %>
             <% unless current_user.notification_setting.notification_flag == false %>
                 <% @todays_notifications = Notification.where("notification_time > \'#{Date.today.to_time.to_s(:db)}\' and notification_time < \'#{(Date.today + 1.day).to_time.to_s(:db)}\'") %>
                 <% @todays_events = Event.where("(starts_at > \'#{Date.today.to_time.to_s(:db)}\' and starts_at < \'#{(Date.today + 1.day).to_time.to_s(:db)}\') and (ends_at > \'#{Date.today.to_time.to_s(:db)}\' and ends_at < \'#{(Date.today+1.day).to_time.to_s(:db)}\')") %>
                 <% @lightred_counter = @todays_notifications.count + @todays_events.count %>
             <% end %>
-        <% end %>
         <a href="#" class='dropdown-toggle' data-toggle="dropdown" onclick="notification_fade_out()">
             <i class="icon-cog"></i>
             <span class="label lightred"><%= @lightred_counter %></span>
@@ -34,33 +32,6 @@
     <div class="dropdown">
         <a href="#" class='dropdown-toggle' data-toggle="dropdown"><%= "#{current_user.first_name} #{current_user.last_name}" %><%= image_tag "#{current_user.avatar.url(:thumb)}" %></a>
         <ul class="dropdown-menu pull-right">
-            <li>
-            <% permitted_to? :index, :tags do %>
-                <%= link_to "Tags", :tags%>
-            <% end %>
-            </li>
-            <li>
-            <% if controller_name == "users" %>
-                <% permitted_to? :index, :users do %>
-                    <%= link_to(:users) do %>
-                        <span>Users</span>
-                    <% end %>
-                <% end %>
-            <% elsif %>
-                <% permitted_to? :index, :users do %>
-                    <li>
-                    <%= link_to(:users) do %>
-                        <span>Users</span>
-                    <% end %>
-                    </li>
-                <% end %>
-            <% end %>
-            </li>
-            <li>
-            <% permitted_to? :index, :products do %>
-                <%= link_to "Products", :products %>
-            <% end %>
-            </li>
             <li>
             <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
             </li>

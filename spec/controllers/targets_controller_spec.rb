@@ -13,7 +13,6 @@ RSpec.describe TargetsController, :type => :controller do
   describe 'GET index' do
     it 'should GET index method for team leaders', :skip_before do
       user = create(:user)
-      create(:team_leader)
       create(:target)
       sign_in :user, user
       get :index

@@ -1,0 +1,110 @@
+<div class="page-header">
+  <h4 class="show-header">Account - {{account.account_name}}</h4>
+  <hr>
+</div>
+
+<tabset>
+<tab heading="Account Details" select='account()'>
+  <dl class="dl-horizontal">
+    <dt><strong>Account owner</strong></dt>
+    <dd>{{account.account_owner}}</dd>
+    <dt><strong>Number of employees</strong></dt>
+    <dd>{{account.number_of_employees}}</dd>
+    <dt><strong>Phone number</strong></dt>
+    <dd>{{account.phone_number}}</dd>
+    <dt><strong>Website</strong></dt>
+    <dd>{{account.website}}</dd>
+    <dt><strong>Ownership type</strong></dt>
+    <dd>{{account.ownership_type}}</dd>
+    <dt><strong>Billing address</strong></dt>
+    <dd>{{account.billing_address}}</dd>
+    <dt><strong>Shipping address</strong></dt>
+    <dd>{{account.shipping_address}}</dd>
+  </dl>
+  <div class="form-actions">
+    <a class='btn' ng-href='accounts#/new'>Edit</a>
+  </div>
+</tab>
+
+
+<tab heading="Contacts" ng-controller='ContactsController' select='contacts()'>
+<div class="control-group">
+    <div class="controls">
+        Search: <input type='text' class='search-c' ng-model='search_field' ng-change='search()'>
+    </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sr.No</th>
+      <th>Contact name</th>
+      <th>Address</th>
+      <th>Mobile number</th>
+      <th>Phone number</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat='contact in contacts' track by $index>
+    <td>{{$index+1}}</td>
+    <td>{{contact.first_name+' '+contact.last_name}}</td>
+    <td>{{contact.address}} </td>
+    <td>{{contact.mobile_no}}</td>
+    <td>{{contact.landline_no}}</td>
+    <td>
+      <a class='btn btn-mini' ng-click='open(contact)'>Edit</a>
+      <a class='btn btn-mini tn-danger'>Destroy</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="leads_new_button">
+  <a class="btn btn-mature" ng-click='open()'>New contact</a>
+</div>
+</tab>
+
+<tab heading="Transactions" ng-controller='TransactionsController' select='transactions()'>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Transaction time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat='transaction in transactions'>
+      <td>{{transaction.amount}}</td>
+      <td>{{transaction.transaction_time | date:'hh:mm a dd MMM, yyyy'}}</td>
+      <td>
+        <a target='_blank' class='btn btn-mini btn-mature' ng-href='accounts/{{transaction.account_id}}/transactions/{{transaction.id}}/invoice.pdf'>Invoice</a>
+        <a href="#"  rel="popover" class="reply"
+          data-content="<table class='table table-striped'>
+            <thead>
+              <tr>
+                <th>product</th>
+                <th>price</th>
+                <th>quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% pt = transaction.product_transactions %>
+            <% pt.each do |product_transaction| %>
+            <tr>
+              <td><%= product_transaction.product.name %></td>
+              <td><%= product_transaction.price %></td>
+              <td><%= product_transaction.quantity%></td>
+            </tr>
+            <% end %>
+            </tbody>
+          </table>"
+          data-html="true" data-original-title="Product Transaction Details" ><div class="btn btn-mini">Details</div></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="leads_new_button">
+    <a href="#" data-target="#call-log" class="btn btn-mature" data-toggle="modal">New order</a>
+  </div>
+</tab>
+</tabset>

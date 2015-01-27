@@ -10,13 +10,8 @@ FactoryGirl.define do
     factory :inventory do
       id 1
       company_id 1
-      quantity 100
-
-      factory :inventory_addiction do
-        addition_date Date.today-2.days
-        quantity 100
-        company_id 1
-      end
+      product_id 1
+      quantity 0
     end
   end
 end

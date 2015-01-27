@@ -4,9 +4,9 @@ class CallLog < ActiveRecord::Base
 
     belongs_to :lead
     belongs_to :contact
-    belongs_to :call_loggable ,:polymorphic => true
+    belongs_to :user
 
-    attr_accessible :call_duration, :call_owner_id, :call_purpose, :call_result, :call_start_time, :call_type, :subject, :lead_id, :contact_id, :call_loggable_id, :call_loggable_type
+    attr_accessible :call_duration, :call_owner_id, :call_purpose, :call_result, :call_start_time, :call_type, :subject, :lead_id, :contact_id, :call_loggable_id, :call_loggable_type, :user_id
 
     validates :call_purpose, :presence => true
     validates :call_type, :presence => true
@@ -15,6 +15,6 @@ class CallLog < ActiveRecord::Base
     validates :call_duration, :presence => true
 
     def call_by
-        self.call_loggable.user.full_name
+        self.user.full_name
     end
 end

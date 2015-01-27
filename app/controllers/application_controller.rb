@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
             "application"
         end
     end
+
+    protected
+    def fetch_company
+      @company = Company.includes(:users).find(current_user.company_id)
+    end
 end

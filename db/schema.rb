@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150109103221) do
+ActiveRecord::Schema.define(:version => 20150123095654) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
     t.integer  "call_loggable_id"
     t.string   "call_loggable_type"
     t.integer  "contact_id"
+    t.integer  "user_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
     t.integer  "contact_number2", :limit => 8
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.integer  "crm_customer_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
     t.string   "contactable_type"
     t.integer  "contactable_id"
     t.integer  "company_id"
-    t.boolean  "gmaps"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.string   "email_id"
@@ -128,20 +127,11 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "lead_id"
     t.integer  "contact_id"
   end
 
   add_index "events", ["company_id"], :name => "index_events_on_company_id"
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
-
-  create_table "inventories", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "company_id"
-  end
 
   create_table "inventory_additions", :force => true do |t|
     t.integer  "product_id"
@@ -156,32 +146,34 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
   create_table "leads", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.integer  "leadable_id"
-    t.string   "leadable_type"
     t.boolean  "matured"
     t.datetime "matured_at"
     t.integer  "company_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "lead_source"
     t.string   "lead_status"
     t.datetime "opening_date"
+    t.integer  "user_id"
   end
 
   create_table "notification_settings", :force => true do |t|
-    t.boolean  "notification_flag"
+    t.boolean  "notification_flag", :default => false
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
   end
 
   create_table "notifications", :force => true do |t|
+    t.boolean  "sms_sent"
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "notification_time"
     t.integer  "company_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.boolean  "is_sms",            :default => false
+    t.boolean  "is_email",          :default => false
     t.string   "subject"
   end
 
@@ -213,6 +205,7 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
     t.integer  "company_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "quantity"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -263,15 +256,14 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
   end
 
   create_table "targets", :force => true do |t|
-    t.integer  "targetable_id"
-    t.string   "targetable_type"
-    t.integer  "amount"
-    t.integer  "achived"
+    t.integer  "amount",       :default => 0
+    t.integer  "achived",      :default => 0
     t.integer  "company_id"
     t.integer  "target_month"
     t.integer  "target_year"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.integer  "user_id"
   end
 
   create_table "team_leaders", :force => true do |t|
@@ -339,6 +331,7 @@ ActiveRecord::Schema.define(:version => 20150109103221) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "team_leader_id"
   end
 
   add_index "users", ["company_id"], :name => "index_users_on_company_id"

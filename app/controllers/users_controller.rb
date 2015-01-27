@@ -1,14 +1,15 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
+  before_filter :fetch_company
+
     def index
         unless current_user.account_type == 4
-            @company = Company.where(:id => current_user.company_id).first
-            @users = @company.users.paginate(:page => params[:page], :per_page => 15)
+            @users = @company.users
         else
             @users = User.all
         end
 
         respond_to do |format|
-            format.html # index.html.erb
+            format.html
         end
     end
 
@@ -16,68 +17,48 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
 
         respond_to do |format|
-            format.html # show.html.erb
+            format.html
         end
     end
 
     def new
-        @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
         @user = User.new
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
 
         respond_to do |format|
-            format.html # new.html.erb
+            format.html
         end
     end
 
     def edit
-        @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
         @user = User.find(params[:id])
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
     end
 
     def create
-        @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
-        @user = User.new(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar], :company_id => params[:user][:company_id])
-        @all_team_leaders = @company.team_leaders.all
-        #@user.company_id = @company.id
+        @user = User.new(params[:user])
+        @team_leaders = @company.users.where(account_type: 2)
+        @user.company_id = @company.id if @user.company_id.nil?
 
-        respond_to do |format|
-            if @user.save
-                if params[:user][:account_type].to_i == 2
-                    TeamLeader.create(:user_id => @user.id, :company_id => current_user.company.id)
-                elsif params[:user][:account_type].to_i == 3
-                    SalesExecutive.create(:user_id => @user.id, :team_leader_id => params[:user][:team_leader].to_i, :company_id => current_user.company.id)
-                end
-                format.html { redirect_to :users, notice: 'User was successfully created.' }
-            else
-                format.html { render "new" }
-            end
+        if @user.save
+            redirect_to :users, notice: 'User was successfully created.'
+        else
+            render "new"
         end
     end
 
     def update
-        @company = Company.where(:id => current_user.company_id).first
         @companies = Company.all
         @user = User.find(params[:id])
-        @all_team_leaders = @company.team_leaders.all
+        @team_leaders = @company.users.where(account_type: 2)
 
-        respond_to do |format|
-            if @user.update_attributes(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation], :account_type => params[:user][:account_type], :address => params[:user][:address], :mobile_no => params[:user][:mobile_no], :avatar => params[:user][:avatar], :company_id => params[:user][:company_id])
-                if params[:user][:account_type].to_i == 2
-                    @user.team_leader.update_attributes(:user_id => @user.id)
-                elsif params[:user][:account_type].to_i == 3
-                    @user.sales_executive.update_attributes(:user_id => @user.id, :team_leader_id => params[:user][:team_leader].to_i)
-                end
-                format.html { redirect_to @user, notice: 'User was successfully updated.' }
-                format.json { head :no_content }
-            else
-                format.html { render "edit" }
-                format.json { render json: @user.errors, status: :unprocessable_entity }
-            end
+        if @user.update_attributes(params[:user])
+            redirect_to users_path, notice: 'User was successfully updated.'
+        else
+            render "edit"
         end
     end
 

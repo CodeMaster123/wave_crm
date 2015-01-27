@@ -1,0 +1,136 @@
+<div class="page-header">
+  <H3>Lead</H3>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>Lead owner :</strong></dt>
+  <dd><b class="lead-owner-show">{{lead.user_full_name}} </b><a href="#" class=""> Change</a></dd>
+  <dt><strong> Description :</strong></dt>
+  <dd>{{lead.description}}</dd>
+  <dt><strong> Phone number :</strong></dt>
+  <dd>{{lead.contacts.first.landline_no}}</dd>
+  <dt><strong> Lead status :</strong></dt>
+  <dd>{{lead.contacts.first.mobile_no}}</dd>
+</dl>
+
+<div><h6>Quotation</h6></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Products</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody id="search-data">
+  <tr ng-repeat='product in products'>
+    <td>{{product.name}}</td>
+    <td>{{product.quantity}}</td>
+    <td>{{product.price}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div><h6>Closed Meetings</h6></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Meeting with</th>
+      <th>Executive</th>
+      <th>Held at</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody id="search-data">
+    <tr ng-repeat='previous_meeting in previous_meetings'>
+      <td>{{previous_meeting.title}}</td>
+      <td>{{previous_meeting.meeting_with}}</td>
+      <td>{{previous_meeting.executive}}</td>
+      <td>{{previous_meeting.starts_at | date: 'hh:mm a dd MMM, yyyy'}}</td>
+      <td>{{previous_meeting.description}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div><h6>Upcoming Meetings</h6></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Meeting with</th>
+      <th>Executive</th>
+      <th>starts at</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody id="events-data">
+    <tr ng-repeat='meeting in future_meetings'>
+      <td>{{meeting.title}}</td>
+      <td>{{meeting.meeting_with}}</td>
+      <td>{{meeting.executive}}</td>
+      <td>{{meeting.starts_at | date: 'hh:mm a dd MMM, yyyy'}}</td>
+      <td>{{meeting.description}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<div class="leads_new_button">
+  <a href="#" class="btn btn-mature">New meeting</a>
+</div>
+
+<div><h6>Call logs</h6></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Call result</th>
+      <th>Call type</th>
+      <th>Call purpose</th>
+      <th>Call start time</th>
+      <th>Call duration</th>
+      <th>Call by</th>
+      <th>Call to</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat='call_log in call_logs'>
+    <td>{{call_log.subject}}</td>
+    <td>{{call_log.call_result}}</td>
+    <td>{{call_log.call_type}}</td>
+    <td>{{call_log.call_purpose}}</td>
+    <td>{{call_log.call_start_time}}</td>
+    <td>{{call_log.call_duration}}</td>
+    <td>{{call_log.call_by}}</td>
+    <td>{{call_log.call_to}}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="leads_new_button">
+  <a href="#" class="btn btn-mature">New call log</a>
+</div>
+
+<div><h6>Emails/SMS</h6></div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Sending time</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat='notification in notifications'>
+    <td>{{notification.subject}}</td>
+    <td>{{notification.notification_time}}</td>
+    <td>{{notification.body}}</td>
+    <td>{{notification.updated_at}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="leads_new_button">
+  <a href="#" class="btn btn-mature">New Notification</a>
+</div>
