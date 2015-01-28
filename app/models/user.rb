@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
     has_many :call_logs
     has_one :notification_setting, :dependent => :destroy
     belongs_to :company
+    has_many :notifications, :dependent => :destroy
 
     has_attached_file :avatar,
         :styles => {:thumb => "27x27#" }, :whiny => false,
