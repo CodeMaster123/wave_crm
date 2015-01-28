@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150123095654) do
+ActiveRecord::Schema.define(:version => 20150127085604) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -55,12 +55,9 @@ ActiveRecord::Schema.define(:version => 20150123095654) do
     t.string   "call_purpose"
     t.datetime "call_start_time"
     t.integer  "call_duration"
-    t.integer  "call_owner_id"
     t.integer  "lead_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "call_loggable_id"
-    t.string   "call_loggable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "contact_id"
     t.integer  "user_id"
   end
@@ -165,15 +162,12 @@ ActiveRecord::Schema.define(:version => 20150123095654) do
   end
 
   create_table "notifications", :force => true do |t|
-    t.boolean  "sms_sent"
     t.integer  "contact_id"
     t.string   "body"
     t.datetime "notification_time"
     t.integer  "company_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.boolean  "is_sms",            :default => false
-    t.boolean  "is_email",          :default => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "subject"
   end
 
