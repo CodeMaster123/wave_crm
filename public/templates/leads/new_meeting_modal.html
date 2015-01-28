@@ -1,6 +1,5 @@
-<div id="new-meeting" class="modal" tabindex="-1">
+<div class="modal">
   <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">New Meeting</h3>
   </div>
   <div class="modal-body">
@@ -38,7 +37,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <input type='submit', class='btn btn-primary' ng-click='create_meeting()' ng-controller='MeetingModalController'>
+      <button class="btn" ng-click='cancel()'>Close</button>
+      <input type='submit', class='btn btn-primary' ng-click='create_meeting()'>
     </div>
   </div>

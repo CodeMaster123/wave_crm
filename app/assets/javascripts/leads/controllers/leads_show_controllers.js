@@ -13,6 +13,13 @@ leads_app.controller('LeadsShowController', function($scope, $http, $routeParams
     })
   }
 
+  $scope.notification_form = function(){
+    var notification_modal = $modal.open({
+      templateUrl: '/templates/leads/new_notification_modal.html',
+      controller: 'NotificationModalController'
+    })
+  }
+
   $scope.call_log_form = function(){
     var call_log_modal = $modal.open({
       templateUrl: '/templates/leads/call_log_modal.html',
@@ -27,12 +34,6 @@ leads_app.controller('LeadsShowController', function($scope, $http, $routeParams
       })
   }
 
-  $scope.notification_form = function(){
-    var notification_modal = $modal.open({
-      templateUrl: '/templates/leads/new_notification_modal.html',
-      controller: 'NotificationModalController'
-    })
-  }
 
   $scope.init();
 })

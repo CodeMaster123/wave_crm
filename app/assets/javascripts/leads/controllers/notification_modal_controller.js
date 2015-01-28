@@ -1,4 +1,4 @@
-leads_app.controller('NotificationModalController',function($scope, $http){
+leads_app.controller('NotificationModalController',function($scope, $modalInstance, $http){
   $scope.create_notification = function(){
     $http({
       method: 'POST',
@@ -6,6 +6,12 @@ leads_app.controller('NotificationModalController',function($scope, $http){
       params:{
         notification: $scope.current_notification
       }
+    }).success(function(){
+      $modalInstance.dismiss('cancel');
     })
+  }
+
+  $scope.cancel = function(){
+    $modalInstance.dismiss('cancel');
   }
 })

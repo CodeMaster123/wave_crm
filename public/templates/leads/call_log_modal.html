@@ -1,4 +1,4 @@
-<div class="modal" ng-controller='CallLogModalController'>
+<div class="modal">
   <div class="modal-header">
     <h3 id="myModalLabel">Call log</h3>
   </div>
@@ -74,7 +74,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn" >Close</button>
+    <button class="btn" ng-click='cancel()'>Close</button>
     <input type='submit' class='btn btn-primary' ng-click='create_call_log()' ng-disabled='form.$invalid'>
   </div>
 </div>

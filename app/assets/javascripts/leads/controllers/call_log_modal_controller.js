@@ -1,4 +1,4 @@
-leads_app.controller('CallLogModalController', function($scope, $http, $routeParams){
+leads_app.controller('CallLogModalController', function($scope, $modalInstance, $http, $routeParams){
   $scope.create_call_log = function(){
     $scope.current_call_log.call_duration= parseInt($scope.call_duration_minutes)*60 + parseInt($scope.call_duration_seconds);
     $http({
@@ -8,6 +8,11 @@ leads_app.controller('CallLogModalController', function($scope, $http, $routePar
         call_log: $scope.current_call_log
       }
     }).success(function(){
+      $modalInstance.dismiss('cancel');
     })
+  }
+
+  $scope.cancel = function(){
+    $modalInstance.dismiss('cancel');
   }
 })
