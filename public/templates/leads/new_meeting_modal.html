@@ -1,0 +1,44 @@
+<div id="new-meeting" class="modal" tabindex="-1">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">New Meeting</h3>
+  </div>
+  <div class="modal-body">
+    <form class='event-form form-horizontal'>
+      <div class="control-group">
+        <label class="control-label">Meeting with</label>
+
+        <div class="controls">
+          <select name="contact_id" ng-model='current_meeting.contact_id'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"> Meeting time</label>
+
+        <div class="controls">
+          <input type='text' name='starts_at' class='datetime_select' ng-model='current_meeting.starts_at'>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"> Title</label>
+
+        <div class="controls">
+          <input type='text' name='title' class='text_field' ng-model='current_meeting.title'>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label"> Description</label>
+
+        <div class="controls">
+          <textarea name='description' rows="4" class='text_area' ng-model='current_meeting.description'></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <input type='submit', class='btn btn-primary' ng-click='create_meeting()' ng-controller='MeetingModalController'>
+    </div>
+  </div>

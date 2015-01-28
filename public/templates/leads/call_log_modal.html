@@ -1,0 +1,80 @@
+<div class="modal" ng-controller='CallLogModalController'>
+  <div class="modal-header">
+    <h3 id="myModalLabel">Call log</h3>
+  </div>
+  <div class="modal-body">
+    <form class='call-log-form form-horizontal'>
+    <div class="control-group">
+      <label class="control-label">Call to</label>
+      <div class="controls">
+        <input type=select name='contact_id' ng-model='current_call_log.contact_id'>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class = 'control-label'>Subject</label>
+      <div class="controls">
+        <input type='text' name='subject' class='text_field' ng-model='current_call_log.subject' required>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class ='control-label'> Call result</label>
+      <div class="controls">
+        <textarea name='call_result' class='text_field' rows=3 ng-model='current_call_log.call_result' required></textarea>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class ='control-label'>Call type</label>
+      <div class="controls">
+        <select name='call_type' class='text_field' ng-model='current_call_log.call_type'>
+          <option value='Inbound'>Inbound</option>
+          <option value='Outbbound'>Outbound</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class ='control-label'>Call purpose</label>
+      <div class="controls">
+        <select name='call_purpose' class='text_field' ng-model='current_call_log.call_purpose'>
+          <option value='Administrative'>Administrative</option>
+          <option value='Demo'>Demo</option>
+          <option value='Negotiation'>Negotiation</option>
+          <option value='Support'>Support</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="leads">
+      <div class="control-group">
+        <label class ='control-label'>Call By</label>
+        <div class="controls">
+          <select name='user_id' class='text_field' ng-model='current_call_log.user_id'>
+            <option value='1'>1</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class ='control-label'>Call start time</label>
+      <div class="controls">
+        <input type='text' name='call_start_time' class='datetime_select' ng-model='current_call_log.call_start_time'>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class ='control-label'>Call duration</label>
+      <div class="controls">
+        <input type='text' name='call_duration_minutes' class='number_field-minute' ng-model='call_duration_minutes'> :Minutes
+        <input type='text' name='call_duration_seconds' class='number_field-second' ng-model='call_duration_seconds'> :Seconds
+        <input type='hidden' ng-model='current_call_log.call_duration' value=0 />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" >Close</button>
+    <input type='submit' class='btn btn-primary' ng-click='create_call_log()' ng-disabled='form.$invalid'>
+  </div>
+</div>

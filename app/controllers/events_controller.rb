@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = @company.events.new(params[:event])
+        @event = @company.events.new(JSON.parse(params[:event]))
         @event.user_id = current_user.id
         @event.save
 

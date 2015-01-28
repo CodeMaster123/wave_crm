@@ -1,4 +1,4 @@
-leads_app.controller('LeadsShowController', function($scope, $http, $routeParams){
+leads_app.controller('LeadsShowController', function($scope, $http, $routeParams, $modal){
   $scope.init = function(){
     lead = $http({
       method: 'GET',
@@ -12,5 +12,27 @@ leads_app.controller('LeadsShowController', function($scope, $http, $routeParams
       $scope.notifications = result.notifications;
     })
   }
+
+  $scope.call_log_form = function(){
+    var call_log_modal = $modal.open({
+      templateUrl: '/templates/leads/call_log_modal.html',
+      controller: 'CallLogModalController'
+    })
+  }
+
+  $scope.meeting_form = function(){
+      var meeting_modal = $modal.open({
+          templateUrl: '/templates/leads/new_meeting_modal.html',
+          controller: 'MeetingModalController'
+      })
+  }
+
+  $scope.notification_form = function(){
+    var notification_modal = $modal.open({
+      templateUrl: '/templates/leads/new_notification_modal.html',
+      controller: 'NotificationModalController'
+    })
+  }
+
   $scope.init();
 })
