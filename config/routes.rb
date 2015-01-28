@@ -1,3 +1,4 @@
+require 'resque/server'
 WaveCrm::Application.routes.draw do
     devise_for :users
 
@@ -58,6 +59,7 @@ WaveCrm::Application.routes.draw do
 
     mount_sextant if Rails.env.development?
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+    mount Resque::Server.new, at: "/resque"
 
     #Reporting and intelligence
     match 'transaction_graph' => 'transactions#graph'
