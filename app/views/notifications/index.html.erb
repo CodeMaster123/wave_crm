@@ -30,6 +30,7 @@
   </thead>
   <tbody id="search-data">
   <% unless @notifications.nil? %>
+  <% @i = 0 %>
   <% @notifications.each do |notification| %>
       <tr>
         <td><%= @i = @i+1 %></td>
