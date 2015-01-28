@@ -33,19 +33,7 @@
       </footer>
     </div>
     <%= javascript_include_tag :application %>
-    <script type="text/javascript">
-        function notification_fade_out() {
-            $('.lightred').fadeOut();
-            $.ajax({
-                url: "/notification_settings/"+<%= current_user.notification_setting.id %>+"/edit.json",
-                context: document.body
-            }).done(function () {
-                $(this).addClass("done");
-            });
-        }
-    </script>
   </div>
-</div>
 </div>
 </body>
 </html>
