@@ -30,6 +30,8 @@
 //= require angular/angular-route
 //= require angular/restangular
 //= require angular/ui-bootstrap-tpls-0.12.0
+//= require angular/angular-validation.min
+//= require angular/angular-validation-rule.min
 //= require ng-rails-csrf
 //
 //

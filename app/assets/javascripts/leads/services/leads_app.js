@@ -1,4 +1,4 @@
-var leads_app = angular.module('leads_app',['ngRoute', 'restangular', 'ng-rails-csrf', 'ui.bootstrap'])
+var leads_app = angular.module('leads_app',['ngRoute', 'restangular', 'ng-rails-csrf', 'ui.bootstrap', 'validation', 'validation.rule'])
 leads_app.config(function($routeProvider){
   $routeProvider
   .when('/',{

@@ -3,11 +3,11 @@
     <h3 id="myModalLabel">New Notification</h3>
   </div>
   <div class="modal-body">
-    <form class='notification-form form-horizontal'>
+    <form class='notification-form form-horizontal' name='new_notification_form'>
       <div class="control-group">
         <label class="control-label"> Contact</label>
         <div class="controls">
-          <select class='contacts_text_field' ng-model='current_notification.contact_id'>
+          <select class='contacts_text_field' ng-model='current_notification.contact_id' validator='required'>
             <option value='1'>1</option>
             <option value='2'>2</option>
           </select>
@@ -17,28 +17,28 @@
       <div class="control-group">
         <label class="control-label"> Subject</label>
         <div class="controls">
-          <input type='text' name='subject' class='text_area' ng-model='current_notification.subject'>
+          <input type='text' name='subject' class='text_area' ng-model='current_notification.subject' validator='required'>
         </div>
       </div>
 
       <div class="control-group">
         <label class="control-label"> Body</label>
         <div class="controls">
-          <textarea name='body' rows='7' class='text_area' ng-model='current_notification.body'></textarea>
+          <textarea name='body' rows='7' class='text_area' ng-model='current_notification.body' validator='required'></textarea>
         </div>
       </div>
 
       <div class="control-group">
         <label class="control-label"> Notification time</label>
         <div class="controls">
-          <input type='text' name='notification_time' class='datetime_select' ng-model='current_notification.notification_time'>
+          <input type='text' name='notification_time' class='datetime_select' ng-model='current_notification.notification_time' validator='required'>
         </div>
       </div>
     </div>
 
     <div class="modal-footer">
       <button class="btn" ng-click='cancel()'>Close</button>
-      <input type='submit' class='btn btn-primary' ng-click='create_notification()'>
+      <input type='submit' class='btn btn-primary' ng-click='create_notification()' validation-submit='new_notification_form'>
     </div>
   </form>
 </div>

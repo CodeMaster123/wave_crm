@@ -3,32 +3,33 @@
     <h3 id="myModalLabel">Call log</h3>
   </div>
   <div class="modal-body">
-    <form class='call-log-form form-horizontal'>
+    <form class='call-log-form form-horizontal' name='new_call_form'>
     <div class="control-group">
       <label class="control-label">Call to</label>
       <div class="controls">
-        <input type=select name='contact_id' ng-model='current_call_log.contact_id'>
+        <input type=select name='contact_id' ng-model='current_call_log.contact_id' validator='required'>
       </div>
     </div>
 
     <div class="control-group">
       <label class = 'control-label'>Subject</label>
       <div class="controls">
-        <input type='text' name='subject' class='text_field' ng-model='current_call_log.subject' required>
+        <input type='text' name='subject' class='text_field' ng-model='current_call_log.subject' validator='required'>
       </div>
+      asdf
     </div>
 
     <div class="control-group">
       <label class ='control-label'> Call result</label>
       <div class="controls">
-        <textarea name='call_result' class='text_field' rows=3 ng-model='current_call_log.call_result' required></textarea>
+        <textarea name='call_result' class='text_field' rows=3 ng-model='current_call_log.call_result' validator='required'></textarea>
       </div>
     </div>
 
     <div class="control-group">
       <label class ='control-label'>Call type</label>
       <div class="controls">
-        <select name='call_type' class='text_field' ng-model='current_call_log.call_type'>
+        <select name='call_type' class='text_field' ng-model='current_call_log.call_type' validator='required'>
           <option value='Inbound'>Inbound</option>
           <option value='Outbbound'>Outbound</option>
         </select>
@@ -37,7 +38,7 @@
     <div class="control-group">
       <label class ='control-label'>Call purpose</label>
       <div class="controls">
-        <select name='call_purpose' class='text_field' ng-model='current_call_log.call_purpose'>
+        <select name='call_purpose' class='text_field' ng-model='current_call_log.call_purpose' validator='required'>
           <option value='Administrative'>Administrative</option>
           <option value='Demo'>Demo</option>
           <option value='Negotiation'>Negotiation</option>
@@ -50,7 +51,7 @@
       <div class="control-group">
         <label class ='control-label'>Call By</label>
         <div class="controls">
-          <select name='user_id' class='text_field' ng-model='current_call_log.user_id'>
+          <select name='user_id' class='text_field' ng-model='current_call_log.user_id' validator='required'>
             <option value='1'>1</option>
           </select>
         </div>
@@ -60,21 +61,21 @@
     <div class="control-group">
       <label class ='control-label'>Call start time</label>
       <div class="controls">
-        <input type='text' name='call_start_time' class='datetime_select' ng-model='current_call_log.call_start_time'>
+        <input type='text' name='call_start_time' class='datetime_select' ng-model='current_call_log.call_start_time' validator='required'>
       </div>
     </div>
 
     <div class="control-group">
       <label class ='control-label'>Call duration</label>
       <div class="controls">
-        <input type='text' name='call_duration_minutes' class='number_field-minute' ng-model='call_duration_minutes'> :Minutes
-        <input type='text' name='call_duration_seconds' class='number_field-second' ng-model='call_duration_seconds'> :Seconds
+        <input type='text' name='call_duration_minutes' class='number_field-minute' ng-model='call_duration_minutes' placeholder='Min' validator='required, number'>
+        <input type='text' name='call_duration_seconds' class='number_field-second' ng-model='call_duration_seconds' placeholder='Sec' validator='required, number'>
         <input type='hidden' ng-model='current_call_log.call_duration' value=0 />
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <button class="btn" ng-click='cancel()'>Close</button>
-    <input type='submit' class='btn btn-primary' ng-click='create_call_log()' ng-disabled='form.$invalid'>
+    <input type='submit' class='btn btn-primary' ng-click='create_call_log()' validation-submit='new_call_form'>
   </div>
 </div>
