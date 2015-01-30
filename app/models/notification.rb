@@ -17,9 +17,9 @@ class Notification < ActiveRecord::Base
 
     def email_send(user_id)
         @user_email_id = User.find(user_id).email
-        @contact_id = self.id
+        @id = self.id
 
-        Resque.enqueue_at(self.notification_time, EmailScheduler, @user_email_id, @contact_id)
+        Resque.enqueue_at(self.notification_time, EmailScheduler, @id)
     end
 
     def as_json(options = {})
