@@ -1,9 +1,10 @@
 class Notification < ActiveRecord::Base
     belongs_to :contact
     belongs_to :company
+    belongs_to :user
 
     attr_accessible :body, :contact_id, :notification_time, :company_id, :subject,  :user_id, :next_notification
-    attr_accessor :user_id, :next_notification
+    attr_accessor :next_notification
 
     validates :contact_id, :presence => true
     validates :company_id, :presence => true

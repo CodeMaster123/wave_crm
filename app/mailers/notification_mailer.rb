@@ -1,14 +1,14 @@
 class NotificationMailer < ActionMailer::Base
-  default from: "varade.vivek.123@gmail.com"
+  default from: "contact@prozapp.com"
 
   def vivek
-      mail(:to=> "varade.vivek.123@gmail.com", :subject => 'test mail', :from => "varade.vivek.123@gmail.com")
+      mail(:to=> "varade.vivek.123@gmail.com", :subject => 'test mail', :from => "contact@prozapp.com")
   end
 
   def new_notification(sender_id, receiver_id, body, subject)
       @receiver_email = Contact.find(receiver_id).email_id
       if Rails.env == "development"
-          mail(:to=> @receiver_email, :subject => subject, :from => "varade.vivek@wavetechline.com")
+          mail(:to=> @receiver_email, :subject => subject, :from => "contact@prozapp.com")
       else
           mail(:to=> @receiver_email, :subject => subject, :from => sender_id)
       end
