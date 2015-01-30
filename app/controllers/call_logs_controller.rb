@@ -3,8 +3,14 @@ class CallLogsController < ApplicationController
     filter_access_to :all
     respond_to :html, :json
 
-    def create_log
-        @call_duration = (params[:call_duration_minutes].to_i * 60 + params[:call_duration_seconds].to_i)
-        @call_log = CallLog.create(:call_result =>params[:call_result], :call_type => params[:call_type], :call_purpose => params[:call_purpose], :call_owner_id => params[:call_owner_id].to_i, :call_start_time => params[:call_start_time].to_date, :subject => params[:subject], :lead_id => params[:lead_id], :call_duration => @call_duration)
+    def index
+
+    end
+
+    def create
+        @call_log = CallLog.new(JSON.parse(params[:call_log]))
+        @call_log.save
+
+        respond_with @call_log, location: lead_call_logs_path
     end
 end

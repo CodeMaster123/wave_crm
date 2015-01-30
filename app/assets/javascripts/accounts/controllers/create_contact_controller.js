@@ -2,12 +2,12 @@ accounts_app.controller('CreateContactController',function($scope, $http, $route
   $scope.create_contact = function(){
     $http({
       method: 'POST',
-      url: 'accounts/1/contacts.json',
+      url: 'accounts/'+$routeParams.id+'/contacts.json',
       params: {
         contact: $scope.current_contact
       }
     }).success(function(){
-      $modalInstance.dismiss('cancel');
+      //$modalInstance.dismiss('cancel');
     })
   }
 })

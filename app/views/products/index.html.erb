@@ -1,8 +1,5 @@
-<%= stylesheet_link_tag "pagination.css" %>
-
-<%- model_class = Product -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1>Product</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -38,12 +35,3 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_product_path,
             :class => 'btn btn-primary' %>
-
-<div class="flickr_pagination">
-  <div class="page_info">
-    <%= page_entries_info @products %>
-  </div>
-  <%= will_paginate @products, :container => false %>
-</div>
-
-

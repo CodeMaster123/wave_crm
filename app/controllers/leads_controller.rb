@@ -10,33 +10,11 @@ class LeadsController < ApplicationController
 
     def index
         if current_user.account_type == 1 #Admin
-            if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = @company.leads.where("lead_status = '#{params[:type]}'")
-            else
-                @leads = @company.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'")
-            end
-            unless params[:id1].nil?
-                @leads = Lead.where(:leadable_id => params[:id1], :leadable_type => "SalesExecutive")
-                executive_name = SalesExecutive.find(params[:id1]).user
-                @page_title = "Leads by #{executive_name.first_name} #{executive_name.last_name}"
-            end
+            @leads = @company.leads
         elsif current_user.account_type  == 2 #Team leader
-            if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = current_user.leads.where("lead_status = '#{params[:type]}'")
-            else
-                if params[:sales_executive].nil?
-                    @leads = current_user.leads.where("lead_status != 'dead' and lead_status != 'won' and lead_status != 'future' and lead_status != 'matured'")
-                else
-                    session[:sales_executive] = true
-                    @leads = SalesExecutive.find(params[:sales_executive]).leads
-                end
-            end
+            @leads = current_user.leads
         elsif current_user.account_type ==3 #Executive
-            if params[:type] == "future" || params[:type] == "dead" || params[:type] == "matured"
-                @leads = current_user.leads.where("lead_status = '#{params[:type]}'")
-            else
-                @leads = current_user.leads.where("lead_status != 'dead' and lead_status != 'won' != lead_status != 'future'")
-            end
+            @leads = current_user.leads
         end
 
         respond_with @leads

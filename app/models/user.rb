@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
     has_many :targets, :dependent => :destroy
     has_many :leads, dependent: :destroy
     has_many :call_logs
-    has_one :notification_setting, :dependent => :destroy
     belongs_to :company
     has_many :notifications, :dependent => :destroy
 
@@ -27,8 +26,6 @@ class User < ActiveRecord::Base
     validates :company_id, :presence => true
 
 
-    after_save :create_notification_setting
-
     def role_symbols
         if self.account_type == 1
             return [:admin]
@@ -41,10 +38,6 @@ class User < ActiveRecord::Base
         else
             [:none]
         end
-    end
-
-    def create_notification_setting
-        NotificationSetting.create(:user_id => self.id, :notification_flag => false)
     end
 
     def full_name

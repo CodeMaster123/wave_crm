@@ -1,14 +1,13 @@
 class Company < ActiveRecord::Base
-    has_many :users
-    has_many :contacts
-    has_many :tags
-    has_many :products
-    has_many :notifications
-    has_many :leads
-    has_many :events
-    has_many :targets
-    has_many :transactions
-    has_many :accounts
+    has_many :users, dependent: :destroy
+    has_many :contacts, dependent: :destroy
+    has_many :products, dependent: :destroy
+    has_many :notifications, dependent: :destroy
+    has_many :leads, dependent: :destroy
+    has_many :events, dependent: :destroy
+    has_many :targets, dependent: :destroy
+    has_many :transactions, dependent: :destroy
+    has_many :accounts, dependent: :destroy
 
     attr_accessible :company_address, :company_name, :contact_number1, :contact_number2
 

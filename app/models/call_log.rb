@@ -1,12 +1,9 @@
 class CallLog < ActiveRecord::Base
-    include PublicActivity::Model
-    tracked owner: ->(controller, model) {controller && controller.current_user}
-
     belongs_to :lead
     belongs_to :contact
     belongs_to :user
 
-    attr_accessible :call_duration, :call_owner_id, :call_purpose, :call_result, :call_start_time, :call_type, :subject, :lead_id, :contact_id, :call_loggable_id, :call_loggable_type, :user_id
+    attr_accessible :call_duration, :call_purpose, :call_result, :call_start_time, :call_type, :subject, :lead_id, :contact_id, :user_id
 
     validates :call_purpose, :presence => true
     validates :call_type, :presence => true

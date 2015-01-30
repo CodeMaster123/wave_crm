@@ -43,10 +43,9 @@
             </tr>
         </thead>
         <tbody>
-          <% render :partial => 'shared/i_calculation' %>
-          <% @contacts.each do |contact| %>
+          <% @contacts.each_with_index do |contact, i| %>
               <tr>
-                  <td><%= link_to @i = @i+1, contact_path(contact) %></td>
+                  <td><%= link_to i, contact_path(contact) %></td>
                   <td><%= contact.full_name %></td>
                   <td><%= contact.address %></td>
                   <td><%= contact.mobile_no %></td>

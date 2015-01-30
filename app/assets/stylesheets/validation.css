@@ -1,0 +1,12 @@
+.validation-valid {
+  color: #0074D9;
+  display: inline;
+}
+
+.validation-invalid {
+  color: #FF4136;
+}
+
+#github-link:hover {
+  opacity: 1;
+}

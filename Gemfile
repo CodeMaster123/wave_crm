@@ -20,7 +20,6 @@ gem 'mysql2'
 
 gem 'resque'
 gem 'resque-scheduler'
-gem 'public_activity'
 
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
