@@ -1,8 +1,32 @@
-<%= bootstrap_form_for @company, :html => { :class => 'form-horizontal' } do |f| %>
-            <%= f.text_field :company_name, :class => 'text_field' %>
-            <%= f.text_field :company_address, :class => 'text_field' %>
-            <%= f.text_field :contact_number1, :class => 'number_field' %>
-            <%= f.text_field :contact_number2, :class => 'number_field' %>
+<%= form_for @company, :html => { :class => 'form-horizontal' } do |f| %>
+
+    <div class="control-group">
+      <%= f.label :company_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :company_name,  :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :company_address, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :company_address,  :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :contact_number1, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :contact_number1,  :class => 'number_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :contact_number2, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :contact_number2,  :class => 'number_field' %>
+      </div>
+    </div>
 
     <div class="form-actions">
         <%= f.submit nil, :class => 'btn btn-primary' %>
