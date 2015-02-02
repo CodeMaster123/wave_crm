@@ -11,7 +11,7 @@ leads_app.controller('LeadsIndexController',function($scope, Restangular, $route
   $scope.status_filter = function(lead_status){
     console.log(lead_status);
     $scope.temp_leads = _.filter($scope.leads, function(lead){
-      return lead.lead_status == status
+      return lead.lead_status == lead_status
     })
   }
 
