@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
     def index
         if current_user.account_type == 1
             if params[:type].empty?
-                @notifications = current_user.company.notifications.paginate(:page => params[:page], :per_page => 15)
+                @notifications = current_user.company.notifications.all
             else
                 @notifications = Notification.notifications_by_type(current_user.company_id, params[:type])
             end
