@@ -37,10 +37,16 @@ RSpec.describe EmployeesController, :type => :controller do
   describe 'PUT Update' do
     it 'should update a employee record' do
       employee = create(:employee)
-      new_employee = FactoryGirl.attributes_for(:employee, title: 'Meeting with ramesh pawar')
+      new_employee = FactoryGirl.attributes_for(:employee, first_name: 'Meeting with ramesh pawar')
       put :update, id: employee.id, employee: new_employee
       expect(assigns(:employee).first_name).to eq(new_employee[:first_name])
     end
+  end
+
+  it 'should POST create method' do
+    expect {
+      post :create, employee: FactoryGirl.attributes_for(:employee)
+    }.to change(Employee, :count).by(1)
   end
 
 end
