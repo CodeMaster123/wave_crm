@@ -16,7 +16,7 @@ class Lead < ActiveRecord::Base
     accepts_nested_attributes_for :contacts, :allow_destroy => true
     accepts_nested_attributes_for :account
 
-    attr_accessible :description, :executive_id, :lead_by, :title, :leadable_id, :leadable_type, :company_id, :lead_source, :lead_status, :matured, :matured_at, :opening_date, :user_id
+    attr_accessible :description, :executive_id, :title, :leadable_id, :leadable_type, :company_id, :lead_source, :lead_status, :matured, :matured_at, :opening_date, :user_id
     attr_accessible :product_transactions_attributes, :product_id, :matured_at
     attr_accessible :contacts_attributes, :address, :first_name, :landline_no, :last_name, :latitude, :lead_id, :longitude, :middle_name, :mobile_no
     attr_accessible :account, :account_attributes
@@ -26,32 +26,10 @@ class Lead < ActiveRecord::Base
 
     after_create :post_processing
 
-    def lead_by
-        @user = self.leadable.user
-        "#{@user.first_name}  #{@user.last_name}"
-    end
-
-    def show_executive
-        if self.leadable_type == "TeamLeader"
-            if self.leadable.nil?
-                "<b>None</b>"
-            else
-                "<b>Team Leader</b> - #{self.leadable.user.full_name}"
-            end
-        elsif self.leadable_type == "SalesExecutive"
-            if self.leadable.nil?
-                "<b>None</b>"
-            else
-                "<b>Sales Executive</b> - #{self.leadable.user.full_name}"
-            end
-        end
-    end
-
-    def get_lead_source
-        unless self.lead_source.nil?
-            self.lead_source.tr("_"," ").camelcase
-        end
-    end
+    #def lead_by
+    #    @user = self.leadable.user
+    #    "#{@user.first_name}  #{@user.last_name}"
+    #end
 
     def post_processing
         unless self.account.nil?
