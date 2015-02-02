@@ -51,7 +51,7 @@ RSpec.describe NotificationsController, :type => :controller do
     it 'should create a single notification' do
       sign_in :user, @user
       expect {
-      post :create, {notification: {sms_sent: false, body: 'new notification', notification_time: Time.now+2.hours, company_id: 1, is_sms: false, is_email: false, subject: 'new subject', contact_id:1}, next_notification: ''}
+      post :create, {notification: {body: 'new notification', notification_time: Time.now+2.hours, company_id: 1, subject: 'new subject', contact_id:1}, next_notification: ''}
       }.to change(Notification, :count).by(1)
     end
   end

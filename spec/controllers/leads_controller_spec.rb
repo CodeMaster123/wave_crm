@@ -10,7 +10,7 @@ RSpec.describe LeadsController, :type => :controller do
   end
 
   it 'returns GET index http success for team leader' do
-    get :index
+    get :index, format: :json
     expect(response).to have_http_status(:success)
   end
 

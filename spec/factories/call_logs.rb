@@ -6,7 +6,6 @@ FactoryGirl.define do
     call_purpose 'Support'
     call_start_time Time.now-2.hours
     call_duration 50
-    call_owner_id 1
     lead_id 1
     user_id 1
     contact_id 1
