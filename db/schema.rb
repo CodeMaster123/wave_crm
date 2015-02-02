@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150127085604) do
+ActiveRecord::Schema.define(:version => 20150128082421) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "account_owner"
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(:version => 20150127085604) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "subject"
+    t.integer  "user_id"
   end
 
   add_index "notifications", ["company_id"], :name => "index_notifications_on_company_id"
