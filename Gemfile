@@ -13,7 +13,7 @@ gem 'thin', '~> 1.5.1'
 
 gem 'nested_form', '0.3.2'
 gem 'rails_admin'
-gem 'will_paginate'
+#gem 'will_paginate'
 
 gem 'thinking-sphinx'
 gem 'mysql2'

@@ -48,7 +48,7 @@ class TargetsController < BaseController
 
     def old_target
         if current_user.account_type == 1
-            @targets = @company.targets.paginate(:page => params[:page], :per_page => 15).all
+            @targets = @company.targets.all
         elsif current_user.account_type == 2
             @team_leader = current_user.team_leader
             @targets[0] = @team_leader.current_target

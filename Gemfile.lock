@@ -392,7 +392,6 @@ GEM
       rack (>= 1.0.0)
     warden (1.2.3)
       rack (>= 1.0)
-    will_paginate (3.0.7)
     wirb (1.0.3)
       paint (~> 0.8)
 
@@ -441,4 +440,3 @@ DEPENDENCIES
   thin (~> 1.5.1)
   thinking-sphinx
   uglifier (>= 1.0.3)
-  will_paginate

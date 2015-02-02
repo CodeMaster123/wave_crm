@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
     def index
         @company = Company.find(current_user.company_id)
-        @products = @company.products.paginate(:page => params[:page], :per_page => 15)
+        @products = @company.products.all
     end
 
     def show
