@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :user do
-    id 1
     first_name 'vivek'
     last_name 'varade'
     address 'nashik'
