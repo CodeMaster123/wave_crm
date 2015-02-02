@@ -63,7 +63,6 @@ WaveCrm::Application.routes.draw do
     match 'transaction_graph' => 'transactions#graph'
     match 'target_forecast' => 'team_leaders#target_forecast'
     match 'targets/index/:type' => 'targets#index'
-    match 'old_target' => 'targets#old_target'
 
     #Notifications and events
     match 'calendar' => "calendar#index"

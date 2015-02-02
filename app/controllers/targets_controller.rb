@@ -45,16 +45,4 @@ class TargetsController < BaseController
 
         respond_with @target
     end
-
-    def old_target
-        if current_user.account_type == 1
-            @targets = @company.targets.all
-        elsif current_user.account_type == 2
-            @team_leader = current_user.team_leader
-            @targets[0] = @team_leader.current_target
-            @i = 1
-        end
-
-        respond_with @target
-    end
 end
