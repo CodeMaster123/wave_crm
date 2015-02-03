@@ -2,14 +2,13 @@ class PartialPayment < ActiveRecord::Base
     has_one :transaction
     attr_accessible :amount_paid, :transaction_id
 
-    before_save :check_if_exceeds
+    before_validation :check_if_exceeds
 
     validates :amount_paid, :presence => true, :numericality => true
 
-    private
     def check_if_exceeds
         total_payment = 0
-        PartialPayment.where(:transaction_id => self.transaction_id).each do |partial|
+        Transaction.find(self.transaction_id).partial_payments.each do |partial|
             total_payment += partial.amount_paid
         end
         total_payment += self.amount_paid

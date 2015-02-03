@@ -19,19 +19,6 @@ class Notification < ActiveRecord::Base
         Resque.enqueue_at(self.notification_time, EmailScheduler, @id)
     end
 
-    def as_json(options = {})
-        {
-            :id => self.id,
-            :type => "notification",
-            :title => "#{Contact.where(:id => self.contact_id).first.first_last_name} - #{self.body[0..10]+"..."}",
-            :description => "",
-                :start => self.notification_time,
-                :end => self.notification_time,
-                :allDay => "",
-                :url => Rails.application.routes.url_helpers.notification_path(id)
-        }
-    end
-
     def self.notifications_by_type(company_id, notification_type)
         @company = Company.find(company_id)
         if notification_type == "old"

@@ -35,8 +35,6 @@ class User < ActiveRecord::Base
             return [:sales_executive]
         elsif self.account_type == 4
             return [:superadmin]
-        else
-            [:none]
         end
     end
 
