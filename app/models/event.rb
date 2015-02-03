@@ -13,14 +13,8 @@ class Event < ActiveRecord::Base
     validate :date_validation
 
     def date_validation
-      unless self.starts_at.nil?
-        unless self.starts_at > Date.yesterday
-          errors.add(:date_error, "Cannot use past date")
-        end
+      unless self.starts_at > Date.yesterday
+        errors.add(:date_error, "Cannot use past date")
       end
-    end
-
-    def self.format_date(date_time)
-      Time.at(date_time.to_i).to_formatted_s(:db)
     end
 end

@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :account do
-    id 1
     account_owner 1
     account_name 'New trading company'
     number_of_employees 50

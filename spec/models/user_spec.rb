@@ -43,7 +43,6 @@ RSpec.describe User, :type => :model do
   end
 
   it 'should return targets for team leaders' do
-    puts Target.all
     team_leader = create(:user, account_type: 2)
     target = create(:target, user: team_leader)
     sales_executive = create(:user, account_type: 3, email:'sales_executive@gmail.com', mobile_no: '1233212312', team_leader_id: team_leader.id)

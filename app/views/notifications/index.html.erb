@@ -9,11 +9,11 @@
 
     <div class="new-top">
     <%= link_to "New", new_notification_path, :class => 'btn btn-primary' %>
+    <%= link_to "Notifications to all", :notifications_to_all_notifications, :class => 'btn btn-primary' %>
     </div>
     <div class="notification-btn">
       <%= link_to "Old Notification", {:controller=>"notifications", :action=>"index", :type=>"old"}, :class => 'btn btn-primary' %>
       <%= link_to "Current Notification", {:controller=>"notifications", :action=>"index", :type=>"current"}, :class => 'btn btn-primary' %>
-      <%= link_to "Future Notification", {:controller=>"notifications", :action=>"index", :type=>"future"}, :class => 'btn btn-primary' %>
     </div>
   </div>
 </div>

@@ -24,9 +24,7 @@ class Notification < ActiveRecord::Base
         if notification_type == "old"
             @notifications = @company.notifications.where(:notification_time => Date.today-10.years..Date.today-1.days)
         elsif notification_type == "current"
-            @notifications = @company.notifications.where(:notification_time => Date.today..Date.today+1.month)
-        elsif notification_type == "future"
-            @notifications = @company.notifications.where(:notification_time => Date.today+1.month..Date.today+10.years)
+            @notifications = @company.notifications.where(:notification_time => Date.today..Date.today+10.years)
         end
     end
 

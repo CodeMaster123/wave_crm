@@ -38,11 +38,9 @@ class TransactionsController < ApplicationController
 
     def edit
       @transaction = Transaction.find(params[:id])
-      @company = current_user.company
     end
 
     def create
-      @company = current_user.company
       @accounts = @company.accounts
       @products = @company.products
       @transaction = @company.transactions.new(params[:transaction])
@@ -63,7 +61,6 @@ class TransactionsController < ApplicationController
     end
 
     def update
-      @company = current_user.company
       @products = @company.products
       @transaction = @company.transactions.find(params[:id])
 
@@ -83,7 +80,6 @@ class TransactionsController < ApplicationController
     end
 
     def invoice
-      @company = current_user.company
       @transaction = Transaction.find(params[:transaction_id])
       @product_transactions = @transaction.product_transactions
     end

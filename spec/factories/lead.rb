@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :lead do
-    id 1
     title 'Prakash chemicals pvt ltd'
     description 'Chemical factory'
     matured false
