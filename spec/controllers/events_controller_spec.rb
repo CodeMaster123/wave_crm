@@ -18,8 +18,8 @@ RSpec.describe EventsController, :type => :controller do
   end
 
   it 'should GET edit' do
-    create(:event)
-    get :edit, id: 1
+    event = create(:event)
+    get :edit, id: event.id
     expect(response).to have_http_status(:success)
   end
 

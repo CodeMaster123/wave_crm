@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :contact do
-    id 1
     first_name 'vivek'
     middle_name 'pandharinath'
     last_name 'varade'

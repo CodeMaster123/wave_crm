@@ -5,7 +5,8 @@ RSpec.describe TransactionsController, :type => :controller do
   before(:each) do
     user = create(:user, account_type: 1)
     sign_in :user, user
-    @account = create(:account)
+    @lead = create(:lead)
+    @account = create(:account, lead_id: @lead.id)
     create(:company)
   end
 
@@ -34,8 +35,7 @@ RSpec.describe TransactionsController, :type => :controller do
   describe 'POST create' do
     it 'should create a record for transaction' do
       create(:contact)
-      create(:lead)
-      transaction = FactoryGirl.attributes_for(:transaction)
+      transaction = FactoryGirl.attributes_for(:transaction, lead_id: @lead.id, account_id: @account.id)
       expect{
         post :create, account_id: @account.id, transaction: transaction
       }.to change(Transaction, :count).by(1)

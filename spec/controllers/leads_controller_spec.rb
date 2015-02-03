@@ -38,7 +38,7 @@ RSpec.describe LeadsController, :type => :controller do
   end
 
   it 'should postpone the lead' do
-    get :postpone_lead, opening_date: Date.today+10.days, lead_id: 1
+    get :postpone_lead, opening_date: Date.today+10.days, lead_id: @lead.id
     expect(response).to have_http_status(:success)
   end
 end

@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :notification do
-    id 1
     company_id 1
     body 'this'
     notification_time Date.today+4.days

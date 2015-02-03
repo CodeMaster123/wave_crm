@@ -28,7 +28,7 @@ RSpec.describe NotificationsController, :type => :controller do
   describe 'GET edit' do
     it 'should GET edit successfully' do
       sign_in :user, @user
-      get :edit, id: 1
+      get :edit, id: @notification.id
       expect(response).to have_http_status(:success)
     end
   end

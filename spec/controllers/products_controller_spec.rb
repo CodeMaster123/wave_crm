@@ -13,8 +13,8 @@ RSpec.describe ProductsController, :type => :controller do
   end
 
   it 'should GET show' do
-    create(:product)
-    get :show, id: 1
+    product = create(:product)
+    get :show, id: product.id
     expect(response).to have_http_status(:success)
   end
 
@@ -24,8 +24,8 @@ RSpec.describe ProductsController, :type => :controller do
   end
 
   it 'should GET edit' do
-    create(:product)
-    get :edit, id: 1
+    product = create(:product)
+    get :edit, id: product.id
     expect(response).to have_http_status(:success)
   end
 
