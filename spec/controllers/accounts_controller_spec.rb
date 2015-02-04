@@ -13,8 +13,8 @@ RSpec.describe AccountsController, :type => :controller do
   end
 
   it 'should GET show' do
-    create(:account)
-    get :show, id: 1
+    account = create(:account)
+    get :show, id: account.id
     expect(response).to have_http_status(:success)
   end
 
@@ -24,8 +24,8 @@ RSpec.describe AccountsController, :type => :controller do
   end
 
   it 'should GET edit' do
-    create(:account)
-    get :edit, id: 1
+    account = create(:account)
+    get :edit, id: account.id
     expect(response).to have_http_status(:success)
   end
 
