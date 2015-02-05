@@ -21,7 +21,8 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = @company.events.new(JSON.parse(params[:event]))
+        params[:event] = JSON.parse(params[:event]) if params[:event].class == String
+        @event = @company.events.new(params[:event])
         @event.user_id = current_user.id
         @event.save
 

@@ -26,7 +26,8 @@ class ContactsController < BaseController
     end
 
     def create
-      @contact = current_user.company.contacts.new(JSON.parse(params[:contact]))
+      params[:contact] = JSON.parse(params[:contact]) if params[:contact].class == String
+      @contact = @company.contacts.new(params[:contact])
       @contact.account_id = params[:account_id]
 
       @contact.save
