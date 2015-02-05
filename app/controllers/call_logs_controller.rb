@@ -8,9 +8,11 @@ class CallLogsController < ApplicationController
     end
 
     def create
-        @call_log = CallLog.new(JSON.parse(params[:call_log]))
-        @call_log.save
+      params[:call_log] = JSON.parse(params[:call_log]) if params[:call_log].class == String
+      @call_log = CallLog.new(params[:call_log])
 
-        respond_with @call_log, location: lead_call_logs_path
+      @call_log.save
+
+      respond_with @call_log, location: lead_call_logs_path
     end
 end
