@@ -38,4 +38,10 @@ RSpec.describe EventsController, :type => :controller do
     end
   end
 
+  it 'should POST create method' do
+    expect {
+      post :create, event: FactoryGirl.attributes_for(:event)
+    }.to change(Event, :count).by(1)
+  end
+
 end
