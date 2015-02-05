@@ -13,7 +13,7 @@ RSpec.describe CallLogsController, :type => :controller do
 
   it 'should POST create method' do
     expect {
-      post :create, call_log: FactoryGirl.attributes_for(:call_log)
+      post :create, lead_id: @lead.id, call_log: FactoryGirl.attributes_for(:call_log)
     }.to change(CallLog, :count).by(1)
   end
 
