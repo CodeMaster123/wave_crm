@@ -37,7 +37,9 @@ class ContactsController < BaseController
     def update
       @contact = current_user.company.contacts.find(params[:id])
 
-      @contact.update_attributes(JSON.parse(params[:contact]))
+      params[:contact] = JSON.parse(params[:contact]) if params[:contact].class == String
+      @contact.update_attributes(params[:contact])
+
       respond_with @contact, :location => {:controller => "contacts", :action => "index", :type => "client"}
     end
 

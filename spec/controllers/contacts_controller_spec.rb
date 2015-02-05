@@ -7,7 +7,7 @@ RSpec.describe ContactsController, :type => :controller do
 
     create(:lead)
     @company = create(:company)
-
+    @account = create(:account)
     @contact = create(:contact)
   end
 
@@ -27,4 +27,11 @@ RSpec.describe ContactsController, :type => :controller do
     get :edit, company_id: @company.id, id: @contact.id
     expect(response).to have_http_status(:success)
   end
+
+  it 'should POST create method' do
+    expect {
+      post :create, account_id: @account.id, contact: FactoryGirl.attributes_for(:contact)
+    }.to change(Contact, :count).by(1)
+  end
+
 end
