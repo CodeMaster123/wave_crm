@@ -41,4 +41,14 @@ RSpec.describe AccountsController, :type => :controller do
     }.to change(Account, :count).by(1)
   end
 
+  describe 'PUT update' do
+    it 'should update a record for account' do
+      account = create(:account)
+      new_account = FactoryGirl.attributes_for(:account)
+      put :update, id: account.id, account: new_account
+      expect(assigns(:account).account_name).to eq(new_account[:account_name])
+    end
+  end
+
+
 end

@@ -48,7 +48,7 @@ class AccountsController < BaseController
         @account_owner = current_user.company.contacts
 
         params[:account] = JSON.parse(params[:account]) if params[:account].class == String
-        @account = Account.update_attributes(params[:account])
+        @account.update_attributes(params[:account])
 
         respond_with @account                 
     end
