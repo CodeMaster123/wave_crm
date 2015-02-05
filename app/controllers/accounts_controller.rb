@@ -47,8 +47,10 @@ class AccountsController < BaseController
         @account = Account.find(params[:id])
         @account_owner = current_user.company.contacts
 
-        @account.update_attributes(JSON.parse(params[:account]))
-        respond_with @account
+        params[:account] = JSON.parse(params[:account]) if params[:account].class == String
+        @account = Account.update_attributes(params[:account])
+
+        respond_with @account                 
     end
 
     def destroy
