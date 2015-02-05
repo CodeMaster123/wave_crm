@@ -34,11 +34,13 @@ class AccountsController < BaseController
     end
 
     def create
-        @account = Account.new(JSON.parse(params[:account]))
-        @account_owner = current_user.company.contacts
 
-        @account.save
-        respond_with @account
+      params[:account] = JSON.parse(params[:account]) if params[:account].class == String
+      @account = Account.new(params[:account])
+      @account_owner = current_user.company.contacts
+
+      @account.save
+      respond_with @account
     end
 
     def update

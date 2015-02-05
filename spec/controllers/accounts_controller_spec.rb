@@ -35,4 +35,10 @@ RSpec.describe AccountsController, :type => :controller do
     expect(response).to have_http_status(:found)
   end
 
+  it 'should POST create method' do
+    expect {
+      post :create, account: FactoryGirl.attributes_for(:account)
+    }.to change(Account, :count).by(1)
+  end
+
 end
