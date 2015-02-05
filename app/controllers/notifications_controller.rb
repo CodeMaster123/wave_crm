@@ -85,7 +85,4 @@ class NotificationsController < ApplicationController
         end
     end
 
-    def create_notification
-        @notification = current_user.company.notifications.create(:contact_id =>params[:contact_id], :subject => params[:subject], :body => params[:body], :notification_time => params[:notification_time])
-    end
 end

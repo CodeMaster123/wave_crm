@@ -85,7 +85,6 @@ WaveCrm::Application.routes.draw do
 
     #Used in Leads#show
     match 'create_events' => 'events#create_event'
-    match 'create_notification' => 'notifications#create_notification'
     match 'change_owner' => 'leads#change_owner'
 
     root :to => 'leads#home'

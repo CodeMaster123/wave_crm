@@ -35,7 +35,7 @@ authorization do
         has_permission_on :sales_executives, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit]
         has_permission_on :team_leaders, :to => [:index, :create, :read, :update, :destroy, :new, :show, :edit, :target_forecast]
         has_permission_on :events, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :create_event]
-        has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed, :notifications_to_all, :create_notification]
+        has_permission_on :notifications, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :noticed, :notifications_to_all]
         has_permission_on :targets, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit, :old_target]
         has_permission_on :contacts, :to => [:index, :create, :read, :update, :destroy, :show, :search, :edit, :map_index, :create_contact]
         has_permission_on :inventory_additions, :to => [:index, :create, :read, :update, :destroy, :new, :show, :search, :edit]
