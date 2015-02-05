@@ -71,7 +71,6 @@ WaveCrm::Application.routes.draw do
     match 'transactions/new/:id1/:matured_by/:executive_type' => 'transactions#new'
     match 'transactions/mature/:id1/:matured_by/:executive_type' => 'transactions#new'
     match 'get_partial_payments/:transaction_id' => 'transactions#get_partial_payments'
-    match 'create_partial_payment' => 'partial_payments#create_partial_payment'
 
     #Tuple classification in index method
     match 'accounts/index/:type' => 'accounts#index'

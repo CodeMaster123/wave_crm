@@ -10,9 +10,4 @@ class PartialPaymentsController < ApplicationController
         respond_with @partial_payment
     end
 
-    def create_partial_payment
-        @partial_payment = PartialPayment.create(:amount_paid => params[:amount], :transaction_id => params[:transaction_id])
-
-        respond_with @partial_payment
-    end
 end
