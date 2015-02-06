@@ -14,7 +14,7 @@ WaveCrm::Application.routes.draw do
 
     resources :accounts do
       resources :transactions do
-        match 'invoice' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
+        get 'invoice' => 'transactions#invoice' #, :defaults => {:format => 'pdf'}
       end
       resources :contacts
 
@@ -51,7 +51,8 @@ WaveCrm::Application.routes.draw do
     resources :notifications do
       collection do
         get 'search'
-        match 'notifications_to_all'
+        get 'notifications_to_all'
+        post 'notifications_to_all'
       end
     end
 
@@ -59,32 +60,19 @@ WaveCrm::Application.routes.draw do
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
     mount Resque::Server.new, at: "/resque"
 
-    #Reporting and intelligence
-    match 'transaction_graph' => 'transactions#graph'
-    match 'target_forecast' => 'team_leaders#target_forecast'
-    match 'targets/index/:type' => 'targets#index'
-
     #Notifications and events
-    match 'calendar' => "calendar#index"
-
-    #Used in transactions controller
-    match 'transactions/new/:id1/:matured_by/:executive_type' => 'transactions#new'
-    match 'transactions/mature/:id1/:matured_by/:executive_type' => 'transactions#new'
-    match 'get_partial_payments/:transaction_id' => 'transactions#get_partial_payments'
+    get 'calendar' => "calendar#index"
 
     #Tuple classification in index method
-    match 'accounts/index/:type' => 'accounts#index'
-    match 'leads/index/:type' => 'leads#index', :as => :lead_change
-    match 'leads/index/:team_leader' => 'leads#index'
-    match 'leads/index/:type/:sales_executive' => 'leads#index'
-    match 'notifications/index/:type' => 'notifications#index', :as => :n_change
+    get 'accounts/index/:type' => 'accounts#index'
+    get 'leads/index/:type' => 'leads#index', :as => :lead_change
+    get 'leads/index/:team_leader' => 'leads#index'
+    get 'leads/index/:type/:sales_executive' => 'leads#index'
+    get 'notifications/index/:type' => 'notifications#index', :as => :n_change
 
     #Used in Leads controller
-    match 'postpone_lead' => 'leads#postpone_lead'
-
-    #Used in Leads#show
-    match 'create_events' => 'events#create_event'
-    match 'change_owner' => 'leads#change_owner'
+    post 'postpone_lead' => 'leads#postpone_lead'
+    post 'change_owner' => 'leads#change_owner'
 
     root :to => 'leads#home'
 end
