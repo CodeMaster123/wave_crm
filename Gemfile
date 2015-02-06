@@ -1,7 +1,8 @@
 ruby '2.1.0'
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.2.0'
+gem 'responders'
 gem 'jbuilder'
 gem 'pg'
 gem 'devise'
@@ -13,7 +14,6 @@ gem 'thin', '~> 1.5.1'
 
 gem 'nested_form', '0.3.2'
 gem 'rails_admin'
-#gem 'will_paginate'
 
 gem 'thinking-sphinx'
 gem 'mysql2'
@@ -21,17 +21,13 @@ gem 'mysql2'
 gem 'resque'
 gem 'resque-scheduler'
 
+#Assets
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 gem "less-rails"
-
-
-
-group :assets do
-    gem 'sass-rails',   '~> 3.2.3'
-    gem 'uglifier', '>= 1.0.3'
-    gem 'less'
-end
+gem 'sass-rails'
+gem 'uglifier'
+gem 'less'
 
 group :development do
     gem 'quiet_assets'
@@ -39,17 +35,16 @@ group :development do
     gem 'sextant'
 end
 
-    gem 'pry'
 group :test do
-    gem 'simplecov', :require => false, :group => :test
+    gem 'simplecov', :require => false
     gem 'rspec-rails'
     gem 'guard-rspec'
     gem 'factory_girl'
     gem 'factory_girl_rails'
-    #gem 'ruby-prof'
 end
 
 #gem 'rack-mini-profiler'
+gem 'pry'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'exceptional'
