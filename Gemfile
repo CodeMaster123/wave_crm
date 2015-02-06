@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'responders'
+gem 'protected_attributes'
 gem 'jbuilder'
 gem 'pg'
 gem 'devise'
@@ -32,7 +33,6 @@ gem 'less'
 group :development do
     gem 'quiet_assets'
     gem 'irbtools'
-    gem 'sextant'
 end
 
 group :test do

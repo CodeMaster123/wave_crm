@@ -235,6 +235,8 @@ GEM
       mime-types
     pdfkit (0.6.2)
     pg (0.18.1)
+    protected_attributes (1.0.8)
+      activemodel (>= 4.0.1, < 5.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -350,8 +352,6 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
     sexp_processor (4.4.5)
-    sextant (0.2.4)
-      rails (>= 3.2)
     shellany (0.0.1)
     simplecov (0.9.1)
       docile (~> 1.1.0)
@@ -440,6 +440,7 @@ DEPENDENCIES
   paperclip
   pdfkit
   pg
+  protected_attributes
   pry
   quiet_assets
   rails (= 4.2.0)
@@ -450,7 +451,6 @@ DEPENDENCIES
   rspec-rails
   ruby_parser
   sass-rails
-  sextant
   simplecov
   therubyracer
   thin (~> 1.5.1)
