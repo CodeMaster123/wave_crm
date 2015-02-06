@@ -16,6 +16,7 @@
 /log/*.log
 /tmp
 /.Gemfile
+/vendor/bundle/*
 
 # Ignore paperclip images
 /public/system/avatars/*
