@@ -1,5 +1,10 @@
-accounts_app.factory('Contact',function($http){
-  var promise;
+angular
+  .module('accounts_app')
+  .factory('Contact',Contact);
+
+Contact.$inject = ['$http'];
+
+function Contact($http){
   var Contact = {
     all: function(){
       return $http.get('contacts.json?type=client').then(function(result){
@@ -11,4 +16,4 @@ accounts_app.factory('Contact',function($http){
     }
   }
   return Contact;
-})
+}

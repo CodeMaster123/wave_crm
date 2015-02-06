@@ -11,39 +11,37 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-
 //= require_self
-//= require jquery-ui-1.10.2.custom.min
-//= require jquery-ui-timepicker-addon
-//= require jquery-ui-sliderAccess
-//= require chosen.jquery.min
-//= require jquery.betterTooltip
-//= require magicsuggest-1.2.7
-//= require jquery_nested_form
+
+//= require libraries/jquery-2.1.3.min
+//= require libraries/jquery-ui-1.10.2.custom.min
+//= require libraries/jquery-ui-timepicker-addon
+//= require libraries/jquery-ui-sliderAccess
+//= require libraries/chosen.jquery.min
+//= require libraries/jquery.betterTooltip
+//= require libraries/magicsuggest-1.2.7
+//= require libraries/jquery_nested_form
 //
-//= require bootstrap.min
-//= require underscore
+//= require libraries/bootstrap.min
+//= require libraries/underscore
 //
-//= require angular/angular
-//= require angular/angular-route
-//= require angular/restangular
-//= require angular/ui-bootstrap-tpls-0.12.0
-//= require angular/angular-validation.min
-//= require angular/angular-validation-rule.min
-//= require angular/angular-filter.min
+//= require libraries/angular/angular
+//= require libraries/angular/angular-route
+//= require libraries/angular/restangular
+//= require libraries/angular/ui-bootstrap-tpls-0.12.0
+//= require libraries/angular/angular-validation.min
+//= require libraries/angular/angular-validation-rule.min
+//= require libraries/angular/angular-filter.min
 //= require ng-rails-csrf
-//
-//
+
+//= require libraries/calendar/fullcalendar.min
+//= require libraries/calendar/gcal
+//= require libraries/calendar/moment.min
+//= require libraries/calendar/calendar
+//= require libraries/chosen.jquery.min
+
 //= require_directory ./accounts/services
 //= require_directory ./accounts/controllers
-
-//= require calendar/fullcalendar.min
-//= require calendar/gcal
-//= require calendar/moment.min
-//= require calendar/calendar
-//= require chosen.jquery.min
 
 //= require_directory ./calendar/services
 //= require_directory ./calendar/controllers

@@ -1,4 +1,10 @@
-accounts_app.controller('ContactsController',function($scope,$modal, $routeParams, $http, Restangular){
+angular
+  .module('accounts_app')
+  .controller('ContactsController', Contacts);
+
+Contacts.$inject = ['$scope', '$modal', '$routeParams', '$http', 'Restangular'];
+
+function Contacts($scope,$modal, $routeParams, $http, Restangular){
   $scope.contacts = function(){
     Restangular.one('accounts', $routeParams.id).all('contacts').getList().then(function(result){
       $scope.contacts = result;
@@ -28,4 +34,4 @@ accounts_app.controller('ContactsController',function($scope,$modal, $routeParam
       $scope.contacts = result;
     })
   }
-})
+}

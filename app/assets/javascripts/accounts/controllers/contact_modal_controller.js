@@ -1,4 +1,10 @@
-accounts_app.controller('ContactModalController', function ($scope, $modalInstance, current_contact) {
+angular
+  .module('accounts_app')
+  .controller('ContactModalController', ContactModal);
+
+ContactModal.$inject = ['$scope', '$modalInstance', 'current_contact']
+
+function ContactModal($scope, $modalInstance, current_contact) {
   $scope.current_contact = current_contact;
 
   $scope.ok = function () {
@@ -8,4 +14,4 @@ accounts_app.controller('ContactModalController', function ($scope, $modalInstan
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-})
+}

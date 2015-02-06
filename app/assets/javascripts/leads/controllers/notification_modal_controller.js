@@ -1,4 +1,10 @@
-leads_app.controller('NotificationModalController',function($scope, $modalInstance, $http){
+angular
+  .module('leads_app')
+  .controller('NotificationModalController', NotificationModal)
+
+NotificationModal.$inject = ['$scope', '$modalInstance', '$http'];
+
+function NotificationModal($scope, $modalInstance, $http){
   $scope.create_notification = function(){
     $http({
       method: 'POST',
@@ -14,4 +20,4 @@ leads_app.controller('NotificationModalController',function($scope, $modalInstan
   $scope.cancel = function(){
     $modalInstance.dismiss('cancel');
   }
-})
+}

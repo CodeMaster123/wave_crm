@@ -1,5 +1,9 @@
-var accounts_app = angular.module('accounts_app',['ngRoute', 'restangular', 'ng-rails-csrf', 'ui.bootstrap']);
-accounts_app.config(function($routeProvider){
+angular.module('accounts_app',['ngRoute', 'restangular', 'ng-rails-csrf', 'ui.bootstrap'])
+.config(AccountRoutes);
+
+AccountRoutes.$inject = ['$routeProvider', 'RestangularProvider']
+
+function AccountRoutes($routeProvider, RestangularProvider){
   $routeProvider
   .when('/index',{
     templateUrl: '/templates/accounts/index.html',
@@ -16,6 +20,7 @@ accounts_app.config(function($routeProvider){
   .otherwise({
     redirectTo: '/index'
   })
-}).config(function(RestangularProvider){
+
   RestangularProvider.setRequestSuffix('.json');
-})
+}
+

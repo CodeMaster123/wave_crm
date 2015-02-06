@@ -1,4 +1,10 @@
-accounts_app.controller('CreateContactController',function($scope, $http, $routeParams){
+angular
+  .module('accounts_app')
+  .controller('CreateContactController', CreateContact);
+
+CreateContact.$inject = ['$scope', '$http', '$routeParams'];
+
+function CreateContact($scope, $http, $routeParams){
   $scope.create_contact = function(){
     $http({
       method: 'POST',
@@ -10,4 +16,4 @@ accounts_app.controller('CreateContactController',function($scope, $http, $route
       //$modalInstance.dismiss('cancel');
     })
   }
-})
+}

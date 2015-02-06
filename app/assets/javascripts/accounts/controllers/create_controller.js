@@ -1,4 +1,10 @@
-accounts_app.controller('CreateController',function($scope, $routeParams, $http, $location, Contact){
+angular
+  .module('accounts_app')
+  .controller('CreateController', Create);
+
+Create.$inject = ['$scope', '$routeParams', '$http', '$location', 'Contact'];
+
+function Create($scope, $routeParams, $http, $location, Contact){
   $scope.init = function(){
     a = Contact.all()
     a.then(function(response){
@@ -20,4 +26,4 @@ accounts_app.controller('CreateController',function($scope, $routeParams, $http,
   }
 
   $scope.init();
-})
+}

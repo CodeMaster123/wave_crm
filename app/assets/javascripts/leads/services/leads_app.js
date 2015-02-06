@@ -1,5 +1,10 @@
-var leads_app = angular.module('leads_app',['ngRoute', 'restangular', 'ng-rails-csrf', 'ui.bootstrap', 'validation', 'validation.rule', 'angular.filter'])
-leads_app.config(function($routeProvider){
+angular
+  .module('leads_app',['ngRoute', 'restangular', 'ng-rails-csrf', 'ui.bootstrap', 'validation', 'validation.rule', 'angular.filter'])
+  .config(LeadsRoutes);
+
+LeadsRoutes.$inject = ['$routeProvider']
+
+function LeadsRoutes($routeProvider){
   $routeProvider
   .when('/',{
     templateUrl: '/templates/leads/index.html',
@@ -13,4 +18,4 @@ leads_app.config(function($routeProvider){
     templateUrl: '/templates/leads/show.html',
     controller: 'LeadsShowController'
   })
-})
+}

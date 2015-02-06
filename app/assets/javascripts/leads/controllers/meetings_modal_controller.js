@@ -1,4 +1,10 @@
-leads_app.controller('MeetingModalController', function($scope, $modalInstance, $http){
+angular
+  .module('leads_app')
+  .controller('MeetingModalController', MeetingModal)
+
+MeetingModal.$inject = ['$scope', '$modalInstance', '$http']
+
+function MeetingModal($scope, $modalInstance, $http){
   $scope.create_meeting = function(){
     $http({
       method: 'POST',
@@ -14,4 +20,4 @@ leads_app.controller('MeetingModalController', function($scope, $modalInstance, 
   $scope.cancel = function(){
     $modalInstance.dismiss('cancel');
   }
-})
+}

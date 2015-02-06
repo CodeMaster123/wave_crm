@@ -36,10 +36,10 @@ end
 group :development do
     gem 'quiet_assets'
     gem 'irbtools'
-    gem 'pry'
     gem 'sextant'
 end
 
+    gem 'pry'
 group :test do
     gem 'simplecov', :require => false, :group => :test
     gem 'rspec-rails'

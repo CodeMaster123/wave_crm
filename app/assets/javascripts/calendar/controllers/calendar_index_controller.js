@@ -1,4 +1,10 @@
-calendar_app.controller('CalendarIndexController', function($scope){
+angular
+  .module('calendar_app')
+  .controller('CalendarIndexController', CalendarIndex)
+
+CalendarIndex.$inject = ['$scope'];
+
+function CalendarIndex($scope){
   var date = new Date();
   var d = date.getDate();
   var m = date.getMonth();
@@ -44,4 +50,4 @@ calendar_app.controller('CalendarIndexController', function($scope){
 
 
 
-})
+}

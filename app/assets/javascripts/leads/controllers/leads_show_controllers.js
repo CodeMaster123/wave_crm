@@ -1,4 +1,10 @@
-leads_app.controller('LeadsShowController', function($scope, $http, $routeParams, $modal){
+angular
+  .module('leads_app')
+  .controller('LeadsShowController', LeadsShow);
+
+LeadsShow.$inject = ['$scope', '$http', '$routeParams', '$modal']
+
+function LeadsShow($scope, $http, $routeParams, $modal){
   $scope.init = function(){
     lead = $http({
       method: 'GET',
@@ -36,4 +42,4 @@ leads_app.controller('LeadsShowController', function($scope, $http, $routeParams
 
 
   $scope.init();
-})
+}

@@ -1,4 +1,10 @@
-accounts_app.controller('IndexController', function($scope, $routeParams, $http, Restangular){
+angular
+  .module('accounts_app')
+  .controller('IndexController', Index)
+
+Index.$inject = ['$scope', '$routeParams', '$http', 'Restangular'];
+
+function Index($scope, $routeParams, $http, Restangular){
   $scope.init = function(){
     path = 'accounts.json?type='+$routeParams.type;
     var Account = Restangular.allUrl('accounts',path);
@@ -31,4 +37,4 @@ accounts_app.controller('IndexController', function($scope, $routeParams, $http,
 
 
   $scope.init();
-})
+}
