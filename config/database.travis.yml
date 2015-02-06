@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  database: wave_crm_development
+  username: postgres
+  password:
+
+test:
+  adapter: postgresql
+  database: wave_crm_test
+  username: postgres
+  password:
+
+production:
+  adapter: postgresql
+  database: wave_crm_production
+  username: postgres
+  password:
+
