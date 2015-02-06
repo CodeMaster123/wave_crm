@@ -37,7 +37,7 @@ RSpec.describe ContactsController, :type => :controller do
   describe 'PUT Update' do
     it 'should update a c record' do
       new_contact = FactoryGirl.attributes_for(:contact)
-      put :update, id: @contact.id, contact: new_contact
+      put :update, account_id: @account.id, id: @contact.id, contact: new_contact
       expect(assigns(:contact).first_name).to eq(new_contact[:first_name])
     end
   end
