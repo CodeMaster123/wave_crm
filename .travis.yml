@@ -1,9 +1,5 @@
 language: ruby
 rvm:
-  - 1.9.3
+  - 2.2.0
 gemfile: Gemfile
-script:
-  - cp config/database.travis.yml config/database.yml
-  - RAILS_ENV=test bundle exec rake db:create --trace
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake test
+
