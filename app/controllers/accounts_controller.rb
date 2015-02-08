@@ -16,7 +16,7 @@ class AccountsController < BaseController
     def show
         @account = Account.find(params[:id])
         @contacts = @account.contacts
-        @transactions = @account.transactions
+        @transactions = @account.crm_transactions
 
         respond_with @account
     end

@@ -4,7 +4,7 @@ class Account < ActiveRecord::Base
   belongs_to :lead
   belongs_to :company
   has_many :contacts
-  has_many :transactions
+  has_many :crm_transactions
 
   validates :account_name, :presence => true
   validates :phone_number, :presence => true, length: {minimum: 5, maximum: 10}

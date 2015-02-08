@@ -3,7 +3,7 @@ class ProductTransaction < ActiveRecord::Base
 
     belongs_to :lead
     belongs_to :product
-    belongs_to :transaction
+    belongs_to :crm_transaction
 
     validates :price, :presence => true
     validates :quantity, :presence => true

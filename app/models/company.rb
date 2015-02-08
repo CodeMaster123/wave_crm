@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
     has_many :leads, dependent: :destroy
     has_many :events, dependent: :destroy
     has_many :targets, dependent: :destroy
-    has_many :transactions, dependent: :destroy
+    has_many :crm_transactions, dependent: :destroy
     has_many :accounts, dependent: :destroy
 
     attr_accessible :company_address, :company_name, :contact_number1, :contact_number2

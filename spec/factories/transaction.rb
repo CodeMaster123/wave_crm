@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :transaction do
+  factory :crm_transaction do
     transaction_time Time.now
     amount 1000
     company_id 1

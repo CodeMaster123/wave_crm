@@ -23,6 +23,6 @@ class InventoryAdditionsController < ApplicationController
         @inventory_addition = InventoryAddition.find(params[:id])
         @inventory_addition.destroy
 
-        respond_with @inventory_addition
+        respond_with @inventory_addition.product, @inventory_addition
     end
 end

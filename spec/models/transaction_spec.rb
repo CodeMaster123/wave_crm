@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe Transaction, :type => :model do
+RSpec.describe CrmTransaction, :type => :model do
 end

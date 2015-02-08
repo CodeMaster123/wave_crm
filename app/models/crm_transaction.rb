@@ -1,4 +1,4 @@
-class Transaction < ActiveRecord::Base
+class CrmTransaction < ActiveRecord::Base
     has_many :contacts, :as => :contactable, :dependent => :destroy
     has_many :product_transactions, :dependent => :destroy
     has_many :products, :through => :product_transactions

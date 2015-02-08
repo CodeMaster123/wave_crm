@@ -1,26 +1,26 @@
-class TransactionsController < ApplicationController
+class CrmTransactionsController < ApplicationController
     before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
     respond_to :html, :json
 
     def index
-        @transactions = Account.find(params[:account_id]).transactions
+        @transactions = Account.find(params[:account_id]).crm_transactions
         respond_with @transactions
     end
 
     def show
-        @transaction = Transaction.find(params[:id])
+        @transaction = CrmTransaction.find(params[:id])
 
         respond_with @transaction
     end
 
     def new
         if params[:matured_by].nil?
-            @transaction = Transaction.new
+            @transaction = CrmTransaction.new
             @transaction.product_transactions.build
         else
           @lead = Lead.find(params[:id1])
-          @transaction = current_user.company.transactions.build
+          @transaction = current_user.company.crm_transactions.build
           @lead.product_transactions.each do |pt|
             @transaction.product_transactions.new(:price => pt.price, :quantity => pt.quantity, :product_id => pt.product_id, :lead_id => pt.lead_id)
           end
@@ -37,13 +37,13 @@ class TransactionsController < ApplicationController
     end
 
     def edit
-      @transaction = Transaction.find(params[:id])
+      @transaction = CrmTransaction.find(params[:id])
     end
 
     def create
       @accounts = @company.accounts
       @products = @company.products
-      @transaction = @company.transactions.new(params[:transaction])
+      @transaction = @company.crm_transactions.new(params[:transaction])
       @contacts = @company.contacts.all
 
       if @transaction.save
@@ -51,7 +51,7 @@ class TransactionsController < ApplicationController
         @transaction.account.update_attributes(:is_matured => true)
 
         if current_user.account_type == 1
-          redirect_to  account_transactions_path(params[:account_id]) , notice: 'Transaction was successfully created.'
+          redirect_to  account_crm_transactions_path(params[:account_id]) , notice: 'Transaction was successfully created.'
         else 
           redirect_to  leads_path , notice: 'Transaction was successfully created.'
         end
@@ -62,30 +62,30 @@ class TransactionsController < ApplicationController
 
     def update
       @products = @company.products
-      @transaction = @company.transactions.find(params[:id])
+      @transaction = @company.crm_transactions.find(params[:id])
 
       respond_to do |format|
         if @transaction.update_attributes(params[:transaction])
-          redirect_to account_transactions_path(params[:account_id]), notice: 'Transaction was successfully updated.'
+          format.html {redirect_to account_crm_transactions_path(params[:account_id]), notice: 'Transaction was successfully updated.'}
         else
-          render "edit"
+          format.html {render "edit"}
         end
       end
     end
 
     def destroy
-      @transaction = Transaction.find(params[:id]).destroy
+      @transaction = CrmTransaction.find(params[:id]).destroy
 
-        redirect_to account_transactions_path(params[:account_id])
+        redirect_to account_crm_transactions_path(params[:account_id])
     end
 
     def invoice
-      @transaction = Transaction.find(params[:transaction_id])
+      @transaction = CrmTransaction.find(params[:crm_transaction_id])
       @product_transactions = @transaction.product_transactions
     end
 
     def get_partial_payments
-      @partial_transactions = Transaction.find(params[:transaction_id]).partial_payments
+      @partial_transactions = CrmTransaction.find(params[:transaction_id]).partial_payments
 
       respond_to do |format|
         format.json { render json: @partial_transactions}

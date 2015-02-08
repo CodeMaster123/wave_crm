@@ -1,6 +1,6 @@
 class PartialPayment < ActiveRecord::Base
-    has_one :transaction
-    attr_accessible :amount_paid, :transaction_id
+    belongs_to :crm_transaction
+    attr_accessible :amount_paid, :crm_transaction_id
 
     before_validation :check_if_exceeds
 
@@ -8,11 +8,11 @@ class PartialPayment < ActiveRecord::Base
 
     def check_if_exceeds
         total_payment = 0
-        Transaction.find(self.transaction_id).partial_payments.each do |partial|
+        CrmTransaction.find(self.crm_transaction_id).partial_payments.each do |partial|
             total_payment += partial.amount_paid
         end
         total_payment += self.amount_paid
-        total_amount = Transaction.find(self.transaction_id).amount
+        total_amount = CrmTransaction.find(self.crm_transaction_id).amount
 
         if total_amount < total_payment
             errors.add(:payment_already_made, "Payment already made")
