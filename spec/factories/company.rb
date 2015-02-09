@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :company do
-    id 1
+    id 100
     company_name 'abc pvt ltd'
     company_address 'nashik'
     contact_number1 '2098789'

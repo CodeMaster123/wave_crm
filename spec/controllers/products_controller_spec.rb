@@ -5,7 +5,7 @@ RSpec.describe ProductsController, :type => :controller do
     @user = create(:user, account_type: 1)
     sign_in :user, @user
     @company = create(:company)
-    @product = create(:product)
+    @product = create(:product, company: @company)
 
   end
 

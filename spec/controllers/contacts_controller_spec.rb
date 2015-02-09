@@ -8,7 +8,7 @@ RSpec.describe ContactsController, :type => :controller do
     create(:lead)
     @company = create(:company)
     @account = create(:account)
-    @contact = create(:contact)
+    @contact = create(:contact, company: @company)
   end
 
   describe 'GET index' do

@@ -7,7 +7,7 @@ RSpec.describe NotificationsController, :type => :controller do
     @company = create(:company)
 
     @contact = create(:contact)
-    @notification = create(:notification)
+    @notification = create(:notification, company: @company)
   end
 
   describe 'GET index' do
@@ -53,7 +53,7 @@ RSpec.describe NotificationsController, :type => :controller do
 
   describe 'PUT Update' do
     it 'should update a notification record' do
-      new_notification = FactoryGirl.attributes_for(:notification)
+      new_notification = FactoryGirl.attributes_for(:notification, company: @company)
       put :update, id: @notification.id, notification: new_notification
       expect(assigns(:notification).body).to eq(new_notification[:body])
     end

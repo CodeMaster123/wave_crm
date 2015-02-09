@@ -5,7 +5,7 @@ FactoryGirl.define do
     address 'nashik'
     mobile_no '9890543164'
     account_type 2
-    company_id 1
+    company_id 100
     email 'varade.vivek.123@gmail.com'
     password 'admin123'
     password_confirmation 'admin123'

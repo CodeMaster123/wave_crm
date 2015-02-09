@@ -36,7 +36,7 @@ RSpec.describe CompaniesController, :type => :controller do
 
   describe 'create method' do
     it 'should create a company record' do
-      company = FactoryGirl.attributes_for(:company, id: @company.id)
+      company = FactoryGirl.attributes_for(:company, id: 200)
       expect {
         post :create, company: company
       }.to change(Company, :count).by(1)
