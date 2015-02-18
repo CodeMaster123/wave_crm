@@ -4701,27 +4701,6 @@ div.DTS div.dataTables_scrollBody {
     cursor: pointer;
 }
 
-.cluster.cluster-1 {
-    background: url(http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/m1.png);
-    width: 53px;
-    height: 52px;
-    line-height: 52px;
-}
-
-.cluster.cluster-2 {
-    background: url(http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/m2.png);
-    width: 56px;
-    height: 55px;
-    line-height: 55px;
-}
-
-.cluster.cluster-5 {
-    background: url(http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/images/m3.png);
-    width: 66px;
-    height: 65px;
-    line-height: 65px;
-}
-
 .invoice-info .invoice-name {
     font-size: 24px;
     margin-bottom: 40px;

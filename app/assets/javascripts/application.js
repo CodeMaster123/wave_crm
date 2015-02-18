@@ -14,6 +14,7 @@
 //= require_self
 
 //= require libraries/jquery-2.1.3.min
+//= require jquery_ujs
 //= require libraries/jquery-ui-1.10.2.custom.min
 //= require libraries/jquery-ui-timepicker-addon
 //= require libraries/jquery-ui-sliderAccess
