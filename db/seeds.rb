@@ -88,26 +88,26 @@ Contact.create([
                {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 18, :first_name => "Govind", :middle_name => "Nathu", :last_name => "gaikwad", :address => "Jail Road, Nasik", :mobile_no => 9154287956, :landline_no=> 2365647, :contactable_type => "Lead ", :longitude => 73.8149, :latitude => 15.847, :company_id => 1, :account_id => 4},
                {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 19, :first_name => "sagar", :middle_name => "Balu", :last_name => "Gaikwad", :address => "Jail Road, Nasik", :mobile_no => 7385599676, :landline_no=> 2894545, :contactable_type => "Lead", :longitude => 72.8148, :latitude => 14.848, :company_id => 1, :account_id => 5},
                {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 20, :first_name => "Tushar", :middle_name => "suresh", :last_name => "Kombde", :address => "Pathardi", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Lead", :longitude => 71.8145, :latitude => 13.842, :company_id => 1, :account_id => 5},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 1, :first_name => "Praksh", :middle_name => "Balu", :last_name => "Lahange", :address => "Bhagur, Nasik", :mobile_no => 9845451253, :landline_no=> 2493636, :contactable_type => "Transaction", :longitude => 73.8139, :latitude => 12.841, :company_id => 1, :account_id => 5},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 2, :first_name => "Bharat", :middle_name => "Sayaji", :last_name => "Dongare", :address => "Pimpal goan, Sinnar", :mobile_no => 9154287989, :landline_no=> 2758585, :contactable_type => "Transaction ", :longitude => 76.8130, :latitude => 11.859, :company_id => 1, :account_id => 5},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "Shigave Nasik", :mobile_no => 9850505045, :landline_no=> 2545652, :contactable_type => "Transaction", :longitude => 80.8129, :latitude => 19.843, :company_id => 1, :account_id => 6},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 4, :first_name => "madan", :middle_name => "Ramesh", :last_name => "Muthal", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "Transaction", :longitude => 79.8120, :latitude => 14.841, :company_id => 1, :account_id => 6},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 5, :first_name => "pappu", :middle_name => "jeevan", :last_name => "Salve", :address => "Akurdi, Pune", :mobile_no => 9875978458, :landline_no=> 2857545, :contactable_type => "Transaction", :longitude => 69.81101, :latitude => 19.8421, :company_id => 1, :account_id => 6},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 6, :first_name => "Balu", :middle_name => "bhackar", :last_name => "kale", :address => "Ambad, Nasik", :mobile_no => 981212121, :landline_no=> 2456525, :contactable_type => "Transaction", :longitude => 68.8100, :latitude => 15.848, :company_id => 1, :account_id => 6},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 7, :first_name => "sandip", :middle_name => "shivaji", :last_name => "Jain", :address => "Shevage Darana, Nasik", :mobile_no => 7385599676, :landline_no=> 2805214, :contactable_type => "Transaction", :longitude => 71.8115, :latitude => 19.853, :company_id => 1, :account_id => 6},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 8, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 2458597, :contactable_type => "Transaction ", :longitude => 73.8128, :latitude => 19.859, :company_id => 1, :account_id => 7},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 9, :first_name => "ganesh", :middle_name => "vitthal", :last_name => "kale", :address => "panchavati, Nasik", :mobile_no => 9812548265, :landline_no=> 2365687, :contactable_type => "Transaction", :longitude => 79.8129, :latitude => 19.850, :company_id => 1, :account_id => 7},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 10, :first_name => "avinash", :middle_name => "suresh", :last_name => "shinde", :address => "Ashok Stambh, Nasik", :mobile_no => 9855849653, :landline_no=> 2458575, :contactable_type => "Transaction", :longitude => 73.8124, :latitude => 16.855, :company_id => 1, :account_id => 7},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 11, :first_name => "Mohan", :middle_name => "suresh", :last_name => "shinde", :address => "Uppa Nagar, Nasik", :mobile_no => 9850323562, :landline_no=> 2805163, :contactable_type => "Transaction", :longitude => 73.8134, :latitude => 19.856, :company_id => 1, :account_id => 7},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 12, :first_name => "Jagdish", :middle_name => "shivaji", :last_name => "gaikwad", :address => "Ambad, Nasik", :mobile_no => 9845152452, :landline_no=> 2751245, :contactable_type => "Transaction ", :longitude => 73.8130, :latitude => 19.854, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 13, :first_name => "Ganpat", :middle_name => "vitthal", :last_name => "kale", :address => "Satpure, Nasik", :mobile_no => 9881526935, :landline_no=> 2356565, :contactable_type => "Transaction", :longitude => 73.8125, :latitude => 19.8554, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 14, :first_name => "Jayesh", :middle_name => "suresh", :last_name => "shinde", :address => "Rane Nagar, Nasik", :mobile_no => 9822883025, :landline_no=> 2802152, :contactable_type => "Transaction", :longitude => 76.8123, :latitude => 19.850, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 15, :first_name => "rohit", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 7385599648, :landline_no=> 2806160, :contactable_type => "Transaction ", :longitude => 73.8130, :latitude => 11.8425, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 16, :first_name => "Rajesh", :middle_name => "bhackar", :last_name => "kale", :address => "bhagur, Nasik", :mobile_no => 9130565678, :landline_no=> 2634575, :contactable_type => "Transaction", :longitude => 73.8120, :latitude => 15.841, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 17, :first_name => "Mahesh", :middle_name => "suresh", :last_name => "shinde", :address => "Deolali Camp, Nasik", :mobile_no => 9623107598, :landline_no=> 2596357, :contactable_type => "Transaction", :longitude => 60.8200, :latitude => 14.840, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 18, :first_name => "mangesh", :middle_name => "Bandu", :last_name => "thorat", :address => "nasik", :mobile_no => 9604002175, :landline_no=> 2456351, :contactable_type => "Transaction ", :longitude => 64.8130, :latitude => 16.846, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 19, :first_name => "Kalpesh", :middle_name => "om", :last_name => "Khrana", :address => "Shalimar, Nasik", :mobile_no => 9511122157, :landline_no=> 2653561, :contactable_type => "Transaction", :longitude => 65.8140, :latitude => 17.849, :company_id => 1, :account_id => 1},
-               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 20, :first_name => "kailas", :middle_name => "anna", :last_name => "parad", :address => "Mhasrul, Nasik", :mobile_no => 9822335645, :landline_no=> 2965688, :contactable_type => "Transaction", :longitude => 68.8142, :latitude => 17.8540, :company_id => 1, :account_id => 9}
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 1, :first_name => "Praksh", :middle_name => "Balu", :last_name => "Lahange", :address => "Bhagur, Nasik", :mobile_no => 9845451253, :landline_no=> 2493636, :contactable_type => "CrmTransaction", :longitude => 73.8139, :latitude => 12.841, :company_id => 1, :account_id => 5},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 2, :first_name => "Bharat", :middle_name => "Sayaji", :last_name => "Dongare", :address => "Pimpal goan, Sinnar", :mobile_no => 9154287989, :landline_no=> 2758585, :contactable_type => "CrmTransaction ", :longitude => 76.8130, :latitude => 11.859, :company_id => 1, :account_id => 5},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 3, :first_name => "sachin", :middle_name => "vitthal", :last_name => "kale", :address => "Shigave Nasik", :mobile_no => 9850505045, :landline_no=> 2545652, :contactable_type => "CrmTransaction", :longitude => 80.8129, :latitude => 19.843, :company_id => 1, :account_id => 6},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 4, :first_name => "madan", :middle_name => "Ramesh", :last_name => "Muthal", :address => "lahavit", :mobile_no => 9855849653, :landline_no=> 45854857952, :contactable_type => "CrmTransaction", :longitude => 79.8120, :latitude => 14.841, :company_id => 1, :account_id => 6},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 5, :first_name => "pappu", :middle_name => "jeevan", :last_name => "Salve", :address => "Akurdi, Pune", :mobile_no => 9875978458, :landline_no=> 2857545, :contactable_type => "CrmTransaction", :longitude => 69.81101, :latitude => 19.8421, :company_id => 1, :account_id => 6},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 6, :first_name => "Balu", :middle_name => "bhackar", :last_name => "kale", :address => "Ambad, Nasik", :mobile_no => 981212121, :landline_no=> 2456525, :contactable_type => "CrmTransaction", :longitude => 68.8100, :latitude => 15.848, :company_id => 1, :account_id => 6},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 7, :first_name => "sandip", :middle_name => "shivaji", :last_name => "Jain", :address => "Shevage Darana, Nasik", :mobile_no => 7385599676, :landline_no=> 2805214, :contactable_type => "CrmTransaction", :longitude => 71.8115, :latitude => 19.853, :company_id => 1, :account_id => 6},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 8, :first_name => "bharat", :middle_name => "shivaji", :last_name => "gaikwad", :address => "nasik", :mobile_no => 9154287956, :landline_no=> 2458597, :contactable_type => "CrmTransaction ", :longitude => 73.8128, :latitude => 19.859, :company_id => 1, :account_id => 7},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 9, :first_name => "ganesh", :middle_name => "vitthal", :last_name => "kale", :address => "panchavati, Nasik", :mobile_no => 9812548265, :landline_no=> 2365687, :contactable_type => "CrmTransaction", :longitude => 79.8129, :latitude => 19.850, :company_id => 1, :account_id => 7},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 10, :first_name => "avinash", :middle_name => "suresh", :last_name => "shinde", :address => "Ashok Stambh, Nasik", :mobile_no => 9855849653, :landline_no=> 2458575, :contactable_type => "CrmTransaction", :longitude => 73.8124, :latitude => 16.855, :company_id => 1, :account_id => 7},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 11, :first_name => "Mohan", :middle_name => "suresh", :last_name => "shinde", :address => "Uppa Nagar, Nasik", :mobile_no => 9850323562, :landline_no=> 2805163, :contactable_type => "CrmTransaction", :longitude => 73.8134, :latitude => 19.856, :company_id => 1, :account_id => 7},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 12, :first_name => "Jagdish", :middle_name => "shivaji", :last_name => "gaikwad", :address => "Ambad, Nasik", :mobile_no => 9845152452, :landline_no=> 2751245, :contactable_type => "CrmTransaction ", :longitude => 73.8130, :latitude => 19.854, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 13, :first_name => "Ganpat", :middle_name => "vitthal", :last_name => "kale", :address => "Satpure, Nasik", :mobile_no => 9881526935, :landline_no=> 2356565, :contactable_type => "CrmTransaction", :longitude => 73.8125, :latitude => 19.8554, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 14, :first_name => "Jayesh", :middle_name => "suresh", :last_name => "shinde", :address => "Rane Nagar, Nasik", :mobile_no => 9822883025, :landline_no=> 2802152, :contactable_type => "CrmTransaction", :longitude => 76.8123, :latitude => 19.850, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 15, :first_name => "rohit", :middle_name => "bhagvan", :last_name => "kale", :address => "pune", :mobile_no => 7385599648, :landline_no=> 2806160, :contactable_type => "CrmTransaction", :longitude => 73.8130, :latitude => 11.8425, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 16, :first_name => "Rajesh", :middle_name => "bhackar", :last_name => "kale", :address => "bhagur, Nasik", :mobile_no => 9130565678, :landline_no=> 2634575, :contactable_type => "CrmTransaction", :longitude => 73.8120, :latitude => 15.841, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 17, :first_name => "Mahesh", :middle_name => "suresh", :last_name => "shinde", :address => "Deolali Camp, Nasik", :mobile_no => 9623107598, :landline_no=> 2596357, :contactable_type => "CrmTransaction", :longitude => 60.8200, :latitude => 14.840, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 18, :first_name => "mangesh", :middle_name => "Bandu", :last_name => "thorat", :address => "nasik", :mobile_no => 9604002175, :landline_no=> 2456351, :contactable_type => "CrmTransaction", :longitude => 64.8130, :latitude => 16.846, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 19, :first_name => "Kalpesh", :middle_name => "om", :last_name => "Khrana", :address => "Shalimar, Nasik", :mobile_no => 9511122157, :landline_no=> 2653561, :contactable_type => "CrmTransaction", :longitude => 65.8140, :latitude => 17.849, :company_id => 1, :account_id => 1},
+               {:contact_relationship => "potential_customer", :email_id => "varade.vivek.123@gmail.com", :contactable_id => 20, :first_name => "kailas", :middle_name => "anna", :last_name => "parad", :address => "Mhasrul, Nasik", :mobile_no => 9822335645, :landline_no=> 2965688, :contactable_type => "CrmTransaction", :longitude => 68.8142, :latitude => 17.8540, :company_id => 1, :account_id => 9}
 ])
 
 Target.create([
@@ -182,7 +182,7 @@ Notification.create([
                     {:contact_id => 14,:subject =>"Mail 3", :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 1}
 ])
 
-Transaction.create([
+CrmTransaction.create([
                    {:amount => 20000, :transaction_time => "2013-05-06 01:17:00 UTC", :company_id => 1, :contact_type => 1, :contact_id => 1, :matured_by => 3, :executive_type => 1, :transaction_type => "cash", :micr_code => "", :account_id => 1},
                    {:amount => 546554, :transaction_time => "2013-05-07 01:17:00 UTC", :company_id => 1, :contact_type => 1, :contact_id => 2, :matured_by => 4, :executive_type => 1, :transaction_type => "cash", :micr_code => "", :account_id => 1},
                    {:amount => 87687, :transaction_time => "2013-05-08 01:17:00 UTC", :company_id => 1, :contact_type => 1, :contact_id => 3, :matured_by => 3, :executive_type => 1, :transaction_type => "cash", :micr_code => "", :account_id => 1},
@@ -194,8 +194,7 @@ Transaction.create([
                    {:amount => 57657, :transaction_time => "2013-05-14 01:17:00 UTC", :company_id => 1, :contact_type => 1, :contact_id => 9, :matured_by => 5, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 3},
                    {:amount => 354353, :transaction_time => "2013-05-15 01:17:00 UTC", :company_id => 1, :contact_type => 1, :contact_id => 10, :matured_by => 6, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 3},
                    {:amount => 436556, :transaction_time => "2013-05-16 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 21, :matured_by => 7, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 1},
-                   {:amount => 4654645, :transaction_time => "2013-05-17 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 22, :matured_by => 8, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 2},
-                   {:amount => 46453, :transaction_time => "2013-05-18 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 23, :matured_by => 5, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 3},
+                   {:amount => 4654645, :transaction_time => "2013-05-17 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 22, :matured_by => 8, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 2}, {:amount => 46453, :transaction_time => "2013-05-18 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 23, :matured_by => 5, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 3},
                    {:amount => 4365656, :transaction_time => "2013-05-19 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 24, :matured_by => 6, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 4},
                    {:amount => 33565, :transaction_time => "2013-05-20 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 25, :matured_by => 7, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 5},
                    {:amount => 45436, :transaction_time => "2013-05-21 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 26, :matured_by => 8, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 2},
@@ -225,23 +224,23 @@ Transaction.create([
                    {:amount => 547657, :transaction_time => "2013-05-20 01:17:00 UTC", :company_id => 1, :contact_type => 2, :contact_id => 30, :matured_by => 8, :executive_type => 2, :transaction_type => "cheque", :micr_code => "df565d", :account_id => 8}
                    ])
 PartialPayment.create([
-                      {:amount_paid => 2000, :transaction_id => 1},
-                      {:amount_paid => 1000, :transaction_id => 1},
-                      {:amount_paid => 500, :transaction_id => 1},
-                      {:amount_paid => 100, :transaction_id => 2},
-                      {:amount_paid => 1500, :transaction_id => 2},
-                      {:amount_paid => 1700, :transaction_id => 2},
-                      {:amount_paid => 1000, :transaction_id => 3},
-                      {:amount_paid => 1000, :transaction_id => 3},
-                      {:amount_paid => 1000, :transaction_id => 4},
-                      {:amount_paid => 1000, :transaction_id => 5},
-                      {:amount_paid => 1000, :transaction_id => 6},
-                      {:amount_paid => 1000, :transaction_id => 7},
-                      {:amount_paid => 1000, :transaction_id => 8},
-                      {:amount_paid => 1000, :transaction_id => 9},
-                      {:amount_paid => 1000, :transaction_id => 10},
-                      {:amount_paid => 1500, :transaction_id => 11},
-                      {:amount_paid => 1200, :transaction_id => 12},
+                      {:amount_paid => 2000, :crm_transaction_id => 1},
+                      {:amount_paid => 1000, :crm_transaction_id => 1},
+                      {:amount_paid => 500, :crm_transaction_id => 1},
+                      {:amount_paid => 100, :crm_transaction_id => 2},
+                      {:amount_paid => 1500, :crm_transaction_id => 2},
+                      {:amount_paid => 1700, :crm_transaction_id => 2},
+                      {:amount_paid => 1000, :crm_transaction_id => 3},
+                      {:amount_paid => 1000, :crm_transaction_id => 3},
+                      {:amount_paid => 1000, :crm_transaction_id => 4},
+                      {:amount_paid => 1000, :crm_transaction_id => 5},
+                      {:amount_paid => 1000, :crm_transaction_id => 6},
+                      {:amount_paid => 1000, :crm_transaction_id => 7},
+                      {:amount_paid => 1000, :crm_transaction_id => 8},
+                      {:amount_paid => 1000, :crm_transaction_id => 9},
+                      {:amount_paid => 1000, :crm_transaction_id => 10},
+                      {:amount_paid => 1500, :crm_transaction_id => 11},
+                      {:amount_paid => 1200, :crm_transaction_id => 12},
 ])
 
 Account.create([
@@ -317,34 +316,34 @@ CallLog.create([
 ])
 
 ProductTransaction.create([
-                          {:price => 32564, :product_id => 1, :transaction_id => 1, :lead_id => 1, :quantity => 1},
-                          {:price => 45645, :product_id => 2, :transaction_id => 1, :lead_id => 1, :quantity => 4},
-                          {:price => 4775, :product_id => 3, :transaction_id => 1, :lead_id => 1, :quantity => 2},
-                          {:price => 6547, :product_id => 4, :transaction_id => 1, :lead_id => 1, :quantity => 3},
-                          {:price => 76564, :product_id => 5, :transaction_id => 1, :lead_id => 1, :quantity => 7},
-                          {:price => 6456, :product_id => 2, :transaction_id => 1, :lead_id => 1, :quantity => 10},
-                          {:price => 32564, :product_id => 1, :transaction_id => 1, :lead_id => 1, :quantity => 23},
-                          {:price => 56744, :product_id => 2, :transaction_id => 2, :lead_id => 2, :quantity => 2},
-                          {:price => 45456, :product_id => 3, :transaction_id => 3, :lead_id => 3, :quantity => 1},
-                          {:price => 45653, :product_id => 4, :transaction_id => 4, :lead_id => 4, :quantity => 1},
-                          {:price => 878565, :product_id => 5, :transaction_id => 5, :lead_id => 5, :quantity => 1},
-                          {:price => 35466, :product_id => 5, :transaction_id => 6, :lead_id => 6, :quantity => 3},
-                          {:price => 786785, :product_id => 2, :transaction_id => 7, :lead_id => 7, :quantity => 1},
-                          {:price => 67554, :product_id => 4, :transaction_id => 8, :lead_id => 8, :quantity => 1},
-                          {:price => 657574, :product_id => 3, :transaction_id => 9, :lead_id => 9, :quantity => 2},
-                          {:price => 75454, :product_id => 1, :transaction_id => 10, :lead_id => 10, :quantity => 1},
-                          {:price => 34545, :product_id => 1, :transaction_id => 11, :lead_id => 11, :quantity => 1},
-                          {:price => 76765, :product_id => 5, :transaction_id => 12, :lead_id => 15, :quantity => 5},
-                          {:price => 68688, :product_id => 4, :transaction_id => 13, :lead_id => 16, :quantity => 1},
-                          {:price => 86765, :product_id => 4, :transaction_id => 14, :lead_id => 12, :quantity => 1},
-                          {:price => 67857, :product_id => 3, :transaction_id => 15, :lead_id => 13, :quantity => 2},
-                          {:price => 56757, :product_id => 3, :transaction_id => 16, :lead_id => 14, :quantity => 2},
-                          {:price => 87657, :product_id => 5, :transaction_id => 17, :lead_id => 19, :quantity => 1},
-                          {:price => 567657, :product_id => 2, :transaction_id => 18, :lead_id => 18, :quantity => 1},
-                          {:price => 567656, :product_id => 4, :transaction_id => 19, :lead_id => 17, :quantity => 1},
-                          {:price => 687567, :product_id => 3, :transaction_id => 20, :lead_id => 21, :quantity => 2},
-                          {:price => 897867, :product_id => 2, :transaction_id => 22, :lead_id => 27, :quantity => 2},
-                          {:price => 464565, :product_id => 2, :transaction_id => 25, :lead_id => 23, :quantity => 1}
+                          {:price => 32564, :product_id => 1, :crm_transaction_id => 1, :lead_id => 1, :quantity => 1},
+                          {:price => 45645, :product_id => 2, :crm_transaction_id => 1, :lead_id => 1, :quantity => 4},
+                          {:price => 4775, :product_id => 3, :crm_transaction_id => 1, :lead_id => 1, :quantity => 2},
+                          {:price => 6547, :product_id => 4, :crm_transaction_id => 1, :lead_id => 1, :quantity => 3},
+                          {:price => 76564, :product_id => 5, :crm_transaction_id => 1, :lead_id => 1, :quantity => 7},
+                          {:price => 6456, :product_id => 2, :crm_transaction_id => 1, :lead_id => 1, :quantity => 10},
+                          {:price => 32564, :product_id => 1, :crm_transaction_id => 1, :lead_id => 1, :quantity => 23},
+                          {:price => 56744, :product_id => 2, :crm_transaction_id => 2, :lead_id => 2, :quantity => 2},
+                          {:price => 45456, :product_id => 3, :crm_transaction_id => 3, :lead_id => 3, :quantity => 1},
+                          {:price => 45653, :product_id => 4, :crm_transaction_id => 4, :lead_id => 4, :quantity => 1},
+                          {:price => 878565, :product_id => 5, :crm_transaction_id => 5, :lead_id => 5, :quantity => 1},
+                          {:price => 35466, :product_id => 5, :crm_transaction_id => 6, :lead_id => 6, :quantity => 3},
+                          {:price => 786785, :product_id => 2, :crm_transaction_id => 7, :lead_id => 7, :quantity => 1},
+                          {:price => 67554, :product_id => 4, :crm_transaction_id => 8, :lead_id => 8, :quantity => 1},
+                          {:price => 657574, :product_id => 3, :crm_transaction_id => 9, :lead_id => 9, :quantity => 2},
+                          {:price => 75454, :product_id => 1, :crm_transaction_id => 10, :lead_id => 10, :quantity => 1},
+                          {:price => 34545, :product_id => 1, :crm_transaction_id => 11, :lead_id => 11, :quantity => 1},
+                          {:price => 76765, :product_id => 5, :crm_transaction_id => 12, :lead_id => 15, :quantity => 5},
+                          {:price => 68688, :product_id => 4, :crm_transaction_id => 13, :lead_id => 16, :quantity => 1},
+                          {:price => 86765, :product_id => 4, :crm_transaction_id => 14, :lead_id => 12, :quantity => 1},
+                          {:price => 67857, :product_id => 3, :crm_transaction_id => 15, :lead_id => 13, :quantity => 2},
+                          {:price => 56757, :product_id => 3, :crm_transaction_id => 16, :lead_id => 14, :quantity => 2},
+                          {:price => 87657, :product_id => 5, :crm_transaction_id => 17, :lead_id => 19, :quantity => 1},
+                          {:price => 567657, :product_id => 2, :crm_transaction_id => 18, :lead_id => 18, :quantity => 1},
+                          {:price => 567656, :product_id => 4, :crm_transaction_id => 19, :lead_id => 17, :quantity => 1},
+                          {:price => 687567, :product_id => 3, :crm_transaction_id => 20, :lead_id => 21, :quantity => 2},
+                          {:price => 897867, :product_id => 2, :crm_transaction_id => 22, :lead_id => 27, :quantity => 2},
+                          {:price => 464565, :product_id => 2, :crm_transaction_id => 25, :lead_id => 23, :quantity => 1}
 ])
 
 #################################################################
@@ -506,7 +505,7 @@ Notification.create([
                     {:contact_id => 34, :body => "msg body", :notification_time => "2013-04-24 01:17:00 UTC", :company_id => 2}
 ])
 
-Transaction.create([
+CrmTransaction.create([
                    {:amount => 20000, :transaction_time => "2013-04-05 01:17:00 UTC", :company_id => 2, :account_id => 1},
                    {:amount => 20000, :transaction_time => "2013-04-06 01:17:00 UTC", :company_id => 2, :account_id => 1},
                    {:amount => 20000, :transaction_time => "2013-04-07 01:17:00 UTC", :company_id => 2, :account_id => 1},
