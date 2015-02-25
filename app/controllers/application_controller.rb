@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
     layout :check_controller
 
+    before_filter :authenticate_user!
+
     before_filter {|c|Authorization.current_user = c.current_user}
 
     def check_controller

@@ -1,5 +1,4 @@
 class CallLogsController < ApplicationController
-    before_filter :authenticate_user!
     filter_access_to :all
     respond_to :html, :json
 

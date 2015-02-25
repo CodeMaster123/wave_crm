@@ -1,5 +1,5 @@
 class LeadsController < ApplicationController
-    before_filter :authenticate_user!, :fetch_company
+    before_filter :fetch_company
     before_filter :fetch_sales_employee_records, except: [:index, :destroy, :search, :postpone_lead, :change_owner]
     filter_access_to :all
     respond_to :html, :json
