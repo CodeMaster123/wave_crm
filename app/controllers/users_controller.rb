@@ -1,4 +1,4 @@
-class UsersController < BaseController
+class UsersController < ApplicationController
   before_filter :fetch_company
 
     def index
