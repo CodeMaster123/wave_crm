@@ -19,16 +19,6 @@ RSpec.describe ProductsController, :type => :controller do
     expect(response).to have_http_status(:success)
   end
 
-  it 'should GET new' do
-    get :new
-    expect(response).to have_http_status(:success)
-  end
-
-  it 'should GET edit' do
-    get :edit, id: @product.id
-    expect(response).to have_http_status(:success)
-  end
-
   describe 'create method' do
     it 'should create a product record' do
       product = FactoryGirl.attributes_for(:product, id: @product.id, name: 'demo_product')
@@ -38,9 +28,6 @@ RSpec.describe ProductsController, :type => :controller do
     end
 
     it 'should render new view' do
-      product = FactoryGirl.attributes_for(:product, name: 'television')
-      post :create, product: product
-      expect(response).to render_template('new')
     end
   end
 

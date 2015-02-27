@@ -15,43 +15,33 @@ class ProductsController < ApplicationController
         render json: @product
     end
 
-    def new
-        @product = Product.new
-    end
-
-    def edit
-        @product = Product.find(params[:id])
-    end
-
     def create
         @company = current_user.company
         @product = @company.products.new(params[:product])
 
-        respond_to do |format|
-            if @product.save
-                format.html { redirect_to :products, notice: 'Product was successfully created.' }
-            else
-                format.html { render "new" }
-            end
+        if @product.save
+          render nothing: true
+        else
+          render json: @product.errors
         end
     end
 
     def update
-        @company = Company.where(:id => current_user.company_id).first
-        @product = @company.products.find(params[:id])
+      @company = Company.where(:id => current_user.company_id).first
+      @product = @company.products.find(params[:id])
 
-        respond_to do |format|
-            if @product.update_attributes(params[:product])
-                format.html { redirect_to :products, notice: 'Product was successfully updated.' }
-            else
-                format.html { render "edit" }
-            end
+      respond_to do |format|
+        if @product.update_attributes(params[:product])
+          format.html { redirect_to :products, notice: 'Product was successfully updated.' }
+        else
+          format.html { render "edit" }
         end
+      end
     end
 
     def destroy
-        @product = Product.find(params[:id])
-        @product.destroy
-        redirect_to products_url
+      @product = Product.find(params[:id])
+      @product.destroy
+      render json: '', status: 200
     end
 end
