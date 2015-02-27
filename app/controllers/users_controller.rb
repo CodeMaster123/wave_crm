@@ -7,11 +7,7 @@ class UsersController < ApplicationController
         else
             @users = User.all
         end
-
-        respond_to do |format|
-            format.html
-            format.json
-        end
+        render json: @users
     end
 
     def show
