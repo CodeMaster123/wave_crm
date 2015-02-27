@@ -23,11 +23,6 @@ RSpec.describe ContactsController, :type => :controller do
     expect(response).to have_http_status(:success)
   end
 
-  it 'should GET edit with http success' do
-    get :edit, company_id: @company.id, id: @contact.id
-    expect(response).to have_http_status(:success)
-  end
-
   it 'should POST create method' do
     expect {
       post :create, account_id: @account.id, contact: FactoryGirl.attributes_for(:contact)
