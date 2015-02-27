@@ -1,5 +1,7 @@
 require 'resque/server'
 WaveCrm::Application.routes.draw do
+    match '*all_routes', via: :options, to: 'application#handle_options_request'
+
     devise_for :users
 
     resources :users
