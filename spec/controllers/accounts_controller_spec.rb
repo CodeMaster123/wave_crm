@@ -18,21 +18,11 @@ RSpec.describe AccountsController, :type => :controller do
     expect(response).to have_http_status(:success)
   end
 
-  it 'should GET new' do
-    get :new
-    expect(response).to have_http_status(:success)
-  end
-
-  it 'should GET edit' do
-    account = create(:account)
-    get :edit, id: account.id
-    expect(response).to have_http_status(:success)
-  end
-
   it 'should destroy a record' do
     account = create(:account)
+    expect{
     delete :destroy, id: account.id
-    expect(response).to have_http_status(:found)
+    }.to change(Account, :count).by(-1)
   end
 
   it 'should POST create method' do

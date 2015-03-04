@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
         target = self.team_leader_target_list
       elsif self.account_type == 3
         target = self.targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-        target = self.targets.new if target.nil?
+        target = self.targets.create(company_id: user.company_id) if target.nil?
       end
       target
     end
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
       targets = Array.new
       users.each_with_index do |user, i|
         targets[i] = user.targets.where(:target_month => Date.today.month, :target_year => Date.today.year).first
-        targets[i] = user.targets.new if targets[i].nil?
+        targets[i] = user.targets.create(company_id: user.company_id) if targets[i].nil?
       end
       targets
     end

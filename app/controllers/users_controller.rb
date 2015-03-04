@@ -41,9 +41,9 @@ class UsersController < ApplicationController
         @user.company_id = @company.id if @user.company_id.nil?
 
         if @user.save
-            redirect_to :users, notice: 'User was successfully created.'
+            render json: @user, status: :created
         else
-            render "new"
+            render json: @user.errors, status: :unprocessable_entity
         end
     end
 

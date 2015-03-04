@@ -1,48 +1,42 @@
 class TargetsController < ApplicationController
     before_filter :fetch_company
     filter_access_to :all
-    respond_to :html, :json
 
     def index
         @targets = current_user.targets_by_account
-
-        respond_with @targets
+        render json: @targets
     end
 
     def show
         @target = Target.find(params[:id])
 
-        respond_with @target
-    end
-
-    def new
-        @target = Target.new
-
-        respond_with @target
-    end
-
-    def edit
-        @target = Target.find(params[:id])
+        render json: @target
     end
 
     def create
         @target = @company.targets.new(params[:target])
 
-        @target.save
-        respond_with @target, :location => targets_path
+        if @target.save
+          render json: @target, status: :created
+        else
+          render json: @target.errors, status: :unprocessable_entity
+        end
     end
 
     def update
         @target = @company.targets.find(params[:id])
 
-        @target.update_attributes(params[:target])
-        respond_with @target, :location => targets_path
+        if @target.update_attributes(params[:target])
+          render json: @target, status: :ok
+        else
+          render json: @target.errors, status: :unprocessable_entity
+        end
     end
 
     def destroy
         @target = Target.find(params[:id])
         @target.destroy
 
-        respond_with @target
+        render json: '',  head: :no_content
     end
 end

@@ -1,16 +1,15 @@
 class AccountsController < ApplicationController
     before_filter :authenticate_user!, :fetch_company
     filter_access_to :all
-    respond_to :html, :json
 
     def index
         if params[:type] == 'existing_accounts'
             @accounts = @company.accounts.where(:is_matured => true)
-        elsif params[:type] == 'potential_accounts'
+        else
             @accounts = @company.accounts.where(:is_matured => false)
         end
 
-        respond_with @accounts
+        render json: @accounts
     end
 
     def show
@@ -18,19 +17,7 @@ class AccountsController < ApplicationController
         @contacts = @account.contacts
         @transactions = @account.crm_transactions
 
-        respond_with @account
-    end
-
-    def new
-        @account = Account.new
-        @account_owner = current_user.company.contacts
-
-        respond_with @account
-    end
-
-    def edit
-        @account = Account.find(params[:id])
-        @account_owner = current_user.company.contacts
+        render json: @account
     end
 
     def create
@@ -39,8 +26,11 @@ class AccountsController < ApplicationController
       @account = Account.new(params[:account])
       @account_owner = current_user.company.contacts
 
-      @account.save
-      respond_with @account
+      if @account.save
+        render nothing: true
+      else
+        render json: @account.errors
+      end
     end
 
     def update
@@ -48,21 +38,22 @@ class AccountsController < ApplicationController
         @account_owner = current_user.company.contacts
 
         params[:account] = JSON.parse(params[:account]) if params[:account].class == String
-        @account.update_attributes(params[:account])
 
-        respond_with @account                 
+        if @account.update_attributes(params[:account])
+          render nothing: true
+        else
+          render json: @account.errors
+        end
     end
 
     def destroy
         @account = Account.find(params[:id])
         @account.destroy
 
-        respond_with @account
+        render json: '', status: 200
     end
 
     def search
       @account = Account.search params[:query]
-
-      respond_with @account
     end
 end

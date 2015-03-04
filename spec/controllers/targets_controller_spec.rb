@@ -50,18 +50,11 @@ RSpec.describe TargetsController, :type => :controller do
       put :update, id: target.id, target: new_target
       expect(assigns(:target).achived).to eq(new_target[:achived])
     end
-
-    it 'should redirect to index after updating a record' do
-      target = create(:target, company: @company)
-      new_target = FactoryGirl.attributes_for(:target, achived: 12323)
-      put :update, id: target.id, target: new_target
-      expect(response).to have_http_status(:found)
-    end
   end
 
   it 'should destroy a record' do
     target = create(:target, company: @company)
     delete :destroy, id: target.id
-    expect(response).to have_http_status(:found)
+    expect(response).to have_http_status(:success)
   end
 end

@@ -20,9 +20,9 @@ class ProductsController < ApplicationController
         @product = @company.products.new(params[:product])
 
         if @product.save
-          render nothing: true
+          render json: @product, status: :created
         else
-          render json: @product.errors
+          render json: @product.errors, status: :unprocessable_entity
         end
     end
 

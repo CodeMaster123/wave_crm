@@ -39,12 +39,6 @@ RSpec.describe UsersController, :type => :controller do
       user = FactoryGirl.attributes_for(:user, id: @user.id)
       post :create, user: user
     end
-
-    it 'should render new view' do
-      user = FactoryGirl.attributes_for(:user, first_name: 'vijay')
-      post :create, user: user
-      expect(response).to render_template('new')
-    end
   end
 
   describe 'PUT update' do
