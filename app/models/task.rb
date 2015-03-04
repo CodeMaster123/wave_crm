@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
     belongs_to :company
     belongs_to :contact
 
-    attr_accessible :title, :description, :starts_at, :recurring, :url, :user_id, :company_id, :contact_id
+    attr_accessible :title, :description, :starts_at, :user_id, :company_id, :contact_id
 
     validates :title, :presence => true
     validates :description, :presence => true
