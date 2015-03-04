@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208044555) do
+ActiveRecord::Schema.define(version: 20150304072928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,20 +137,6 @@ ActiveRecord::Schema.define(version: 20150208044555) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "events", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "starts_at"
-    t.text     "description"
-    t.integer  "user_id"
-    t.integer  "company_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "contact_id"
-  end
-
-  add_index "events", ["company_id"], name: "index_events_on_company_id", using: :btree
-  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "inventory_additions", force: :cascade do |t|
     t.integer  "product_id"
@@ -282,6 +268,20 @@ ActiveRecord::Schema.define(version: 20150208044555) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "starts_at"
+    t.text     "description"
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "contact_id"
+  end
+
+  add_index "tasks", ["company_id"], name: "index_tasks_on_company_id", using: :btree
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "team_leaders", force: :cascade do |t|
     t.integer  "employee_id"

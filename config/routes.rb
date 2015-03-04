@@ -44,7 +44,7 @@ WaveCrm::Application.routes.draw do
     resources :targets
     resources :employees
 
-    resources :events do
+    resources :tasks do
       collection do
         get 'search'
       end
@@ -62,7 +62,7 @@ WaveCrm::Application.routes.draw do
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
     mount Resque::Server.new, at: "/resque"
 
-    #Notifications and events
+    #Notifications and tasks
     get 'calendar' => "calendar#index"
 
     #Tuple classification in index method

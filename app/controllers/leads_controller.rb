@@ -24,7 +24,7 @@ class LeadsController < ApplicationController
         @lead = Lead.includes(:call_logs =>[:contact, :user], :product_transactions => [:product]).find(params[:id])
 
         contact_ids = @lead.contacts.map{|contact|contact.id}
-        @meetings = Event.where(contact_id: contact_ids).includes(:user, :contact)
+        @meetings = Task.where(contact_id: contact_ids).includes(:user, :contact)
         @future_meetings = @meetings.where("starts_at > '#{Time.now}'")
         @previous_meetings = @meetings.where("starts_at < '#{Time.now}'")
 
