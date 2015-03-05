@@ -32,7 +32,7 @@ class TasksController < ApplicationController
         @task = Task.find(params[:id])
         @task.destroy
 
-        render json: '', head: :no_content
+        render json: @task, head: :no_content
     end
 
     def search
