@@ -1,13 +1,9 @@
 class AccountsController < ApplicationController
-    before_filter :authenticate_user!, :fetch_company
+    before_filter :fetch_company
     filter_access_to :all
 
     def index
-        if params[:type] == 'existing_accounts'
-            @accounts = @company.accounts.where(:is_matured => true)
-        else
-            @accounts = @company.accounts.where(:is_matured => false)
-        end
+        @accounts = @company.accounts
 
         render json: @accounts
     end
