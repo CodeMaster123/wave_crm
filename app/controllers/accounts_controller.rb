@@ -46,7 +46,7 @@ class AccountsController < ApplicationController
         @account = Account.find(params[:id])
         @account.destroy
 
-        render json: '', status: 200
+        render json: @account, head: :no_content
     end
 
     def search

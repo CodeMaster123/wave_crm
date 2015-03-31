@@ -5,7 +5,7 @@ set :repo_url, 'git@github.com:CodeMaster123/wave_crm.git'
 set :branch, "master"
 set :deploy_via, :remote_cache
 
-server '54.173.83.222', user: 'ubuntu', roles: %w{web app db resque_worker}
+server '52.4.51.158', user: 'ubuntu', roles: %w{web app db resque_worker}
 set :ssh_options, { :forward_agent => true }
 set :use_sudo, false
 set :rails_env,"production"

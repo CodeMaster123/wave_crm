@@ -123,7 +123,6 @@ Target.create([
               {:amount => 56000, :achived => 25000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 10},
               {:amount => 62000, :achived => 61350, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 11},
               {:amount => 61520, :achived => 44582, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 12},
-              {:amount => 100000, :achived => 70000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 13},
               {:amount => 50000, :achived => 36500, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 14},
               {:amount => 80000, :achived => 75000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 15},
               {:amount => 100000, :achived => 80000, :target_month => 1, :target_year => 2015, :company_id => 1, :user_id => 16},

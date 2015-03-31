@@ -37,6 +37,6 @@ class TargetsController < ApplicationController
         @target = Target.find(params[:id])
         @target.destroy
 
-        render json: '',  head: :no_content
+        render json: @target,  head: :no_content
     end
 end
