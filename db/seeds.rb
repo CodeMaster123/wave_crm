@@ -21,7 +21,7 @@ User.create([
             {:first_name => "Praful", :last_name => "Bhamare", :address => "Near City center mall, Nashik", :mobile_no => 9912413213, :email => "sales_executive4@gmail.com", :password => "sales_executive4", :password_confirmation => "sales_executive4", :account_type => 3, :company_id => 1, :team_leader_id => 4}
 ])
 
-Event.create([
+Task.create([
              {:contact_id => 1, :title => "Meeting with ramesh pawar", :starts_at => "2015-04-04 01:17:00 UTC", :description => "application demo", :user_id => 1, :company_id => 1},
              {:contact_id => 1, :title => "Demo of ERP to Prakash industries", :starts_at => "2015-04-05 12:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},
              {:contact_id => 1, :title => "Demo of website to iconic photo studios", :starts_at => "2015-04-06 07:17:00 UTC", :description => "This meeting for web site demo", :user_id => 1, :company_id => 1},

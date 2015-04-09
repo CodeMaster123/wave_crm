@@ -19,13 +19,14 @@ class AccountsController < ApplicationController
     def create
 
       params[:account] = JSON.parse(params[:account]) if params[:account].class == String
+      params[:account][:company_id] = current_user.company_id
       @account = Account.new(params[:account])
       @account_owner = current_user.company.contacts
 
       if @account.save
-        render nothing: true
+        render json: @account, status: :created
       else
-        render json: @account.errors
+        render json: @account.errors, status: :unprocessable_entity
       end
     end
 
