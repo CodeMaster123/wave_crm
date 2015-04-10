@@ -16,10 +16,11 @@ WaveCrm::Application.routes.draw do
       end
     end
 
+    resources :crm_transactions do
+      get 'invoice' => 'crm_transactions#invoice' #, :defaults => {:format => 'pdf'}
+    end
+
     resources :accounts do
-      resources :crm_transactions do
-        get 'invoice' => 'crm_transactions#invoice' #, :defaults => {:format => 'pdf'}
-      end
       resources :contacts
 
       collection do
