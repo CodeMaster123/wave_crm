@@ -47,7 +47,6 @@ end
 gem 'pry'
 gem 'better_errors'
 gem 'binding_of_caller'
-gem 'exceptional'
 gem 'ruby_parser'
 
 gem 'capistrano'

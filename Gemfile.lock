@@ -106,8 +106,6 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.6)
     every_day_irb (1.7.1)
-    exceptional (2.0.33)
-      rack
     execjs (2.3.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -423,7 +421,6 @@ DEPENDENCIES
   capistrano-rvm
   declarative_authorization (~> 0.5.7)
   devise
-  exceptional
   execjs
   factory_girl
   factory_girl_rails
