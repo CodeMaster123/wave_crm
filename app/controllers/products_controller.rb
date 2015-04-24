@@ -30,13 +30,11 @@ class ProductsController < ApplicationController
       @company = Company.where(:id => current_user.company_id).first
       @product = @company.products.find(params[:id])
 
-      respond_to do |format|
         if @product.update_attributes(params[:product])
-          format.html { redirect_to :products, notice: 'Product was successfully updated.' }
+          render json: @product, status: :ok
         else
-          format.html { render "edit" }
+          render json: @product.errors, status: :unprocessable_entity
         end
-      end
     end
 
     def destroy

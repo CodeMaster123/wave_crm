@@ -7,6 +7,11 @@ class TasksController < ApplicationController
         render json: @tasks
     end
 
+    def show
+      @task = Task.find(params[:id])
+      render json: @task
+    end
+
     def create
         params[:task] = JSON.parse(params[:task]) if params[:task].class == String
         @task= @company.tasks.new(params[:task])

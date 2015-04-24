@@ -25,8 +25,8 @@ class LeadsController < ApplicationController
 
         contact_ids = @lead.contacts.map{|contact|contact.id}
         @meetings = Task.where(contact_id: contact_ids).includes(:user, :contact)
-        @future_meetings = @meetings.where("starts_at > '#{Time.now}'")
-        @previous_meetings = @meetings.where("starts_at < '#{Time.now}'")
+        @future_meetings = @meetings.where("start> '#{Time.now}'")
+        @previous_meetings = @meetings.where("start< '#{Time.now}'")
 
         @notifications = Notification.where(contact_id: contact_ids)
 
