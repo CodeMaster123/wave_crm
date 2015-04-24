@@ -1,7 +1,7 @@
 set :stage, :production
 set :application, 'c4c'
 set :scm, :git
-set :repo_url, 'git@github.com:CodeMaster123/wave_crm.git'
+set :repo_url, 'git@github.com:RDevvv/prozapp.git'
 set :branch, "master"
 set :deploy_via, :remote_cache
 
@@ -15,7 +15,7 @@ set :pty, true
 set :ssh_options, { :forward_agent => true }
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.2.0'
+set :rvm_ruby_version, '2.1.0'
 set :deploy_via, :remote_cache
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
